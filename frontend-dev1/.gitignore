@@ -1,0 +1,64 @@
+# -----------------------
+# CodeIgniter / PHP
+# -----------------------
+
+# Environment file(s) - jangan commit file env
+/.env
+/.env.*
+!.env.example               # kecualikan .env.example (simpan template)
+
+# Composer vendor (jangan commit vendor, install via composer)
+vendor/
+composer.phar
+
+# Composer lock — biasanya commit untuk aplikasi (recommended),
+# tapi biarkan composer.lock ada di repo. (Jangan ignore composer.lock)
+
+# Writable folders (logs, cache, session, uploads)
+writable/*
+!writable/.gitkeep          # jika ingin memastikan folder tetap ada
+!writable/cache/.gitkeep
+!writable/logs/.gitkeep
+# Jika memang ingin menyimpan file tertentu di writable, ubah sesuai kebutuhan
+
+# Public uploaded files (jika aplikasi menyimpan upload ke public/uploads)
+public/uploads/
+public/uploads/*
+!public/uploads/.gitkeep
+
+# Build / node / frontend
+node_modules/
+npm-debug.log*
+yarn-error.log*
+dist/
+build/
+
+# IDE/editor
+/.idea/
+/.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# PHPUnit / test output / coverage
+.phpunit.result.cache
+.phpunit.cache
+coverage/
+coverage-*.xml
+
+# Logs, temporary files
+*.log
+*.cache
+
+# Keys, certs, private files
+*.pem
+*.key
+*.crt
+
+# Other common
+.env.backup
+/.phpunit.result.cache
