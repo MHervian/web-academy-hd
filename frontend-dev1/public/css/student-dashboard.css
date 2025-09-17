@@ -1,0 +1,193 @@
+body { 
+	margin: 0; 
+	font-family: 'Rubik', sans-serif; 
+	background: #f5f7fb; 
+}
+a { 
+	text-decoration: none; 
+}
+
+/* Header Navigation */
+header { 
+	display: flex; 
+	justify-content: space-between; 
+	align-items: center; 
+	padding: 15px 30px; 
+	background: #fff; 
+	border-bottom: 1px solid #ddd; 
+}
+header .logo { 
+	font-size: 1.2em; 
+	color: #1c2b4a; 
+}
+header .logo a {
+	color: #1c2b4a; 
+}
+header .logo a:hover {
+	text-decoration: none;
+}
+header nav ul { 
+	list-style: none; 
+	margin: 0; 
+	padding: 0; 
+	display: flex; 
+	gap: 20px; 
+}
+header nav ul li a { 
+	color: #1c2b4a; 
+}
+header nav ul li a:hover {
+	text-decoration: none;
+}
+
+/* Hero Section */
+.hero { 
+	background: #1c2b4a; 
+	padding: 60px 20px; 
+	/* display: flex;  */
+	justify-content: center; 
+}
+.hero h2 {
+	color: #f5f7fb;
+	margin-bottom: 25px;
+}
+.hero-card { 
+	background: #fff; 
+	padding: 30px; 
+	border-radius: 8px; 
+	box-shadow: 0 3px 6px rgba(0,0,0,0.15); 
+	width: 100%; 
+	max-width: 600px; 
+}
+.hero-card h2 { 
+	margin-top: 0; 
+	color: #1c2b4a; 
+}
+/* .progress-bar {  */
+.hero .course-progress { 
+	height: 12px; 
+	border-radius: 6px; 
+	background: #e0e0e0; 
+	overflow: hidden; 
+	margin-top: 10px; 
+}
+.hero .course-progress .progress { 
+	height: 100%; 
+	background: #4da6ff; 
+	width: 40%; 
+}
+.hero .buttons { 
+	margin-top: 15px; 
+}
+.hero .buttons a { 
+	padding: 8px 12px; 
+	border-radius: 4px; 
+	font-size: 14px; 
+	margin-right: 8px; 
+	color: #fff; 
+}
+.hero .buttons a:hover {
+	text-decoration: none;
+	opacity: 0.65;
+}
+
+/* Section 1 */
+.section {
+	display: flex; 
+	gap: 20px; 
+	padding: 40px 20px; 
+}
+.section h2 {
+	margin-bottom: 20px; 
+	color: #1c2b4a;
+}
+.section-left, .section-right { 
+	flex: 1; 
+}
+.course-card { 
+	background: #fff; 
+	border-radius: 8px; 
+	box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+	padding: 20px; 
+	margin-bottom: 20px; 
+}
+.course-card h3 { 
+	margin-top: 0; 
+}
+.course-card p { 
+	font-size: 14px; 
+	color: #555; 
+}
+.course-card .buttons { 
+	margin-top: 15px; 
+}
+.course-card .buttons a { 
+	display: inline-block;
+	padding: 8px 12px; 
+	border-radius: 4px; 
+	font-size: 14px; 
+	margin-right: 8px; 
+	color: #fff; 
+}
+.course-card .buttons a:hover {
+	text-decoration: none;
+	opacity: 0.65;
+}
+.course-card .course-progress { 
+	height: 12px; 
+	border-radius: 6px; 
+	background: #e0e0e0; 
+	overflow: hidden; 
+	margin-top: 10px; 
+}
+.course-card .course-progress .progress { 
+	height: 100%; 
+	background: #4da6ff; 
+	width: 40%; 
+}
+.course-card .course-progress .completed { 
+	height: 100%; 
+	background: #28a745; 
+	width: 100%; 
+}
+.btn-continue { 
+	background: #1c2b4a; 
+}
+.btn-certificate { 
+	background: #28a745; 
+}
+/* .progress-list .item { 
+	margin-bottom: 20px; 
+}
+.progress-list h4 { 
+	margin: 0 0 5px; 
+}
+.progress-list .progress-bar { 
+	height: 10px; 
+} */
+
+/* Section 2 */
+.all-courses { 
+	padding: 40px 20px; 
+}
+.all-courses h2 { 
+	margin-bottom: 20px; 
+	color: #1c2b4a; 
+}
+.course-grid { 
+	display: grid; 
+	grid-template-columns: repeat(auto-fill,minmax(250px,1fr)); 
+	gap: 20px; 
+}
+.course-box { 
+	background: #fff; 
+	border-radius: 8px; 
+	box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+	padding: 20px; 
+}
+.course-box h3 { margin-top: 0; }
+.course-box p { font-size: 14px; color: #555; }
+
+/* Footer */
+footer { background: #333; color: #fff; text-align: center; padding: 20px; margin-top: 40px; }
+footer a { color: #fff; margin: 0 10px; }
