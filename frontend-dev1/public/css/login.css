@@ -1,0 +1,74 @@
+body {
+	font-family: 'Rubik', sans-serif;
+	position: relative;
+}
+.container { 
+	display: flex; 
+	height: 100vh; 
+	background-color: #faf6fb;
+}
+.image-side { 
+	flex: 1; 
+	background: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') no-repeat center center/cover; 
+}
+.form-side { 
+	flex: 1; 
+	display: flex; 
+	justify-content: center; 
+	align-items: center; 
+}
+.form-box { 
+	width: 80%; 
+	max-width: 400px; 
+}
+h2 { 
+	margin-bottom: 20px; 
+}
+input { 
+	width: 100%; 
+	padding: 10px; 
+	margin: 10px 0; 
+	border: 1px solid #ccc; 
+	border-radius: 4px; 
+}
+button { 
+	width: 100%; 
+	padding: 10px; 
+	border: none; 
+	border-radius: 4px; 
+	color: #fff; 
+	margin-top: 10px; 
+	cursor: pointer; 
+}
+a {
+	display: block;
+	width: 100%; 
+	padding: 10px; 
+	border: none; 
+	border-radius: 4px; 
+	color: #fff; 
+	text-align: center;
+	margin-top: 10px; 
+	cursor: pointer;
+}
+a:hover {
+	text-decoration: none;
+	opacity: 0.5;
+}
+.inline-a {
+	display: inline;
+}
+.btn-login { 
+	background: #007BFF; 
+}
+.btn-fb { 
+	background: #3b5998; 
+}
+.btn-google { 
+	background: #db4437; 
+}
+.btn-ig { 
+	background: #e1306c; 
+}
+p { margin-top: 15px; }
+a { color: #007BFF; text-decoration: none; }
