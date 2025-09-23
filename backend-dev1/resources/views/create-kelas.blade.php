@@ -81,7 +81,7 @@
           <li><a href="{{ route('kurikulum') }}">Kurikulum</a></li>
           <li><a href="{{ route('coming-soon') }}">Program</a></li>
           <li><a href="{{ route('kelas') }}">Kelas</a></li>
-          <li><a href="{{ route('kelas-create') }}">Create Kelas</a></li>
+          <li><a href="{{ route('create-kelas') }}">Create Kelas</a></li>
           <li><a href="{{ route('kelas-registrasi') }}">Pendaftar Kelas</a></li>
           <li><a href="{{ route('upload-sertifikat') }}">Upload Sertifikat</a></li>
           <li><a href="{{ route('upload-kurikulum') }}">Upload Kurikulum</a></li>
@@ -125,16 +125,54 @@
 
       <div class="content">
         <div class="card-form">
-          <h2>Create New User</h2>
-          <form action="{{ route('store-user') }}" method="post">
+          <h2>Buat Kelas Baru</h2>
+          <form action="{{ route('store-kelas') }}" method="post">
             @csrf
-            <label for="class">Nama User/Admin</label>
+            <!-- Nama Kelas -->
             <div class="form-group">
-              <input type="text" name="username" class="form-control" placeholder="Isi username.." />
+              <label for="nama_kelas">Nama Kelas</label>
+              <input type="text" class="form-control" id="nama_kelas" name="nama_kelas" required>
             </div>
-            <label for="student">Password</label>
+
+            <!-- Nama Program -->
             <div class="form-group">
-              <input type="password" name="password" class="form-control" placeholder="Isi password.." />
+              <label for="nama_program">Pilih Program</label>
+              <select class="form-control" id="nama_program" name="nama_program" required>
+                <option value="">-- Pilih Program --</option>
+                <option value="1">Program TOPIK 3 & 4 Course</option>
+                <option value="2">Program Pelatihan Guru Bahasa Korea</option>
+              </select>
+            </div>
+
+            <!-- Deskripsi -->
+            <div class="form-group">
+              <label for="deskripsi">Deskripsi Kelas</label>
+              <textarea id="deskripsi" class="form-control" name="deskripsi"></textarea>
+            </div>
+
+            <!-- Kapasitas -->
+            <div class="form-group">
+              <label for="kapasitas">Kapasitas Peserta</label>
+              <input type="number" class="form-control" id="kapasitas" name="kapasitas" min="1" required>
+            </div>
+
+            <!-- Date Open -->
+            <div class="form-group">
+              <label for="date_open">Tanggal Buka Pendaftaran</label>
+              <input type="date" class="form-control" id="date_open" name="date_open" required>
+            </div>
+
+            <!-- Date Close -->
+            <div class="form-group">
+              <label for="date_close">Tanggal Tutup Pendaftaran</label>
+              <input type="date" class="form-control" id="date_close" name="date_close" required>
+            </div>
+
+            <!-- Time Close -->
+            <div class="form-group">
+              <label for="time_close">Waktu Tutup Pendaftaran</label>
+              <input type="time" class="form-control" id="time_close" name="time_close" step="1" required>
+              <!-- step="1" supaya bisa input detik juga -->
             </div>
             <button type="reset">Reset</button>
             <button type="submit" class="btn btn-primary">Save</button>
