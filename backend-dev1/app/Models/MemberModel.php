@@ -12,5 +12,5 @@ class MemberModel extends Model
     protected $primaryKey = 'memberId';
     public $timestamps = false;
 
-    protected $fillable = ['username', 'email', 'date_registration', 'password'];
+    protected $fillable = ['username', 'email', 'password', 'date_registration'];
 }

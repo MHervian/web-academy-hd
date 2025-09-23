@@ -81,7 +81,7 @@
           <li><a href="{{ route('kurikulum') }}">Kurikulum</a></li>
           <li><a href="{{ route('coming-soon') }}">Program</a></li>
           <li><a href="{{ route('kelas') }}">Kelas</a></li>
-          <li><a href="{{ route('kelas-create') }}">Create Kelas</a></li>
+          <li><a href="{{ route('create-kelas') }}">Create Kelas</a></li>
           <li><a href="{{ route('kelas-registrasi') }}">Pendaftar Kelas</a></li>
           <li><a href="{{ route('upload-sertifikat') }}">Upload Sertifikat</a></li>
           <li><a href="{{ route('upload-kurikulum') }}">Upload Kurikulum</a></li>
@@ -152,7 +152,7 @@
           <div class="content">
 
             <div class="card-form">
-              <h2>Create New User</h2>
+              <h2>Input User Baru</h2>
               <form action="{{ route('store-user') }}" method="post">
                 @csrf
                 <label for="class">Nama User/Admin</label>

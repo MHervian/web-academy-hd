@@ -32,7 +32,7 @@
           <li><a href="{{ route('kurikulum') }}">Kurikulum</a></li>
           <li><a href="{{ route('coming-soon') }}">Program</a></li>
           <li><a href="{{ route('kelas') }}">Kelas</a></li>
-          <li><a href="{{ route('kelas-create') }}">Create Kelas</a></li>
+          <li><a href="{{ route('create-kelas') }}">Create Kelas</a></li>
           <li><a href="{{ route('kelas-registrasi') }}">Pendaftar Kelas</a></li>
           <li><a href="{{ route('upload-sertifikat') }}">Upload Sertifikat</a></li>
           <li><a href="{{ route('upload-kurikulum') }}">Upload Kurikulum</a></li>
@@ -51,7 +51,30 @@
         </ul>
       </div>
       <div class="content">
-        <h2>Membership Students</h2>
+
+        @if (session('success'))
+          <!-- alert success -->
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>&#10004; Berhasil!</strong> {{ session('success') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        @endif
+
+        @if (session('error'))
+          <!-- alert danger -->
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>&#9746; Gagal!</strong> {{ session('error') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        @endif
+
+        <h2>Membership Students <a href="{{ route('seed-member') }}" class="ml-3"
+            style="font-size: 19px;">Generate</a></h2>
+        <p>Data member HangulDream.</p>
         @if (count($members) > 0)
           <table>
             <thead>
@@ -59,8 +82,6 @@
                 <th>No</th>
                 <th>Nama</th>
                 <th>Email</th>
-                <th>Phone</th>
-                <th>Status</th>
                 <th>Tanggal Daftar</th>
                 <th>Action</th>
               </tr>
@@ -68,11 +89,19 @@
             <tbody>
               @foreach ($members as $member)
                 <tr>
-                  <td>1</td>
+                  <td>{{ $loop->iteration }}</td>
                   <td>{{ $member->username }}</td>
                   <td>{{ $member->email }}</td>
                   <td>{{ $member->date_registration }}</td>
-                  <td><a href="{{ route('member-detail') }}" class="bttn-detail">Detail</a></td>
+                  <td>
+                    <a href="{{ route('member-detail', ['id' => $member->memberId]) }}" class="bttn-detail">Detail</a>
+                    <form action="{{ route('delete-member') }}" method="post" class="d-inline">
+                      @csrf
+                      <input type="hidden" name="memberId" value="{{ $member->memberId }}" />
+                      <button type="submit" class="btn btn-danger"
+                        style="font-size: 13px; cursor: pointer;">Hapus</button>
+                    </form>
+                  </td>
                 </tr>
               @endforeach
             </tbody>
