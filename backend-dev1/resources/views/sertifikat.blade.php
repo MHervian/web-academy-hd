@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-  <title>Kurikulum - DreamPanel</title>
+  <title>Sertifikat - DreamPanel</title>
 
   <meta charset="UTF-8" />
   <meta name="robots" content="noindex, nofollow" />
@@ -19,7 +19,6 @@
 
   <!-- Admin CSS -->
   <link rel="stylesheet" href="/css/admin.css" />
-
 </head>
 
 <body>
@@ -59,45 +58,46 @@
           </div>
         @endif
 
-        <h2>Kurikulum <a href="{{ route('seed-kurikulum') }}" class="ml-3" style="font-size: 19px;">Generate</a></h2>
-        <p>Informasi List Kurikulum dan Statusnya [<span class="font-weight-bold">Pending</span>, <span
-            class="text-success font-weight-bold">Approved</span>, <span
-            class="text-danger font-weight-bold">Rejected</span>]
-        </p>
-        @if (count($kurikulums) > 0)
+        <h2>Sertifikat <a href="{{ route('seed-sertifikat') }}" class="ml-3" style="font-size: 19px;">Generate</a>
+        </h2>
+        <p>Data sertifikat member akademi HangulDream.</p>
+        @if (count($sertifikats) > 0)
           <table>
             <thead>
               <tr>
-                <th>No.</th>
-                <th>Nama Kurikulum</th>
-                <th>Status Approval</th>
-                <th>Tanggal Approval</th>
+                <th>No</th>
+                <th>No Sertifikat</th>
+                <th>Tanggal Issue</th>
+                <th>File Link</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              @foreach ($kurikulums as $kurikulum)
+              @foreach ($sertifikats as $sertifikat)
                 <tr>
                   <td>{{ $loop->iteration }}</td>
-                  <td>{{ $kurikulum->nama }}</td>
+                  <td>{{ $sertifikat->noSertifikat }}</td>
+                  <td>{{ $sertifikat->date_issued }}</td>
                   <td>
-                    @if ($kurikulum->isApprove == '1')
-                      <span class="text-success font-weight-bold">Approved</span>
-                    @elseif ($kurikulum->isApprove == '0')
-                      <span class="text-danger font-weight-bold">Rejected</span>
-                    @else
-                      <span class="font-weight-bold">Pending</span>
-                    @endif
+                    <a href="{{ route('view-sertifikat', ['filename' => $sertifikat->filename]) }}"
+                      target="_blank">File Link</a>
                   </td>
-                  <td>{{ $kurikulum->date_approve }}</td>
-                  <td><a href="{{ route('kurikulum-detail', ['idKurikulum' => $kurikulum->kurikulumId]) }}"
-                      class="bttn-detail">Detail</a></td>
+                  <td>
+                    <a href="{{ route('sertifikat-detail', ['noSertifikat' => $sertifikat->noSertifikat]) }}"
+                      class="bttn-detail">Detail</a>
+                    <form action="#" method="post" class="d-inline">
+                      @csrf
+                      <input type="hidden" name="memberId" value="" />
+                      <button type="submit" class="btn btn-danger"
+                        style="font-size: 13px; cursor: pointer;">Hapus</button>
+                    </form>
+                  </td>
                 </tr>
               @endforeach
             </tbody>
           </table>
         @else
-          <p class="text-center">Data Kurikulum Kosong.</p>
+          <p class="text-center">Data Sertifikat Kosong.</p>
         @endif
       </div>
     </div>

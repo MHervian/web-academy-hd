@@ -15,7 +15,7 @@ class KurikulumModel extends Model
     protected $fillable = [
         'nama',
         'deskripsi',
-        'programId',
+        // 'programId',
         'date_input',
         'isApprove',
         'date_approve',

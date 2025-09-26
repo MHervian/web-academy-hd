@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-  <title>Admin Dashboard - DreamPanel</title>
+  <title>Sertifikat Detail - DreamPanel</title>
 
   <meta charset="UTF-8" />
   <meta name="robots" content="noindex, nofollow" />
@@ -19,6 +19,7 @@
 
   <!-- Admin CSS -->
   <link rel="stylesheet" href="/css/admin.css" />
+
 </head>
 
 <body>
@@ -26,6 +27,7 @@
     <div class="sidebar">
       @include('navigation.navigation')
     </div>
+
     <div class="main">
       <div class="header">
         <div class="logo"><a href="{{ route('admin-dashboard') }}">DreamPanel</a></div>
@@ -36,8 +38,31 @@
         </ul>
       </div>
       <div class="content">
-        <h2>Dashboard</h2>
-        <p>Beranda panel admin.</p>
+        <h2>Detail Sertifikat : <span style="color: gray;">{{ $sertifikat[0]->noSertifikat }}</span></h2>
+        <table class="w-75">
+          <tr>
+            <td>Tanggal Issue</td>
+            <td>:</td>
+            <td>{{ $sertifikat[0]->date_issued }}</td>
+          </tr>
+          <tr>
+            <td>Kepada Peserta</td>
+            <td>:</td>
+            <td>{{ $member[0]->username }}</td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td>:</td>
+            <td>{{ $member[0]->email }}</td>
+          </tr>
+          <tr>
+            <td>File Sertifikat</td>
+            <td>:</td>
+            <td>
+              <a href="{{ route('view-sertifikat', ['filename' => $sertifikat[0]->filename]) }}">File Link</a>
+            </td>
+          </tr>
+        </table>
       </div>
     </div>
   </div>
