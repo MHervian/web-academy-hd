@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\MemberModel;
+use App\Models\SertifikatModel;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 
@@ -35,7 +36,12 @@ class MemberController extends Controller
 		// Get member by id
 		$member = MemberModel::find($id);
 
-		return view('member-detail', compact('member'));
+		// Get all kelas that joined by member
+
+		// Get all certificate of member
+		$sertifikats = SertifikatModel::where('memberId', $id)->get();
+
+		return view('member-detail', compact('member', 'sertifikats'));
 	}
 
 	/**

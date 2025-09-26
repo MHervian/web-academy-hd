@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-  <title>Membership - DreamPanel</title>
+  <title>Member - DreamPanel</title>
 
   <meta charset="UTF-8" />
   <meta name="robots" content="noindex, nofollow" />
@@ -24,23 +24,9 @@
 <body>
   <div class="layout">
     <div class="sidebar">
-      <h2>Admin Menu</h2>
-      <div class="nav">
-        <ul>
-          <li><a href="{{ route('admin-dashboard') }}">Dashboard</a></li>
-          <li><a href="{{ route('member') }}">Member</a></li>
-          <li><a href="{{ route('kurikulum') }}">Kurikulum</a></li>
-          <li><a href="{{ route('coming-soon') }}">Program</a></li>
-          <li><a href="{{ route('kelas') }}">Kelas</a></li>
-          <li><a href="{{ route('create-kelas') }}">Create Kelas</a></li>
-          <li><a href="{{ route('kelas-registrasi') }}">Pendaftar Kelas</a></li>
-          <li><a href="{{ route('upload-sertifikat') }}">Upload Sertifikat</a></li>
-          <li><a href="{{ route('upload-kurikulum') }}">Upload Kurikulum</a></li>
-          <li><a href="{{ route('coming-soon') }}">Notifikasi</a></li>
-          <li><a href="{{ route('user') }}">Create User</a></li>
-        </ul>
-      </div>
+      @include('navigation.navigation')
     </div>
+
     <div class="main">
       <div class="header">
         <div class="logo"><a href="{{ route('admin-dashboard') }}">DreamPanel</a></div>
@@ -72,15 +58,14 @@
           </div>
         @endif
 
-        <h2>Membership Students <a href="{{ route('seed-member') }}" class="ml-3"
-            style="font-size: 19px;">Generate</a></h2>
-        <p>Data member HangulDream.</p>
+        <h2>Member <a href="{{ route('seed-member') }}" class="ml-3" style="font-size: 19px;">Generate</a></h2>
+        <p>Data member akademi HangulDream.</p>
         @if (count($members) > 0)
           <table>
             <thead>
               <tr>
                 <th>No</th>
-                <th>Nama</th>
+                <th>Username</th>
                 <th>Email</th>
                 <th>Tanggal Daftar</th>
                 <th>Action</th>
@@ -112,6 +97,10 @@
       </div>
     </div>
   </div>
+
+  <!-- jQuery and Bootstrap -->
+  <script src="/js/jquery-3.2.1.min.js"></script>
+  <script src="/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

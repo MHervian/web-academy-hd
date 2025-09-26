@@ -25,26 +25,12 @@
 <body>
   <div class="layout">
     <div class="sidebar">
-      <h2>Admin Menu</h2>
-      <div class="nav">
-        <ul>
-          <li><a href="{{ route('admin-dashboard') }}">Dashboard</a></li>
-          <li><a href="{{ route('member') }}">Member</a></li>
-          <li><a href="{{ route('kurikulum') }}">Kurikulum</a></li>
-          <li><a href="{{ route('coming-soon') }}">Program</a></li>
-          <li><a href="{{ route('kelas') }}">Kelas</a></li>
-          <li><a href="{{ route('kelas-registrasi') }}">Pendaftar Kelas</a></li>
-          <li><a href="{{ route('upload-sertifikat') }}">Upload Sertifikat</a></li>
-          <li><a href="{{ route('upload-kurikulum') }}">Upload Kurikulum</a></li>
-          <li><a href="{{ route('coming-soon') }}">Notifikasi</a></li>
-          <li><a href="{{ route('coming-soon') }}">User</a></li>
-          <li><a href="{{ route('user') }}">Create User</a></li>
-        </ul>
-      </div>
+      @include('navigation.navigation')
     </div>
+
     <div class="main">
       <div class="header">
-        <div class="logo"><a href="{{ route('admin-dashboard') }}.html">DreamPanel</a></div>
+        <div class="logo"><a href="{{ route('admin-dashboard') }}">DreamPanel</a></div>
         <ul class="menu">
           <li><a href="{{ route('coming-soon') }}">Inbox</a></li>
           <li><a href="{{ route('coming-soon') }}">Settings</a></li>
@@ -52,8 +38,8 @@
         </ul>
       </div>
       <div class="content">
-        <h2>Detail Membership : <span style="color: gray;">{{ $member->username }}</span></h2>
-        <table>
+        <h2>Detail Member : <span style="color: gray;">{{ $member->username }}</span></h2>
+        <table class="w-75">
           <tr>
             <td>Member ID</td>
             <td>:</td>
@@ -80,11 +66,61 @@
             <td>{{ $member->date_registration }}</td>
           </tr>
           <tr>
-            <td>Tanggal Simpan</td>
+            <td>Tanggal Kreasi Data</td>
             <td>:</td>
             <td>{{ $member->date_created }}</td>
           </tr>
         </table>
+
+        <div class="my-5"></div>
+
+        <!-- Kelas section -->
+        <h2>Kelas</h2>
+        <p>Data kelas yang diikuti member.</p>
+        <p class="text-center">Member Belum Ikut Kelas.</p>
+
+        <!-- /end Kelas section -->
+        <div class="my-5"></div>
+
+        <!-- Sertifikat section -->
+        <h2>Data Sertifikat</h2>
+        <p>Data Sertifikat yang dimiliki member.</p>
+        @if (count($sertifikats) > 0)
+          <table>
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Nomor Sertifikat</th>
+                <th>Tanggal Diisukan</th>
+                <th>Filename</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach ($sertifikats as $sertifikat)
+                <tr>
+                  <td>{{ $loop->iteration }}</td>
+                  <td>{{ $sertifikat->noSertifikat }}</td>
+                  <td>{{ $sertifikat->date_issued }}</td>
+                  <td>{{ $sertifikat->filename }}</td>
+                  <td>
+                    <a href="#" class="bttn-detail">Link File</a>
+                    <a href="#" class="btn btn-danger" style="font-size: 13px; cursor: pointer;">Hapus</a>
+                    {{-- <form action="#" method="post" class="d-inline">
+                      @csrf
+                      <input type="hidden" name="memberId" value="{{ $member->memberId }}" />
+                      <button type="submit" class="btn btn-danger"
+                        style="font-size: 13px; cursor: pointer;">Hapus</button>
+                    </form> --}}
+                  </td>
+                </tr>
+              @endforeach
+            </tbody>
+          </table>
+        @else
+          <p class="text-center">Member Tidak Punya Sertifikat.</p>
+        @endif
+        <!-- /end Sertifikat section -->
       </div>
     </div>
   </div>

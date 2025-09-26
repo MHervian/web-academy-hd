@@ -73,22 +73,7 @@
   <div class="layout">
     <!-- Sidebar -->
     <div class="sidebar">
-      <h2>Admin Menu</h2>
-      <div class="nav">
-        <ul>
-          <li><a href="{{ route('admin-dashboard') }}">Dashboard</a></li>
-          <li><a href="{{ route('member') }}">Member</a></li>
-          <li><a href="{{ route('kurikulum') }}">Kurikulum</a></li>
-          <li><a href="{{ route('coming-soon') }}">Program</a></li>
-          <li><a href="{{ route('kelas') }}">Kelas</a></li>
-          <li><a href="{{ route('create-kelas') }}">Create Kelas</a></li>
-          <li><a href="{{ route('kelas-registrasi') }}">Pendaftar Kelas</a></li>
-          <li><a href="{{ route('upload-sertifikat') }}">Upload Sertifikat</a></li>
-          <li><a href="{{ route('upload-kurikulum') }}">Upload Kurikulum</a></li>
-          <li><a href="{{ route('coming-soon') }}">Notifikasi</a></li>
-          <li><a href="{{ route('user') }}">Create User</a></li>
-        </ul>
-      </div>
+      @include('navigation.navigation')
     </div>
 
     <!-- Main -->
@@ -124,10 +109,10 @@
       @endif
 
       <!-- Content -->
+      <h2>All Admin/User Data</h2>
       <div class="row">
         <div class="col-7">
           <div class="content">
-            <h2>All Admin/User Data</h2>
             <table>
               <thead>
                 <tr>
