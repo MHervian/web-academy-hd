@@ -5,6 +5,7 @@ use App\Http\Controllers\KelasController;
 use App\Http\Controllers\KurikulumController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\SeederController;
 use App\Http\Controllers\SertifikatController;
 use App\Http\Controllers\UserController;
@@ -37,16 +38,24 @@ Route::get('/member-detail/{id}', [MemberController::class, 'detail'])->name('me
 
 // Sertifikat routes..
 Route::get('/sertifikat', [SertifikatController::class, 'index'])->name('sertifikat');
-Route::get('/sertifikat/{noSertifikat}', [SertifikatController::class, 'detail'])->name('sertifikat-detail');
 Route::get('/sertifikat/upload', [SertifikatController::class, 'create'])->name('upload-sertifikat');
-Route::get('/sertifikat/view/{filename}', [SertifikatController::class, 'viewFile'])->name('view-sertifikat');
 Route::post('/sertifikat/upload', [SertifikatController::class, 'store'])->name('store-sertifikat');
-// Route::get();
+Route::get('/sertifikat/{noSertifikat}', [SertifikatController::class, 'detail'])->name('sertifikat-detail');
+Route::get('/sertifikat/view/{filename}', [SertifikatController::class, 'viewFile'])->name('view-sertifikat');
 
 // Kurikulum routes..
 Route::get('/kurikulum', [KurikulumController::class, 'index'])->name('kurikulum');
 Route::get('/kurikulum-detail/{idKurikulum}', [KurikulumController::class, 'detail'])
 	->name('kurikulum-detail');
+Route::get('/upload-kurikulum', function () {
+	return view('upload-kurikulum');
+})->name('upload-kurikulum');
+
+// Program routes..
+Route::get('/program', [ProgramController::class, 'index'])->name('program');
+Route::get('/program/create', [ProgramController::class, 'create'])->name('create-program');
+Route::post('/program/create', [ProgramController::class, 'store'])->name('store-program');
+Route::get('/program/{programId}', [ProgramController::class, 'detail'])->name('program-detail');
 
 // Kelas routes
 Route::get('/kelas', [KelasController::class, 'index'])->name('kelas');
@@ -63,11 +72,6 @@ Route::get('/kelas-registrasi', function () {
 Route::get('/kelas-registrasi-detail', function () {
 	return view('kelas-registrasi-detail');
 })->name('kelas-registrasi-detail');
-
-// Upload kurikulum routes..
-Route::get('/upload-kurikulum', function () {
-	return view('upload-kurikulum');
-})->name('upload-kurikulum');
 
 // Create user routes
 Route::get('/user', [UserController::class, 'index'])->name('user');
@@ -92,6 +96,8 @@ Route::get('/seed-sertifikat', [SeederController::class, 'seederSertifikat'])
 // Kurikulum
 Route::get('/seed-kurikulum', [SeederController::class, 'seederKurikulum'])
 	->name('seed-kurikulum');
+Route::get('/seed-backlog-kurikulum/{kurikulumId}/{status}', [SeederController::class, 'seederBacklogKurikulum'])
+	->name('seed-backlog-kurikulum');
 // Kelas
 Route::get('/seed-kelas', [SeederController::class, 'seederKelas'])
 	->name('seed-kelas');

@@ -33,11 +33,35 @@ class SeederController extends Controller
 	// Seeder kurikulum..
 	public function seederKurikulum()
 	{
-		Artisan::call('db:seed', [
-			'--class' => 'KurikulumSeeder',
-		]);
+		try {
+			Artisan::call('db:seed', [
+				'--class' => 'KurikulumSeeder',
+			]);
+			return redirect()->back()->with('success', 'Seeder kurikulum berhasil');
+		} catch (\Exception $e) {
+			return redirect()->back()->with('error', 'Exception::' . $e->getMessage());
+		}
+	}
 
-		return redirect()->back()->with('success', 'Seeder kurikulum berhasil');
+	// Seeder backlog kurikulum..
+	public function seederBacklogKurikulum(Request $request, $kurikulumId, $status)
+	{
+		// $kurikulumId = $request->input('kurikulumId');
+		// $status = $request->input('status');
+
+		try {
+			if ($status == '0' || $status == '1') {
+				throw new \Exception("Pilih kurikulum dengan status On Review, Rejected, atau Approved.");
+			}
+
+			Artisan::call('db:seed', [
+				'--class' => 'BacklogKurikulumSeeder',
+				'--kurikulumId' => $kurikulumId,
+			]);
+			return redirect()->back()->with('success', 'Seeder backlog kurikulum berhasil');
+		} catch (\Exception $e) {
+			return redirect()->back()->with('error', 'Exception::' . $e->getMessage());
+		}
 	}
 
 	// Seeder kelas..

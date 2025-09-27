@@ -60,9 +60,10 @@
         @endif
 
         <h2>Kurikulum <a href="{{ route('seed-kurikulum') }}" class="ml-3" style="font-size: 19px;">Generate</a></h2>
-        <p>Informasi List Kurikulum dan Statusnya [<span class="font-weight-bold">Pending</span>, <span
-            class="text-success font-weight-bold">Approved</span>, <span
-            class="text-danger font-weight-bold">Rejected</span>]
+        <p>Informasi List Kurikulum dan Statusnya [<span class="font-weight-bold">Pending</span>,
+          <span class="text-primary font-weight-bold">On Review</span>, <span
+            class="text-success font-weight-bold">Approved</span>,
+          <span class="text-danger font-weight-bold">Rejected</span>]
         </p>
         @if (count($kurikulums) > 0)
           <table>
@@ -81,10 +82,12 @@
                   <td>{{ $loop->iteration }}</td>
                   <td>{{ $kurikulum->nama }}</td>
                   <td>
-                    @if ($kurikulum->isApprove == '1')
+                    @if ($kurikulum->isApprove == '3')
                       <span class="text-success font-weight-bold">Approved</span>
-                    @elseif ($kurikulum->isApprove == '0')
+                    @elseif ($kurikulum->isApprove == '2')
                       <span class="text-danger font-weight-bold">Rejected</span>
+                    @elseif ($kurikulum->isApprove == '1')
+                      <span class="text-primary font-weight-bold">On Review</span>
                     @else
                       <span class="font-weight-bold">Pending</span>
                     @endif

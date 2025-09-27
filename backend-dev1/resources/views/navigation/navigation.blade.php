@@ -7,7 +7,7 @@
     <li><a href="{{ route('upload-sertifikat') }}">Upload Sertifikat</a></li>
     <li><a href="{{ route('kurikulum') }}">Kurikulum</a></li>
     <li><a href="{{ route('upload-kurikulum') }}">Upload Kurikulum</a></li>
-    <li><a href="{{ route('coming-soon') }}">Program</a></li>
+    <li><a href="{{ route('program') }}">Program</a></li>
     <li><a href="{{ route('coming-soon') }}">Create Program</a></li>
     <li><a href="{{ route('kelas') }}">Kelas</a></li>
     <li><a href="{{ route('create-kelas') }}">Create Kelas</a></li>

@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-  <title>Kurikulum Detail - DreamPanel</title>
+  <title>Notifikasi - DreamPanel</title>
 
   <meta charset="UTF-8" />
   <meta name="robots" content="noindex, nofollow" />
@@ -19,7 +19,6 @@
 
   <!-- Admin CSS -->
   <link rel="stylesheet" href="/css/admin.css" />
-
 </head>
 
 <body>
@@ -38,6 +37,7 @@
         </ul>
       </div>
       <div class="content">
+
         @if (session('success'))
           <!-- alert success -->
           <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -58,54 +58,42 @@
           </div>
         @endif
 
-        <h2>Detail Kurikulum : <span style="color: gray;">{{ $kurikulum->nama }}</span></h2>
-        <table class="w-75">
-          <tr>
-            <td>Deskripsi</td>
-            <td>:</td>
-            <td>{{ $kurikulum->deskripsi }}</td>
-          </tr>
-          <tr>
-            <td>Tanggal Pengajuan</td>
-            <td>:</td>
-            <td>{{ $kurikulum->date_input }}</td>
-          </tr>
-          <tr>
-            <td>Status</td>
-            <td>:</td>
-            <td>
-              @if ($kurikulum->isApprove == '3')
-                <span class="text-success font-weight-bold">Approved</span>
-              @elseif ($kurikulum->isApprove == '2')
-                <span class="text-danger font-weight-bold">Rejected</span>
-              @elseif ($kurikulum->isApprove == '1')
-                <span class="text-primary font-weight-bold">On Review</span>
-              @else
-                <span class="font-weight-bold">Pending</span>
-              @endif
-            </td>
-          </tr>
-          <tr>
-            <td>Tanggal Approval</td>
-            <td>:</td>
-            <td>{{ $kurikulum->date_approve }}</td>
-          </tr>
-          <tr>
-            <td>File</td>
-            <td>:</td>
-            <td><a href="/data-dummy/course_curriculum.pdf">Link File</a></td>
-          </tr>
-        </table>
-        <div class="my-5"></div>
-
-        <h2>Backlog <a
-            href="{{ route('seed-backlog-kurikulum', ['kurikulumId' => $kurikulum->kurikulumId, 'status' => $kurikulum->isApprove]) }}"
-            class="ml-3" style="font-size: 19px;">Generate</a></h2>
-        <p>Informasi komentar tentang kurikulum ini</p>
-        <p class="text-center">Backlog kosong.</p>
+        <h2>Notifikasi <a href="#" class="ml-3" style="font-size: 19px;">Generate</a>
+        </h2>
+        <p>Notifikasi akademi HangulDream.</p>
+        @if (count($notifikasis) > 0)
+          <table>
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Judul</th>
+                <th>Tanggal Posting</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach ($notifikasis as $notifikasi)
+                <tr>
+                  <td>{{ $loop->iteration }}</td>
+                  <td>{{ $notifikasi->judul }}</td>
+                  <td>{{ $notifikasi->date_post }}</td>
+                  <td>
+                    <a href="#" class="bttn-detail">Detail</a>
+                  </td>
+                </tr>
+              @endforeach
+            </tbody>
+          </table>
+        @else
+          <p class="text-center">Notifikasi Kosong.</p>
+        @endif
       </div>
     </div>
   </div>
+
+  <!-- jQuery and Bootstrap -->
+  <script src="/js/jquery-3.2.1.min.js"></script>
+  <script src="/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
