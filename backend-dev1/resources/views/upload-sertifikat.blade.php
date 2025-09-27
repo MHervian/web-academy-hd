@@ -99,9 +99,11 @@
             <label for="member">Nama Siswa</label>
             <select id="member" name="memberId">
               <option value="">-- Pilih Siswa --</option>
-              @foreach ($members as $member)
-                <option value="{{ $member->memberId }}">{{ $member->username }}</option>
-              @endforeach
+              @if (count($members) > 0)
+                @foreach ($members as $member)
+                  <option value="{{ $member->memberId }}">{{ $member->username }}</option>
+                @endforeach
+              @endif
             </select>
 
             <label for="noSertifikat">Nomor Sertifikat</label>

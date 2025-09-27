@@ -26,12 +26,12 @@ class KurikulumSeeder extends Seeder
 		$faker = Faker::create();
 
 		for ($i = 0; $i < 10; $i++) {
-			// tentukan status approval (1 atau 2 atau NULL)
-			$isApprove = $faker->randomElement([null, '1', '2']);
+			// tentukan status approval (0 atau 1 atau 2 atau 3)
+			$isApprove = $faker->randomElement(['0', '1', '2', '3']);
 
 			// jika approve, maka ada tanggal approve, kalau tidak NULL
 			// $dateApprove = $isApprove ? $faker->date('Y-m-d', 'now') : null;
-			$dateApprove = $isApprove ? $faker->date('Y-m-d', 'now') : '0';
+			$dateApprove = $isApprove != '0' && $isApprove != '1' ? $faker->date('Y-m-d', 'now') : null;
 
 			DB::table('kurikulum')->insert([
 				'nama'        => $faker->sentence(3), // contoh nama acak
@@ -40,8 +40,10 @@ class KurikulumSeeder extends Seeder
 				'date_input'  => $faker->dateTimeBetween('-2 years', 'now')->format('Y-m-d'),
 				'isApprove'   => $isApprove,
 				'date_approve' => $dateApprove,
-				// 'pic' => 
+				'pic' => $users->random(),
 			]);
+
+			// Insert file kurikulum
 		}
 	}
 }
