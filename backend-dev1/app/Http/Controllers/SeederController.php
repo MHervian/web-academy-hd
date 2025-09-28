@@ -50,13 +50,16 @@ class SeederController extends Controller
 		// $status = $request->input('status');
 
 		try {
-			if ($status == '0' || $status == '1') {
+			if ($status == '0') {
 				throw new \Exception("Pilih kurikulum dengan status On Review, Rejected, atau Approved.");
 			}
 
+			// Inject parameter ke config agar bisa diambil Seeder
+			config(['seeder.kurikulumId' => $kurikulumId]);
+
 			Artisan::call('db:seed', [
 				'--class' => 'BacklogKurikulumSeeder',
-				'--kurikulumId' => $kurikulumId,
+				// '--kurikulumId' => $kurikulumId,
 			]);
 			return redirect()->back()->with('success', 'Seeder backlog kurikulum berhasil');
 		} catch (\Exception $e) {
