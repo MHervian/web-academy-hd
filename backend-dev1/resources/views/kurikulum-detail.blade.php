@@ -102,10 +102,33 @@
             href="{{ route('seed-backlog-kurikulum', ['kurikulumId' => $kurikulum->kurikulumId, 'status' => $kurikulum->isApprove]) }}"
             class="ml-3" style="font-size: 19px;">Generate</a></h2>
         <p>Informasi komentar tentang kurikulum ini</p>
-        <p class="text-center">Backlog kosong.</p>
+        @if (count($backlogs) > 0)
+          <table class="w-75">
+            <tr>
+              <th>No</th>
+              <th>Deskripsi</th>
+              <th>Tanggal Backlog</th>
+            </tr>
+            @foreach ($backlogs as $backlog)
+              <tr>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $backlog->deskripsi }}</td>
+                <td>{{ $backlog->date_backlog }}</td>
+              </tr>
+            @endforeach
+          </table>
+        @else
+          <p class="text-center">Backlog kosong.</p>
+        @endif
       </div>
     </div>
   </div>
+  <!-- jQuery (wajib) -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <!-- Popper.js (wajib untuk tooltip, dropdown, dan modal) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
 </body>
 
 </html>

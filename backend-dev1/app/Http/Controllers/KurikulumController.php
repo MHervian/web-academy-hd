@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BacklogKurikulumModel;
 use App\Models\KurikulumModel;
 use Illuminate\Http\Request;
 
@@ -34,7 +35,10 @@ class KurikulumController extends Controller
 		// Get kurikulum by id
 		$kurikulum = KurikulumModel::find($idKurikulum);
 
-		return view('kurikulum-detail', compact('kurikulum'));
+		// Get kurikulum backlog
+		$backlogs = BacklogKurikulumModel::where('kurikulumId', $idKurikulum)->get();
+
+		return view('kurikulum-detail', compact('kurikulum', 'backlogs'));
 	}
 
 	/**
