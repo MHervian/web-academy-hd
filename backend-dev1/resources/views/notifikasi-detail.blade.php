@@ -43,7 +43,7 @@
           <tr>
             <td>Judul</td>
             <td>:</td>
-            <td>{{ $notifikasi->date_issued }}</td>
+            <td>{{ $notifikasi->judul }}</td>
           </tr>
           <tr>
             <td>Author</td>

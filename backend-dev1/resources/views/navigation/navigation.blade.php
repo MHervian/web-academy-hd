@@ -12,8 +12,8 @@
     <li><a href="{{ route('kelas') }}">Kelas</a></li>
     <li><a href="{{ route('create-kelas') }}">Create Kelas</a></li>
     <li><a href="{{ route('kelas-registrasi') }}">Pendaftar Kelas</a></li>
-    <li><a href="{{ route('coming-soon') }}">Notifikasi</a></li>
-    <li><a href="{{ route('coming-soon') }}">Create Notifikasi</a></li>
+    <li><a href="{{ route('notification') }}">Notifikasi</a></li>
+    <li><a href="{{ route('create-notification') }}">Create Notifikasi</a></li>
     <li><a href="{{ route('user') }}">User</a></li>
     <!-- <li class="dropdown">
                       <a href="404.html>Students</a>

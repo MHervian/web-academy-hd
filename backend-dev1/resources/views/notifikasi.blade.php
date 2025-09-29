@@ -58,8 +58,7 @@
           </div>
         @endif
 
-        <h2>Notifikasi <a href="#" class="ml-3" style="font-size: 19px;">Generate</a>
-        </h2>
+        <h2>Notifikasi</h2>
         <p>Notifikasi akademi HangulDream.</p>
         @if (count($notifikasis) > 0)
           <table>
@@ -78,7 +77,10 @@
                   <td>{{ $notifikasi->judul }}</td>
                   <td>{{ $notifikasi->date_post }}</td>
                   <td>
-                    <a href="#" class="bttn-detail">Detail</a>
+                    {{-- kasih ID notifikasi ke route --}}
+                    <a href="{{ route('detail-notification', ['id' => $notifikasi->noteId]) }}" class="bttn-detail">
+                      Detail
+                    </a>
                   </td>
                 </tr>
               @endforeach

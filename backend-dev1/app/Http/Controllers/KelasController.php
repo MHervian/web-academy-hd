@@ -41,28 +41,26 @@ class KelasController extends Controller
 	 */
 	public function store(Request $request)
 	{
-		if (!$request->session()->has('login_user')) {
-			return redirect()->route('login');
-		}
-
 		try {
-			$data = $request->validate([
-				'username' => 'required|string|max:50',
-				'password' => 'required',
+			$validated = $request->validate([
+				'nama_kelas' => 'required|string|max:50',
+				'nama_program' => 'required',
+				'deskripsi' => 'required',
+				'kapasitas' => 'required',
+				'date_open' => 'required',
+				'date_close' => 'required',
+				'time_close' => 'required',
 			]);
 
-			KelasModel::create([
-				'username' => $data['username'],
-				'password' => Hash::make($data['password']),
-			]);
+			KelasModel::create($validated);
 
-			return redirect()->route('user')->with('success', 'success: New kelas stored.');
+			return redirect()->route('create-kelas')->with('success', 'success: New kelas stored.');
 		} catch (QueryException $e) {
 			// Error database 
-			return redirect()->route('user')->with('error', 'Gagal membuat kelas. Error DB: ' . $e->getMessage());
+			return redirect()->route('create-kelas')->with('error', 'Gagal membuat kelas. Error DB: ' . $e->getMessage());
 		} catch (\Exception $e) {
 			// Error umum
-			return redirect()->route('user')->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+			return redirect()->route('create-kelas')->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
 		}
 	}
 

@@ -9,6 +9,7 @@ use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\SeederController;
 use App\Http\Controllers\SertifikatController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\NotificationController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -76,6 +77,12 @@ Route::get('/kelas-registrasi-detail', function () {
 // Create user routes
 Route::get('/user', [UserController::class, 'index'])->name('user');
 Route::post('/user', [UserController::class, 'store'])->name('store-user');
+
+//notification
+Route::get('/notification', [NotificationController::class, 'index'])->name('notification');
+Route::get('/create-notification', [NotificationController::class, 'create'])->name('create-notification');
+Route::post('/create-notification', [NotificationController::class, 'store'])->name('store-notification');
+Route::get('/detail-notification/{id}', [NotificationController::class, 'detail'])->name('detail-notification');
 
 // Coming soon routes..
 Route::get('/login-coming-soon', function () {
