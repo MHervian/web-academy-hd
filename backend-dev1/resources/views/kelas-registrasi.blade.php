@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-  <title>Pendaftar Kelas - DreamPanel</title>
+  <title>Kelas Registrasi - DreamPanel</title>
 
   <meta charset="UTF-8" />
   <meta name="robots" content="noindex, nofollow" />
@@ -37,91 +37,36 @@
         </ul>
       </div>
       <div class="content">
-        <h2>Data Pendaftar Kelas</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Nama Kelas</th>
-              <th>Start Pendaftaran</th>
-              <th>End Pendaftaran</th>
-              <th>Total Daftar</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>English Novice</td>
-              <td>2025-09-01</td>
-              <td>2025-09-15</td>
-              <td>12/30</td>
-              <td><a href="{{ route('kelas-registrasi-detail') }}" class="bttn-detail">Detail</a></td>
-            </tr>
-            <tr>
-              <td>English Beginner</td>
-              <td>2025-09-01</td>
-              <td>2025-09-20</td>
-              <td>20/30</td>
-              <td><a href="{{ route('kelas-registrasi-detail') }}" class="bttn-detail">Detail</a></td>
-            </tr>
-            <tr>
-              <td>English Intermediate</td>
-              <td>2025-09-05</td>
-              <td>2025-09-25</td>
-              <td>15/30</td>
-              <td><a href="{{ route('kelas-registrasi-detail') }}" class="bttn-detail">Detail</button>
-              </td>
-            </tr>
-            <tr>
-              <td>Business English</td>
-              <td>2025-09-10</td>
-              <td>2025-09-30</td>
-              <td>25/30</td>
-              <td><a href="{{ route('kelas-registrasi-detail') }}" class="bttn-detail">Detail</a></td>
-            </tr>
-            <tr>
-              <td>Academic English</td>
-              <td>2025-09-15</td>
-              <td>2025-10-05</td>
-              <td>18/30</td>
-              <td><a href="{{ route('kelas-registrasi-detail') }}" class="bttn-detail">Detail</a></td>
-            </tr>
-            <tr>
-              <td>English for Kids</td>
-              <td>2025-09-20</td>
-              <td>2025-10-10</td>
-              <td>10/30</td>
-              <td><a href="{{ route('kelas-registrasi-detail') }}" class="bttn-detail">Detail</a></td>
-            </tr>
-            <tr>
-              <td>IELTS Prep</td>
-              <td>2025-09-25</td>
-              <td>2025-10-15</td>
-              <td>22/30</td>
-              <td><a href="{{ route('kelas-registrasi-detail') }}" class="bttn-detail">Detail</a></td>
-            </tr>
-            <tr>
-              <td>TOEFL Prep</td>
-              <td>2025-10-01</td>
-              <td>2025-10-20</td>
-              <td>16/30</td>
-              <td><a href="{{ route('kelas-registrasi-detail') }}" class="bttn-detail">Detail</a></td>
-            </tr>
-            <tr>
-              <td>Conversation Club</td>
-              <td>2025-10-05</td>
-              <td>2025-10-25</td>
-              <td>27/30</td>
-              <td><a href="{{ route('kelas-registrasi-detail') }}" class="bttn-detail">Detail</a></td>
-            </tr>
-            <tr>
-              <td>English Professional</td>
-              <td>2025-10-10</td>
-              <td>2025-10-30</td>
-              <td>19/30</td>
-              <td><a href="{{ route('kelas-registrasi-detail') }}" class="bttn-detail">Detail</a></td>
-            </tr>
-          </tbody>
-        </table>
+        <h2>Kelas Registrasi</h2>
+        <p>Data registrasi peserta per kelas</p>
+        @if (count($kelas) > 0)
+          <table>
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Nama Kelas</th>
+                <th>Start Registrasi</th>
+                <th>End Registrasi</th>
+                <th>Total Daftar</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach ($kelas as $k)
+                <tr>
+                  <td>{{ $loop->iteration }}</td>
+                  <td>{{ $k->nama_kelas }}</td>
+                  <td>2025-09-01</td>
+                  <td>2025-09-15</td>
+                  <td>12/30</td>
+                  <td><a href="{{ route('kelas-registrasi-detail') }}" class="bttn-detail">Detail</a></td>
+                </tr>
+              @endforeach
+            </tbody>
+          </table>
+        @else
+          <p class="text-center">Data Kelas Registrasi Kosong</p>
+        @endif
       </div>
     </div>
   </div>

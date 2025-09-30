@@ -93,7 +93,21 @@
           <tr>
             <td>File</td>
             <td>:</td>
-            <td><a href="/data-dummy/course_curriculum.pdf">Link File</a></td>
+            <td>
+              @if (count($kurikulumFiles) > 0)
+                <ul class="m-0 pl-3">
+                  @foreach ($kurikulumFiles as $kurikulumFile)
+                    <li>
+                      <a href="{{ route('view-kurikulum', ['filename' => $kurikulumFile->filename]) }}">
+                        File Link
+                      </a>
+                    </li>
+                  @endforeach
+                </ul>
+              @else
+                <p>Data file kurikulum kosong.</p>
+              @endif
+            </td>
           </tr>
         </table>
         <div class="my-5"></div>

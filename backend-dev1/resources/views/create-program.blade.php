@@ -2,10 +2,10 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-  <title>Upload Sertifikat - DreamPanel</title>
+  <title>Create Program/Course - DreamPanel</title>
 
-  <meta charset="UTF-8" />
-  <meta name="robots" content="noindex, nofollow" />
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
   <!-- Font -->
@@ -16,8 +16,6 @@
   <link rel="stylesheet" href="/css/bootstrap.min.css" />
   <!-- Themify Icons -->
   <link rel="stylesheet" href="/css/themify-icons.css" />
-  <!-- Admin CSS -->
-  <link rel="stylesheet" href="/css/admin.css" />
 
   <style>
     .card-form {
@@ -67,6 +65,8 @@
     }
   </style>
 
+  <!-- Admin CSS -->
+  <link rel="stylesheet" href="/css/admin.css" />
 </head>
 
 <body>
@@ -88,59 +88,74 @@
         </ul>
       </div>
 
-      <!-- Content -->
+      @if (session('success'))
+        <!-- alert success -->
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <strong>&#10004; Berhasil!</strong> {{ session('success') }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      @endif
+
+      @if (session('error'))
+        <!-- alert danger -->
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <strong>&#9746; Gagal!</strong> {{ session('error') }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      @endif
+
       <div class="content">
         <div class="card-form">
-          <h2>Upload Kurikulum</h2>
-          <form action="{{ route('store-kurikulum') }}" method="post" enctype="multipart/form-data">
+          <h2>Buat Program/Course Baru</h2>
+          <form action="{{ route('store-program') }}" method="post" enctype="multipart/form-data">
             @csrf
-            <label for="nama">Nama Kurikulum</label>
+            <!-- Nama Kelas -->
             <div class="form-group">
-              <input id="nama" type="text" name="nama" class="form-control" placeholder="Judul.." />
+              <label for="nama_program">Nama Program/Course</label>
+              <input type="text" class="form-control" id="nama_program" name="nama" required />
             </div>
 
-            <label for="deskripsi">Deskripsi Kurikulum</label>
+            <!-- Deskripsi -->
             <div class="form-group">
+              <label for="deskripsi">Deskripsi Program/Course</label>
               <textarea id="deskripsi" class="form-control" name="deskripsi"></textarea>
             </div>
 
-            <label for="tanggal">Tanggal Pengajuan</label>
+            <!-- Kurikulum -->
             <div class="form-group">
-              <input type="date" id="tanggal" class="form-control" name="date_input" />
-            </div>
-
-            <label for="pic">Penanggungjawab</label>
-            <div class="form-group">
-              <select id="pic" name="pic" class="form-control">
-                <option value="">-- Pilih Penanggungjawab --</option>
-                @if (count($privateUsers) > 0)
-                  @foreach ($privateUsers as $privateUser)
-                    <option value="{{ $privateUser->userId }}">
-                      {{ $privateUser->username }}
+              <label for="kurikulumId">Pilih Kurikulum</label>
+              <select class="form-control" id="kurikulumId" name="kurikulumId" required>
+                <option value="">-- Pilih Program --</option>
+                @if (count($kurikulums) > 0)
+                  @foreach ($kurikulums as $kurikulum)
+                    <option value="{{ $kurikulum->kurikulumId }}">
+                      {{ $kurikulum->nama }}
                     </option>
                   @endforeach
                 @endif
               </select>
             </div>
 
-            <label for="file">Upload File Kurikulum (PDF)</label>
-            <input type="file" id="file" name="fileKurikulum" accept="application/pdf">
+            <label for="file">Upload File Jadwal (PDF)</label>
+            <input type="file" id="file" name="fileJadwal" accept="application/pdf">
 
-            {{-- <button type="button" data-toggle="modal" data-target="#successUploadModal">Upload</button> --}}
             <button type="reset" class="btn btn-secondary">Reset</button>
-            <button type="submit">Upload</button>
+            <button type="submit">Save</button>
           </form>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- jQuery-->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-  <!-- Popper.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-  <!-- Bootstrap JS -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <!-- jQuery (wajib) -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <!-- Popper.js (wajib untuk tooltip, dropdown, dan modal) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
 </body>
 
 </html>
