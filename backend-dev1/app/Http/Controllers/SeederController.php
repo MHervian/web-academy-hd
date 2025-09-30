@@ -77,14 +77,24 @@ class SeederController extends Controller
 		return redirect()->back()->with('success', 'Seeder kelas berhasil');
 	}
 
+	// Seeder kelas..
+	public function seederPesertaRegistrasi()
+	{
+		Artisan::call('db:seed', [
+			'--class' => 'PesertaRegistrasiSeeder',
+		]);
+
+		return redirect()->back()->with('success', 'Seeder peserta registrasi berhasil');
+	}
+
 	// Seeder program..
 	public function seederProgram()
 	{
 		Artisan::call('db:seed', [
-			'--class' => '',
+			'--class' => 'ProgramSeeder',
 		]);
 
-		return redirect()->back()->with('success', '');
+		return redirect()->back()->with('success', 'Seeder program berhasil');
 	}
 
 	// Seeder registrasi kelas..

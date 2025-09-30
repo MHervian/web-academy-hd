@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KelasController;
+use App\Http\Controllers\KelasRegistrasiController;
 use App\Http\Controllers\KurikulumController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MemberController;
@@ -24,15 +25,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Login routes
+// Login routes..
 Route::get('/', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login-post');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-// Dashboard routes
+// Dashboard routes..
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin-dashboard');
 
-// Member routes
+// Member routes..
 Route::get('/member', [MemberController::class, 'index'])->name('member');
 Route::post('/member', [MemberController::class, 'delete'])->name('delete-member');
 Route::get('/member-detail/{id}', [MemberController::class, 'detail'])->name('member-detail');
@@ -48,28 +49,29 @@ Route::get('/sertifikat/view/{filename}', [SertifikatController::class, 'viewFil
 Route::get('/kurikulum', [KurikulumController::class, 'index'])->name('kurikulum');
 Route::get('/kurikulum-detail/{idKurikulum}', [KurikulumController::class, 'detail'])
 	->name('kurikulum-detail');
-Route::get('/upload-kurikulum', function () {
-	return view('upload-kurikulum');
-})->name('upload-kurikulum');
+Route::get('/upload-kurikulum', [KurikulumController::class, 'create'])->name('upload-kurikulum');
+Route::post('/upload-kurikulum', [KurikulumController::class, 'store'])->name('store-kurikulum');
+Route::get('/kurikulum/view/{filename}', [KurikulumController::class, 'viewFile'])->name('view-kurikulum');
 
 // Program routes..
 Route::get('/program', [ProgramController::class, 'index'])->name('program');
+Route::post('/program', [ProgramController::class, 'delete'])->name('delete-program');
 Route::get('/program/create', [ProgramController::class, 'create'])->name('create-program');
 Route::post('/program/create', [ProgramController::class, 'store'])->name('store-program');
+Route::get('/program/view/{filename}', [ProgramController::class, 'viewFile'])->name('view-program');
 Route::get('/program/{programId}', [ProgramController::class, 'detail'])->name('program-detail');
 
 // Kelas routes
 Route::get('/kelas', [KelasController::class, 'index'])->name('kelas');
 Route::get('/create-kelas', [KelasController::class, 'create'])->name('create-kelas');
 Route::post('/create-kelas', [KelasController::class, 'store'])->name('store-kelas');
-Route::get('/kelas-detail', function () {
-	return view('kelas-detail');
-})->name('kelas-detail');
+Route::get('/kelas-detail/{kelasId}', [KelasController::class, 'detail'])->name('kelas-detail');
 
 // Kelas registration routes
-Route::get('/kelas-registrasi', function () {
-	return view('kelas-registrasi');
-})->name('kelas-registrasi');
+Route::get('/kelas-registrasi', [
+	KelasRegistrasiController::class,
+	'index'
+])->name('kelas-registrasi');
 Route::get('/kelas-registrasi-detail', function () {
 	return view('kelas-registrasi-detail');
 })->name('kelas-registrasi-detail');
@@ -92,7 +94,6 @@ Route::get('/coming-soon', function () {
 	return view('coming-soon');
 })->name('coming-soon');
 
-
 // Seeder route..
 // Member
 Route::get('/seed-member', [SeederController::class, 'seederMember'])
@@ -105,9 +106,15 @@ Route::get('/seed-kurikulum', [SeederController::class, 'seederKurikulum'])
 	->name('seed-kurikulum');
 Route::get('/seed-backlog-kurikulum/{kurikulumId}/{status}', [SeederController::class, 'seederBacklogKurikulum'])
 	->name('seed-backlog-kurikulum');
+// Program
+Route::get('/seed-program', [SeederController::class, 'seederProgram'])
+	->name('seed-program');
 // Kelas
 Route::get('/seed-kelas', [SeederController::class, 'seederKelas'])
 	->name('seed-kelas');
+// Peserta Registrasi Kelas
+Route::get('/seed-peserta-registrasi', [SeederController::class, 'seederPesertaRegistrasi'])
+	->name('seed-peserta-registrasi');
 // Private user
 Route::get('/seed-private-user', [SeederController::class, 'seederPrivateUser'])
 	->name('seed-private-user');

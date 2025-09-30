@@ -7,17 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class KurikulumModel extends Model
 {
-    use HasFactory;
-    protected $table = 'kurikulum';
-    protected $primaryKey = 'kurikulumId';
-    public $timestamps = false;
+	use HasFactory;
+	protected $table = 'kurikulum';
+	protected $primaryKey = 'kurikulumId';
+	public $timestamps = false;
 
-    protected $fillable = [
-        'nama',
-        'deskripsi',
-        // 'programId',
-        'date_input',
-        'isApprove',
-        'date_approve',
-    ];
+	protected $fillable = [
+		'nama',
+		'deskripsi',
+		'date_input',
+		'isApprove',
+		'date_approve',
+		'pic',
+	];
 }

@@ -58,7 +58,7 @@
           </div>
         @endif
 
-        <h2>Program <a href="#" class="ml-3" style="font-size: 19px;">Generate</a>
+        <h2>Program <a href="{{ route('seed-program') }}" class="ml-3" style="font-size: 19px;">Generate</a>
         </h2>
         <p>Data Program/Course akademi HangulDream.</p>
         @if (count($programs) > 0)
@@ -66,8 +66,7 @@
             <thead>
               <tr>
                 <th>No</th>
-                <th>Nama Program</th>
-                <th>Level</th>
+                <th>Nama Program/Course</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -76,12 +75,12 @@
                 <tr>
                   <td>{{ $loop->iteration }}</td>
                   <td>{{ $program->nama }}</td>
-                  <td>{{ $program->level }}</td>
                   <td>
-                    <a href="#" class="bttn-detail">Detail</a>
-                    <form action="#" method="post" class="d-inline">
+                    <a href="{{ route('program-detail', ['programId' => $program->programId]) }}"
+                      class="bttn-detail">Detail</a>
+                    <form action="{{ route('delete-program') }}" method="post" class="d-inline">
                       @csrf
-                      <input type="hidden" name="memberId" value="" />
+                      <input type="hidden" name="programId" value="{{ $program->programId }}" />
                       <button type="submit" class="btn btn-danger"
                         style="font-size: 13px; cursor: pointer;">Hapus</button>
                     </form>

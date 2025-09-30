@@ -25,6 +25,21 @@ class KelasController extends Controller
 	}
 
 	/**
+	 * Display detail kelas page..
+	 */
+	public function detail(Request $request, $kelasId)
+	{
+		if (!$request->session()->has('login_user')) {
+			return redirect()->route('login');
+		}
+
+		// Get all members
+		$kelas = KelasModel::find($kelasId);
+
+		return view('kelas-detail', compact('kelas'));
+	}
+
+	/**
 	 * Display form create kelas page..
 	 */
 	public function create(Request $request)

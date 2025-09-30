@@ -5,17 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ProgramModel extends Model
+class FileKurikulumModel extends Model
 {
 	use HasFactory;
-	protected $table = 'program';
-	protected $primaryKey = 'programId';
+	protected $table = 'file_kurikulum';
+	// protected $primaryKey = 'kurikulumId';
 	public $timestamps = false;
 
 	protected $fillable = [
-		'nama',
-		'deskripsi',
 		'kurikulumId',
-		'file_jadwal',
+		'seqno',
+		'filename',
 	];
 }

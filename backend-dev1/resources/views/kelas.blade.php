@@ -37,160 +37,57 @@
         </ul>
       </div>
       <div class="content">
-        <h2>Data Kelas</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Nama Kelas</th>
-              <th>Level</th>
-              <th>Jam Kelas</th>
-              <th>Durasi</th>
-              <th>Aksi</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Kelas 1</td>
-              <td>Novice</td>
-              <td>08:00</td>
-              <td>01-01-2025 - 31-01-2025</td>
-              <td><a href="{{ route('kelas-detail') }}" class="bttn-detail">Detail</a></td>
-            </tr>
-            <tr>
-              <td>Kelas 2</td>
-              <td>Beginner</td>
-              <td>09:00</td>
-              <td>02-01-2025 - 01-02-2025</td>
-              <td><a href="{{ route('kelas-detail') }}" class="bttn-detail">Detail</a></td>
-            </tr>
-            <tr>
-              <td>Kelas 3</td>
-              <td>Intermediate</td>
-              <td>10:00</td>
-              <td>03-01-2025 - 02-02-2025</td>
-              <td><a href="{{ route('kelas-detail') }}" class="bttn-detail">Detail</a></td>
-            </tr>
-            <tr>
-              <td>Kelas 4</td>
-              <td>Expert</td>
-              <td>11:00</td>
-              <td>04-01-2025 - 03-02-2025</td>
-              <td><a href="{{ route('kelas-detail') }}" class="bttn-detail">Detail</a></td>
-            </tr>
-            <tr>
-              <td>Kelas 5</td>
-              <td>Professional</td>
-              <td>13:00</td>
-              <td>05-01-2025 - 04-02-2025</td>
-              <td><a href="{{ route('kelas-detail') }}" class="bttn-detail">Detail</a></td>
-            </tr>
-            <tr>
-              <td>Kelas 6</td>
-              <td>Novice</td>
-              <td>14:00</td>
-              <td>06-01-2025 - 05-02-2025</td>
-              <td><a href="{{ route('kelas-detail') }}" class="bttn-detail">Detail</a></td>
-            </tr>
-            <tr>
-              <td>Kelas 7</td>
-              <td>Beginner</td>
-              <td>15:00</td>
-              <td>07-01-2025 - 06-02-2025</td>
-              <td><a href="{{ route('kelas-detail') }}" class="bttn-detail">Detail</a></td>
-            </tr>
-            <tr>
-              <td>Kelas 8</td>
-              <td>Intermediate</td>
-              <td>16:00</td>
-              <td>08-01-2025 - 07-02-2025</td>
-              <td><a href="{{ route('kelas-detail') }}" class="bttn-detail">Detail</a></td>
-            </tr>
-            <tr>
-              <td>Kelas 9</td>
-              <td>Expert</td>
-              <td>08:00</td>
-              <td>09-01-2025 - 08-02-2025</td>
-              <td><a href="{{ route('kelas-detail') }}" class="bttn-detail">Detail</a></td>
-            </tr>
-            <tr>
-              <td>Kelas 10</td>
-              <td>Professional</td>
-              <td>09:00</td>
-              <td>10-01-2025 - 09-02-2025</td>
-              <td><a href="{{ route('kelas-detail') }}" class="bttn-detail">Detail</a></td>
-            </tr>
-            <tr>
-              <td>Kelas 11</td>
-              <td>Novice</td>
-              <td>10:00</td>
-              <td>11-01-2025 - 10-02-2025</td>
-              <td><a href="{{ route('kelas-detail') }}" class="bttn-detail">Detail</a></td>
-            </tr>
-            <tr>
-              <td>Kelas 12</td>
-              <td>Beginner</td>
-              <td>11:00</td>
-              <td>12-01-2025 - 11-02-2025</td>
-              <td><a href="{{ route('kelas-detail') }}" class="bttn-detail">Detail</a></td>
-            </tr>
-            <tr>
-              <td>Kelas 13</td>
-              <td>Intermediate</td>
-              <td>13:00</td>
-              <td>13-01-2025 - 12-02-2025</td>
-              <td><a href="{{ route('kelas-detail') }}" class="bttn-detail">Detail</a></td>
-            </tr>
-            <tr>
-              <td>Kelas 14</td>
-              <td>Expert</td>
-              <td>14:00</td>
-              <td>14-01-2025 - 13-02-2025</td>
-              <td><a href="{{ route('kelas-detail') }}" class="bttn-detail">Detail</a></td>
-            </tr>
-            <tr>
-              <td>Kelas 15</td>
-              <td>Professional</td>
-              <td>15:00</td>
-              <td>15-01-2025 - 14-02-2025</td>
-              <td><a href="{{ route('kelas-detail') }}" class="bttn-detail">Detail</a></td>
-            </tr>
-            <tr>
-              <td>Kelas 16</td>
-              <td>Novice</td>
-              <td>16:00</td>
-              <td>16-01-2025 - 15-02-2025</td>
-              <td><a href="{{ route('kelas-detail') }}" class="bttn-detail">Detail</a></td>
-            </tr>
-            <tr>
-              <td>Kelas 17</td>
-              <td>Beginner</td>
-              <td>08:00</td>
-              <td>17-01-2025 - 16-02-2025</td>
-              <td><a href="{{ route('kelas-detail') }}" class="bttn-detail">Detail</button></td>
-            </tr>
-            <tr>
-              <td>Kelas 18</td>
-              <td>Intermediate</td>
-              <td>09:00</td>
-              <td>18-01-2025 - 17-02-2025</td>
-              <td><a href="{{ route('kelas-detail') }}" class="bttn-detail">Detail</a></td>
-            </tr>
-            <tr>
-              <td>Kelas 19</td>
-              <td>Expert</td>
-              <td>10:00</td>
-              <td>19-01-2025 - 18-02-2025</td>
-              <td><a href="{{ route('kelas-detail') }}" class="bttn-detail">Detail</a></td>
-            </tr>
-            <tr>
-              <td>Kelas 20</td>
-              <td>Professional</td>
-              <td>11:00</td>
-              <td>20-01-2025 - 19-02-2025</td>
-              <td><a href="{{ route('kelas-detail') }}" class="bttn-detail">Detail</a></td>
-            </tr>
-          </tbody>
-        </table>
+
+        @if (session('success'))
+          <!-- alert success -->
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>&#10004; Berhasil!</strong> {{ session('success') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        @endif
+
+        @if (session('error'))
+          <!-- alert danger -->
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>&#9746; Gagal!</strong> {{ session('error') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        @endif
+
+        <h2>Kelas <a href="{{ route('seed-kelas') }}" class="ml-3" style="font-size: 19px;">Generate</a></h2>
+        <p>Data kelas untuk program/course Akademi Hangul Dream</p>
+        @if (count($kelas) > 0)
+          <table>
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Nama Kelas</th>
+                <th>Program</th>
+                <th>Kapasitas (peserta)</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach ($kelas as $k)
+                <tr>
+                  <td>{{ $loop->iteration }}</td>
+                  <td>{{ $k->nama_kelas }} </td>
+                  <td>{{ $k->nama_program }} </td>
+                  <td>{{ $k->kapasitas }}</td>
+                  <td>
+                    <a href="{{ route('kelas-detail', ['kelasId' => $k->kelasId]) }}" class="bttn-detail">Detail</a>
+                  </td>
+                </tr>
+              @endforeach
+            </tbody>
+          </table>
+        @else
+          <p class="text-center">Data Kelas Kosong</p>
+        @endif
       </div>
     </div>
   </div>
