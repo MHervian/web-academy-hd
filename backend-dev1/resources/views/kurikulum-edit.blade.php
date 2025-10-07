@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-  <title>Form Input Kurikulum - DreamPanel</title>
+  <title>Edit Kurikulum - DreamPanel</title>
 
   <meta charset="UTF-8" />
   <meta name="robots" content="noindex, nofollow" />
@@ -90,24 +90,53 @@
 
       <!-- Content -->
       <div class="content">
+        <!-- Error validation information -->
+        @if ($errors->any())
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>&#9746; Gagal!</strong> {{ session('error') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <ul class="my-0">
+              @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+              @endforeach
+            </ul>
+          </div>
+        @endif
+
+        <!-- Custom error information -->
+        @if (session('error'))
+          <!-- alert danger -->
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>&#9746; Gagal!</strong> {{ session('error') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        @endif
+
         <div class="card-form">
-          <h2>Upload Kurikulum</h2>
-          <form action="{{ route('store-kurikulum') }}" method="post" enctype="multipart/form-data">
+          <h2>Ubah Kurikulum</h2>
+          <form action="{{ route('update-kurikulum') }}" method="post">
             @csrf
+            <input type="hidden" name="kurikulumId" value="{{ $kurikulum->kurikulumId }}" />
             <label for="nama">Nama Kurikulum</label>
             <div class="form-group">
-              <input id="nama" type="text" name="nama" class="form-control" placeholder="Judul.." />
+              <input id="nama" type="text" name="nama" class="form-control" value="{{ $kurikulum->nama }}"
+                placeholder="Judul.." />
             </div>
 
             <label for="deskripsi">Deskripsi Kurikulum</label>
             <div class="form-group">
-              <textarea id="deskripsi" class="form-control" name="deskripsi"></textarea>
+              <textarea id="deskripsi" class="form-control" name="deskripsi">{{ $kurikulum->deskripsi }}</textarea>
             </div>
 
-            <label for="tanggal">Tanggal Pengajuan</label>
+            {{-- <label for="tanggal">Tanggal Pengajuan</label>
             <div class="form-group">
-              <input type="date" id="tanggal" class="form-control" name="date_input" />
-            </div>
+              <input type="date" id="tanggal" class="form-control" name="date_input"
+                value="{{ $kurikulum->date_input }}" />
+            </div> --}}
 
             <label for="pic">Penanggungjawab</label>
             <div class="form-group">
@@ -115,20 +144,22 @@
                 <option value="">-- Pilih Penanggungjawab --</option>
                 @if (count($privateUsers) > 0)
                   @foreach ($privateUsers as $privateUser)
-                    <option value="{{ $privateUser->userId }}">
-                      {{ $privateUser->username }}
-                    </option>
+                    @if ($privateUser->userId == $kurikulum->pic)
+                      <option value="{{ $privateUser->userId }}" selected>
+                        {{ $privateUser->username }}
+                      </option>
+                    @else
+                      <option value="{{ $privateUser->userId }}">
+                        {{ $privateUser->username }}
+                      </option>
+                    @endif
                   @endforeach
                 @endif
               </select>
             </div>
 
-            <label for="file">Upload File Kurikulum (PDF)</label>
-            <input type="file" id="file" name="fileKurikulum" accept="application/pdf">
-
-            {{-- <button type="button" data-toggle="modal" data-target="#successUploadModal">Upload</button> --}}
             <button type="reset" class="btn btn-secondary">Reset</button>
-            <button type="submit">Upload</button>
+            <button type="submit">Ubah</button>
           </form>
         </div>
       </div>

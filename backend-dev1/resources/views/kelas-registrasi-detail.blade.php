@@ -39,50 +39,62 @@
         </ul>
       </div>
       <div class="content">
-        <h2>Detail Kelas : <span style="color: gray;">English Novice</span></h2>
-        <table class="mb-5">
+        {{-- <h2>Detail Kelas : <span style="color: gray;">English Novice</span></h2> --}}
+        <h2>Detail Kelas</h2>
+        <table class="w-75">
+          <tr>
+            <td style="width: 200px;">Kelas</td>
+            <td style="width: 25px;">:</td>
+            <td>{{ $kelas->nama_kelas }}</td>
+          </tr>
+          <tr>
+            <td>Program/Course</td>
+            <td>:</td>
+            <td>{{ $kelas->nama_program }}</td>
+          </tr>
           <tr>
             <td>Pengajar</td>
             <td>:</td>
-            <td>Jane Doe</td>
+            <td>{{ $kelas->pengajar }}</td>
           </tr>
-          <tr>
+          {{-- <tr>
             <td>Level</td>
             <td>:</td>
             <td>Intermediate</td>
-          </tr>
-          <tr>
+          </tr> --}}
+          {{-- <tr>
             <td>Status</td>
             <td>:</td>
             <td>Open Registration</td>
-          </tr>
+          </tr> --}}
           <tr>
             <td>Jumlah Pendaftar</td>
             <td>:</td>
-            <td>12</td>
+            <td>{{ count($registrasi) }}</td>
           </tr>
           <tr>
-            <td>Sisa Kursi</td>
+            <td>Sisa</td>
             <td>:</td>
-            <td>18</td>
+            <td>{{ $kelas->kapasitas }}</td>
           </tr>
           <tr>
-            <td>Tanggal Pembukaan</td>
+            <td>Tanggal Buka Registrasi</td>
             <td>:</td>
-            <td>02-07-2025</td>
+            <td>{{ $kelas->date_open }}</td>
           </tr>
           <tr>
-            <td>Tanggal Penutupan</td>
+            <td>Tanggal Tutup Registrasi</td>
             <td>:</td>
-            <td>12-07-2025</td>
+            <td>{{ $kelas->date_close }}</td>
           </tr>
-          <tr>
+          {{-- <tr>
             <td>Kurikulum</td>
             <td>:</td>
             <td><a href="../data-dummy/course_curriculum.pdf">Link File</a></td>
-          </tr>
+          </tr> --}}
         </table>
-        <h2>Data Pendaftar Kelas</h2>
+        <div class="my-5"></div>
+        <h2>Data Registrasi Kelas</h2>
         <table>
           <thead>
             <tr>

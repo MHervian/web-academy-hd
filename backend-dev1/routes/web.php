@@ -47,11 +47,27 @@ Route::get('/sertifikat/view/{filename}', [SertifikatController::class, 'viewFil
 
 // Kurikulum routes..
 Route::get('/kurikulum', [KurikulumController::class, 'index'])->name('kurikulum');
+Route::post('/kurikulum/feedback', [KurikulumController::class, 'storeFeedback'])
+	->name('store-feedback-kurikulum');
 Route::get('/kurikulum-detail/{idKurikulum}', [KurikulumController::class, 'detail'])
 	->name('kurikulum-detail');
+Route::get('/kurikulum/edit/{kurikulumId}', [KurikulumController::class, 'edit'])
+	->name('edit-kurikulum');
+Route::post('/kurikulum/edit', [KurikulumController::class, 'update'])
+	->name('update-kurikulum');
+Route::get('/kurikulum/file/upload/{kurikulumId}', [KurikulumController::class, 'uploadFile'])
+	->name('upload-file-kurikulum');
+Route::post('/kurikulum/file/upload', [KurikulumController::class, 'storeFile'])
+	->name('store-file-kurikulum');
+Route::get('/kurikulum/edit/{kurikulumId}', [KurikulumController::class, 'edit'])
+	->name('edit-kurikulum');
+Route::post('/kurikulum/edit', [KurikulumController::class, 'update'])
+	->name('update-kurikulum');
 Route::get('/upload-kurikulum', [KurikulumController::class, 'create'])->name('upload-kurikulum');
 Route::post('/upload-kurikulum', [KurikulumController::class, 'store'])->name('store-kurikulum');
 Route::get('/kurikulum/view/{filename}', [KurikulumController::class, 'viewFile'])->name('view-kurikulum');
+Route::get('/kurikulum/feedback/{idKurikulum}', [KurikulumController::class, 'inputFeedback'])
+	->name('input-feedback-kurikulum');
 
 // Program routes..
 Route::get('/program', [ProgramController::class, 'index'])->name('program');
@@ -68,13 +84,8 @@ Route::post('/create-kelas', [KelasController::class, 'store'])->name('store-kel
 Route::get('/kelas-detail/{kelasId}', [KelasController::class, 'detail'])->name('kelas-detail');
 
 // Kelas registration routes
-Route::get('/kelas-registrasi', [
-	KelasRegistrasiController::class,
-	'index'
-])->name('kelas-registrasi');
-Route::get('/kelas-registrasi-detail', function () {
-	return view('kelas-registrasi-detail');
-})->name('kelas-registrasi-detail');
+Route::get('/kelas-registrasi', [KelasRegistrasiController::class, 'index'])->name('kelas-registrasi');
+Route::get('/kelas-registrasi/{kelasId}', [KelasRegistrasiController::class, 'detail'])->name('kelas-registrasi-detail');
 
 // Create user routes
 Route::get('/user', [UserController::class, 'index'])->name('user');

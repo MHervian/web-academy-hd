@@ -65,6 +65,7 @@ class KelasController extends Controller
 				'date_open' => 'required',
 				'date_close' => 'required',
 				'time_close' => 'required',
+				'pengajar' => 'required|string|max:255',
 			]);
 
 			KelasModel::create($validated);

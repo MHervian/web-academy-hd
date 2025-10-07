@@ -19,6 +19,7 @@ class KelasModel extends Model
 		'kapasitas',
 		'date_open',
 		'date_close',
-		'time_close'
+		'time_close',
+		'pengajar',
 	];
 }
