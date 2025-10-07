@@ -58,8 +58,29 @@
           </div>
         @endif
 
-        <h2>Detail Kurikulum : <span style="color: gray;">{{ $kurikulum->nama }}</span></h2>
+        {{-- <h2>Detail Kurikulum : <span style="color: gray;">{{ $kurikulum->nama }}</span></h2> --}}
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Detail Kurikulum</h2>
+          <div>
+            @if ($kurikulum->isApprove == '0' || $kurikulum->isApprove == '1')
+              <a href="{{ route('edit-kurikulum', ['kurikulumId' => $kurikulum->kurikulumId]) }}"
+                class="btn btn-secondary">Edit</a>
+              <a href="{{ route('upload-file-kurikulum', ['kurikulumId' => $kurikulum->kurikulumId]) }}"
+                class="btn btn-info">Upload File</a>
+            @else
+              <button type="button" class="btn btn-secondary" style="opacity: 0.35; cursor: not-allowed;">Edit</button>
+              <button type="button" class="btn btn-info" style="opacity: 0.35; cursor: not-allowed;">Upload
+                File</button>
+            @endif
+            <a href="{{ route('coming-soon') }}" class="btn btn-danger">Hapus</a>
+          </div>
+        </div>
         <table class="w-75">
+          <tr>
+            <td style="width: 100px;">Judul Kurikulum</td>
+            <td style="width: 50px;">:</td>
+            <td>{{ $kurikulum->nama }}</td>
+          </tr>
           <tr>
             <td>Deskripsi</td>
             <td>:</td>
@@ -91,6 +112,11 @@
             <td>{{ $kurikulum->date_approve }}</td>
           </tr>
           <tr>
+            <td>Penanggungjawab</td>
+            <td>:</td>
+            <td>{{ $user[0]->username }}</td>
+          </tr>
+          <tr>
             <td>File</td>
             <td>:</td>
             <td>
@@ -99,22 +125,41 @@
                   @foreach ($kurikulumFiles as $kurikulumFile)
                     <li>
                       <a href="{{ route('view-kurikulum', ['filename' => $kurikulumFile->filename]) }}">
-                        File Link
+                        {{ $kurikulumFile->filename }} ({{ $kurikulumFile->date_upload }})
                       </a>
                     </li>
                   @endforeach
                 </ul>
               @else
-                <p>Data file kurikulum kosong.</p>
+                <p class="my-0">Data file kurikulum kosong.</p>
               @endif
             </td>
           </tr>
         </table>
+        @if ($kurikulum->isApprove == '1')
+          <div class="my-4"></div>
+          <a href="{{ route('coming-soon') }}" class="btn btn-danger">Reject</a>
+          <a href="{{ route('coming-soon') }}" class="btn btn-success">Approve</a>
+        @endif
         <div class="my-5"></div>
 
-        <h2>Backlog <a
-            href="{{ route('seed-backlog-kurikulum', ['kurikulumId' => $kurikulum->kurikulumId, 'status' => $kurikulum->isApprove]) }}"
-            class="ml-3" style="font-size: 19px;">Generate</a></h2>
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Backlog
+            @if ($kurikulum->isApprove == '0' || $kurikulum->isApprove == '1')
+              <a href="{{ route('seed-backlog-kurikulum', ['kurikulumId' => $kurikulum->kurikulumId, 'status' => $kurikulum->isApprove]) }}"
+                class="ml-3" style="font-size: 19px;">Generate</a>
+            @endif
+          </h2>
+
+          @if ($kurikulum->isApprove == '0' || $kurikulum->isApprove == '1')
+            <a href="{{ route('input-feedback-kurikulum', ['idKurikulum' => $kurikulum->kurikulumId]) }}"
+              class="btn btn-info">Tambah Komentar</a>
+          @else
+            <button type="button" class="btn btn-info" style="opacity: 0.35; cursor: not-allowed;">Tambah
+              Komentar</button>
+          @endif
+
+        </div>
         <p>Informasi komentar tentang kurikulum ini</p>
         @if (count($backlogs) > 0)
           <table class="w-75">

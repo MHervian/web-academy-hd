@@ -56,10 +56,11 @@
                 <tr>
                   <td>{{ $loop->iteration }}</td>
                   <td>{{ $k->nama_kelas }}</td>
-                  <td>2025-09-01</td>
-                  <td>2025-09-15</td>
-                  <td>12/30</td>
-                  <td><a href="{{ route('kelas-registrasi-detail') }}" class="bttn-detail">Detail</a></td>
+                  <td>{{ $k->date_open }}</td>
+                  <td>{{ $k->date_close }}</td>
+                  <td>{{ $k->total_registered }}/{{ $k->kapasitas }}</td>
+                  <td><a href="{{ route('kelas-registrasi-detail', ['kelasId' => $k->kelasId]) }}"
+                      class="bttn-detail">Detail</a></td>
                 </tr>
               @endforeach
             </tbody>

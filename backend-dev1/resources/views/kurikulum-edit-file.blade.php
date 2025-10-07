@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-  <title>Form Input Kurikulum - DreamPanel</title>
+  <title>Upload File Kurikulum - DreamPanel</title>
 
   <meta charset="UTF-8" />
   <meta name="robots" content="noindex, nofollow" />
@@ -91,25 +91,27 @@
       <!-- Content -->
       <div class="content">
         <div class="card-form">
-          <h2>Upload Kurikulum</h2>
-          <form action="{{ route('store-kurikulum') }}" method="post" enctype="multipart/form-data">
+          <h2>Upload File Kurikulum Baru</h2>
+          <form action="{{ route('store-file-kurikulum') }}" method="post" enctype="multipart/form-data">
             @csrf
-            <label for="nama">Nama Kurikulum</label>
+            <input type="hidden" name="kurikulumId" value="{{ $kurikulumId }}" />
+            <input type="hidden" name="seqno" value="{{ $seqno }}" />
+            {{-- <label for="nama">Nama Kurikulum</label>
             <div class="form-group">
               <input id="nama" type="text" name="nama" class="form-control" placeholder="Judul.." />
-            </div>
+            </div> --}}
 
-            <label for="deskripsi">Deskripsi Kurikulum</label>
+            {{-- <label for="deskripsi">Deskripsi Kurikulum</label>
             <div class="form-group">
               <textarea id="deskripsi" class="form-control" name="deskripsi"></textarea>
-            </div>
+            </div> --}}
 
-            <label for="tanggal">Tanggal Pengajuan</label>
+            {{-- <label for="tanggal">Tanggal Pengajuan</label>
             <div class="form-group">
               <input type="date" id="tanggal" class="form-control" name="date_input" />
-            </div>
+            </div> --}}
 
-            <label for="pic">Penanggungjawab</label>
+            {{-- <label for="pic">Penanggungjawab</label>
             <div class="form-group">
               <select id="pic" name="pic" class="form-control">
                 <option value="">-- Pilih Penanggungjawab --</option>
@@ -121,9 +123,9 @@
                   @endforeach
                 @endif
               </select>
-            </div>
+            </div> --}}
 
-            <label for="file">Upload File Kurikulum (PDF)</label>
+            <label for="file">Upload File Kurikulum Baru (PDF)</label>
             <input type="file" id="file" name="fileKurikulum" accept="application/pdf">
 
             {{-- <button type="button" data-toggle="modal" data-target="#successUploadModal">Upload</button> --}}

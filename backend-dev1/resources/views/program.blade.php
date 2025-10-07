@@ -58,8 +58,11 @@
           </div>
         @endif
 
-        <h2>Program <a href="{{ route('seed-program') }}" class="ml-3" style="font-size: 19px;">Generate</a>
-        </h2>
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Program <a href="{{ route('seed-program') }}" class="ml-3" style="font-size: 19px;">Generate</a>
+          </h2>
+          <a href="{{ route('create-program') }}" class="btn btn-info">Add</a>
+        </div>
         <p>Data Program/Course akademi HangulDream.</p>
         @if (count($programs) > 0)
           <table>
