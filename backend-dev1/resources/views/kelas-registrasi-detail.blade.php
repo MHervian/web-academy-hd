@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-  <title>Detail Kelas - DreamPanel</title>
+  <title>Detail Pendaftaran Kelas - DreamPanel</title>
 
   <meta charset="UTF-8" />
   <meta name="robots" content="noindex, nofollow" />
@@ -21,6 +21,22 @@
 
   <!-- Admin CSS -->
   <link rel="stylesheet" href="/css/admin.css" />
+  <style>
+    a.btn-detail {
+      background: #1e3a5f;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    a.btn-detail:hover {
+      text-decoration: none;
+      background: #16324a;
+    }
+  </style>
 </head>
 
 <body>
@@ -39,9 +55,29 @@
         </ul>
       </div>
       <div class="content">
-        {{-- <h2>Detail Kelas : <span style="color: gray;">English Novice</span></h2> --}}
+
+        @if (session('success'))
+          <!-- alert success -->
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>&#10004; Berhasil!</strong> {{ session('success') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        @endif
+
+        @if (session('error'))
+          <!-- alert danger -->
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>&#9746; Gagal!</strong> {{ session('error') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        @endif
+
         <h2>Detail Kelas</h2>
-        <table class="w-75">
+        <table class="w-50">
           <tr>
             <td style="width: 200px;">Kelas</td>
             <td style="width: 25px;">:</td>
@@ -94,129 +130,82 @@
           </tr> --}}
         </table>
         <div class="my-5"></div>
-        <h2>Data Registrasi Kelas</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>No.</th>
-              <th>Nama Peserta</th>
-              <th>Email</th>
-              <th>Kontak</th>
-              <th>Status</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>John Doe</td>
-              <td>john@example.com</td>
-              <td>081234567890</td>
-              <td>Aktif</td>
-              <td><button class="bttn-detail">Approve</button> <button class="bttn-danger">Cancel</button>
-              </td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Jane Smith</td>
-              <td>jane@example.com</td>
-              <td>081234567891</td>
-              <td>Aktif</td>
-              <td><button class="bttn-detail">Approve</button> <button class="bttn-danger">Cancel</button>
-              </td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Michael Lee</td>
-              <td>michael@example.com</td>
-              <td>081234567892</td>
-              <td>Nonaktif</td>
-              <td><button class="bttn-detail">Approve</button> <button class="bttn-danger">Cancel</button>
-              </td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>Amanda White</td>
-              <td>amanda@example.com</td>
-              <td>081234567893</td>
-              <td>Aktif</td>
-              <td><button class="bttn-detail">Approve</button> <button class="bttn-danger">Cancel</button>
-              </td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>David Brown</td>
-              <td>david@example.com</td>
-              <td>081234567894</td>
-              <td>Nonaktif</td>
-              <td><button class="bttn-detail">Approve</button> <button class="bttn-danger">Cancel</button>
-              </td>
-            </tr>
-            <tr>
-              <td>6</td>
-              <td>Emily Green</td>
-              <td>emily@example.com</td>
-              <td>081234567895</td>
-              <td>Aktif</td>
-              <td><button class="bttn-detail">Approve</button> <button class="bttn-danger">Cancel</button>
-              </td>
-            </tr>
-            <tr>
-              <td>7</td>
-              <td>Chris Johnson</td>
-              <td>chris@example.com</td>
-              <td>081234567896</td>
-              <td>Aktif</td>
-              <td><button class="bttn-detail">Approve</button> <button class="bttn-danger">Cancel</button>
-              </td>
-            </tr>
-            <tr>
-              <td>8</td>
-              <td>Susan Miller</td>
-              <td>susan@example.com</td>
-              <td>081234567897</td>
-              <td>Nonaktif</td>
-              <td><button class="bttn-detail">Approve</button> <button class="bttn-danger">Cancel</button>
-              </td>
-            </tr>
-            <tr>
-              <td>9</td>
-              <td>Robert Wilson</td>
-              <td>robert@example.com</td>
-              <td>081234567898</td>
-              <td>Aktif</td>
-              <td><button class="bttn-detail">Approve</button> <button class="bttn-danger">Cancel</button>
-              </td>
-            </tr>
-            <tr>
-              <td>10</td>
-              <td>Linda Martinez</td>
-              <td>linda@example.com</td>
-              <td>081234567899</td>
-              <td>Aktif</td>
-              <td><button class="bttn-detail">Approve</button> <button class="bttn-danger">Cancel</button>
-              </td>
-            </tr>
-            <tr>
-              <td>11</td>
-              <td>Paul Anderson</td>
-              <td>paul@example.com</td>
-              <td>081234567900</td>
-              <td>Nonaktif</td>
-              <td><button class="bttn-detail">Approve</button> <button class="bttn-danger">Cancel</button>
-              </td>
-            </tr>
-            <tr>
-              <td>12</td>
-              <td>Sarah Taylor</td>
-              <td>sarah@example.com</td>
-              <td>081234567901</td>
-              <td>Aktif</td>
-              <td><button class="bttn-detail">Approve</button> <button class="bttn-danger">Cancel</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <h2>Pendaftar Kelas <a
+            href="{{ route('seed-peserta-registrasi', [
+                'kelasId' => $kelas->kelasId,
+                'kapasitas' => $kelas->kapasitas,
+                'open' => $kelas->date_open,
+                'close' => $kelas->date_close,
+            ]) }}"
+            class="ml-3" style="font-size: 19px;">Generate</a>
+        </h2>
+        <p>Data member yang mendaftar kelas ini.</p>
+        @if (count($registrasi) > 0)
+          <table>
+            <thead>
+              <tr>
+                <th>No.</th>
+                <th>Nama Peserta</th>
+                <th>Email</th>
+                <th>Tanggal Daftar</th>
+                <th>Waktu Daftar</th>
+                <th>Action</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach ($registrasi as $member)
+                <tr>
+                  <td>{{ $loop->iteration }}</td>
+                  <td>{{ $member->username }}</td>
+                  <td>{{ $member->email }}</td>
+                  <td>{{ $member->date_registration }}</td>
+                  <td>{{ $member->time_registration }}</td>
+                  <td>
+                    @if ($member->isApprove != null)
+                      {{-- If approved.. --}}
+                      @if ($member->isApprove == '1')
+                        <span style='color: green;'>Approved</span>
+                      @else
+                        {{-- If rejected.. --}}
+                        <span style='color: red;'>Rejected</span>
+                      @endif
+                    @else
+                      <form action="{{ route('approve-pendaftar-kelas') }}" method="post">
+                        @csrf
+                        <input type="hidden" name="kelasId" value="{{ $kelas->kelasId }}" />
+                        <input type="hidden" name="memberId[]" value="{{ $member->memberId }}" />
+                        {{-- <input type="hidden" name="index" value="{{ $loop->iteration - 1 }}" /> --}}
+                        <button type="submit" name="btnApprove" value="1" class="btn btn-success"
+                          style="cursor: pointer;">Approve</button>
+                        <button type="submit" name="btnReject" value="0" class="btn btn-danger"
+                          style="cursor: pointer">Reject</button>
+                      </form>
+                    @endif
+                  </td>
+                  {{-- <td>
+                    <button class="bttn-detail">Approve</button>
+                    <button class="bttn-danger">Cancel</button>
+                  </td> --}}
+                  <td>
+                    <a href="{{ route('member-detail', ['id' => $member->memberId]) }}" class="btn-detail">Detail</a>
+                  </td>
+                </tr>
+              @endforeach
+            </tbody>
+          </table>
+          <div class="my-3">
+            <form action="{{ route('start-kelas') }}" method="post">
+              @csrf
+              <input type="hidden" name="kelasId" value="{{ $kelas->kelasId }}" />
+              <input type="hidden" name="namaKelas" value="{{ $kelas->nama_kelas }}" />
+              <button type="submit" name="btnMulaiKelas" value="1" class="btn btn-primary"
+                style="cursor: pointer;">Mulai Kelas</button>
+            </form>
+          </div>
+        @else
+          <p class="text-center">Data Pendaftar Kelas Kosong.</p>
+        @endif
       </div>
     </div>
   </div>
@@ -249,8 +238,8 @@
   <!-- Bootstrap JS -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
   <script>
-    console.log("jQuery:", $.fn.jquery);
-    console.log("Bootstrap modal plugin:", typeof $.fn.modal);
+    // console.log("jQuery:", $.fn.jquery);
+    // console.log("Bootstrap modal plugin:", typeof $.fn.modal);
     $(document).ready(function() {
       let currentRow;
       let action = "";

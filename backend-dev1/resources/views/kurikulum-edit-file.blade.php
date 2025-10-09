@@ -96,34 +96,6 @@
             @csrf
             <input type="hidden" name="kurikulumId" value="{{ $kurikulumId }}" />
             <input type="hidden" name="seqno" value="{{ $seqno }}" />
-            {{-- <label for="nama">Nama Kurikulum</label>
-            <div class="form-group">
-              <input id="nama" type="text" name="nama" class="form-control" placeholder="Judul.." />
-            </div> --}}
-
-            {{-- <label for="deskripsi">Deskripsi Kurikulum</label>
-            <div class="form-group">
-              <textarea id="deskripsi" class="form-control" name="deskripsi"></textarea>
-            </div> --}}
-
-            {{-- <label for="tanggal">Tanggal Pengajuan</label>
-            <div class="form-group">
-              <input type="date" id="tanggal" class="form-control" name="date_input" />
-            </div> --}}
-
-            {{-- <label for="pic">Penanggungjawab</label>
-            <div class="form-group">
-              <select id="pic" name="pic" class="form-control">
-                <option value="">-- Pilih Penanggungjawab --</option>
-                @if (count($privateUsers) > 0)
-                  @foreach ($privateUsers as $privateUser)
-                    <option value="{{ $privateUser->userId }}">
-                      {{ $privateUser->username }}
-                    </option>
-                  @endforeach
-                @endif
-              </select>
-            </div> --}}
 
             <label for="file">Upload File Kurikulum Baru (PDF)</label>
             <input type="file" id="file" name="fileKurikulum" accept="application/pdf">

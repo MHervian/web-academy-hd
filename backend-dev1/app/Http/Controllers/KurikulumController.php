@@ -10,6 +10,7 @@ use Illuminate\Database\QueryException;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class KurikulumController extends Controller
 {
@@ -168,13 +169,13 @@ class KurikulumController extends Controller
 				'filename' => $filename,
 			]);
 
-			return redirect()->route('sertifikat')->with('success', 'Kurikulum berhasil diupload');
+			return redirect()->route('kurikulum')->with('success', 'Kurikulum berhasil diupload');
 		} catch (QueryException $e) {
 			// Database error
-			return redirect()->route('sertifikat')->with('error', 'Database Error: ' . $e->getMessage());
+			return redirect()->route('kurikulum')->with('error', 'Database Error: ' . $e->getMessage());
 		} catch (\Exception $e) {
 			// Other errors
-			return redirect()->route('sertifikat')->with('error', 'Error: ' . $e->getMessage());
+			return redirect()->route('kurikulum')->with('error', 'Error: ' . $e->getMessage());
 		}
 	}
 
@@ -290,7 +291,42 @@ class KurikulumController extends Controller
 	/**
 	 * Approve kurikulum handler..
 	 */
-	public function approve() {}
+	public function approve(Request $request)
+	{
+		if (!$request->session()->has('login_user')) {
+			return redirect()->route('login');
+		}
+
+		try {
+			$btnReject = $request->post('btnReject');
+			$btnApprove = $request->post('btnApprove');
+			$kurikulumId = $request->post('kurikulumId');
+			$command = null;
+
+			if ($btnReject != null) {
+				$command = '2'; // Reject kurikulum..
+			} else if ($btnApprove != null) {
+				$command = '3'; // Approve kurikulum..
+			} else {
+				return redirect()->back()
+					->with('error', 'Perintah approve lain dilarang. Tekan tombol Reject atau Button saja.');
+			}
+
+			// Update data..
+			$kurikulum = KurikulumModel::find($kurikulumId);
+			$kurikulum->isApprove = $command;
+			$kurikulum->date_approve = now()->format('Y-m-d');
+			$kurikulum->save();
+
+			return redirect()->back()->with('success', 'Kurikulum berhasil diapprove');
+		} catch (QueryException $e) {
+			// Database error..
+			return redirect()->back()->with('error', 'Database Error: ' . $e->getMessage());
+		} catch (\Exception $e) {
+			// Other errors..
+			return redirect()->back()->with('error', 'Error: ' . $e->getMessage());
+		}
+	}
 
 	/**
 	 * Update kurikulum handler..
@@ -340,6 +376,43 @@ class KurikulumController extends Controller
 
 	/**
 	 * Delete kurikulum handler..
+	 * [NOTE] This is HARD DELETE.
 	 */
-	public function delete() {}
+	public function delete(Request $request)
+	{
+		if (!$request->session()->has('login_user')) {
+			return redirect()->route('login');
+		}
+
+		try {
+			// Read post data..
+			$kurikulumId = $request->post('kurikulumId');
+			$nama = $request->post('nama');
+
+			// Query all filenames..
+			$kurikulumFiles = FileKurikulumModel::where('kurikulumId', $kurikulumId)->get();
+			if (count($kurikulumFiles) > 0) {
+				// Next, proceed to destroy files..
+				// Destroy files..
+				foreach ($kurikulumFiles as $kurikulumFile) {
+					$filename = $kurikulumFile->filename;
+					$path = "kurikulum/" . $filename;
+					Storage::delete($path);
+				}
+			}
+
+			// Delete kurikulum ..
+			$kurikulum = KurikulumModel::find($kurikulumId);
+			$kurikulum->delete();
+
+			return redirect()->route('kurikulum')
+				->with('success', 'Hapus kurikulum: "' . $nama . '" Berhasil');
+		} catch (QueryException $e) {
+			// Database error..
+			return redirect()->back()->with('error', 'Database error: ' . $e->getMessage());
+		} catch (\Exception $e) {
+			// Other error..
+			return redirect()->back()->with('error', 'Error: ' . $e->getMessage());
+		}
+	}
 }

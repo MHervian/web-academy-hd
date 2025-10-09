@@ -78,13 +78,23 @@ class SeederController extends Controller
 	}
 
 	// Seeder kelas..
-	public function seederPesertaRegistrasi()
+	public function seederPesertaRegistrasi(Request $request, $kelasId, $kapasitas, $dateOpen, $dateClose)
 	{
-		Artisan::call('db:seed', [
-			'--class' => 'PesertaRegistrasiSeeder',
-		]);
+		try {
+			// Inject parameter ke config agar bisa diambil Seeder
+			config(['seeder.kelasId' => $kelasId]);
+			config(['seeder.kapasitas' => $kapasitas]);
+			config(['seeder.dateOpen' => $dateOpen]);
+			config(['seeder.dateClose' => $dateClose]);
 
-		return redirect()->back()->with('success', 'Seeder peserta registrasi berhasil');
+			Artisan::call('db:seed', [
+				'--class' => 'PesertaRegistrasiSeeder',
+			]);
+
+			return redirect()->back()->with('success', 'Seeder peserta registrasi berhasil');
+		} catch (\Exception $e) {
+			return redirect()->back()->with('error', 'Error: ' . $e->getMessage());
+		}
 	}
 
 	// Seeder program..

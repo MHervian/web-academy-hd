@@ -38,6 +38,7 @@
         </ul>
       </div>
       <div class="content">
+
         @if (session('success'))
           <!-- alert success -->
           <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -59,20 +60,27 @@
         @endif
 
         {{-- <h2>Detail Kurikulum : <span style="color: gray;">{{ $kurikulum->nama }}</span></h2> --}}
-        <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex justify-content-between align-items-center mb-3">
           <h2>Detail Kurikulum</h2>
           <div>
             @if ($kurikulum->isApprove == '0' || $kurikulum->isApprove == '1')
               <a href="{{ route('edit-kurikulum', ['kurikulumId' => $kurikulum->kurikulumId]) }}"
-                class="btn btn-secondary">Edit</a>
+                class="btn btn-secondary">Ubah</a>
               <a href="{{ route('upload-file-kurikulum', ['kurikulumId' => $kurikulum->kurikulumId]) }}"
                 class="btn btn-info">Upload File</a>
             @else
-              <button type="button" class="btn btn-secondary" style="opacity: 0.35; cursor: not-allowed;">Edit</button>
+              <button type="button" class="btn btn-secondary" style="opacity: 0.35; cursor: not-allowed;">Ubah</button>
               <button type="button" class="btn btn-info" style="opacity: 0.35; cursor: not-allowed;">Upload
                 File</button>
             @endif
-            <a href="{{ route('coming-soon') }}" class="btn btn-danger">Hapus</a>
+            <form action="{{ route('delete-kurikulum') }}" method="post" class="d-inline">
+              @csrf
+              @method('DELETE')
+              <input type="hidden" name="kurikulumId" value="{{ $kurikulum->kurikulumId }}" />
+              <input type="hidden" name="nama" value="{{ $kurikulum->nama }}" />
+              <button type="submit" class="btn btn-danger" style="cursor: pointer;"
+                onclick="confirm('Hapus kurikulum ini?')">Hapus</button>
+            </form>
           </div>
         </div>
         <table class="w-75">
@@ -107,7 +115,7 @@
             </td>
           </tr>
           <tr>
-            <td>Tanggal Approval</td>
+            <td>Tanggal Approval/Reject</td>
             <td>:</td>
             <td>{{ $kurikulum->date_approve }}</td>
           </tr>
@@ -121,7 +129,7 @@
             <td>:</td>
             <td>
               @if (count($kurikulumFiles) > 0)
-                <ul class="m-0 pl-3">
+                <ol class="m-0 pl-3">
                   @foreach ($kurikulumFiles as $kurikulumFile)
                     <li>
                       <a href="{{ route('view-kurikulum', ['filename' => $kurikulumFile->filename]) }}">
@@ -129,7 +137,7 @@
                       </a>
                     </li>
                   @endforeach
-                </ul>
+                </ol>
               @else
                 <p class="my-0">Data file kurikulum kosong.</p>
               @endif
@@ -138,13 +146,19 @@
         </table>
         @if ($kurikulum->isApprove == '1')
           <div class="my-4"></div>
-          <a href="{{ route('coming-soon') }}" class="btn btn-danger">Reject</a>
-          <a href="{{ route('coming-soon') }}" class="btn btn-success">Approve</a>
+          <form action="{{ route('approve-kurikulum') }}" method="post">
+            @csrf
+            <input type="hidden" name="kurikulumId" value="{{ $kurikulum->kurikulumId }}" />
+            <button type="submit" name="btnReject" value="0" class="btn btn-danger"
+              style="cursor: pointer;">Reject</button>
+            <button type="submit" name="btnApprove" value="1" class="btn btn-success"
+              style="cursor: pointer;">Approve</button>
+          </form>
         @endif
         <div class="my-5"></div>
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Backlog
+          <h2>Komentar
             @if ($kurikulum->isApprove == '0' || $kurikulum->isApprove == '1')
               <a href="{{ route('seed-backlog-kurikulum', ['kurikulumId' => $kurikulum->kurikulumId, 'status' => $kurikulum->isApprove]) }}"
                 class="ml-3" style="font-size: 19px;">Generate</a>
@@ -177,7 +191,7 @@
             @endforeach
           </table>
         @else
-          <p class="text-center">Backlog kosong.</p>
+          <p class="text-center">Komentar kosong.</p>
         @endif
       </div>
     </div>
