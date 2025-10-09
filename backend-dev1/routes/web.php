@@ -63,6 +63,8 @@ Route::get('/kurikulum/edit/{kurikulumId}', [KurikulumController::class, 'edit']
 	->name('edit-kurikulum');
 Route::post('/kurikulum/edit', [KurikulumController::class, 'update'])
 	->name('update-kurikulum');
+Route::post('/kurikulum-detail/approve', [KurikulumController::class, 'approve'])->name('approve-kurikulum');
+Route::delete('/kurikulum/delete', [KurikulumController::class, 'delete'])->name('delete-kurikulum');
 Route::get('/upload-kurikulum', [KurikulumController::class, 'create'])->name('upload-kurikulum');
 Route::post('/upload-kurikulum', [KurikulumController::class, 'store'])->name('store-kurikulum');
 Route::get('/kurikulum/view/{filename}', [KurikulumController::class, 'viewFile'])->name('view-kurikulum');
@@ -86,6 +88,8 @@ Route::get('/kelas-detail/{kelasId}', [KelasController::class, 'detail'])->name(
 // Kelas registration routes
 Route::get('/kelas-registrasi', [KelasRegistrasiController::class, 'index'])->name('kelas-registrasi');
 Route::get('/kelas-registrasi/{kelasId}', [KelasRegistrasiController::class, 'detail'])->name('kelas-registrasi-detail');
+Route::post('/kelas-registrasi/approve', [KelasRegistrasiController::class, 'approveMember'])->name('approve-pendaftar-kelas');
+Route::post('/kelas-registrasi/start', [KelasRegistrasiController::class, 'start'])->name('start-kelas');
 
 // Create user routes
 Route::get('/user', [UserController::class, 'index'])->name('user');
@@ -124,7 +128,7 @@ Route::get('/seed-program', [SeederController::class, 'seederProgram'])
 Route::get('/seed-kelas', [SeederController::class, 'seederKelas'])
 	->name('seed-kelas');
 // Peserta Registrasi Kelas
-Route::get('/seed-peserta-registrasi', [SeederController::class, 'seederPesertaRegistrasi'])
+Route::get('/seed-peserta-registrasi/{kelasId}/{kapasitas}/{open}/{close}', [SeederController::class, 'seederPesertaRegistrasi'])
 	->name('seed-peserta-registrasi');
 // Private user
 Route::get('/seed-private-user', [SeederController::class, 'seederPrivateUser'])
