@@ -130,14 +130,16 @@
           </tr> --}}
         </table>
         <div class="my-5"></div>
-        <h2>Pendaftar Kelas <a
-            href="{{ route('seed-peserta-registrasi', [
+        <h2>Pendaftar Kelas
+          @if (count($registrasi) == 0)
+            <a href="{{ route('seed-peserta-registrasi', [
                 'kelasId' => $kelas->kelasId,
                 'kapasitas' => $kelas->kapasitas,
                 'open' => $kelas->date_open,
                 'close' => $kelas->date_close,
             ]) }}"
-            class="ml-3" style="font-size: 19px;">Generate</a>
+              class="ml-3" style="font-size: 19px;">Generate</a>
+          @endif
         </h2>
         <p>Data member yang mendaftar kelas ini.</p>
         @if (count($registrasi) > 0)
