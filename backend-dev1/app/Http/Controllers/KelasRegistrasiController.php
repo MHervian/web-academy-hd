@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\EnrollmentKelasModel;
 use App\Models\KelasModel;
 use App\Models\RegistrasiKelasModel;
 use Illuminate\Database\QueryException;
@@ -42,7 +43,7 @@ class KelasRegistrasiController extends Controller
 		// Get kelas detail by kelasId
 		$kelas = KelasModel::find($kelasId);
 		// Get data registrasi by kelasId
-		$registrasi = RegistrasiKelasModel::where('kelasId', $kelasId)->get();
+		// $registrasi = RegistrasiKelasModel::where('kelasId', $kelasId)->get();
 		$registrasi = RegistrasiKelasModel::join('member', 'member.memberId', '=', 'registrasi_kelas.memberId')
 			->select(
 				'member.memberId',
@@ -110,34 +111,38 @@ class KelasRegistrasiController extends Controller
 			return redirect()->route('login');
 		}
 
-		$btnMulaiKelas = $request->post('btnMulaiKelas');
-		$kelasId = $request->post('kelasId');
-		$namaKelas = $request->post('namaKelas');
-
-		if ($btnMulaiKelas != '1') {
-			return redirect()->back()->with('error', 'Perintah tidak dikenal. Tekan ulang tombol "Mulai Kelas".');
-		}
-
-		// Baca semua data pendaftar kelas dengan approved..
-		$registrasi = RegistrasiKelasModel::where([
-			'kelasId' => $kelasId,
-			'isApprove' => '1',
-		])->get();
-		foreach ($registrasi as $member) {
-			echo "<pre>";
-			var_dump($member->memberId);
-			echo "</pre>";
-		}
 		try {
-			// if (isEmpty($registrasi)) {
-			// 	return redirect()->back()->with('error', 'Pendaftar kelas ini masih kosong');
-			// }
+			$btnMulaiKelas = $request->post('btnMulaiKelas');
+			$kelasId = $request->post('kelasId');
+			$namaKelas = $request->post('namaKelas');
 
-			// Pindah semua data pendaftar ke enrollment_kelas..
+			if ($btnMulaiKelas != '1') {
+				return redirect()->back()->with('error', 'Perintah tidak dikenal. Tekan ulang tombol "Mulai Kelas".');
+			}
 
-			// Hapus semua data pendaftar kelas tersebut..
+			// Baca semua data pendaftar kelas dengan approved..
+			$registrasi = RegistrasiKelasModel::where([
+				'kelasId' => $kelasId,
+				'isApprove' => '1',
+			])->get();
 
-			// return redirect()->route('kelas')->with('success', 'Success mulai kelas "' . $namaKelas . '"');
+			$rows = array();
+			foreach ($registrasi as $member) {
+				array_push($rows, array(
+					'kelasId' => $kelasId,
+					'memberId' => $member->memberId,
+					'isPass' => null,
+					'date_pass' => null,
+				));
+			}
+
+			// Insert all data pendaftar to enrollment_kelas..
+			EnrollmentKelasModel::insert($rows);
+
+			// Delete all data pendaftar kelas tersebut..
+			RegistrasiKelasModel::where('kelasId', $kelasId)->delete();
+
+			return redirect()->route('kelas')->with('success', 'Success mulai kelas "' . $namaKelas . '"');
 		} catch (QueryException $e) {
 			// Database error
 			return redirect()->back()->with('error', 'Database error: ' . $e->getMessage());

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\EnrollmentKelasModel;
 use App\Models\KelasModel;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
@@ -33,10 +34,21 @@ class KelasController extends Controller
 			return redirect()->route('login');
 		}
 
-		// Get all members
+		// Get kelas detail
 		$kelas = KelasModel::find($kelasId);
+		// Get all peserta of this kelas..
+		$peserta = EnrollmentKelasModel::join('member', 'member.memberId', '=', 'enrollment_kelas.memberId')
+			->select(
+				'member.memberId',
+				'member.username',
+				'member.email',
+				'enrollment_kelas.isPass',
+				'enrollment_kelas.date_pass',
+			)
+			->where('enrollment_kelas.kelasId', $kelasId)
+			->get();
 
-		return view('kelas-detail', compact('kelas'));
+		return view('kelas-detail', compact('kelas', 'peserta'));
 	}
 
 	/**

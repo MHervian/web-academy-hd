@@ -37,67 +37,61 @@
         </ul>
       </div>
       <div class="content">
-        <h2>Detail Kelas : <span style="color: gray;">Kelas 1</span></h2>
-        <table class="mb-5">
+        {{-- <h2>Detail Kelas : <span style="color: gray;">Kelas 1</span></h2> --}}
+        <h2>Detail Kelas</h2>
+        <table class="w-50">
+          <tr>
+            <td style="width: 200px;">Kelas</td>
+            <td style="width: 25px;">:</td>
+            <td>{{ $kelas->nama_kelas }}</td>
+          </tr>
+          <tr>
+            <td>Program/Course</td>
+            <td>:</td>
+            <td>{{ $kelas->nama_program }}</td>
+          </tr>
+          <tr>
+            <td>Kapasitas Kelas</td>
+            <td>:</td>
+            <td>{{ $kelas->kapasitas }}</td>
+          </tr>
           <tr>
             <td>Pengajar</td>
             <td>:</td>
-            <td>Jane Doe</td>
-          </tr>
-          <tr>
-            <td>Level</td>
-            <td>:</td>
-            <td>Intermediate</td>
-          </tr>
-          <tr>
-            <td>Status</td>
-            <td>:</td>
-            <td>Ongoing</td>
-          </tr>
-          <tr>
-            <td>Jumlah Peserta</td>
-            <td>:</td>
-            <td>12</td>
-          </tr>
-          <tr>
-            <td>Tanggal Mulai</td>
-            <td>:</td>
-            <td>02-07-2025</td>
-          </tr>
-          <tr>
-            <td>Tanggal Akhir</td>
-            <td>:</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>Kurikulum</td>
-            <td>:</td>
-            <td><a href="../data-dummy/course_curriculum.pdf">Link File</a></td>
+            <td>{{ $kelas->pengajar }}</td>
           </tr>
         </table>
-        <h2>Data Peserta</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>No.</th>
-              <th>Nama Peserta</th>
-              <th>Email</th>
-              <th>Kontak</th>
-              <th>Status</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>John Doe</td>
-              <td>john@example.com</td>
-              <td>081234567890</td>
-              <td>Aktif</td>
-              <td><a href="{{ route('member-detail') }}" class="bttn-detail">Detail</a></td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="my-5"></div>
+        <h2>Peserta Kelas</h2>
+        <p>Data peserta yang mengikuti kelas.</p>
+        @if (count($peserta) > 0)
+          <table>
+            <thead>
+              <tr>
+                <th>No.</th>
+                <th>Nama Peserta</th>
+                <th>Email</th>
+                <th>Status Lulus</th>
+                <th>Tanggal Lulus</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach ($peserta as $p)
+                <tr>
+                  <td>{{ $loop->iteration }}</td>
+                  <td>{{ $p->username }}</td>
+                  <td>{{ $p->email }}</td>
+                  <td>{{ $p->isPass }}</td>
+                  <td>{{ $p->date_pass }}</td>
+                  <td><a href="{{ route('coming-soon') }}" class="bttn-detail">Detail</a></td>
+                </tr>
+              @endforeach
+            </tbody>
+          </table>
+        @else
+          <p class="text-center">Kelas belum dimulai.</p>
+        @endif
       </div>
     </div>
   </div>
