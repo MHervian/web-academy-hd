@@ -9,8 +9,6 @@ use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-use function PHPUnit\Framework\isEmpty;
-
 class KelasRegistrasiController extends Controller
 {
 	/**
@@ -26,6 +24,7 @@ class KelasRegistrasiController extends Controller
 		$kelas = KelasModel::leftJoin('registrasi_kelas', 'registrasi_kelas.kelasId', '=', 'kelas.kelasId')
 			->select('kelas.kelasId', 'kelas.nama_kelas', 'kelas.date_open', 'kelas.date_close', 'kelas.kapasitas', DB::raw('COUNT(registrasi_kelas.kelasId) as total_registered'))
 			->groupBy('kelas.kelasId', 'kelas.nama_kelas', 'kelas.date_open', 'kelas.date_close', 'kelas.kapasitas')
+			->where('isMulaiBelajar', '0')
 			->get();
 
 		return view('kelas-registrasi', compact('kelas'));
@@ -141,6 +140,11 @@ class KelasRegistrasiController extends Controller
 
 			// Delete all data pendaftar kelas tersebut..
 			RegistrasiKelasModel::where('kelasId', $kelasId)->delete();
+
+			// Update the status of Kelas
+			$kelas = KelasModel::where('kelasId', $kelasId)->get()[0];
+			$kelas->isMulaiBelajar = '1';
+			$kelas->save();
 
 			return redirect()->route('kelas')->with('success', 'Success mulai kelas "' . $namaKelas . '"');
 		} catch (QueryException $e) {
