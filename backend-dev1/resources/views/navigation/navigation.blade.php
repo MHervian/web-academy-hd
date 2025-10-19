@@ -14,6 +14,9 @@
     <li><a href="{{ route('kelas-registrasi') }}">Pendaftar Kelas</a></li>
     <li><a href="{{ route('notification') }}">Notifikasi</a></li>
     <li><a href="{{ route('create-notification') }}">Create Notifikasi</a></li>
+    <li><a href="{{ route('pengajar') }}">Pengajar</a></li>
+    <li><a href="{{ route('coming-soon') }}">Approval Pengajar</a></li>
+    <li><a href="{{ route('coming-soon') }}">Tambah Pengajar</a></li>
     <li><a href="{{ route('user') }}">User</a></li>
     <!-- <li class="dropdown">
                       <a href="404.html>Students</a>

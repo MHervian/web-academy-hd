@@ -2,10 +2,10 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-  <title>Sertifikat - DreamPanel</title>
+  <title>Pengajar - DreamPanel</title>
 
-  <meta charset="UTF-8" />
-  <meta name="robots" content="noindex, nofollow" />
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
   <!-- Font -->
@@ -59,56 +59,39 @@
         @endif
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Sertifikat <a href="{{ route('seed-sertifikat') }}" class="ml-3" style="font-size: 19px;">Generate</a>
-          </h2>
-          <a href="{{ route('upload-sertifikat') }}" class="btn btn-info">Add</a>
+          <h2>Pengajar <a href="{{ route('coming-soon') }}" class="ml-3" style="font-size: 19px;">Generate</a></h2>
+          <a href="{{ route('coming-soon') }}" class="btn btn-info">Add</a>
         </div>
-        <p>Data sertifikat kelulusan member akademi HangulDream.</p>
-        @if (count($sertifikats) > 0)
+        <p>Data pengajar kelas program dan kursus</p>
+        @if (count($pengajar) > 0)
           <table>
             <thead>
               <tr>
                 <th>No</th>
-                <th>No Sertifikat</th>
-                <th>Tanggal Terbit</th>
-                <th>File Link</th>
-                <th>Action</th>
+                <th>Nama Pengajar</th>
+                <th>Status</th>
+                <th>Aksi</th>
               </tr>
             </thead>
             <tbody>
-              @foreach ($sertifikats as $sertifikat)
+              @foreach ($pengajar as $p)
                 <tr>
                   <td>{{ $loop->iteration }}</td>
-                  <td>{{ $sertifikat->noSertifikat }}</td>
-                  <td>{{ $sertifikat->date_issued }}</td>
+                  <td>{{ $p->nama_pengajar }} </td>
+                  <td>{{ $p->isActive }} </td>
                   <td>
-                    <a href="{{ route('view-sertifikat', ['filename' => $sertifikat->filename]) }}"
-                      target="_blank">File Link</a>
-                  </td>
-                  <td>
-                    <a href="{{ route('sertifikat-detail', ['noSertifikat' => $sertifikat->noSertifikat]) }}"
-                      class="bttn-detail">Detail</a>
-                    <form action="#" method="post" class="d-inline">
-                      @csrf
-                      <input type="hidden" name="memberId" value="" />
-                      <button type="submit" class="btn btn-danger"
-                        style="font-size: 13px; cursor: pointer;">Hapus</button>
-                    </form>
+                    <a href="{{ route('coming-soon') }}" class="bttn-detail">Detail</a>
                   </td>
                 </tr>
               @endforeach
             </tbody>
           </table>
         @else
-          <p class="text-center">Data Sertifikat Kosong.</p>
+          <p class="text-center">Data Pengajar Kosong</p>
         @endif
       </div>
     </div>
   </div>
-
-  <!-- jQuery and Bootstrap -->
-  <script src="/js/jquery-3.2.1.min.js"></script>
-  <script src="/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

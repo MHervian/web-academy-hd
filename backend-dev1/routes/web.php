@@ -11,7 +11,7 @@ use App\Http\Controllers\SeederController;
 use App\Http\Controllers\SertifikatController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\NotificationController;
-
+use App\Http\Controllers\PengajarController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -79,17 +79,25 @@ Route::post('/program/create', [ProgramController::class, 'store'])->name('store
 Route::get('/program/view/{filename}', [ProgramController::class, 'viewFile'])->name('view-program');
 Route::get('/program/{programId}', [ProgramController::class, 'detail'])->name('program-detail');
 
-// Kelas routes
+// Kelas routes..
 Route::get('/kelas', [KelasController::class, 'index'])->name('kelas');
 Route::get('/create-kelas', [KelasController::class, 'create'])->name('create-kelas');
 Route::post('/create-kelas', [KelasController::class, 'store'])->name('store-kelas');
 Route::get('/kelas-detail/{kelasId}', [KelasController::class, 'detail'])->name('kelas-detail');
 
-// Kelas registration routes
+// Kelas registration routes..
 Route::get('/kelas-registrasi', [KelasRegistrasiController::class, 'index'])->name('kelas-registrasi');
 Route::get('/kelas-registrasi/{kelasId}', [KelasRegistrasiController::class, 'detail'])->name('kelas-registrasi-detail');
 Route::post('/kelas-registrasi/approve', [KelasRegistrasiController::class, 'approveMember'])->name('approve-pendaftar-kelas');
 Route::post('/kelas-registrasi/start', [KelasRegistrasiController::class, 'start'])->name('start-kelas');
+
+// Pengajar routes..
+Route::get('/pengajar', [PengajarController::class, 'index'])->name('pengajar');
+Route::post('/pengajar', [PengajarController::class, 'detail'])->name('store-pengajar');
+Route::get('/pengajar/approve', [])->name('approve-pengajar');
+Route::post('/pengajar/approve', [])->name('store-approve-pengajar');
+Route::get('/pengajar/{pengajarId}', [])->name('pengajar-detail');
+Route::delete('/pengajar/{pengajarId}', [])->name('delete-pengajar');
 
 // Create user routes
 Route::get('/user', [UserController::class, 'index'])->name('user');

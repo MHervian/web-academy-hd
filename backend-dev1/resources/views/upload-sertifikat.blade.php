@@ -109,7 +109,7 @@
             <label for="noSertifikat">Nomor Sertifikat</label>
             <input type="text" id="noSertifikat" name="noSertifikat" placeholder="Input no sertifikat.." />
 
-            <label for="tanggal">Tanggal Issue</label>
+            <label for="tanggal">Tanggal Terbit</label>
             <input type="date" id="tanggal" name="tanggal" />
 
             <label for="filepdf">Upload File Sertifikat (PDF)</label>
