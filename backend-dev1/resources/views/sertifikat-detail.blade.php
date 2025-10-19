@@ -41,7 +41,7 @@
         <h2>Detail Sertifikat : <span style="color: gray;">{{ $sertifikat[0]->noSertifikat }}</span></h2>
         <table class="w-75">
           <tr>
-            <td>Tanggal Issue</td>
+            <td>Tanggal Terbit</td>
             <td>:</td>
             <td>{{ $sertifikat[0]->date_issued }}</td>
           </tr>

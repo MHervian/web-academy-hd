@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\KelasModel;
 use App\Models\MemberModel;
 use App\Models\SertifikatModel;
 use Illuminate\Database\QueryException;
@@ -27,21 +28,25 @@ class MemberController extends Controller
 	/**
 	 * Display member detail page..
 	 */
-	public function detail(Request $request, $id)
+	public function detail(Request $request, $memberId)
 	{
 		if (!$request->session()->has('login_user')) {
 			return redirect()->route('login');
 		}
 
 		// Get member by id
-		$member = MemberModel::find($id);
+		$member = MemberModel::find($memberId);
 
 		// Get all kelas that joined by member
+		$kelas = KelasModel::join('enrollment_kelas', 'enrollment_kelas.kelasId', '=', 'kelas.kelasId')
+			->select('kelas.kelasId', 'kelas.nama_kelas', 'kelas.nama_program', 'enrollment_kelas.isPass')
+			->where('enrollment_kelas.memberId', $memberId)
+			->get();
 
 		// Get all certificate of member
-		$sertifikats = SertifikatModel::where('memberId', $id)->get();
+		$sertifikats = SertifikatModel::where('memberId', $memberId)->get();
 
-		return view('member-detail', compact('member', 'sertifikats'));
+		return view('member-detail', compact('member', 'kelas', 'sertifikats'));
 	}
 
 	/**

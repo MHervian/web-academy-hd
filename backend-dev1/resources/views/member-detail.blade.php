@@ -77,7 +77,35 @@
         <!-- Kelas section -->
         <h2>Kelas</h2>
         <p>Data kelas yang diikuti member.</p>
-        <p class="text-center">Member Belum Ikut Kelas.</p>
+        @if (count($kelas) > 0)
+          <table>
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Kelas</th>
+                <th>Program/Kursus</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach ($kelas as $k)
+                <tr>
+                  <td>{{ $loop->iteration }}</td>
+                  <td>{{ $k->nama_kelas }}</td>
+                  <td>{{ $k->nama_program }}</td>
+                  <td>{{ $k->isPass }}</td>
+                  <td>
+                    <a href="#" class="bttn-detail">Detail</a>
+                    <a href="#" class="btn btn-danger" style="font-size: 13px; cursor: pointer;">Hapus</a>
+                  </td>
+                </tr>
+              @endforeach
+            </tbody>
+          </table>
+        @else
+          <p class="text-center">Member Belum Ikut Kelas.</p>
+        @endif
 
         <!-- /end Kelas section -->
         <div class="my-5"></div>
