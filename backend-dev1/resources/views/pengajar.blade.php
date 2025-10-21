@@ -59,12 +59,12 @@
         @endif
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Pengajar <a href="{{ route('coming-soon') }}" class="ml-3" style="font-size: 19px;">Generate</a></h2>
-          <a href="{{ route('coming-soon') }}" class="btn btn-info">Add</a>
+          <h2>Pengajar <a href="{{ route('seed-pengajar') }}" class="ml-3" style="font-size: 19px;">Generate</a></h2>
+          <a href="{{ route('user') }}" class="btn btn-info">Add</a>
         </div>
-        <p>Data pengajar kelas program dan kursus</p>
+        <p>Data pengajar kelas program/kursus</p>
         @if (count($pengajar) > 0)
-          <table>
+          <table class="w-75">
             <thead>
               <tr>
                 <th>No</th>
@@ -77,10 +77,16 @@
               @foreach ($pengajar as $p)
                 <tr>
                   <td>{{ $loop->iteration }}</td>
-                  <td>{{ $p->nama_pengajar }} </td>
-                  <td>{{ $p->isActive }} </td>
+                  <td>{{ $p->nama_pengajar }}</td>
                   <td>
-                    <a href="{{ route('coming-soon') }}" class="bttn-detail">Detail</a>
+                    @if ($p->isActive == '1')
+                      <span class="text-primary font-weight-bold">Aktif</span>
+                    @else
+                      <span class="text-alert font-weight-bold">Tidak Aktif</span>
+                    @endif
+                  </td>
+                  <td>
+                    <a href="{{ route('pengajar-detail', ['userId' => $p->userId]) }}" class="bttn-detail">Detail</a>
                   </td>
                 </tr>
               @endforeach
@@ -92,6 +98,13 @@
       </div>
     </div>
   </div>
+
+  <!-- jQuery-->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <!-- Popper.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
 </body>
 
 </html>

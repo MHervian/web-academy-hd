@@ -59,11 +59,11 @@
         @endif
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Penerimaan Pengajar <a href="{{ route('coming-soon') }}" class="ml-3"
+          <h2>Penerimaan Pengajar <a href="{{ route('seed-pengajar-registrasi') }}" class="ml-3"
               style="font-size: 19px;">Generate</a></h2>
-          <a href="{{ route('coming-soon') }}" class="btn btn-info">Add</a>
+          <a href="{{ route('user') }}" class="btn btn-info">Add</a>
         </div>
-        <p>Penerimaan pengajar baru kelas program/kursus</p>
+        <p>Penerimaan pengajar baru untuk kelas program/kursus</p>
         @if (count($pengajar) > 0)
           <table>
             <thead>
@@ -82,21 +82,48 @@
                   <td>{{ $loop->iteration }}</td>
                   <td>{{ $p->nama_pengajar }} </td>
                   <td>{{ $p->date_registration }} </td>
-                  <td>{{ $p->isApproval }} </td>
+                  <td>{{ $p->isApprove }} </td>
                   <td>{{ $p->date_approval }} </td>
                   <td>
-                    <a href="{{ route('coming-soon') }}" class="bttn-detail">Detail</a>
+                    @if ($p->isApprove == '1')
+                      <span style="color: green;">Diterima</span>
+                    @elseif ($p->isApprove == '0')
+                      <span style="color: red;">Ditolak</span>
+                    @else
+                      <form action="{{ route('store-approve-pengajar') }}" method="post">
+                        @csrf
+                        <input type="hidden" name="userId[]" value="{{ $p->userId }}" />
+                        <button type="submit" name="btnApprove" value="1" class="btn btn-success"
+                          style="cursor: pointer;">Terima</button>
+                        <button type="submit" name="btnReject" value="0" class="btn btn-danger"
+                          style="cursor: pointer;">Tolak</button>
+                      </form>
+                    @endif
                   </td>
                 </tr>
               @endforeach
             </tbody>
           </table>
+          <div class="my-3">
+            <form action="{{ route('start-approve-pengajar') }}" method="post">
+              @csrf
+              <button type="submit" name="btnSimpanHasil" value="1" class="btn btn-primary"
+                style="cursor: pointer;">Simpan Hasil</button>
+            </form>
+          </div>
         @else
           <p class="text-center">Data Registrasi Pengajar Kosong</p>
         @endif
       </div>
     </div>
   </div>
+
+  <!-- jQuery-->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <!-- Popper.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
 </body>
 
 </html>
