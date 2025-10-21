@@ -93,11 +93,13 @@ Route::post('/kelas-registrasi/start', [KelasRegistrasiController::class, 'start
 
 // Pengajar routes..
 Route::get('/pengajar', [PengajarController::class, 'index'])->name('pengajar');
-Route::post('/pengajar', [PengajarController::class, 'detail'])->name('store-pengajar');
-Route::get('/pengajar/approve', [])->name('approve-pengajar');
-Route::post('/pengajar/approve', [])->name('store-approve-pengajar');
-Route::get('/pengajar/{pengajarId}', [])->name('pengajar-detail');
-Route::delete('/pengajar/{pengajarId}', [])->name('delete-pengajar');
+Route::get('/pengajar/register', [PengajarController::class, 'register'])->name('pengajar-registrasi');
+Route::post('/pengajar/register', [PengajarController::class, 'store'])->name('store-pengajar');
+Route::get('/pengajar-registrasi', [PengajarController::class, 'approval'])->name('approve-pengajar');
+Route::post('/pengajar-registrasi', [PengajarController::class, 'storeApproval'])->name('store-approve-pengajar');
+Route::post('/pengajar-registrasi/start', [PengajarController::class, 'startApproving'])->name('start-approve-pengajar');
+Route::get('/pengajar/{userId}', [PengajarController::class, 'detail'])->name('pengajar-detail');
+// Route::delete('/pengajar/{userId}', [])->name('delete-pengajar');
 
 // Create user routes
 Route::get('/user', [UserController::class, 'index'])->name('user');
@@ -138,6 +140,12 @@ Route::get('/seed-kelas', [SeederController::class, 'seederKelas'])
 // Peserta Registrasi Kelas
 Route::get('/seed-peserta-registrasi/{kelasId}/{kapasitas}/{open}/{close}', [SeederController::class, 'seederPesertaRegistrasi'])
 	->name('seed-peserta-registrasi');
+// Pengajar 
+Route::get('/seed-pengajar', [SeederController::class, 'seederPengajar'])
+	->name('seed-pengajar');
+// Registrasi pengajar
+Route::get('/seed-pengajar-registrasi', [SeederController::class, 'seederRegistrasiPengajar'])
+	->name('seed-pengajar-registrasi');
 // Private user
 Route::get('/seed-private-user', [SeederController::class, 'seederPrivateUser'])
 	->name('seed-private-user');
