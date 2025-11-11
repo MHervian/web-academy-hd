@@ -92,12 +92,21 @@
       <div class="content">
         <div class="card-form">
           <h2>Daftar Sebagai Pengajar</h2>
+          <p style="opacity: 0.55;">Isi form ini untuk pengajuan sebagai pengajar yayasan DreamHangul.</p>
           <form action="{{ route('store-pengajar') }}" method="post">
             @csrf
             <label for="nama-lengkap">Nama Lengkap</label>
             <div class="form-group">
               <input id="nama-lengkap" type="text" name="nama_lengkap" class="form-control"
                 placeholder="Nama Lengkap.." />
+            </div>
+            <label for="userId">User ID</label>
+            <div class="form-group">
+              <select id="userID" name="userId">
+                @foreach ($users as $user)
+                  <option value="{{ $user->userId }}">{{ $user->userId }} - {{ $user->username }}</option>
+                @endforeach
+              </select>
             </div>
             <button type="reset" class="btn btn-secondary">Reset</button>
             <button type="submit">Daftar</button>

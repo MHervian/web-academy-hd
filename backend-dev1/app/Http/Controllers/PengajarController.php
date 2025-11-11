@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\PengajarModel;
+use App\Models\PrivateUserModel;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 
@@ -49,7 +50,11 @@ class PengajarController extends Controller
 			return redirect()->route('login');
 		}
 
-		return view('pengajar-registrasi');
+		// Get all null level of private_users..
+		// [CODE NOTE] must validate authorization for this query...
+		$users = PrivateUserModel::where('lvl', null)->get();
+
+		return view('pengajar-registrasi', compact('users'));
 	}
 
 	/**
@@ -62,6 +67,27 @@ class PengajarController extends Controller
 		}
 
 		// do store data form input of pengajar disini..
+		$data = $request->validate([
+			'nama_lengkap' => 'required|string|max:255',
+			'userId'			 => 'sometimes',
+		]);
+
+		try {
+			PengajarModel::create([
+				'userId' 				=> $data['userId'],
+				'nama_pengajar' => $data['nama_lengkap'],
+				'date_registration' => now()->format('Y-m-d'),
+				'date_approval'	=> null,
+				'isApprove'			=> null,
+				'isActive'			=> null,
+			]);
+
+			return redirect()->back()->with('success', 'Submit data pengajuan pengajar sukses.');
+		} catch (QueryException $e) {
+			return redirect()->back()->with('error', 'Database error: ' . $e->getMessage());
+		} catch (\Exception $e) {
+			return redirect()->back()->with('error', 'Error: ' . $e->getMessage());
+		}
 	}
 
 	/**
@@ -74,7 +100,7 @@ class PengajarController extends Controller
 		}
 
 		// Get all pengajar 
-		$pengajar = PengajarModel::where('isApprove', null)->get();
+		$pengajar = PengajarModel::where('isActive', null)->get();
 
 		return view('pengajar-approval', compact('pengajar'));
 	}
@@ -82,7 +108,7 @@ class PengajarController extends Controller
 	/**
 	 * Store approval data pengajar handler..
 	 */
-	public function storeApproval(Request $request)
+	public function approvePengajar(Request $request)
 	{
 		if (!$request->session()->has('login_user')) {
 			return redirect()->route('login');
@@ -95,7 +121,7 @@ class PengajarController extends Controller
 			$btnReject = $request->post('btnReject');
 
 			if (empty($userId) || $userId == null || $userId == '') {
-				return redirect()->back()->with('error', 'UserId kosong');
+				return redirect()->back()->with('error', 'UserId pengajar kosong');
 			}
 
 			if ($btnApprove != null) {
@@ -111,7 +137,7 @@ class PengajarController extends Controller
 			])->update([
 				'date_approval' => now()->format('Y-m-d'),
 				'isApprove' => $isApprove,
-				'isActive' => '1',
+
 			]);
 
 			return redirect()->route('approve-pengajar')->with('success', 'Approval/Reject pengajar berhasil');
@@ -133,10 +159,30 @@ class PengajarController extends Controller
 			return redirect()->route('login');
 		}
 
-		// Do finalizing approval of all pengajar disini..
 		try {
-			// 
-			return redirect()->back()->with('success', 'Success submit semua pendaftaran pengajar');
+			// Get all pengajar userId which approved 'diterima'..
+			$pengajarDiterima = PengajarModel::where([
+				'isApprove' => '1',
+				'isActive' => null,
+			])->pluck('userId');
+
+			if ($pengajarDiterima->isEmpty()) {
+				return redirect()->back()->with('error', 'Beberapa atau semua data pengajar belum diterima/ditolak. Selesaikan pengisian approval ini.');
+			}
+
+			// Use all userId to change level to 'pengajar'..
+			$userIdArray = array();
+			foreach ($pengajarDiterima as $puserId) {
+				array_push($userIdArray, $puserId);
+			}
+			PrivateUserModel::whereIn('userId', $userIdArray)->update(['lvl' => '2']);
+
+			// Update pengajar 'diterima' to active..
+			PengajarModel::whereIn('userId', $userIdArray)->update(['isActive' => '1']);
+
+			// Delete rest pengajar data which approved 'ditolak'..
+			PengajarModel::where('isApprove', '0')->delete();
+			return redirect()->route('pengajar')->with('success', 'Success submit semua pendaftaran pengajar');
 		} catch (QueryException $e) {
 			return redirect()->back()->with('error', 'Database Error: ' . $e->getMessage());
 		} catch (\Exception $e) {
