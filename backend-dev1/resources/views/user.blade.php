@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-  <title>User - DreamPanel</title>
+  <title>Create User - DreamPanel</title>
 
   <meta charset="UTF-8">
   <meta name="robots" content="noindex, nofollow">
@@ -110,31 +110,42 @@
           </div>
         @endif
 
-        <div class="card-form w-50">
-          <h2>Input User Baru</h2>
-          <form action="{{ route('store-user') }}" method="post">
-            @csrf
-            <label for="class">Username</label>
-            <div class="form-group">
-              <input type="text" name="username" class="form-control" placeholder="Isi username.." />
-            </div>
-            <label for="student">Password</label>
-            <div class="form-group">
-              <input type="password" name="password" class="form-control" placeholder="Isi password.." />
-            </div>
-            <label for="level">Level User</label>
-            <div class="form-group">
-              <select id="level" name="level">
-                <option value="">---</option>
-                <option value="0">SUPER USER</option>
-                <option value="1">ADMIN</option>
-                {{-- <option value="2">PENGAJAR</option> --}}
-              </select>
-            </div>
-            <button type="reset">Reset</button>
-            <button type="submit" class="btn btn-primary">Save</button>
-          </form>
-        </div>
+        <h2>All Admin/User Data</h2>
+        <p>Data pengguna sistem DreamPanel.</p>
+        <table style="width: 85%;">
+          <thead>
+            <tr>
+              <th class="text-center">No</th>
+              <th class="text-center">Username</th>
+              <th class="text-center">Level User</th>
+              <th class="text-center">Created At</th>
+              <th class="text-center">Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach ($users as $user)
+              <tr>
+                <td>{{ $user->userId }}</td>
+                <td>{{ $user->username }}</td>
+                <td class="text-center">
+                  @if ($user->lvl == '0')
+                    <span class="font-weight-bold">SUPADMIN</span>
+                  @elseif ($user->lvl == '1')
+                    <span class="font-weight-bold">ADMIN</span>
+                  @elseif ($user->lvl == '2')
+                    <span class="font-weight-bold">PENGAJAR</span>
+                  @else
+                    <span class="text-secondary">---</span>
+                  @endif
+                </td>
+                <td class="text-center">{{ $user->date_created }}</td>
+                <td class="text-center">
+                  <a href="{{ route('coming-soon') }}" class="btn btn-primary">Edit</a>
+                </td>
+              </tr>
+            @endforeach
+          </tbody>
+        </table>
       </div>
     </div>
 

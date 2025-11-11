@@ -96,14 +96,18 @@ Route::get('/pengajar', [PengajarController::class, 'index'])->name('pengajar');
 Route::get('/pengajar/register', [PengajarController::class, 'register'])->name('pengajar-registrasi');
 Route::post('/pengajar/register', [PengajarController::class, 'store'])->name('store-pengajar');
 Route::get('/pengajar-registrasi', [PengajarController::class, 'approval'])->name('approve-pengajar');
-Route::post('/pengajar-registrasi', [PengajarController::class, 'storeApproval'])->name('store-approve-pengajar');
-Route::post('/pengajar-registrasi/start', [PengajarController::class, 'startApproving'])->name('start-approve-pengajar');
+Route::post('/pengajar-registrasi', [PengajarController::class, 'approvePengajar'])->name('store-approve-pengajar');
+Route::post('/pengajar-registrasi/start', [PengajarController::class, 'finishApproving'])->name('start-approve-pengajar');
 Route::get('/pengajar/{userId}', [PengajarController::class, 'detail'])->name('pengajar-detail');
-// Route::delete('/pengajar/{userId}', [])->name('delete-pengajar');
+Route::delete('/pengajar/{userId}', [])->name('delete-pengajar');
 
-// Create user routes
+// User routes..
 Route::get('/user', [UserController::class, 'index'])->name('user');
-Route::post('/user', [UserController::class, 'store'])->name('store-user');
+Route::get('/user/create', [UserController::class, 'create'])->name('user-create');
+Route::post('/user/create', [UserController::class, 'store'])->name('store-user');
+Route::get('/user/update', [])->name('user-edit');
+Route::post('/user/update', [])->name('update-user');
+Route::delete('/user/delete', [])->name('delete-user');
 
 //notification
 Route::get('/notification', [NotificationController::class, 'index'])->name('notification');

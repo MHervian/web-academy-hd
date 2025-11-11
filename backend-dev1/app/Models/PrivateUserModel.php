@@ -12,5 +12,5 @@ class PrivateUserModel extends Model
 	protected $primaryKey = 'userId';
 	public $timestamps = false;
 
-	protected $fillable = ['username', 'password'];
+	protected $fillable = ['username', 'password', 'lvl'];
 }

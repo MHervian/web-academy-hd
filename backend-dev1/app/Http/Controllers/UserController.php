@@ -11,7 +11,7 @@ use Illuminate\Database\QueryException;
 class UserController extends Controller
 {
 	/**
-	 * Create user admin page...
+	 * Display all user page...
 	 */
 	public function index(Request $request)
 	{
@@ -22,7 +22,19 @@ class UserController extends Controller
 		// Read all users
 		$users = PrivateUserModel::all();
 
-		return view('create-user', compact('users'));
+		return view('user', compact('users'));
+	}
+
+	/**
+	 * Display form input user page..
+	 */
+	public function create(Request $request)
+	{
+		if (!$request->session()->has('login_user')) {
+			return redirect()->route('login');
+		}
+
+		return view('create-user');
 	}
 
 	/**
@@ -34,24 +46,26 @@ class UserController extends Controller
 			return redirect()->route('login');
 		}
 
-		try {
-			$data = $request->validate([
-				'username' => 'required|string|max:50',
-				'password' => 'required',
-			]);
+		$data = $request->validate([
+			'username' => 'required|string|max:50',
+			'password' => 'required',
+			'level'		 => 'nullable',
+		]);
 
+		try {
 			PrivateUserModel::create([
 				'username' => $data['username'],
 				'password' => Hash::make($data['password']),
+				'lvl'			 => $data['level'],
 			]);
 
 			return redirect()->route('user')->with('success', 'success: New user stored.');
 		} catch (QueryException $e) {
 			// Error database 
-			return redirect()->route('user')->with('error', 'Gagal membuat user. Error DB: ' . $e->getMessage());
+			return redirect()->back()->with('error', 'Gagal membuat user. Error DB: ' . $e->getMessage());
 		} catch (\Exception $e) {
 			// Error umum
-			return redirect()->route('user')->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+			return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
 		}
 	}
 

@@ -61,7 +61,7 @@
         <div class="d-flex justify-content-between align-items-center">
           <h2>Penerimaan Pengajar <a href="{{ route('seed-pengajar-registrasi') }}" class="ml-3"
               style="font-size: 19px;">Generate</a></h2>
-          <a href="{{ route('user') }}" class="btn btn-info">Add</a>
+          <a href="{{ route('user-create') }}" class="btn btn-info">Add</a>
         </div>
         <p>Penerimaan pengajar baru untuk kelas program/kursus</p>
         @if (count($pengajar) > 0)
