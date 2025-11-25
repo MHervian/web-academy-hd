@@ -60,7 +60,7 @@
 
         <div class="d-flex justify-content-between align-items-center">
           <h2>Kelas <a href="{{ route('seed-kelas') }}" class="ml-3" style="font-size: 19px;">Generate</a></h2>
-          <a href="{{ route('create-kelas') }}" class="btn btn-info">Add</a>
+          <a href="{{ route('create-kelas') }}" class="btn btn-info">Buat Kelas</a>
         </div>
         <p>Data kelas untuk program/course Akademi Hangul Dream</p>
         @if (count($kelas) > 0)
