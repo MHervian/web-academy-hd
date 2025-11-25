@@ -60,7 +60,7 @@
 
         <div class="d-flex justify-content-between align-items-center">
           <h2>Notifikasi <a href="#" class="ml-3" style="font-size: 19px;">Generate</a></h2>
-          <a href="{{ route('create-notification') }}" class="btn btn-info">Add</a>
+          <a href="{{ route('create-notification') }}" class="btn btn-info">Buat Notifikasi</a>
         </div>
         <p>Notifikasi akademi HangulDream.</p>
         @if (count($notifikasis) > 0)

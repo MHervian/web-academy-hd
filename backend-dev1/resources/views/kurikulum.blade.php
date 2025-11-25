@@ -62,7 +62,7 @@
         <div class="d-flex justify-content-between align-items-center">
           <h2>Kurikulum <a href="{{ route('seed-kurikulum') }}" class="ml-3" style="font-size: 19px;">Generate</a>
           </h2>
-          <a href="{{ route('upload-kurikulum') }}" class="btn btn-info">Add</a>
+          <a href="{{ route('upload-kurikulum') }}" class="btn btn-info">Unggah Kurikulum</a>
         </div>
         <p>Informasi List Kurikulum dan Statusnya [<span class="font-weight-bold">Pending</span>,
           <span class="text-primary font-weight-bold">On Review</span>, <span

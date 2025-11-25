@@ -38,7 +38,13 @@
         </ul>
       </div>
       <div class="content">
-        <h2>Detail Member : <span style="color: gray;">{{ $member->username }}</span></h2>
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Detail Member : <span style="color: gray;">{{ $member->username }}</span></h2>
+          <div>
+            <a href="{{ route('coming-soon') }}" class="btn btn-info">Ubah</a>
+            <a href="{{ route('coming-soon') }}" class="btn btn-danger">Hapus</a>
+          </div>
+        </div>
         <table class="w-75">
           <tr>
             <td>Member ID</td>
