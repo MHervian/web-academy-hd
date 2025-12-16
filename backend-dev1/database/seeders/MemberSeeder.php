@@ -20,7 +20,7 @@ class MemberSeeder extends Seeder
 		$faker = Faker::create('id_ID'); // bisa pakai locale lain sesuai kebutuhan
 
 		// Generate 10 fake rows of member
-		for ($i = 0; $i < 10; $i++) {
+		for ($i = 0; $i < 5; $i++) {
 			// generate tanggal untuk memberId
 			$datePart = now()->format('Ymd');
 			$sequence = str_pad((string) rand(0, 9999), 4, '0', STR_PAD_LEFT);

@@ -16,5 +16,6 @@ class FileKurikulumModel extends Model
 		'kurikulumId',
 		'seqno',
 		'filename',
+		'date_upload',
 	];
 }
