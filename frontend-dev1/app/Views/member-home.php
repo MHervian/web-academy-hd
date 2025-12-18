@@ -1,154 +1,67 @@
-<!DOCTYPE html>
-<html lang="id">
+<!doctype html>
+<html>
 
 <head>
-	<title>Member Beranda - DreamTemplate</title>
 	<meta charset="UTF-8" />
-	<meta name="robots" content="noindex, nofollow" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="robots" content="noindex, nofollow">
+	<title>Student Dashboard - HangulDream</title>
 
-	<!-- Font -->
-	<link rel="dns-prefetch" href="//fonts.googleapis.com" />
 	<link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet" />
-
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="/css/bootstrap.min.css" />
-	<!-- Themify Icons -->
-	<link rel="stylesheet" href="/css/themify-icons.css" />
-
-	<!-- Student Dashboard CSS -->
-	<link rel="stylesheet" href="/css/student-dashboard.css" />
+	<!-- Tailwind CSS -->
+	<!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
+	<link rel="stylesheet" href="<?= base_url('css/output.css') ?>" />
+	<!-- Font Awesome 7 -->
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+		integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+		crossorigin="anonymous"
+		referrerpolicy="no-referrer" />
+	<style>
+		* {
+			font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+		}
+	</style>
 </head>
 
 <body>
-	<header>
-		<div class="logo"><a href="<?= url_to('beranda-member') ?>">DreamTemplate</a></div>
-		<nav>
-			<ul>
-				<li><a href="<?= url_to('coming-soon') ?>">Belajar</a></li>
-				<li><a href="<?= url_to('sertifikat') ?>">Sertifikat</a></li>
-				<li><a href="<?= url_to('coming-soon') ?>">Bulletin</a></li>
-				<li><a href="<?= url_to('notifikasi') ?>">Notifikasi</a></li>
-				<li><a href="<?= url_to('coming-soon') ?>">Akun</a></li>
-			</ul>
-		</nav>
-	</header>
 
-	<section class="hero">
-		<div class="container px-5">
-			<h2>Welcome Back &#x1F44B;</h2>
-			<div class="hero-card">
-				<p>Progress Terakhir:</p>
-				<h4>Business English</h4>
-				<p>Kategori: Intermediate</p>
-				<div class="course-progress">
-					<div class="progress"></div>
-				</div>
-				<div class="buttons">
-					<a href="<?= url_to('coming-soon') ?>" class="btn-continue">Lanjutkan</a>
-				</div>
-			</div>
-		</div>
-	</section>
+	<?= $this->include('header') ?>
 
-	<div class="container">
-		<section class="section">
-			<div class="section-left">
-				<h2>Kelas Saya</h2>
-				<div class="course-card">
-					<h3>Grammar Essentials</h3>
-					<p>Kategori: Beginner</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel orci non libero.</p>
-					<div class="course-progress">
-						<div class="completed"></div>
-					</div>
-					<div class="buttons">
-						<a href="<?= url_to('coming-soon') ?>" class="btn-continue">Detail</a>
-						<a href="data-dummy/course_certificate.pdf" class="btn-certificate">Cetak Sertifikat</a>
-					</div>
-				</div>
-				<div class="course-card">
-					<h3>Business English</h3>
-					<p>Kategori: Intermediate</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel orci non libero.</p>
-					<div class="course-progress">
-						<div class="progress"></div>
-					</div>
-					<div class="buttons">
-						<a href="<?= url_to('coming-soon') ?>" class="btn-continue">Lanjutkan</a>
-					</div>
-				</div>
-			</div>
-			<!-- <div class="section-right">
-        <div class="progress-list">
-          <div class="item">
-            <h4>Grammar Essentials</h4>
-            <div class="progress-bar"><div class="progress" style="width:40%"></div></div>
-          </div>
-          <div class="item">
-            <h4>Business English</h4>
-            <div class="progress-bar"><div class="progress" style="width:75%"></div></div>
-          </div>
-          <div class="item">
-            <h4>English Conversation Practice</h4>
-            <div class="progress-bar"><div class="progress" style="width:60%"></div></div>
-          </div>
-        </div>
-      </div> -->
-		</section>
+	<div class="px-6 md:px-7 pt-25 pb-7 bg-[#19253f]">
+		<h1 class="py-6 text-white text-4xl">Dashboard Pelajar</h1>
 	</div>
 
-	<div class="container">
-
-		<section class="all-courses">
-			<h2>Semua Kelas</h2>
-			<div class="course-grid">
-				<div class="course-card">
-					<h3>Grammar Essentials</h3>
-					<p>Kategori: Beginner</p>
-					<div class="buttons" style="margin-top: 20px;">
-						<a href="<?= url_to('coming-soon') ?>" class="btn-continue mb-2">Detail</a>
-						<a href="/data-dummy/course_curriculum.pdf" class="btn-certificate mb-2">Unduh Kurikulum</a>
-					</div>
-				</div>
-				<div class="course-card">
-					<h3>Business English</h3>
-					<p>Kategori: Intermediate</p>
-					<div class="buttons" style="margin-top: 20px;">
-						<a href="<?= url_to('coming-soon') ?>" class="btn-continue mb-2">Detail</a>
-						<a href="/data-dummy/course_curriculum.pdf" class="btn-certificate mb-2">Unduh Kurikulum</a>
-					</div>
-				</div>
-				<div class="course-card">
-					<h3>English Conversation Practice</h3>
-					<p>Kategori: Intermediate</p>
-					<div class="buttons" style="margin-top: 20px;">
-						<a href="<?= url_to('coming-soon') ?>" class="btn-continue mb-2">Detail</a>
-						<a href="/data-dummy/course_curriculum.pdf" class="btn-certificate mb-2">Unduh Kurikulum</a>
-					</div>
-				</div>
-				<div class="course-card">
-					<h3>Writing for Academic</h3>
-					<p>Kategori: Advanced</p>
-					<div class="buttons" style="margin-top: 20px;">
-						<a href="<?= url_to('coming-soon') ?>" class="btn-continue mb-2">Detail</a>
-						<a href="/data-dummy/course_curriculum.pdf" class="btn-certificate mb-2">Unduh Kurikulum</a>
-					</div>
-				</div>
+	<div class="px-6 md:px-7 py-6 bg-gray-50">
+		<p class="text-3xl">Selamat Datang! 👋</p>
+		<div class="py-5"></div>
+		<div class="md:grid md:grid-cols-2 md:gap-y-8 md:gap-x-5">
+			<div class="col-span-1 px-4.5 py-6 bg-white shadow-md rounded-md">
+				<h3 class="text-2xl font-bold">Progress Kelas</h3>
+				<p class="py-5">Belum Daftar Kelas</p>
 			</div>
-		</section>
+			<div class="py-4 md:hidden"></div>
+			<div class="col-span-1 px-4.5 py-6 bg-white shadow-md rounded-md">
+				<h3 class="text-2xl font-bold">Jadwal Ujian</h3>
+				<p class="py-5">Jadwal Kosong</p>
+			</div>
+			<div class="py-4 md:hidden"></div>
+			<div class="col-span-1 px-4.5 py-6 bg-white shadow-md rounded-md">
+				<h3 class="text-2xl font-bold">Forum</h3>
+				<p class="py-5">Belum Posting di Forum</p>
+			</div>
+			<div class="py-4 md:hidden"></div>
+			<div class="col-span-1 px-4.5 py-6 bg-white shadow-md rounded-md">
+				<h3 class="text-2xl font-bold">Pengumuman</h3>
+				<p class="py-5">Belum Ada Pengumuman</p>
+			</div>
+		</div>
+		<div class="py-5"></div>
 	</div>
 
-	<footer>
-		<div class="mb-4">
-			<a href="<?= url_to('coming-soon') ?>">HOME</a> |
-			<a href="<?= url_to('coming-soon') ?>">PRIVACY</a> |
-			<a href="<?= url_to('coming-soon') ?>">MY LEARNING</a> |
-			<a href="<?= url_to('coming-soon') ?>">ACCOUNT</a> |
-			<a href="<?= url_to('coming-soon') ?>">CONTACT</a>
-		</div>
-		<p>&copy; 2025 DreamTemplate. All Rights Reserved.</p>
-	</footer>
+	<div class="px-5 py-5">
+		<p class="text-center">&copy;DreamTemplate 2026</p>
+	</div>
 </body>
 
 </html>

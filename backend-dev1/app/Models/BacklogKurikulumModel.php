@@ -16,5 +16,6 @@ class BacklogKurikulumModel extends Model
 		'kurikulumId',
 		'seqno',
 		'deskripsi',
+		'date_backlog',
 	];
 }

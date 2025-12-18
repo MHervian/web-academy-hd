@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use DateTime;
+use DateTimeZone;
 
 class BacklogKurikulumSeeder extends Seeder
 {
@@ -37,11 +39,14 @@ class BacklogKurikulumSeeder extends Seeder
 			->count();
 
 		// Tambah backlog baru
+		$dt = new DateTime('now', new DateTimeZone('Asia/Jakarta')); // generate current date
+		$date = $dt->format('Y-m-d');
 		DB::table('backlog_kurikulum')->insert([
 			'kurikulumId' => $kurikulumId,
 			'seqno'       => $count + 1,
 			'deskripsi'   => Str::random(50),
-			'date_backlog' => now()->format('Y-m-d'),
+			// 'date_backlog' => now()->format('Y-m-d'),
+			'date_backlog' => $date,
 		]);
 	}
 }

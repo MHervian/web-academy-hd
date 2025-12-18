@@ -1,67 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 
 <head>
-	<title>Sertifikat - DreamTemplate</title>
 	<meta charset="UTF-8" />
-	<meta name="robots" content="noindex, nofollow" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<!-- Font -->
-	<link rel="dns-prefetch" href="//fonts.googleapis.com" />
+	<meta name="robots" content="noindex, nofollow">
+	<title>Sertifikat - HangulDream</title>
+
 	<link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet" />
-
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="/css/bootstrap.min.css" />
-	<!-- Themify Icons -->
-	<link rel="stylesheet" href="/css/themify-icons.css" />
-
-	<!-- Student Notifications CSS -->
-	<link rel="stylesheet" href="/css/notifications.css" />
+	<!-- Tailwind CSS -->
+	<!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
+	<link rel="stylesheet" href="<?= base_url('css/output.css') ?>" />
+	<!-- Font Awesome 7 -->
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+		integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+		crossorigin="anonymous"
+		referrerpolicy="no-referrer" />
+	<style>
+		* {
+			font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+		}
+	</style>
 </head>
 
 <body>
-	<header>
-		<div class="logo"><a href="<?= url_to('beranda-member') ?>">DreamTemplate</a></div>
-		<nav>
-			<ul>
-				<li><a href="<?= url_to('coming-soon') ?>">Belajar</a></li>
-				<li><a href="<?= url_to('sertifikat') ?>">Sertifikat</a></li>
-				<li><a href="<?= url_to('coming-soon') ?>">Bulletin</a></li>
-				<li><a href="<?= url_to('notifikasi') ?>">Notifikasi</a></li>
-				<li><a href="<?= url_to('coming-soon') ?>">Akun</a></li>
-			</ul>
-		</nav>
-	</header>
+	<?= $this->include('header') ?>
 
-	<section class="hero">
-		<div class="container px-5">
-			<h1>Sertifikat</h1>
-		</div>
-	</section>
+	<div class="px-6 md:px-7 pt-25 pb-7 bg-[#19253f]">
+		<h1 class="py-6 text-white text-4xl">Sertifikat</h1>
+	</div>
 
-	<section class="notifications">
-		<div class="card">
-			<h3>Program Pelatihan Instruktur Bahasa Korea</h3>
-			<p>Diisukan: 20 Agustus 2025</p>
-			<a href="/data-dummy/course_certificate.pdf" class="btn-certificate">Cetak Sertifikat</a>
-		</div>
-		<div class="card">
-			<h3>Program Pelatihan TOPIK 3 & 4</h3>
-			<p>Diisukan: 1 Januari 2023</p>
-			<a href="/data-dummy/course_certificate.pdf" class="btn-certificate">Cetak Sertifikat</a>
-		</div>
-	</section>
+	<div class="px-6 md:px-7 py-6 bg-gray-50">
+		<div class="py-5"></div>
+		<p class="text-2xl">Sertifikat Kosong.</p>
+		<div class="py-5"></div>
+		<div class="py-5"></div>
+	</div>
 
-	<footer>
-		<div class="mb-4">
-			<a href="<?= url_to('coming-soon') ?>">HOME</a> |
-			<a href="<?= url_to('coming-soon') ?>">PRIVACY</a> |
-			<a href="<?= url_to('coming-soon') ?>">MY LEARNING</a> |
-			<a href="<?= url_to('coming-soon') ?>">ACCOUNT</a> |
-			<a href="<?= url_to('coming-soon') ?>">CONTACT</a>
-		</div>
-		<p>&copy; 2025 DreamTemplate. All Rights Reserved.</p>
-	</footer>
+	<div class="px-5 py-5">
+		<p class="text-center">&copy;DreamTemplate 2026</p>
+	</div>
 </body>
 
 </html>
