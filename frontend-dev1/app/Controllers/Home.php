@@ -48,4 +48,9 @@ class Home extends BaseController
 	{
 		return view('sertifikat');
 	}
+
+	public function kelas()
+	{
+		return view('kelas');
+	}
 }

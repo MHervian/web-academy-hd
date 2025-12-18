@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+<!--
+
+Page    : index / MobApp
+Version : 1.0
+Author  : Colorlib
+URI     : https://colorlib.com
+
+ -->
 
 <head>
-	<title>DreamTemplate</title>
+	<title>Beranda - DreamTemplate</title>
 	<!-- Required meta tags -->
 	<meta charset="utf-8" />
-	<meta name="robots" content="noindex, nofollow">
+	<meta name="robots" content="noindex, nofollow" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
 	<!-- Font -->
@@ -13,13 +21,13 @@
 	<link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet" />
 
 	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="<?= base_url('css/bootstrap.min.css') ?>" />
+	<link rel="stylesheet" href="/css/bootstrap.min.css" />
 	<!-- Themify Icons -->
-	<link rel="stylesheet" href="<?= base_url('css/themify-icons.css') ?>" />
+	<link rel="stylesheet" href="/css/themify-icons.css" />
 	<!-- Owl carousel -->
-	<link rel="stylesheet" href="<?= base_url('css/owl.carousel.min.css') ?>" />
+	<link rel="stylesheet" href="/css/owl.carousel.min.css" />
 	<!-- Main css -->
-	<link href="<?= base_url('css/style.css') ?>" rel="stylesheet" />
+	<link href="/css/style.css" rel="stylesheet" />
 </head>
 
 <body data-spy="scroll" data-target="#navbar" data-offset="30">
@@ -30,11 +38,9 @@
 			<div class="row">
 				<div class="col-md-12">
 					<nav class="navbar navbar-dark navbar-expand-lg">
-						<a class="navbar-brand-small" href="<?= url_to('beranda') ?>">
-							<img src="images/logo_only.png" style="height: 45px; width: 45px;" />
-						</a>
-						<a class="navbar-brand-big" href="<?= url_to('beranda') ?>">
-							<img src="images/logo-long.png" style="height: 85px; width: 259px;" />
+						<a class="navbar-brand" href="index.html">
+							<img src="images/hanguldream.png"
+								style="width: 50px; height: 50px; background-color: white; border-radius: 50%;" />
 						</a>
 						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"
 							aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,8 +61,7 @@
 									<a class="nav-link" href="#komunitas">KOMUNITAS</a>
 								</li>
 								<li class="nav-item">
-									<a href="<?= url_to('registrasi') ?>"
-										class="btn btn-outline-light my-3 my-sm-0 ml-lg-3">Daftar</a>
+									<a href="<?= url_to('registrasi') ?>" class="btn btn-outline-light my-3 my-sm-0 ml-lg-3">Pendaftaran</a>
 								</li>
 							</ul>
 						</div>
@@ -67,7 +72,7 @@
 	</div>
 
 	<header class="bg-gradient" id="beranda">
-		<div class="container mt-5 pt-5">
+		<div class="container mt-5">
 			<div class="row">
 				<div class="col-12">
 					<div class="text-center">
@@ -82,6 +87,44 @@
 			</div>
 		</div>
 	</header>
+
+	<div class="container py-5">
+		<div class="row my-5">
+			<div class="col-6">
+				<div class="text-left">
+					<h3>Salam Hangat dari Kami,</h3>
+					<!-- <p>
+            Selamat datang di Yayasan Dream Korean Language Learning Center. 
+            Dengan dukungan para pengusaha Korea, Kami membuka peluang bagi generasi muda Indonesia melalui
+            program kursus bahasa Korea, persiapan TOPIK, dan program spesialis guru.
+          
+            Kami melihat tingginya minat generasi muda Indonesia untuk belajar bahasa Korea, namun masih 
+            terbatasnya tenaga ahli dan kesempatan meraih sertifikasi TOPIK. Kehadiran yayasan ini diharapkan 
+            menjadi jembatan, sekaligus fondasi kerja sama pendidikan yang saling menguntungkan antara Indonesia dan Korea.
+          </p> -->
+					<p>
+						Selamat datang di Yayasan Dream Korean Language Learning Center.
+						Kami membuka peluang bagi generasi muda Indonesia melalui
+						program kursus bahasa Korea, persiapan TOPIK, dan program spesialis guru.
+						Kami melihat tingginya minat generasi muda Indonesia untuk belajar bahasa Korea, namun masih
+						terbatasnya tenaga ahli dan kesempatan meraih sertifikasi TOPIK. Kehadiran yayasan ini diharapkan
+						menjadi jembatan, sekaligus fondasi kerja sama pendidikan yang saling menguntungkan antara Indonesia dan
+						Korea.
+					</p>
+					<p>
+						Mari bersama kita wujudkan visi dan harapan melalui bahasa.
+					</p>
+					<p>
+						Terima kasih.
+					</p>
+					<span style="font-weight: bold;">Lee Seon-ah</span> <br />Director of YAYASAN Dream Korean Language Learning
+					Center
+					<!-- <a href="#" class="btn btn-primary">Pengenalan Lanjut</a> -->
+				</div>
+			</div>
+			<div class="offset-6"></div>
+		</div>
+	</div>
 
 	<div class="section light-bg" id="fasilitas">
 		<div class="container">
@@ -98,6 +141,7 @@
 					<div class="card features">
 						<div class="card-body">
 							<div class="media">
+								<!-- <span class="ti-face-smile gradient-fill ti-3x mr-3"></span> -->
 								<div class="media-body">
 									<h4 class="card-title">Kursus Spesialis Bahasa Korea</h4>
 									<p class="card-text">
@@ -159,78 +203,47 @@
 			</div>
 
 			<div class="row pt-4">
-				<div class="col-md-4 pb-5">
+				<div class="col-md-4">
 					<p>
-						Setiap program kami rancang sesuai dengan fase perjalanan belajarmu.
+						Di sini, setiap program kami rancang sesuai dengan fase perjalanan belajarmu.
 						Mulai dari level dasar, persiapan ujian TOPIK, kursus spesialis, hingga program
 						untuk calon pengajar bahasa Korea profesional.
 					</p>
-					<a href="404.html" class="btn btn-primary">Lihat Semua Kelas</a>
+					<a href="<?= url_to('coming-soon') ?>" class="btn btn-primary">Lihat Semua Kelas</a>
 				</div>
-				<div class="col-md-8">
-					<div class="row">
-						<div class="col-lg-6">
-							<div class="card features">
-								<div class="card-body">
-									<div class="media">
-										<div class="media-body">
-											<h4 class="card-title">Program Pelatihan Guru Bahasa Korea (Spesialis)</h4>
-											<ul style="padding-left: 1rem;">
-												<li>Overview Kelas</li>
-												<li>Kurikulum Kelas</li>
-												<li>Pengenalan Instruktur</li>
-												<li>Jadwal Kelas</li>
-												<li>Aturan dan Kebijakan Pengembalian Dana</li>
-											</ul>
-											<a href="course.html" style="font-size: 1rem;">Detail Program &Rarr;</a>
-										</div>
-									</div>
+				<div class="col-md-4">
+					<div class="card features">
+						<div class="card-body">
+							<div class="media">
+								<div class="media-body">
+									<h4 class="card-title">Program Pelatihan Guru Bahasa Korea (Spesialis)</h4>
+									<ul style="padding-left: 1rem;">
+										<li>Overview Kelas</li>
+										<li>Kurikulum Kelas</li>
+										<li>Pengenalan Instruktur</li>
+										<li>Jadwal Kelas</li>
+										<li>Aturan dan Kebijakan Pengembalian Dana</li>
+									</ul>
+									<a href="<?= url_to('course-guru-bahasa') ?> " style="font-size: 1rem;">Detail Program &Rarr;</a>
 								</div>
 							</div>
 						</div>
-						<div class="col-lg-6">
-							<div class="card features">
-								<div class="card-body">
-									<div class="media">
-										<div class="media-body">
-											<h4 class="card-title">Pelatihan Persiapan TOPIK</h4>
-											<ul style="padding-left: 1rem;">
-												<li>Overview Kelas</li>
-												<li>Kurikulum Kelas</li>
-												<li>Pengenalan Instruktur</li>
-												<li>Jadwal Kelas</li>
-												<li>Aturan dan Kebijakan Pengembalian Dana</li>
-											</ul>
-											<a href="course.html" style="font-size: 1rem;">Detail Program &Rarr;</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-12 my-4"></div>
-						<div class="col-lg-6">
-							<div class="card features">
-								<div class="card-body">
-									<div class="media">
-										<div class="media-body">
-											<h4 class="card-title">Program Kursus</h4>
-											<p>Kursus Bahasa Korea untuk Tujuan Khusus.</p>
-											<span>Isi Pelatihan</span>
-											<ul style="padding-left: 1rem;">
-												<li>Bahasa Korea dasar serta Bahasa Korea untuk bidang khusus</li>
-											</ul>
-											<span>Waktu Pelatihan</span>
-											<ul style="padding-left: 1rem;">
-												<li>Ditentukan dengan mempertimbangkan tingkat kemampuan peserta</li>
-											</ul>
-											<span>Kriteria Kelulusan</span>
-											<ul style="padding-left: 1rem;">
-												<li>Kehadiran minimal 80%</li>
-												<li>Nilai ujian minimal 60 poin</li>
-											</ul>
-											<a href="course.html" style="font-size: 1rem;">Detail Program &Rarr;</a>
-										</div>
-									</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="card features">
+						<div class="card-body">
+							<div class="media">
+								<div class="media-body">
+									<h4 class="card-title">Pelatihan Persiapan TOPIK</h4>
+									<ul style="padding-left: 1rem;">
+										<li>Overview Kelas</li>
+										<li>Kurikulum Kelas</li>
+										<li>Pengenalan Instruktur</li>
+										<li>Jadwal Kelas</li>
+										<li>Aturan dan Kebijakan Pengembalian Dana</li>
+									</ul>
+									<a href="<?= url_to('course-topik') ?>" style="font-size: 1rem;">Detail Program &Rarr;</a>
 								</div>
 							</div>
 						</div>
@@ -241,13 +254,12 @@
 	</div>
 	<!-- // end .section -->
 
-	<div class="section py-2" id="komunitas">
+	<!-- section -->
+	<div class="section py-5" id="komunitas">
 		<div class="container py-5">
 			<div class="row">
-				<div class="col-md-6 pb-5 text-center">
-					<img src="<?= base_url('images/community.png') ?>" class="mt-4" style="width: 75%;" />
-				</div>
-				<div class="col-md-6">
+				<div class="offset-6"></div>
+				<div class="col-6">
 					<h3>Komunitas Dream Hangul</h3>
 					<p>
 						Bergabunglah dengan forum kami di Komunitas Dream Korean. Di sini Anda
@@ -255,11 +267,12 @@
 						acara, hingga seru-seruan menikmati galeri kegiatan. Tempat ini hadir
 						untuk saling terhubung, berbagi, dan membuka peluang baru bersama.
 					</p>
-					<a href="bulletin.html" class="btn btn-primary">Jelajahi Forum Kami</a>
+					<a href="<?= url_to('coming-soon') ?>" class="btn btn-primary">Jelajahi Forum Kami</a>
 				</div>
 			</div>
 		</div>
 	</div>
+	<!-- // end .section -->
 
 	<div class="light-bg py-5" id="contact">
 		<div class="container py-5">
@@ -285,9 +298,9 @@
 				</div>
 				<div class="col-lg-6">
 					<div class="social-icons">
-						<a href="#"><span class="ti-facebook"></span></a>
-						<a href="#"><span class="ti-twitter-alt"></span></a>
-						<a href="#"><span class="ti-instagram"></span></a>
+						<a href="<?= url_to('coming-soon') ?>"><span class="ti-facebook"></span></a>
+						<a href="<?= url_to('coming-soon') ?>"><span class="ti-twitter-alt"></span></a>
+						<a href="<?= url_to('coming-soon') ?>"><span class="ti-instagram"></span></a>
 					</div>
 				</div>
 			</div>
@@ -302,22 +315,22 @@
 		</p>
 
 		<small>
-			<a href="#" class="m-2">PRESS</a>
-			<a href="#" class="m-2">TERMS</a>
-			<a href="#" class="m-2">PRIVACY</a>
-			<a href="#" class="m-2">REGISTRASI</a>
-			<a href="#" class="m-2">KONTAK</a>
-			<a href="#" class="m-2">TENTANG KAMI</a>
+			<a href="<?= url_to('coming-soon') ?>" class="m-2">PRESS</a>
+			<a href="<?= url_to('coming-soon') ?>" class="m-2">TERMS</a>
+			<a href="<?= url_to('coming-soon') ?>" class="m-2">PRIVACY</a>
+			<a href="<?= url_to('coming-soon') ?>" class="m-2">REGISTRASI</a>
+			<a href="<?= url_to('coming-soon') ?>" class="m-2">KONTAK</a>
+			<a href="<?= url_to('coming-soon') ?>" class="m-2">TENTANG KAMI</a>
 		</small>
 	</footer>
 
 	<!-- jQuery and Bootstrap -->
-	<script src="js/jquery-3.2.1.min.js"></script>
-	<script src="js/bootstrap.bundle.min.js"></script>
+	<script src="/js/jquery-3.2.1.min.js"></script>
+	<script src="/js/bootstrap.bundle.min.js"></script>
 	<!-- Plugins JS -->
-	<script src="js/owl.carousel.min.js"></script>
+	<script src="/js/owl.carousel.min.js"></script>
 	<!-- Custom JS -->
-	<script src="js/script.js"></script>
+	<script src="/js/script.js"></script>
 </body>
 
 </html>

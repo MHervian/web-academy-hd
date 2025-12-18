@@ -645,3 +645,21 @@ header {
         margin-top: 2rem;
     }
 }
+
+/** CUSTOM */
+.navbar-brand-small {
+    display: inline;
+}
+
+.navbar-brand-big {
+    display: none;
+}
+
+@media (min-width: 600px) {
+    .navbar-brand-small {
+        display: none;
+    }
+    .navbar-brand-big {
+        display: inline;
+    }
+}
