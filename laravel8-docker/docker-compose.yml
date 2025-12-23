@@ -1,0 +1,34 @@
+version: "3.9"
+
+services:
+  apache:
+    build: ./apache
+    # image: httpd:2.4
+    container_name: laravel_apache
+    ports:
+      - "8585:80"
+    volumes:
+      - ./../backend-dev1:/var/www/html
+      # - ./apache/vhost.conf:/usr/local/apache2/conf/extra/vhost.conf
+    depends_on:
+      - php
+    # command: >
+    #   sh -c "echo 'Include conf/extra/vhost.conf' 
+    #   >> /usr/local/apache2/conf/httpd.conf &&
+    #   httpd-foreground"
+
+  php:
+    # image: php:8.1-fpm  
+    build:
+      context: .
+      dockerfile: php/Dockerfile
+    container_name: laravel_php
+    volumes:
+      - ./../backend-dev1:/var/www/html
+    # Perintah di bawah ini dijalankan saat 'docker run' / 'docker-compose up'
+    # Uncomment untuk aktifkan di VPS (PENTING)
+    command: >
+      sh -c "composer install --no-interaction --optimize-autoloader && 
+             php artisan key:generate --no-interaction --force && 
+             chown -R www-data:www-data storage bootstrap/cache &&
+             php-fpm"
