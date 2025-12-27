@@ -15,3 +15,7 @@ $routes->get('/course-pelatihan-guru-bahasa-korea', 'Home::courseGuruBahasa', ['
 $routes->get('/notifikasi', 'Home::notifikasi', ['as' => 'notifikasi']);
 $routes->get('/sertifikat', 'Home::sertifikat', ['as' => 'sertifikat']);
 $routes->get('/kelas', 'Home::kelas', ['as' => 'kelas']);
+$routes->get('/auth/login', 'Auth::login', ['as' => 'auth-login']);
+$routes->get('/auth/register', 'Auth::register', ['as' => 'auth-regiter']);
+$routes->get('/auth/callback', 'Auth::callback');
+$routes->get('/auth/logout', 'Auth::logout');

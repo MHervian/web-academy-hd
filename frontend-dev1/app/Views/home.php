@@ -55,7 +55,7 @@
 									<a class="nav-link" href="#komunitas">KOMUNITAS</a>
 								</li>
 								<li class="nav-item">
-									<a href="<?= url_to('registrasi') ?>"
+									<a href="<?= base_url('auth/login') ?>"
 										class="btn btn-outline-light my-3 my-sm-0 ml-lg-3">Daftar</a>
 								</li>
 							</ul>
