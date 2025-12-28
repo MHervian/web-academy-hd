@@ -13,7 +13,7 @@
       <li><a href="#" class="px-3">Forum</a></li>
       <li><a href="<?= url_to('notifikasi') ?>" class="px-3">Notifikasi</a></li>
       <li><a href="#" class="px-3">Akun</a></li>
-      <li><a href="<?= url_to('login') ?>" class="px-3">Logout</a></li>
+      <li><a href="<?= base_url('auth/login') ?>" class="px-3">Logout</a></li>
     </ul>
   </nav>
 </header>
