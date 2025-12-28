@@ -63,7 +63,7 @@
           </h2>
           <a href="{{ route('create-program') }}" class="btn btn-info">Buat Program</a>
         </div>
-        <p>Data Program/Course akademi HangulDream.</p>
+        <p>Data Program/Course akademi HangulDream yang dibuka.</p>
         @if (count($programs) > 0)
           <table>
             <thead>
