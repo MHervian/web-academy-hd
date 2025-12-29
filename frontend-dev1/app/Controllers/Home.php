@@ -6,7 +6,23 @@ class Home extends BaseController
 {
 	public function index(): string
 	{
-		return view('home');
+		return view('landing-page/index');
+	}
+	public function course(): string
+	{
+		return view('landing-page/course');
+	}
+	public function coursedetail(): string
+	{
+		return view('landing-page/course-detail');
+	}
+	public function communitiy(): string
+	{
+		return view('landing-page/index');
+	}
+	public function aboutus(): string
+	{
+		return view('landing-page/tentang-akademi');
 	}
 
 	public function registrasi(): string
@@ -21,7 +37,12 @@ class Home extends BaseController
 
 	public function memberBeranda(): string
 	{
-		return view('member-home');
+		return view('member-page/member-home');
+	}
+
+	public function lcomingSoon(): string
+	{
+		return view('landing-page/coming-soon');
 	}
 
 	public function comingSoon(): string
@@ -41,16 +62,16 @@ class Home extends BaseController
 
 	public function notifikasi(): string
 	{
-		return view('notifikasi');
+		return view('member-page/notifikasi');
 	}
 
 	public function sertifikat(): string
 	{
-		return view('sertifikat');
+		return view('member-page/sertifikat');
 	}
 
 	public function kelas()
 	{
-		return view('kelas');
+		return view('member-page/kelas');
 	}
 }
