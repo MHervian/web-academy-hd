@@ -7,6 +7,7 @@ use App\Models\KurikulumModel;
 use App\Models\ProgramModel;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class ProgramController extends Controller
@@ -21,6 +22,14 @@ class ProgramController extends Controller
 		}
 
 		$programs = ProgramModel::all();
+		$programs = ProgramModel::leftJoin('program_kelas', 'program_kelas.programId', '=', 'program.programId')
+			->select('program.programId', 'program.nama', 'program.isOpen', DB::raw('count(program_kelas.kelasId) as total_kelas'))
+			->groupBy('program.programId')
+			->get();
+
+		// echo "<pre>";
+		// var_dump($programs);
+		// echo "</pre>";
 
 		return view('program', compact('programs'));
 	}
