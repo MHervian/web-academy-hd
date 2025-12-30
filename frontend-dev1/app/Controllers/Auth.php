@@ -22,13 +22,13 @@ class Auth extends BaseController
     public function login()
     {
         $data['login_url'] = $this->googleClient->createAuthUrl();
-        return view('login', $data);
+        return view('member-page/user-access', $data);
     }
 
     public function register()
     {
         $data['login_url'] = $this->googleClient->createAuthUrl();
-        return view('registrasi', $data);
+        return view('member-page/user-registration', $data);
     }
 
     public function callback()
@@ -81,6 +81,35 @@ class Auth extends BaseController
         }
 
         return redirect()->to('/auth/login')->with('error', 'Login Gagal');
+    }
+
+    public function loginWithEmail()
+    {
+        $email    = $this->request->getPost('email');
+        $password = $this->request->getPost('password');
+
+        $userModel = new \App\Models\UserModel();
+        $user = $userModel->where('email', $email)->first();
+
+        if (!$user) {
+            return redirect()->back()->withInput()->with('errors', [
+                'Email tidak terdaftar'
+            ]);
+        }
+
+        if (!password_verify($password, $user['password'])) {
+            return redirect()->back()->withInput()->with('errors', [
+                'Password salah'
+            ]);
+        }
+
+        session()->set([
+            'user_id' => $user['id'],
+            'email'   => $user['email'],
+            'isLogin' => true,
+        ]);
+
+        return redirect()->to('/beranda-member');
     }
 
     public function logout()

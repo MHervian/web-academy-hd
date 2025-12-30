@@ -25,7 +25,7 @@
 </head>
 
 <body>
-	<?= $this->include('header') ?>
+	<?= $this->include('member-page/header') ?>
 
 	<div class="px-6 md:px-7 pt-25 pb-7 bg-[#19253f]">
 		<h1 class="py-6 text-white text-4xl">Notifikasi</h1>
