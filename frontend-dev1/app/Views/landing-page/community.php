@@ -351,7 +351,7 @@
             </section>
 
             <!-- Media -->
-            <section class="h-full border-t pt-6">
+            <section class="h-full pt-6">
 
                 <h1 class="text-gray-600 mb-2 text-3xl font-bold">
                     Siaran Pers Media
@@ -417,7 +417,7 @@
             </section>
 
             <!-- Q&A -->
-            <section class="h-full border-t pt-6">
+            <section class="h-full pt-6">
                 <h1 class="text-gray-600 mb-2 text-3xl font-bold">
                     Tanya Jawab (Q&amp;A)
                 </h1>
