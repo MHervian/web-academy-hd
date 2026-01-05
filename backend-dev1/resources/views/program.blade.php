@@ -63,13 +63,15 @@
           </h2>
           <a href="{{ route('create-program') }}" class="btn btn-info">Buat Program</a>
         </div>
-        <p>Data Program/Course akademi HangulDream.</p>
+        <p>Data Program/Course akademi HangulDream yang dibuka.</p>
         @if (count($programs) > 0)
           <table>
             <thead>
               <tr>
                 <th>No</th>
                 <th>Nama Program/Course</th>
+                <th>Status Program</th>
+                <th>Total Kelas</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -78,6 +80,16 @@
                 <tr>
                   <td>{{ $loop->iteration }}</td>
                   <td>{{ $program->nama }}</td>
+                  <td>
+                    @if ($program->isOpen == '1')
+                      <span
+                        style="display: inline-block; padding: 0.2rem 1.2rem; text-align: center; color: white; background-color: green;">Open</span>
+                    @else
+                      <span
+                        style="display: inline-block; padding: 0.2rem 1.2rem; text-align: center; color: black; background-color: lightgray;">Close</span>
+                    @endif
+                  </td>
+                  <td>{{ $program->total_kelas }}</td>
                   <td>
                     <a href="{{ route('program-detail', ['programId' => $program->programId]) }}"
                       class="bttn-detail">Detail</a>
