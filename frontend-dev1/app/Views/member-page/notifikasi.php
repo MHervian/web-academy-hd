@@ -9,8 +9,8 @@
 
 	<link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet" />
 	<!-- Tailwind CSS -->
-	<!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
-	<link rel="stylesheet" href="<?= base_url('css/output.css') ?>" />
+	<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+	<!-- <link rel="stylesheet" href="<?= base_url('css/output.css') ?>" /> -->
 	<!-- Font Awesome 7 -->
 	<link rel="stylesheet"
 		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
@@ -31,14 +31,39 @@
 		<h1 class="py-6 text-white text-4xl">Notifikasi</h1>
 	</div>
 
-	<div class="px-6 md:px-7 py-6 bg-gray-50">
-		<div class="py-5"></div>
-		<p class="text-2xl">Notifikasi Kosong.</p>
-		<div class="py-5"></div>
-		<div class="py-5"></div>
+	<?php if (empty($notifikasi)) : ?>
+		<div class="px-6 md:px-7 py-6 bg-gray-50">
+			<div class="py-5"></div>
+			<p class="text-2xl">Notifikasi Kosong.</p>
+			<div class="py-5"></div>
+			<div class="py-5"></div>
+		</div>
+	<?php endif; ?>
+
+	<div class="p-5">
+		<?php foreach ($notifikasi as $item) { ?>
+			<div class="flex p-3 bg-gray-100 m-3 rounded-md justify-between" onclick="window.location.href='<?= base_url('notifikasi-detail/' . $item['noteId']) ?>'">
+				<div class="flex">
+					<!-- <div class="p-3">
+						<h2>image</h2>
+					</div> -->
+					<div>
+						<h1 class="font-bold"><?= $item['judul'] ?></h1>
+						<p><?= $item['deskripsi'] ?></p>
+					</div>
+				</div>
+				<div class="text-right">
+					<h5><?= date('H:i', strtotime($item['date_created'])) ?></h5>
+					<h5><?= $item['date_post'] ?></h5>
+				</div>
+			</div>
+		<?php } ?>
 	</div>
 
-	<div class="px-5 py-5">
+
+
+
+	<div class="px-5 py-5 bottom absolute inset-x-0 bottom-0">
 		<p class="text-center">&copy;DreamTemplate 2026</p>
 	</div>
 </body>

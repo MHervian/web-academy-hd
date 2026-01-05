@@ -1,5 +1,5 @@
 <!-- Header -->
-<header>
+<header class="sticky top-0 z-[1000]">
     <div class="flex justify-between items-center py-4 px-5 bg-[#1B2740]">
         <a href="#" class="inline-block">
             <!-- Mobile logo display -->
@@ -28,7 +28,7 @@
             <div class="hidden md:flex justify-between">
                 <a href="<?= base_url('/') ?>" class="px-3 py-2 text-white">Beranda</a>
                 <a href="<?= base_url('/course') ?>" class="px-3 py-2 text-white">Kursus</a>
-                <a href="<?= base_url('/coming-soon-landing-page') ?>" class="px-3 py-2 text-white">Komunitas</a>
+                <a href="<?= base_url('/community') ?>" class="px-3 py-2 text-white">Komunitas</a>
                 <a href="<?= base_url('/about-us') ?>" class="px-3 py-2 text-white">Tentang Akademi</a>
                 <a
                     href="<?= base_url('/auth/register') ?>"
@@ -46,7 +46,7 @@
         <!-- <div class="py-1"></div> -->
         <a href="<?= base_url('/course') ?>" class="text-white py-2"> Kursus </a>
         <!-- <div class="py-1"></div> -->
-        <a href="<?= base_url('/coming-soon-landing-page') ?>" class="text-white py-2"> Komunitas </a>
+        <a href="<?= base_url('/community') ?>" class="text-white py-2"> Komunitas </a>
         <!-- <div class="py-1"></div> -->
         <a href="<?= base_url('/about-us') ?>" class="text-white py-2">
             Tentang Akademi

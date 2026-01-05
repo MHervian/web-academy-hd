@@ -16,9 +16,9 @@ class Home extends BaseController
 	{
 		return view('landing-page/course-detail');
 	}
-	public function communitiy(): string
+	public function community(): string
 	{
-		return view('landing-page/index');
+		return view('landing-page/community');
 	}
 	public function aboutus(): string
 	{

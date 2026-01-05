@@ -24,81 +24,102 @@
   <?= $this->include('landing-page/header') ?>
   <!-- /Header -->
 
+  <nav class="text-sm font-medium text-on-surface dark:text-on-surface-dark p-5" aria-label="breadcrumb">
+    <ol class="flex flex-wrap items-center gap-2">
+      <li class="flex items-center gap-2">
+        <a href="<?= base_url('course') ?>" class="hover:text-on-surface-strong dark:hover:text-on-surface-dark-strong">Kursus</a>
+        <span aria-hidden="true">/</span>
+      </li>
+      <li class="text-on-surface-strong font-bold dark:text-on-surface-dark-strong" aria-current="page">Program Pendidikan Guru (Spesialis) Bahasa Korea</li>
+    </ol>
+  </nav>
+
   <!-- Main content -->
   <main>
-    <div class="sm:grid sm:grid-cols-2">
-      <div class="sm:col-span-1 pb-10 pt-10 px-5">
-        <div class="pb-6">
-          <a href="<?= base_url('/') ?>">Beranda</a> / <a href="<?= base_url('course') ?>">Kursus</a> / Program Pelatihan Guru
-        </div>
-        <h1 class="text-[#1B2740] text-3xl font-bold">Program Pelatihan Guru Bahasa Korea (Spesialis)</h1>
-        <div class="py-3.5"></div>
-        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-          class="rounded-lg" />
-        <div class="pt-8 pb-4">
-          <h3 class="text-2xl">Tentang Kursus</h3>
-          <p class="py-3">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto harum, dolore, velit, perspiciatis consequatur dignissimos
-            corrupti odio tempore cupiditate ea mollitia dolorem! Minima cupiditate consectetur consequuntur ut mollitia architecto ipsa.
-          </p>
-        </div>
-        <div class="">
-          <h3 class="text-2xl pb-5">Instruktur Kursus</h3>
-          <div class="flex items-center gap-x-4">
-            <img src="image_samples/teacher_sample.jpg" class="w-20 h-20 rounded-[100%]" />
-            <p class="font-bold">John Doe</p>
-          </div>
-        </div>
-      </div>
-      <div class="sm:col-span-1 pb-10 px-5">
-        <div class="px-4 py-9 bg-[#faf6fb] shadow-md rounded-lg">
-          <h4 class="text-[1.2rem] font-bold pb-4">Link Dokumen Kursus</h4>
-          <a href="#" class="block pb-4.5 text-[#633991]">
-            <i class="fa-solid fa-file-arrow-down"></i> Unduh Kurikulum Kursus
-          </a>
-          <a href="#" class="block pb-3 text-[#633991]">
-            <i class="fa-solid fa-file-arrow-down"></i> Unduh Jadwal Kelas Kursus
-          </a>
-          <div class="py-3.5"></div>
-          <h4 class="text-[1.2rem] font-bold pb-4">Daftar Kursus</h4>
-          <a href="<?= base_url('auth/login') ?>" class="block w-full py-3 md:py-2 border-2 border-solid border-[#e54595] bg-[#e54595]
-            text-white text-center rounded-lg cursor-pointer">
-            Masuk
-          </a>
-          <div class="py-2.5 md:py-1.5"></div>
-          <!-- <a href="<?= base_url() ?>" type="button" class="flex items-center justify-center gap-3 bg-white border border-gray-300 text-gray-700 font-medium py-3 md:py-2 px-4 rounded-lg 
-              hover:bg-gray-50 hover:shadow-md transition-all duration-200 ease-in-out w-full cursor-pointer">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 48 48">
-              <path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8c-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4C12.955 4 4 12.955 4 24s8.955 20 20 20s20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z" />
-              <path fill="#FF3D00" d="m6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4C16.318 4 9.656 8.337 6.306 14.691z" />
-              <path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.91 11.91 0 0 1 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.276 44 24 44z" />
-              <path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 0 1-4.087 5.571l.003-.002l6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z" />
-            </svg>
-            <span>Masuk dengan Google</span>
-          </a> -->
-        </div>
-      </div>
-    </div>
+    <div class="max-w-5xl mx-auto space-y-8 p-5">
 
-    <!-- Detail Program/Course -->
-    <!-- / Detail Program/Course -->
-
-    <div class="bg-[#faf6fb]">
-      <div class="lg:grid lg:grid-cols-2 px-5 pt-14 pb-9 md:w-[90%] lg:w-245 md:m-auto">
-        <div class="lg:col-span-1">
-          <p class="pb-3 text-[#633991]"><i class="fa-solid fa-location-dot text-[#1B2740]"></i> Jalan K.H. Mas Mansyur, Citywalk, Jakarta Selatan, Jakarta, Indonesia</p>
-          <div class="flex gap-x-6.5">
-            <span class="text-[#633991]"><i class="fa-solid fa-envelope text-[#1B2740]"></i> hangulcs@hangul.co.id</span>
-            <span class="text-[#633991]"><i class="fa-solid fa-phone text-[#1B2740]"></i> +62939392892</span>
-          </div>
-        </div>
-        <div class="lg:col-span-1 pt-3">
-          <a href="#" class="text-4xl text-[#633991]"><i class="fa-brands fa-square-instagram"></i></a>
-          <a href="#" class="text-4xl text-[#633991]"><i class="fa-brands fa-youtube"></i></a>
-          <a href="#" class="text-4xl text-[#633991]"><i class="fa-brands fa-square-x-twitter"></i></a>
-          <a href="#" class="text-4xl text-[#633991]"><i class="fa-brands fa-square-linkedin"></i></a>
-        </div>
+      <!-- Header Program -->
+      <div class="bg-white p-6 rounded-lg shadow">
+        <h1 class="text-2xl font-bold mb-2">
+          한국어 교원(전문가) 과정
+        </h1>
+        <h2 class="text-xl text-gray-700 font-semibold">
+          Program Pendidikan Guru (Spesialis) Bahasa Korea
+        </h2>
+        <p class="text-gray-600 mt-3">
+          Program ini dirancang untuk mencetak tenaga pengajar Bahasa Korea
+          yang profesional dan kompeten melalui kurikulum terstruktur
+          serta pengajar berpengalaman.
+        </p>
       </div>
+
+      <!-- Gambaran Umum -->
+      <div class="bg-white p-6 rounded-lg shadow">
+        <h3 class="text-lg font-semibold mb-3">
+          📘 Gambaran Umum Program
+        </h3>
+        <p class="text-gray-700 leading-relaxed">
+          Program Pendidikan Guru Bahasa Korea merupakan program pelatihan
+          khusus bagi calon dan guru Bahasa Korea untuk meningkatkan
+          kompetensi pedagogik, linguistik, dan metodologi pengajaran
+          sesuai standar pendidikan Korea dan Indonesia.
+        </p>
+      </div>
+
+      <!-- Kurikulum -->
+      <div class="bg-white p-6 rounded-lg shadow">
+        <h3 class="text-lg font-semibold mb-3">
+          📚 Kurikulum
+        </h3>
+        <ul class="list-disc ml-5 space-y-2 text-gray-700">
+          <li>Metodologi Pengajaran Bahasa Korea</li>
+          <li>Linguistik Bahasa Korea</li>
+          <li>Penyusunan Materi dan Media Pembelajaran</li>
+          <li>Evaluasi dan Asesmen Pembelajaran</li>
+          <li>Praktik Mengajar (Teaching Practice)</li>
+        </ul>
+      </div>
+
+      <!-- Profil Pengajar -->
+      <div class="bg-white p-6 rounded-lg shadow">
+        <h3 class="text-lg font-semibold mb-3">
+          👩‍🏫 Profil Pengajar
+        </h3>
+        <p class="text-gray-700 leading-relaxed">
+          Pengajar berasal dari akademisi dan praktisi berpengalaman
+          di bidang pengajaran Bahasa Korea, baik dari Indonesia
+          maupun Korea Selatan, dengan kualifikasi dan sertifikasi
+          yang relevan.
+        </p>
+      </div>
+
+      <!-- Jadwal -->
+      <div class="bg-white p-6 rounded-lg shadow">
+        <h3 class="text-lg font-semibold mb-3">
+          🗓️ Jadwal Perkuliahan
+        </h3>
+        <p class="text-gray-700">
+          Jadwal perkuliahan disusun secara fleksibel dan akan
+          diinformasikan kepada peserta sebelum program dimulai.
+          Program dapat dilaksanakan secara tatap muka maupun daring
+          sesuai ketentuan.
+        </p>
+      </div>
+
+      <!-- Biaya -->
+      <div class="bg-white p-6 rounded-lg shadow">
+        <h3 class="text-lg font-semibold mb-3">
+          💳 Biaya Kuliah & Ketentuan Pengembalian
+        </h3>
+        <p class="text-gray-700 leading-relaxed">
+          Biaya kuliah ditetapkan sesuai dengan durasi dan
+          fasilitas program. Ketentuan pembayaran serta
+          pengembalian dana (refund) mengikuti peraturan
+          yang berlaku dan akan dijelaskan secara rinci
+          pada saat pendaftaran.
+        </p>
+      </div>
+
     </div>
   </main>
   <!-- / Main Content -->

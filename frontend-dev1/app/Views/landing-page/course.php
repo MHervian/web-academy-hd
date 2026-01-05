@@ -27,6 +27,9 @@
   <?= $this->include('landing-page/header') ?>
   <!-- /Header -->
 
+  
+
+
   <!-- Main content -->
   <main>
     <div
@@ -56,73 +59,50 @@
     <div class="bg-[#faf6fb]">
       <div
         class="grid grid-cols-1 md:grid-cols-2 md:gap-x-5 gap-y-6 md:w-[90%] lg:w-245 md:m-auto px-5 py-13">
-        <div class="col-span-1">
-          <div
-            class="relative p-6 rounded-tr-lg rounded-br-lg bg-white border border-white/5 shadow-md before:absolute before:top-0 before:bottom-0 before:left-0 before:w-[3px] before:bg-linear-to-b before:from-[#9477b4] before:to-[#fc73b4] before:content-['']">
-            <h3 class="text-[#633991] font-bold text-xl mb-2">
-              Program Pelatihan Guru Bahasa Korea (Spesialis)
-            </h3>
-            <ul class="pl-4 list-disc">
-              <li>Kurikulum Kelas</li>
-              <li>Penganalan Instruktur</li>
-              <li>Jadwal Kelas</li>
-              <li>Aturan dan Kebijakan Pengembalian Dana</li>
-            </ul>
-            <div class="py-2"></div>
-            <a href="<?= base_url('course-detail') ?>" class="text-[#e54595] font-bold">Detail Program</a>
-          </div>
-        </div>
 
-        <div class="col-span-1">
-          <div
-            class="relative p-6 rounded-tr-lg rounded-br-lg bg-white border border-white/5 shadow-md before:absolute before:top-0 before:bottom-0 before:left-0 before:w-[3px] before:bg-linear-to-b before:from-[#9477b4] before:to-[#fc73b4] before:content-['']">
-            <h3 class="text-[#633991] font-bold text-xl mb-2">
-              Program Pelatihan Guru Bahasa Korea (Spesialis)
-            </h3>
-            <ul class="pl-4 list-disc">
-              <li>Kurikulum Kelas</li>
-              <li>Penganalan Instruktur</li>
-              <li>Jadwal Kelas</li>
-              <li>Aturan dan Kebijakan Pengembalian Dana</li>
-            </ul>
-            <div class="py-2"></div>
-            <a href="<?= base_url('course-detail') ?>" class="text-[#e54595] font-bold">Detail Program</a>
+        <article class="group flex rounded-radius max-w-sm flex-col overflow-hidden border border-outline bg-surface-alt text-on-surface dark:border-outline-dark dark:bg-surface-dark-alt dark:text-on-surface-dark">
+          <div class="h-44 md:h-64 overflow-hidden">
+            <img src="https://penguinui.s3.amazonaws.com/component-assets/card-img-2.webp" class="object-cover transition duration-700 ease-out group-hover:scale-105" alt="view of a coastal Mediterranean village on a hillside, with small boats in the water." />
           </div>
-        </div>
+          <div class="flex flex-col gap-4 p-6">
+            <h3 class="text-balance text-xl lg:text-2xl font-bold text-on-surface-strong dark:text-on-surface-dark-strong" aria-describedby="tripDescription">Program Pendidikan Guru (Spesialis) Bahasa Korea</h3>
+            <p id="tripDescription" class="text-pretty text-sm mb-2">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec convallis augue quis dolor sagittis, id faucibus nisl feugiat. Duis et.
+            </p>
+            <a href="<?= base_url('course-detail') ?>" type="button" class="whitespace-nowrap bg-[#633991] px-4 py-2 text-center text-sm font-medium tracking-wide text-on-primary transition hover:opacity-75 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:opacity-100 active:outline-offset-0 dark:bg-primary-dark dark:text-on-primary-dark dark:focus-visible:outline-primary-dark rounded-radius">Detail</a>
+            <a href="<?= base_url('auth/register') ?>" type="button" class="whitespace-nowrap bg-primary px-4 py-2 text-center text-sm font-medium tracking-wide text-on-primary transition hover:opacity-75 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:opacity-100 active:outline-offset-0 dark:bg-primary-dark dark:text-on-primary-dark dark:focus-visible:outline-primary-dark rounded-radius">Book Now</a>
+          </div>
+        </article>
 
-        <div class="col-span-1">
-          <div
-            class="relative p-6 rounded-tr-lg rounded-br-lg bg-white border border-white/5 shadow-md before:absolute before:top-0 before:bottom-0 before:left-0 before:w-[3px] before:bg-linear-to-b before:from-[#9477b4] before:to-[#fc73b4] before:content-['']">
-            <h3 class="text-[#633991] font-bold text-xl mb-2">
-              Program Pelatihan Guru Bahasa Korea (Spesialis)
-            </h3>
-            <ul class="pl-4 list-disc">
-              <li>Kurikulum Kelas</li>
-              <li>Penganalan Instruktur</li>
-              <li>Jadwal Kelas</li>
-              <li>Aturan dan Kebijakan Pengembalian Dana</li>
-            </ul>
-            <div class="py-2"></div>
-            <a href="<?= base_url('course-detail') ?>" class="text-[#e54595] font-bold">Detail Program</a>
+        <article class="group flex rounded-radius max-w-sm flex-col overflow-hidden border border-outline bg-surface-alt text-on-surface dark:border-outline-dark dark:bg-surface-dark-alt dark:text-on-surface-dark">
+          <div class="h-44 md:h-64 overflow-hidden">
+            <img src="https://penguinui.s3.amazonaws.com/component-assets/card-img-2.webp" class="object-cover transition duration-700 ease-out group-hover:scale-105" alt="view of a coastal Mediterranean village on a hillside, with small boats in the water." />
           </div>
-        </div>
+          <div class="flex flex-col gap-4 p-6">
+            <h3 class="text-balance text-xl lg:text-2xl font-bold text-on-surface-strong dark:text-on-surface-dark-strong" aria-describedby="tripDescription">Program Persiapan TOPIK (Level 3-4)</h3>
+            <p id="tripDescription" class="text-pretty text-sm mb-2">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec convallis augue quis dolor sagittis, id faucibus nisl feugiat. Duis et.
+            </p>
+            <a href="<?= base_url('course-detail') ?>" type="button" class="whitespace-nowrap bg-[#633991] px-4 py-2 text-center text-sm font-medium tracking-wide text-on-primary transition hover:opacity-75 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:opacity-100 active:outline-offset-0 dark:bg-primary-dark dark:text-on-primary-dark dark:focus-visible:outline-primary-dark rounded-radius">Detail</a>
+            <a href="<?= base_url('auth/register') ?>" type="button" class="whitespace-nowrap bg-primary px-4 py-2 text-center text-sm font-medium tracking-wide text-on-primary transition hover:opacity-75 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:opacity-100 active:outline-offset-0 dark:bg-primary-dark dark:text-on-primary-dark dark:focus-visible:outline-primary-dark rounded-radius">Book Now</a>
+          </div>
+        </article>
 
-        <div class="col-span-1">
-          <div
-            class="relative p-6 rounded-tr-lg rounded-br-lg bg-white border border-white/5 shadow-md before:absolute before:top-0 before:bottom-0 before:left-0 before:w-[3px] before:bg-linear-to-b before:from-[#9477b4] before:to-[#fc73b4] before:content-['']">
-            <h3 class="text-[#633991] font-bold text-xl mb-2">
-              Program Pelatihan Guru Bahasa Korea (Spesialis)
-            </h3>
-            <ul class="pl-4 list-disc">
-              <li>Kurikulum Kelas</li>
-              <li>Penganalan Instruktur</li>
-              <li>Jadwal Kelas</li>
-              <li>Aturan dan Kebijakan Pengembalian Dana</li>
-            </ul>
-            <div class="py-2"></div>
-            <a href="<?= base_url('course-detail') ?>" class="text-[#e54595] font-bold">Detail Program</a>
+        <article class="group flex rounded-radius max-w-sm flex-col overflow-hidden border border-outline bg-surface-alt text-on-surface dark:border-outline-dark dark:bg-surface-dark-alt dark:text-on-surface-dark">
+          <div class="h-44 md:h-64 overflow-hidden">
+            <img src="https://penguinui.s3.amazonaws.com/component-assets/card-img-2.webp" class="object-cover transition duration-700 ease-out group-hover:scale-105" alt="view of a coastal Mediterranean village on a hillside, with small boats in the water." />
           </div>
-        </div>
+          <div class="flex flex-col gap-4 p-6">
+            <h3 class="text-balance text-xl lg:text-2xl font-bold text-on-surface-strong dark:text-on-surface-dark-strong" aria-describedby="tripDescription">Bahasa Korea untuk Tujuan Khusus</h3>
+            <p id="tripDescription" class="text-pretty text-sm mb-2">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec convallis augue quis dolor sagittis, id faucibus nisl feugiat. Duis et.
+            </p>
+            <a href="<?= base_url('course-detail') ?>" type="button" class="whitespace-nowrap bg-[#633991] px-4 py-2 text-center text-sm font-medium tracking-wide text-on-primary transition hover:opacity-75 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:opacity-100 active:outline-offset-0 dark:bg-primary-dark dark:text-on-primary-dark dark:focus-visible:outline-primary-dark rounded-radius">Detail</a>
+            <a href="<?= base_url('auth/register') ?>" type="button" class="whitespace-nowrap bg-primary px-4 py-2 text-center text-sm font-medium tracking-wide text-on-primary transition hover:opacity-75 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:opacity-100 active:outline-offset-0 dark:bg-primary-dark dark:text-on-primary-dark dark:focus-visible:outline-primary-dark rounded-radius">Book Now</a>
+          </div>
+        </article>
+
+
       </div>
     </div>
 
