@@ -58,7 +58,7 @@
     <!-- List data program/course -->
     <div class="bg-[#faf6fb]">
       <div
-        class="grid grid-cols-1 md:grid-cols-2 md:gap-x-5 gap-y-6 md:w-[90%] lg:w-245 md:m-auto px-5 py-13">
+        class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 md:gap-x-5 gap-y-6 md:w-[90%] lg:w-245 md:m-auto px-5 py-13 justify-items-center">
 
         <article class="group flex rounded-radius max-w-sm flex-col overflow-hidden border border-outline bg-surface-alt text-on-surface dark:border-outline-dark dark:bg-surface-dark-alt dark:text-on-surface-dark">
           <div class="h-44 md:h-64 overflow-hidden">
