@@ -59,109 +59,125 @@
   <!-- Main content -->
   <main>
     <section id="home">
-      <div
-        class="h-full pb-17 pt-10 px-5 bg-[radial-gradient(circle_at_30%_200%,#6D2A3A_0%,#30283F_40%,#1B2740_96%)]">
-        <h1 class="text-white md:text-center text-3xl">Akademi Dream Korean</h1>
-        <div class="py-2"></div>
-        <p class="text-white sm:w-130 md:w-150 md:text-center md:m-auto">
-          Menghadirkan program belajar bahasa Korea — mulai dari persiapan TOPIK
-          hingga program spesialis calon guru bahasa Korea.
-        </p>
+    <div
+  id="parallax"
+  class="relative min-h-[calc(100vh-80px)] bg-cover bg-center flex items-center justify-center"
+  style="background-image: url('/images/1.jpeg');"
+>
+    <!-- overlay -->
+    <div class="absolute inset-0 bg-black/50"></div>
 
-        <div class="py-4"></div>
+    <!-- content -->
+    <div class="relative z-10 px-5 pt-20 pb-24 text-white">
+      <h1 class="text-3xl md:text-center [text-shadow:0_2px_8px_rgba(0,0,0,0.7)]">Akademi Dream Korean</h1>
 
-        <div class="sm:flex md:justify-center sm:gap-x-2 md:gap-x-3 pb-5">
-          <a
-            href="<?= base_url('course') ?>"
-            class="block px-4 sm:w-67 py-3 text-center border rounded-lg border-[#BF2441] bg-[#BF2441] text-white font-bold">
-            Jelajah Program
-          </a>
-          <div class="md:hidden py-2.5"></div>
-          <a
-            href="<?= base_url('about-us') ?>"
-            class="block px-4 sm:w-67 py-3 text-center border rounded-lg border-white text-white">Tentang Akademi</a>
-        </div>
+      <p class="mt-4 md:mx-auto md:max-w-xl md:text-center [text-shadow:0_1px_6px_rgba(0,0,0,0.6)]">
+        Menghadirkan program belajar bahasa Korea — mulai dari persiapan TOPIK
+        hingga program spesialis calon guru bahasa Korea.
+      </p>
+
+      <div class="mt-6 flex flex-col gap-3 md:flex-row md:justify-center">
+      <a
+  href="<?= base_url('course') ?>"
+  class="rounded-lg px-6 py-3 font-bold text-white
+         bg-[rgba(191,36,65,0.4)]
+         hover:bg-[rgba(191,36,65,0.75)]
+         transition"
+>
+  Jelajah Program
+</a>
+        <a
+          href="<?= base_url('about-us') ?>"
+          class="rounded-lg border border-white px-6 py-3 shadow-lg hover:shadow-xl"
+        >
+          Tentang Akademi
+        </a>
       </div>
+    </div>
+  </div>
+</section>
 
-    </section>
 
     <section id="profile">
-      <div class="h-full mx-auto p-5">
-        <div class="flex justify-center my-5 font-bold">
-          <h1 class="text-2xl">Profile</h1>
+      <div class="h-full mx-auto max-w-7xl py-5">
+        <h1 class="text-2xl text-center p-5 font-bold">Profile</h1>
+        <div class="flex justify-center">
+          <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+            <article class="group flex rounded-radius max-w-sm flex-col overflow-hidden border border-outline bg-surface-alt text-on-surface dark:border-outline-dark dark:bg-surface-dark-alt dark:text-on-surface-dark">
+              <div class="aspect-video overflow-hidden">
+                <img src="/images/2.jpeg" class="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105" alt="a penguin robot talking with a human" />
+              </div>
+              <div class="flex flex-col gap-4 p-6">
+                <!-- <span class="text-sm font-medium">Dream Korean Language Learning Center</span> -->
+                <h3 class="text-balance text-xl lg:text-2xl font-bold text-on-surface-strong dark:text-on-surface-dark-strong" aria-describedby="featureDescription">Dream Korean Language Learning Center</h3>
+                <p id="featureDescription" class="text-pretty text-sm">
+                  Dream Korean Language Learning Center menyediakan program profesional bahasa Korea dan
+                  persiapan Ujian Kemahiran Bahasa Korea (TOPIK) bagi para pemuda Indonesia dengan biaya serendah
+                  mungkin dan kualitas pendidikan terbaik. Pada akhirnya, pusat ini bertujuan menjadi hub pendidikan
+                  bahasa Korea di Indonesia yang memungkinkan terwujudnya kerja sama saling menguntungkan
+                  antara Korea dan Indonesia.
+                </p>
+              </div>
+            </article>
+            <article class="group flex rounded-radius max-w-sm flex-col overflow-hidden border border-outline bg-surface-alt text-on-surface dark:border-outline-dark dark:bg-surface-dark-alt dark:text-on-surface-dark">
+              <div class="aspect-video overflow-hidden">
+                <img src="/images/3.jpeg" class="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105" alt="a penguin robot talking with a human" />
+              </div>
+              <div class="flex flex-col gap-4 p-6">
+                <!-- <span class="text-sm font-medium">Features</span> -->
+                <h3 class="text-balance text-xl lg:text-2xl font-bold text-on-surface-strong dark:text-on-surface-dark-strong" aria-describedby="featureDescription">Program Spesialis Bahasa Korea</h3>
+                <p id="featureDescription" class="text-pretty text-sm">
+                  Program pendidikan bahasa Korea dilaksanakan secara
+                  sistematis dengan menggunakan bahan ajar yang dikembangkan sendiri, berdasarkan
+                  pengalaman panjang dan keahlian akademis para dosen Jurusan Bahasa Korea di Universitas
+                  Indonesia (UI). Berbagai media dan materi pembelajaran diteliti serta dikembangkan sesuai
+                  dengan tingkat dan kebutuhan peserta didik untuk meningkatkan efektivitas pembelajaran.
+                  Melalui evaluasi, pusat ini memantau kemajuan belajar bahasa Korea para siswa, menilai
+                  pencapaian standar kelulusan, dan memberikan sertifikat kepada peserta yang memenuhi
+                  kriteria.
+                </p>
+              </div>
+            </article>
+            <article class="group flex rounded-radius max-w-sm flex-col overflow-hidden border border-outline bg-surface-alt text-on-surface dark:border-outline-dark dark:bg-surface-dark-alt dark:text-on-surface-dark">
+              <div class="aspect-video overflow-hidden">
+                <img src="/images/4.jpeg" class="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105" alt="a penguin robot talking with a human" />
+              </div>
+              <div class="flex flex-col gap-4 p-6">
+                <!-- <span class="text-sm font-medium">Features</span> -->
+                <h3 class="text-balance text-xl lg:text-2xl font-bold text-on-surface-strong dark:text-on-surface-dark-strong" aria-describedby="featureDescription">Program Persiapan Ujian Kemahiran Bahasa Korea (TOPIK)</h3>
+                <p id="featureDescription" class="text-pretty text-sm">
+                  Program intensif ini dirancang agar peserta dapat memperoleh level TOPIK 3–4 dalam waktu
+                  singkat, sebagai standar minimum yang dibutuhkan untuk studi di Korea maupun bekerja di
+                  perusahaan Korea
+                </p>
+              </div>
+            </article>
+            <article class="group flex rounded-radius max-w-sm flex-col overflow-hidden border border-outline bg-surface-alt text-on-surface dark:border-outline-dark dark:bg-surface-dark-alt dark:text-on-surface-dark">
+              <div class="aspect-video overflow-hidden">
+                <img src="/images/5.jpeg" class="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105" alt="a penguin robot talking with a human" />
+              </div>
+              <div class="flex flex-col gap-4 p-6">
+                <!-- <span class="text-sm font-medium">Features</span> -->
+                <h3 class="text-balance text-xl lg:text-2xl font-bold text-on-surface-strong dark:text-on-surface-dark-strong" aria-describedby="featureDescription">Tenaga Pengajar Profesional</h3>
+                <p id="featureDescription" class="text-pretty text-sm">
+                  Para pengajar yang memiliki gelar magister dan doktor di bidang bahasa
+                  Korea, serta pengalaman luas dan keahlian dalam pengajaran bahasa Korea, senantiasa berupaya
+                  mengembangkan metode dan materi pembelajaran yang efektif. Mereka membimbing peserta didik
+                  agar dapat menyelesaikan program dengan cepat dan efisien.
+                </p>
+              </div>
+            </article>
+          </div>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3 justify-items-center">
-          <article class="group flex rounded-radius max-w-sm flex-col overflow-hidden border border-outline bg-surface-alt text-on-surface dark:border-outline-dark dark:bg-surface-dark-alt dark:text-on-surface-dark">
-            <div class="h-44 md:h-64 overflow-hidden">
-              <img src="/images/close-up-people-studying-language-work.jpg" class="object-cover transition duration-700 ease-out group-hover:scale-105" alt="a penguin robot talking with a human" />
-            </div>
-            <div class="flex flex-col gap-4 p-6">
-              <!-- <span class="text-sm font-medium">Dream Korean Language Learning Center</span> -->
-              <h3 class="text-balance text-xl lg:text-2xl font-bold text-on-surface-strong dark:text-on-surface-dark-strong" aria-describedby="featureDescription">Dream Korean Language Learning Center</h3>
-              <p id="featureDescription" class="text-pretty text-sm">
-                Dream Korean Language Learning Center menyediakan program profesional bahasa Korea dan
-                persiapan Ujian Kemahiran Bahasa Korea (TOPIK) bagi para pemuda Indonesia dengan biaya serendah
-                mungkin dan kualitas pendidikan terbaik. Pada akhirnya, pusat ini bertujuan menjadi hub pendidikan
-                bahasa Korea di Indonesia yang memungkinkan terwujudnya kerja sama saling menguntungkan
-                antara Korea dan Indonesia.
-              </p>
-            </div>
-          </article>
-          <article class="group flex rounded-radius max-w-sm flex-col overflow-hidden border border-outline bg-surface-alt text-on-surface dark:border-outline-dark dark:bg-surface-dark-alt dark:text-on-surface-dark">
-            <div class="h-44 md:h-64 overflow-hidden">
-              <img src="/images/bonding-together-university-device-book-reading.jpg" class="object-cover transition duration-700 ease-out group-hover:scale-105" alt="a penguin robot talking with a human" />
-            </div>
-            <div class="flex flex-col gap-4 p-6">
-              <!-- <span class="text-sm font-medium">Features</span> -->
-              <h3 class="text-balance text-xl lg:text-2xl font-bold text-on-surface-strong dark:text-on-surface-dark-strong" aria-describedby="featureDescription">Program Spesialis Bahasa Korea</h3>
-              <p id="featureDescription" class="text-pretty text-sm">
-                Program pendidikan bahasa Korea dilaksanakan secara
-                sistematis dengan menggunakan bahan ajar yang dikembangkan sendiri, berdasarkan
-                pengalaman panjang dan keahlian akademis para dosen Jurusan Bahasa Korea di Universitas
-                Indonesia (UI). Berbagai media dan materi pembelajaran diteliti serta dikembangkan sesuai
-                dengan tingkat dan kebutuhan peserta didik untuk meningkatkan efektivitas pembelajaran.
-                Melalui evaluasi, pusat ini memantau kemajuan belajar bahasa Korea para siswa, menilai
-                pencapaian standar kelulusan, dan memberikan sertifikat kepada peserta yang memenuhi
-                kriteria.
-              </p>
-            </div>
-          </article>
-          <article class="group flex rounded-radius max-w-sm flex-col overflow-hidden border border-outline bg-surface-alt text-on-surface dark:border-outline-dark dark:bg-surface-dark-alt dark:text-on-surface-dark">
-            <div class="h-44 md:h-64 overflow-hidden">
-              <img src="/images/everyone-is-smiling-listens-group-people-business-conference-modern-classroom-daytime.jpg" class="object-cover transition duration-700 ease-out group-hover:scale-105" alt="a penguin robot talking with a human" />
-            </div>
-            <div class="flex flex-col gap-4 p-6">
-              <!-- <span class="text-sm font-medium">Features</span> -->
-              <h3 class="text-balance text-xl lg:text-2xl font-bold text-on-surface-strong dark:text-on-surface-dark-strong" aria-describedby="featureDescription">Program Persiapan Ujian Kemahiran Bahasa Korea (TOPIK)</h3>
-              <p id="featureDescription" class="text-pretty text-sm">
-                Program intensif ini dirancang agar peserta dapat memperoleh level TOPIK 3–4 dalam waktu
-                singkat, sebagai standar minimum yang dibutuhkan untuk studi di Korea maupun bekerja di
-                perusahaan Korea
-              </p>
-            </div>
-          </article>
-          <article class="group flex rounded-radius max-w-sm flex-col overflow-hidden border border-outline bg-surface-alt text-on-surface dark:border-outline-dark dark:bg-surface-dark-alt dark:text-on-surface-dark">
-            <div class="h-44 md:h-64 overflow-hidden">
-              <img src="/images/young-students-learning-library-bookshelves.jpg" class="object-cover transition duration-700 ease-out group-hover:scale-105" alt="a penguin robot talking with a human" />
-            </div>
-            <div class="flex flex-col gap-4 p-6">
-              <!-- <span class="text-sm font-medium">Features</span> -->
-              <h3 class="text-balance text-xl lg:text-2xl font-bold text-on-surface-strong dark:text-on-surface-dark-strong" aria-describedby="featureDescription">Tenaga Pengajar Profesional</h3>
-              <p id="featureDescription" class="text-pretty text-sm">
-                Para pengajar yang memiliki gelar magister dan doktor di bidang bahasa
-                Korea, serta pengalaman luas dan keahlian dalam pengajaran bahasa Korea, senantiasa berupaya
-                mengembangkan metode dan materi pembelajaran yang efektif. Mereka membimbing peserta didik
-                agar dapat menyelesaikan program dengan cepat dan efisien.
-              </p>
-            </div>
-          </article>
-        </div>
+
+        
 
       </div>
     </section>
 
     <section id="sambutan">
-      <div class="py-5 p-10 sm:p-20 bg-[#faf6fb] h-full text-[#959094]">
+      <div class="p-5 sm:p-20 bg-[#faf6fb] h-full text-[#959094]">
+        <div class="max-w-7xl mx-auto">
         <div class="text-center my-5 font-bold">
           <h1 class="text-2xl text-[#633991]">Sambutan</h1>
         </div>
@@ -199,6 +215,8 @@
           Ketua Yayasan Dream Korean Language Learning Center, Lee Sun Ah
 
         </p>
+        </div>
+        
       </div>
     </section>
 
@@ -724,6 +742,12 @@
     $("#mobileMenu a").on("click", function() {
       $("#mobileMenu").slideUp(200);
     });
+  });
+
+  window.addEventListener("scroll", () => {
+    const scrolled = window.scrollY;
+    document.getElementById("parallax").style.backgroundPositionY =
+      scrolled * 0.4 + "px";
   });
 </script>
 
