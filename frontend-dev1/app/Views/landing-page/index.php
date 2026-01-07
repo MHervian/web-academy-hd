@@ -48,6 +48,12 @@
         sans-serif;
     }
   </style>
+    <link
+    rel="preload"
+    as="image"
+    href="/images/Dream Banner 1.webp"
+    fetchpriority="high"
+  />
 </head>
 
 <body>
@@ -60,10 +66,10 @@
   <main>
     <section id="home">
     <div
-  id="parallax"
-  class="relative min-h-[calc(100vh-80px)] bg-cover bg-center flex items-center justify-center"
-  style="background-image: url('/images/1.jpeg');"
->
+      id="parallax"
+      class="relative min-h-[calc(100vh-80px)] bg-cover bg-center flex items-center justify-center"
+      style="background-image: url('/images/Dream Banner 1.webp');"
+    >
     <!-- overlay -->
     <div class="absolute inset-0 bg-black/50"></div>
 
@@ -77,15 +83,15 @@
       </p>
 
       <div class="mt-6 flex flex-col gap-3 md:flex-row md:justify-center">
-      <a
-  href="<?= base_url('course') ?>"
-  class="rounded-lg px-6 py-3 font-bold text-white
-         bg-[rgba(191,36,65,0.4)]
-         hover:bg-[rgba(191,36,65,0.75)]
-         transition"
->
-  Jelajah Program
-</a>
+        <a
+          href="<?= base_url('course') ?>"
+          class="rounded-lg px-6 py-3 font-bold text-white
+                bg-[rgba(191,36,65,0.4)]
+                hover:bg-[rgba(191,36,65,0.75)]
+                transition"
+        >
+          Jelajah Program
+        </a>
         <a
           href="<?= base_url('about-us') ?>"
           class="rounded-lg border border-white px-6 py-3 shadow-lg hover:shadow-xl"
@@ -105,7 +111,7 @@
           <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
             <article class="group flex rounded-radius max-w-sm flex-col overflow-hidden border border-outline bg-surface-alt text-on-surface dark:border-outline-dark dark:bg-surface-dark-alt dark:text-on-surface-dark">
               <div class="aspect-video overflow-hidden">
-                <img src="/images/2.jpeg" class="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105" alt="a penguin robot talking with a human" />
+                <img src="/images/image1.webp" class="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105" alt="a penguin robot talking with a human" />
               </div>
               <div class="flex flex-col gap-4 p-6">
                 <!-- <span class="text-sm font-medium">Dream Korean Language Learning Center</span> -->
@@ -121,7 +127,7 @@
             </article>
             <article class="group flex rounded-radius max-w-sm flex-col overflow-hidden border border-outline bg-surface-alt text-on-surface dark:border-outline-dark dark:bg-surface-dark-alt dark:text-on-surface-dark">
               <div class="aspect-video overflow-hidden">
-                <img src="/images/3.jpeg" class="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105" alt="a penguin robot talking with a human" />
+                <img src="/images/image2.webp" class="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105" alt="a penguin robot talking with a human" />
               </div>
               <div class="flex flex-col gap-4 p-6">
                 <!-- <span class="text-sm font-medium">Features</span> -->
@@ -140,7 +146,7 @@
             </article>
             <article class="group flex rounded-radius max-w-sm flex-col overflow-hidden border border-outline bg-surface-alt text-on-surface dark:border-outline-dark dark:bg-surface-dark-alt dark:text-on-surface-dark">
               <div class="aspect-video overflow-hidden">
-                <img src="/images/4.jpeg" class="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105" alt="a penguin robot talking with a human" />
+                <img src="/images/image3.webp" class="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105" alt="a penguin robot talking with a human" />
               </div>
               <div class="flex flex-col gap-4 p-6">
                 <!-- <span class="text-sm font-medium">Features</span> -->
@@ -154,7 +160,7 @@
             </article>
             <article class="group flex rounded-radius max-w-sm flex-col overflow-hidden border border-outline bg-surface-alt text-on-surface dark:border-outline-dark dark:bg-surface-dark-alt dark:text-on-surface-dark">
               <div class="aspect-video overflow-hidden">
-                <img src="/images/5.jpeg" class="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105" alt="a penguin robot talking with a human" />
+                <img src="/images/image4.webp" class="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105" alt="a penguin robot talking with a human" />
               </div>
               <div class="flex flex-col gap-4 p-6">
                 <!-- <span class="text-sm font-medium">Features</span> -->
