@@ -46,7 +46,7 @@
     <div class="pb-17 pt-10 px-5 bg-[radial-gradient(circle_at_30%_200%,#6D2A3A_0%,#30283F_40%,#1B2740_96%)]">
       <h1 class="text-white text-center text-3xl">Selamat Datang!</h1>
       <div class="py-2"></div>
-      <p class="text-white sm:w-130 md:w-150 text-center md:m-auto">
+      <p class="text-white sm:w-130 md:w-150 text-center sm:m-auto">
         Kami Dream Korean Language Learning Center menghadirkan program belajar bahasa Korea bagi generasi muda Indonesia dengan biaya
         terjangkau dan pengajaran berkualitas — mulai dari persiapan TOPIK hingga program spesialis calon guru bahasa Korea.
       </p>
@@ -77,12 +77,13 @@
 
     <div class="bg-[#faf6fb]">
       <div class="px-5 md:w-[90%] lg:w-245 md:m-auto pt-15 pb-14">
-        <h2 class="text-center text-[#633991] text-2xl font-bold">Siap Membentuk Masa Depanmu dengan Bahasa Korea?</h2>
+        <h2 class="text-center text-[#633991] text-2xl font-bold">Siap Membentuk Masa Depanmu di Akademi?</h2>
 
         <div class="py-2.5"></div>
 
-        <div class="md:grid md:grid-cols-3 md:gap-x-3">
-          <a href="<?= base_url('auth/register') ?>" class="block px-4 sm:w-67 py-3 text-center border rounded-lg 
+        <div class="">
+          <!-- <a href="<?= base_url('auth/register') ?>" class="block px-4 sm:w-67 sm:mx-auto py-3 text-center border rounded-lg  -->
+          <a href="<?= base_url('/coming-soon-landing-page') ?>" class="block px-4 sm:w-67 sm:m-auto py-3 text-center border rounded-lg 
             border-[#BF2441] bg-[#BF2441] text-white font-bold text-xl">
             Daftar Sekarang
           </a>
