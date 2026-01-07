@@ -1,5 +1,5 @@
 <!-- Header -->
-<header class="sticky top-0 z-[1000]">
+<header class="sticky top-0 z-1000">
     <div class="flex justify-between items-center py-4 px-5 bg-[#1B2740]">
         <a href="#" class="inline-block">
             <!-- Mobile logo display -->
@@ -30,33 +30,36 @@
                 <a href="<?= base_url('/course') ?>" class="px-3 py-2 text-white">Kursus</a>
                 <a href="<?= base_url('/community') ?>" class="px-3 py-2 text-white">Komunitas</a>
                 <a href="<?= base_url('/about-us') ?>" class="px-3 py-2 text-white">Tentang Akademi</a>
-                <a
+                <!-- <a
                     href="<?= base_url('/auth/register') ?>"
+                    class="px-3 py-2 text-white border border-white rounded-lg">Daftar</a> -->
+                <a
+                    href="<?= base_url('/coming-soon-landing-page') ?>"
                     class="px-3 py-2 text-white border border-white rounded-lg">Daftar</a>
             </div>
         </nav>
     </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-[#1B2740]">
+        <nav class="flex flex-col px-5 py-4 space-y-3">
+            <a href="<?= base_url('/') ?>" class="text-white py-2"> Beranda </a>
+            <!-- <div class="py-1"></div> -->
+            <a href="<?= base_url('/course') ?>" class="text-white py-2"> Kursus </a>
+            <!-- <div class="py-1"></div> -->
+            <a href="<?= base_url('/community') ?>" class="text-white py-2"> Komunitas </a>
+            <!-- <div class="py-1"></div> -->
+            <a href="<?= base_url('/about-us') ?>" class="text-white py-2">
+                Tentang Akademi
+            </a>
+            <!-- <div class="py-2"></div> -->
+            <a
+                href="<?= base_url('/coming-soon-landing-page') ?>"
+                class="text-white text-center py-3 border border-white rounded-lg mt-2">
+                Daftar
+            </a>
+        </nav>
+    </div>
+    <!-- / Mobile Navigation Menu -->
 </header>
 <!-- /Header -->
-
-<!-- Mobile Navigation Menu -->
-<div id="mobileMenu" class="hidden md:hidden bg-[#1B2740]">
-    <nav class="flex flex-col px-5 py-4 space-y-3">
-        <a href="<?= base_url('/') ?>" class="text-white py-2"> Beranda </a>
-        <!-- <div class="py-1"></div> -->
-        <a href="<?= base_url('/course') ?>" class="text-white py-2"> Kursus </a>
-        <!-- <div class="py-1"></div> -->
-        <a href="<?= base_url('/community') ?>" class="text-white py-2"> Komunitas </a>
-        <!-- <div class="py-1"></div> -->
-        <a href="<?= base_url('/about-us') ?>" class="text-white py-2">
-            Tentang Akademi
-        </a>
-        <!-- <div class="py-2"></div> -->
-        <a
-            href="<?= base_url('/auth/register') ?>"
-            class="text-white text-center py-3 border border-white rounded-lg mt-2">
-            Daftar
-        </a>
-    </nav>
-</div>
-<!-- / Mobile Navigation Menu -->

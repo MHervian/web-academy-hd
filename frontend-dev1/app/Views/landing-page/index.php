@@ -161,7 +161,7 @@
     </section>
 
     <section id="sambutan">
-      <div class="py-5 p-20 bg-[#faf6fb] h-full text-[#959094]">
+      <div class="py-5 p-10 sm:p-20 bg-[#faf6fb] h-full text-[#959094]">
         <div class="text-center my-5 font-bold">
           <h1 class="text-2xl text-[#633991]">Sambutan</h1>
         </div>
