@@ -30,12 +30,12 @@
                 <a href="<?= base_url('/course') ?>" class="px-3 py-2 text-white">Kursus</a>
                 <a href="<?= base_url('/community') ?>" class="px-3 py-2 text-white">Komunitas</a>
                 <a href="<?= base_url('/about-us') ?>" class="px-3 py-2 text-white">Tentang Akademi</a>
-                <!-- <a
-                    href="<?= base_url('/auth/register') ?>"
-                    class="px-3 py-2 text-white border border-white rounded-lg">Daftar</a> -->
                 <a
-                    href="<?= base_url('/coming-soon-landing-page') ?>"
+                    href="<?= base_url('/auth/register') ?>"
                     class="px-3 py-2 text-white border border-white rounded-lg">Daftar</a>
+                <!-- <a
+                    href="<?= base_url('/coming-soon-landing-page') ?>"
+                    class="px-3 py-2 text-white border border-white rounded-lg">Daftar</a> -->
             </div>
         </nav>
     </div>
@@ -54,7 +54,7 @@
             </a>
             <!-- <div class="py-2"></div> -->
             <a
-                href="<?= base_url('/coming-soon-landing-page') ?>"
+                href="<?= base_url('/auth/register') ?>"
                 class="text-white text-center py-3 border border-white rounded-lg mt-2">
                 Daftar
             </a>
