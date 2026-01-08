@@ -39,13 +39,15 @@ class MemberController extends Controller
 		$member = MemberModel::find($memberId);
 
 		// Get all kelas that joined by member
-		$kelas = KelasModel::join('enrollment_kelas', 'enrollment_kelas.kelasId', '=', 'kelas.kelasId')
-			->select('kelas.kelasId', 'kelas.nama_kelas', 'kelas.nama_program', 'enrollment_kelas.isPass')
-			->where('enrollment_kelas.memberId', $memberId)
-			->get();
+		// $kelas = KelasModel::join('enrollment_kelas', 'enrollment_kelas.kelasId', '=', 'kelas.kelasId')
+		// 	->select('kelas.kelasId', 'kelas.nama_kelas', 'kelas.nama_program', 'enrollment_kelas.isPass')
+		// 	->where('enrollment_kelas.memberId', $memberId)
+		// 	->get();
+		$kelas = [];
 
 		// Get all certificate of member
-		$sertifikats = SertifikatModel::where('memberId', $memberId)->get();
+		// $sertifikats = SertifikatModel::where('memberId', $memberId)->get();
+		$sertifikats = [];
 
 		return view('member-detail', compact('member', 'kelas', 'sertifikats'));
 	}
