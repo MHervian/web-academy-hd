@@ -66,7 +66,7 @@ class Auth extends BaseController
 					'email'     => $data->email,
 					'password'  => password_hash(bin2hex(random_bytes(10)), PASSWORD_DEFAULT), // Password acak aman
 					'date_registration' => '20260107',
-					'metode' => 'email',
+					'metode' => 'google',
 				]);
 			}
 
