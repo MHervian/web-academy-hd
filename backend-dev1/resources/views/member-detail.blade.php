@@ -45,10 +45,10 @@
             <a href="{{ route('coming-soon') }}" class="btn btn-danger">Hapus</a>
           </div>
         </div>
-        <table class="w-75">
+        <table class="w-50">
           <tr>
-            <td>Member ID</td>
-            <td>:</td>
+            <td style="width: 150px;">Member ID</td>
+            <td style="width: 30px;">:</td>
             <td>{{ $member->memberId }}</td>
           </tr>
           <tr>
@@ -72,9 +72,14 @@
             <td>{{ $member->date_registration }}</td>
           </tr>
           <tr>
-            <td>Tanggal Kreasi Data</td>
+            <td>Created At</td>
             <td>:</td>
-            <td>{{ $member->date_created }}</td>
+            <td>{{ $member->created_at }}</td>
+          </tr>
+          <tr>
+            <td>Udpated At</td>
+            <td>:</td>
+            <td>{{ $member->updated_at }}</td>
           </tr>
         </table>
 

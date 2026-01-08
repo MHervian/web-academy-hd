@@ -58,7 +58,8 @@
           </div>
         @endif
 
-        <h2>Member <a href="{{ route('seed-member') }}" class="ml-3" style="font-size: 19px;">Generate</a></h2>
+        {{-- <h2>Member <a href="{{ route('seed-member') }}" class="ml-3" style="font-size: 19px;">Generate</a></h2> --}}
+        <h2>Member</h2>
         <p>Data member akademi HangulDream.</p>
         @if (count($members) > 0)
           <table>
@@ -67,6 +68,7 @@
                 <th>No</th>
                 <th>Username</th>
                 <th>Email</th>
+                <th>Metode Daftar</th>
                 <th>Tanggal Daftar</th>
                 <th>Action</th>
               </tr>
@@ -77,6 +79,7 @@
                   <td>{{ $loop->iteration }}</td>
                   <td>{{ $member->username }}</td>
                   <td>{{ $member->email }}</td>
+                  <td>{{ $member->metode }}</td>
                   <td>{{ $member->date_registration }}</td>
                   <td>
                     <a href="{{ route('member-detail', ['id' => $member->memberId]) }}" class="bttn-detail">Detail</a>
