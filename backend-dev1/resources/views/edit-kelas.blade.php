@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-  <title>Create Program/Course - DreamPanel</title>
+  <title>Ubah Kelas - DreamPanel</title>
 
   <meta charset="UTF-8">
   <meta name="robots" content="noindex, nofollow">
@@ -110,63 +110,81 @@
 
       <div class="content">
         <div class="card-form">
-          <h2>Tambah Kursus/Program</h2>
-          <form action="{{ route('store-program') }}" method="post" enctype="multipart/form-data">
+          <h2>Ubah Kelas</h2>
+          <form action="{{ route('update-kelas') }}" method="post">
             @csrf
-            <!-- Nama Kursus/Program -->
+            <input type="hidden" name="kelasId" value="{{ $kelas->kelasId }}" />
+            <!-- Nama Kelas -->
             <div class="form-group">
-              <label for="nama_program">Nama Kursus/Program</label>
-              <input type="text" class="form-control" id="nama_program" name="nama" required />
+              <label for="nama_kelas">Nama Kelas</label>
+              <input type="text" class="form-control" id="nama_kelas" name="nama_kelas"
+                value="{{ $kelas->nama_kelas }}" required>
             </div>
 
+            <!-- Nama Program -->
+            <div class="form-group">
+              <label for="nama_program">Pilih Program</label>
+              <select class="form-control" id="nama_program" name="nama_program" required>
+                <option value="">-- Pilih Program --</option>
+                @if (count($programs) > 0)
+                  @foreach ($programs as $program)
+                    @if ($kelas->nama_program == $program->nama)
+                      <option value="{{ $program->nama }}" selected>{{ $program->nama }}</option>
+                    @else
+                      <option value="{{ $program->nama }}">{{ $program->nama }}</option>
+                    @endif
+                  @endforeach
+                @else
+                  <!-- Empty -->
+                @endif
+              </select>
+            </div>
+
+            <!-- Nama Pengajar -->
+            <div class="form-group">
+              <label for="nama_pengajar">Nama Pengajar</label>
+              <input type="text" class="form-control" id="nama_pengajar" name="pengajar"
+                value="{{ $kelas->pengajar }}" required>
+            </div>
 
             <!-- Deskripsi -->
             <div class="form-group">
               <label for="deskripsi">Deskripsi</label>
-              <textarea id="deskripsi" class="form-control" name="deskripsi"></textarea>
+              <textarea id="deskripsi" class="form-control" name="deskripsi">
+                {{ $kelas->deskripsi }}
+              </textarea>
             </div>
 
-            <!-- Harga Kursus/Program -->
+            <!-- Kapasitas -->
             <div class="form-group">
-              <label for="harga">Harga</label>
-              <input type="text" class="form-control" id="harga" name="harga" required />
+              <label for="kapasitas">Kapasitas Peserta</label>
+              <input type="number" class="form-control" id="kapasitas" name="kapasitas" min="1"
+                value="{{ $kelas->kapasitas }}" required>
             </div>
 
-            <!-- Publikasi Kursus/Program -->
+            <!-- Date Open -->
             <div class="form-group">
-              <label for="">Publikasi Kursus/Program</label>
-              <div>
-                <label><input type="radio" name="publikasi" value="1"> Iya, publikasikan</label>
-                <label><input type="radio" name="publikasi" value="0"> Belum</label>
-              </div>
+              <label for="date_open">Tanggal Buka Pendaftaran</label>
+              <input type="date" class="form-control" id="date_open" name="date_open"
+                value="{{ $kelas->date_open }}" required>
             </div>
 
-            <!-- Kurikulum -->
-            {{-- <div class="form-group">
-              <label for="kurikulumId">Pilih Kurikulum</label>
-              <select class="form-control" id="kurikulumId" name="kurikulumId" required>
-                <option value="">-- Pilih Program --</option>
-                @if (count($kurikulums) > 0)
-                  @foreach ($kurikulums as $kurikulum)
-                    <option value="{{ $kurikulum->kurikulumId }}">
-                      {{ $kurikulum->nama }}
-                    </option>
-                  @endforeach
-                @endif
-              </select>
-            </div> --}}
-
-            {{-- <label for="file">Upload File Jadwal (PDF)</label>
-            <input type="file" id="file" name="fileJadwal" accept="application/pdf"> --}}
-
-            <!-- File jadwal -->
+            <!-- Date Close -->
             <div class="form-group">
-              <label for="jadwal">Jadwal</label>
-              <textarea id="jadwal" class="form-control" name="jadwal"></textarea>
+              <label for="date_close">Tanggal Tutup Pendaftaran</label>
+              <input type="date" class="form-control" id="date_close" name="date_close"
+                value="{{ $kelas->date_close }}" required>
             </div>
 
-            <button type="reset" class="btn btn-secondary">Reset</button>
-            <button type="submit">Save</button>
+            <!-- Time Close -->
+            <div class="form-group">
+              <label for="time_close">Waktu Tutup Pendaftaran</label>
+              <input type="time" class="form-control" id="time_close" name="time_close" step="1"
+                value="{{ $kelas->time_close }}" required>
+              <!-- step="1" supaya bisa input detik juga -->
+            </div>
+            <button type="reset">Reset</button>
+            <button type="submit" class="btn btn-primary">Save</button>
           </form>
         </div>
       </div>

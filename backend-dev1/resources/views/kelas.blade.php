@@ -59,18 +59,21 @@
         @endif
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Kelas <a href="{{ route('seed-kelas') }}" class="ml-3" style="font-size: 19px;">Generate</a></h2>
+          {{-- <h2>Kelas <a href="{{ route('seed-kelas') }}" class="ml-3" style="font-size: 19px;">Generate</a></h2> --}}
+          <h2>Kelas</h2>
           <a href="{{ route('create-kelas') }}" class="btn btn-info">Buat Kelas</a>
         </div>
-        <p>Data kelas untuk program/course Akademi Hangul Dream</p>
+        <p>Data kelas kursus/program Akademi Hangul Dream</p>
         @if (count($kelas) > 0)
           <table>
             <thead>
               <tr>
                 <th>No</th>
                 <th>Nama Kelas</th>
-                <th>Program</th>
-                <th>Kapasitas (peserta)</th>
+                <th>Kursus/Program</th>
+                <th>Kapasitas Kelas</th>
+                <th>Terisi</th>
+                <th>Kelas Mulai?</th>
                 <th>Aksi</th>
               </tr>
             </thead>
@@ -81,8 +84,24 @@
                   <td>{{ $k->nama_kelas }} </td>
                   <td>{{ $k->nama_program }} </td>
                   <td>{{ $k->kapasitas }}</td>
+                  <td>{{ $k->terisi }}</td>
+                  <td>
+                    @if ($k->isKelasStart == '1')
+                      <span
+                        style="display: inline-block; padding: 0.2rem 1.2rem; text-align: center; color: white; background-color: green;">Mulai</span>
+                    @else
+                      <span
+                        style="display: inline-block; padding: 0.2rem 1.2rem; text-align: center; color: black; background-color: lightgray;">Belum</span>
+                    @endif
+                  </td>
                   <td>
                     <a href="{{ route('kelas-detail', ['kelasId' => $k->kelasId]) }}" class="bttn-detail">Detail</a>
+                    <form action="{{ route('delete-kelas') }}" method="post" class="d-inline">
+                      @csrf
+                      <input type="hidden" name="kelasId" value="{{ $k->kelasId }}" />
+                      <button type="submit" class="btn btn-danger"
+                        style="font-size: 13px; cursor: pointer;">Hapus</button>
+                    </form>
                   </td>
                 </tr>
               @endforeach

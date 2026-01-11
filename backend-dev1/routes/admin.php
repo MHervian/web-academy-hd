@@ -64,7 +64,9 @@ Route::controller('ProgramController')->group(function () {
   Route::get('/program', 'index')->name('program');
   Route::post('/program', 'delete')->name('delete-program');
   Route::get('/program/create', 'create')->name('create-program');
+  Route::get('/program/edit/{programId}', 'edit')->name('edit-program');
   Route::post('/program/create', 'store')->name('store-program');
+  Route::post('/program/update', 'update')->name('update-program');
   Route::get('/program/view/{filename}', 'viewFile')->name('view-program');
   Route::get('/program/{programId}', 'detail')->name('program-detail');
 });
@@ -72,7 +74,10 @@ Route::controller('ProgramController')->group(function () {
 // Kelas routes..
 Route::controller('KelasController')->group(function () {
   Route::get('/kelas', 'index')->name('kelas');
+  Route::post('/kelas', 'delete')->name('delete-kelas');
   Route::get('/create-kelas', 'create')->name('create-kelas');
+  Route::get('/kelas/edit/{kelasId}', 'edit')->name('edit-kelas');
+  Route::post('/kelas/update', 'update')->name('update-kelas');
   Route::post('/create-kelas', 'store')->name('store-kelas');
   Route::get('/kelas-detail/{kelasId}', 'detail')->name('kelas-detail');
 });

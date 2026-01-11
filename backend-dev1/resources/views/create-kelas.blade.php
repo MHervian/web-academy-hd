@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-  <title>Create New Kelas - DreamPanel</title>
+  <title>Buat Kelas - DreamPanel</title>
 
   <meta charset="UTF-8">
   <meta name="robots" content="noindex, nofollow">
@@ -110,7 +110,7 @@
 
       <div class="content">
         <div class="card-form">
-          <h2>Buat Kelas Baru</h2>
+          <h2>Buat Kelas</h2>
           <form action="{{ route('store-kelas') }}" method="post">
             @csrf
             <!-- Nama Kelas -->
@@ -124,14 +124,25 @@
               <label for="nama_program">Pilih Program</label>
               <select class="form-control" id="nama_program" name="nama_program" required>
                 <option value="">-- Pilih Program --</option>
-                <option value="1">Program TOPIK 3 & 4 Course</option>
-                <option value="2">Program Pelatihan Guru Bahasa Korea</option>
+                @if (count($programs) > 0)
+                  @foreach ($programs as $program)
+                    <option value="{{ $program->nama }}">{{ $program->nama }}</option>
+                  @endforeach
+                @else
+                  <!-- Empty -->
+                @endif
               </select>
+            </div>
+
+            <!-- Nama Pengajar -->
+            <div class="form-group">
+              <label for="nama_pengajar">Nama Pengajar</label>
+              <input type="text" class="form-control" id="nama_pengajar" name="pengajar" required>
             </div>
 
             <!-- Deskripsi -->
             <div class="form-group">
-              <label for="deskripsi">Deskripsi Kelas</label>
+              <label for="deskripsi">Deskripsi</label>
               <textarea id="deskripsi" class="form-control" name="deskripsi"></textarea>
             </div>
 

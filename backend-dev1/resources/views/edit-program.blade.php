@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-  <title>Create Program/Course - DreamPanel</title>
+  <title>Ubah Program/Course - DreamPanel</title>
 
   <meta charset="UTF-8">
   <meta name="robots" content="noindex, nofollow">
@@ -110,26 +110,31 @@
 
       <div class="content">
         <div class="card-form">
-          <h2>Tambah Kursus/Program</h2>
-          <form action="{{ route('store-program') }}" method="post" enctype="multipart/form-data">
+          <h2>Ubah Kursus/Program</h2>
+          <form action="{{ route('update-program') }}" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="programId" value="{{ $program->programId }}" />
             @csrf
             <!-- Nama Kursus/Program -->
             <div class="form-group">
               <label for="nama_program">Nama Kursus/Program</label>
-              <input type="text" class="form-control" id="nama_program" name="nama" required />
+              <input type="text" class="form-control" id="nama_program" name="nama" value="{{ $program->nama }}"
+                required />
             </div>
 
 
             <!-- Deskripsi -->
             <div class="form-group">
               <label for="deskripsi">Deskripsi</label>
-              <textarea id="deskripsi" class="form-control" name="deskripsi"></textarea>
+              <textarea id="deskripsi" class="form-control" name="deskripsi">
+                {{ $program->deskripsi }}
+              </textarea>
             </div>
 
             <!-- Harga Kursus/Program -->
             <div class="form-group">
               <label for="harga">Harga</label>
-              <input type="text" class="form-control" id="harga" name="harga" required />
+              <input type="text" class="form-control" id="harga" name="harga" value="{{ $program->harga }}"
+                required />
             </div>
 
             <!-- Publikasi Kursus/Program -->
@@ -162,7 +167,9 @@
             <!-- File jadwal -->
             <div class="form-group">
               <label for="jadwal">Jadwal</label>
-              <textarea id="jadwal" class="form-control" name="jadwal"></textarea>
+              <textarea id="jadwal" class="form-control" name="jadwal">
+                {{ $program->file_jadwal }}
+              </textarea>
             </div>
 
             <button type="reset" class="btn btn-secondary">Reset</button>

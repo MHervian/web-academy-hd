@@ -39,16 +39,39 @@
       <div class="content">
         {{-- <h2>Detail Kelas : <span style="color: gray;">Kelas 1</span></h2> --}}
         <h2>Detail Kelas</h2>
+        <div style="margin-bottom: 1rem;">
+          <a href="{{ route('edit-kelas', ['kelasId' => $kelas->kelasId]) }}" class="btn btn-info">Ubah</a>
+          <form action="{{ route('delete-kelas') }}" method="post" class="d-inline">
+            @csrf
+            <input type="hidden" name="kelasId" value="{{ $kelas->kelasId }}" />
+            <button type="submit" class="btn btn-danger" style="font-size: 13px; cursor: pointer;">Hapus</button>
+          </form>
+        </div>
         <table class="w-50">
           <tr>
-            <td style="width: 200px;">Kelas</td>
+            <td style="width: 200px;">ID Kelas</td>
+            <td style="width: 25px;">:</td>
+            <td>{{ $kelas->kelasId }}</td>
+          </tr>
+          <tr>
+            <td style="width: 200px;">Nama Kelas</td>
             <td style="width: 25px;">:</td>
             <td>{{ $kelas->nama_kelas }}</td>
           </tr>
           <tr>
-            <td>Program/Course</td>
+            <td>Kursus/Program</td>
             <td>:</td>
             <td>{{ $kelas->nama_program }}</td>
+          </tr>
+          <tr>
+            <td>Pengajar</td>
+            <td>:</td>
+            <td>{{ $kelas->pengajar }}</td>
+          </tr>
+          <tr>
+            <td>Deskripsi</td>
+            <td>:</td>
+            <td>{{ $kelas->deskripsi }}</td>
           </tr>
           <tr>
             <td>Kapasitas Kelas</td>
@@ -56,14 +79,42 @@
             <td>{{ $kelas->kapasitas }}</td>
           </tr>
           <tr>
-            <td>Pengajar</td>
+            <td>Jumlah Terisi</td>
             <td>:</td>
-            <td>{{ $kelas->pengajar }}</td>
+            <td>{{ $kelas->terisi }}</td>
+          </tr>
+          <tr>
+            <td>Tanggal Buka Daftar</td>
+            <td>:</td>
+            <td>{{ $kelas->date_open }}</td>
+          </tr>
+          <tr>
+            <td>Tanggal Tutup Daftar</td>
+            <td>:</td>
+            <td>{{ $kelas->date_close }}</td>
+          </tr>
+          <tr>
+            <td>Jam Tutup Daftar</td>
+            <td>:</td>
+            <td>{{ $kelas->time_close }}</td>
+          </tr>
+          <tr>
+            <td>Kelas Dimulai?</td>
+            <td>:</td>
+            <td>
+              @if ($kelas->isKelasStart == '1')
+                <span
+                  style="display: inline-block; padding: 0.2rem 1.2rem; text-align: center; color: white; background-color: green;">Mulai</span>
+              @else
+                <span
+                  style="display: inline-block; padding: 0.2rem 1.2rem; text-align: center; color: black; background-color: lightgray;">Belum</span>
+              @endif
+            </td>
           </tr>
         </table>
         <div class="my-5"></div>
         <h2>Peserta Kelas</h2>
-        <p>Data peserta yang mengikuti kelas.</p>
+        <p>Data peserta yang mengikuti kelas ini.</p>
         @if (count($peserta) > 0)
           <table>
             <thead>
