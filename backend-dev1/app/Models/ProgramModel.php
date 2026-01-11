@@ -17,5 +17,7 @@ class ProgramModel extends Model
 		'deskripsi',
 		'kurikulumId',
 		'file_jadwal',
+		'isOpen',
+		'harga'
 	];
 }

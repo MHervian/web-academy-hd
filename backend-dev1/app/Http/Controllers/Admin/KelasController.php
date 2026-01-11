@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\EnrollmentKelasModel;
 use App\Models\KelasModel;
+use App\Models\ProgramModel;
 use Illuminate\Database\QueryException;
 
 class KelasController extends Controller
@@ -60,7 +61,9 @@ class KelasController extends Controller
 			return redirect()->route('login');
 		}
 
-		return view('create-kelas');
+		$programs = ProgramModel::all();
+
+		return view('create-kelas', compact('programs'));
 	}
 
 	/**
@@ -68,8 +71,12 @@ class KelasController extends Controller
 	 */
 	public function store(Request $request)
 	{
+		if (!$request->session()->has('login_user')) {
+			return redirect()->route('login');
+		}
+
 		try {
-			$validated = $request->validate([
+			$data = $request->validate([
 				'nama_kelas' => 'required|string|max:50',
 				'nama_program' => 'required',
 				'deskripsi' => 'required',
@@ -80,30 +87,101 @@ class KelasController extends Controller
 				'pengajar' => 'required|string|max:255',
 			]);
 
-			KelasModel::create($validated);
+			if (trim($data['deskripsi']) != '') {
+				$data['deskripsi'] = trim($data['deskripsi']);
+			}
 
-			return redirect()->route('create-kelas')->with('success', 'success: New kelas stored.');
+			KelasModel::create($data);
+
+			return redirect()->route('kelas')->with('success', 'success: Simpan kelas baru berhasil.');
 		} catch (QueryException $e) {
 			// Error database 
-			return redirect()->route('create-kelas')->with('error', 'Gagal membuat kelas. Error DB: ' . $e->getMessage());
+			return redirect()->route('kelas')->with('error', 'Gagal membuat kelas. Error DB: ' . $e->getMessage());
 		} catch (\Exception $e) {
 			// Error umum
-			return redirect()->route('create-kelas')->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+			return redirect()->route('kelas')->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
 		}
 	}
 
 	/**
-	 * Display edit kelas page
+	 * Display edit form kelas page
 	 */
-	public function edit() {}
+	public function edit(Request $request, $kelasId)
+	{
+		if (!$request->session()->has('login_user')) {
+			return redirect()->route('login');
+		}
+
+		// Get kelas data
+		$kelas = KelasModel::find($kelasId);
+
+		// Get program data
+		$programs = ProgramModel::all();
+
+		// return view('program-detail', compact('program', 'kurikulum'));
+		return view('edit-kelas', compact('programs', 'kelas'));
+	}
 
 	/**
 	 * Update kelas handler..
 	 */
-	public function update() {}
+	public function update(Request $request)
+	{
+		if (!$request->session()->has('login_user')) {
+			return redirect()->route('login');
+		}
+
+		try {
+			$data = $request->validate([
+				'kelasId' => 'required',
+				'nama_kelas' => 'required|string|max:50',
+				'nama_program' => 'required',
+				'deskripsi' => 'required',
+				'kapasitas' => 'required',
+				'date_open' => 'required',
+				'date_close' => 'required',
+				'time_close' => 'required',
+				'pengajar' => 'required|string|max:255',
+			]);
+
+			if (trim($data['deskripsi']) != '') {
+				$data['deskripsi'] = trim($data['deskripsi']);
+			}
+
+			// Update kelas information
+			KelasModel::where('kelasId', $data['kelasId'])->update($data);
+
+			return redirect()->route('kelas')->with('success', 'success: Kelas berhasil ubah.');
+		} catch (QueryException $e) {
+			// Error database 
+			return redirect()->route('kelas')->with('error', 'Gagal ubah kelas. Error DB: ' . $e->getMessage());
+		} catch (\Exception $e) {
+			// Error umum
+			return redirect()->route('kelas')->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+		}
+	}
 
 	/**
 	 * Delete kelas handler..
 	 */
-	public function delete() {}
+	public function delete(Request $request)
+	{
+		if (!$request->session()->has('login_user')) {
+			return redirect()->route('login');
+		}
+
+		try {
+			$data = $request->validate(['kelasId' => 'required']);
+
+			KelasModel::destroy($data['kelasId']);
+
+			return redirect()->route('kelas')->with('success', 'success: Hapus kelas.');
+		} catch (QueryException $e) {
+			// Error database 
+			return redirect()->route('kelas')->with('error', 'Gagal hapus kelas. Error DB: ' . $e->getMessage());
+		} catch (\Exception $e) {
+			// Error umum
+			return redirect()->route('kelas')->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+		}
+	}
 }

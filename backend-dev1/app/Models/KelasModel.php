@@ -21,5 +21,6 @@ class KelasModel extends Model
 		'date_close',
 		'time_close',
 		'pengajar',
+		'terisi'
 	];
 }

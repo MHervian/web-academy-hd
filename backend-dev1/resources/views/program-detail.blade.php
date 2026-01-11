@@ -38,14 +38,56 @@
         </ul>
       </div>
       <div class="content">
-        <h2>Detail Program/Course : <span style="color: gray;">{{ $program->nama }}</span></h2>
+        <h2>Detail Kursus/Program : <span style="color: gray;">{{ $program->nama }}</span></h2>
+        <div style="margin-bottom: 1rem;">
+          <a href="{{ route('edit-program', ['programId' => $program->programId]) }}" class="btn btn-info">Ubah</a>
+          <form action="{{ route('delete-program') }}" method="post" class="d-inline">
+            @csrf
+            <input type="hidden" name="programId" value="{{ $program->programId }}" />
+            <button type="submit" class="btn btn-danger" style="font-size: 13px; cursor: pointer;">Hapus</button>
+          </form>
+          {{-- <a href="{{ route('coming-soon') }}" class="btn btn-danger">Hapus</a> --}}
+        </div>
         <table class="w-75">
           <tr>
-            <td>Deskripsi Program/Course</td>
+            <td>ID Kursus/Program</td>
+            <td>:</td>
+            <td>{{ $program->programId }}</td>
+          </tr>
+          <tr>
+            <td>Nama Kursus/Program</td>
+            <td>:</td>
+            <td>{{ $program->nama }}</td>
+          </tr>
+          <tr>
+            <td>Deskripsi</td>
             <td>:</td>
             <td>{{ $program->deskripsi }}</td>
           </tr>
           <tr>
+            <td>Jadwal</td>
+            <td>:</td>
+            <td>{{ $program->file_jadwal }}</td>
+          </tr>
+          <tr>
+            <td>Harga Kursus/Program</td>
+            <td>:</td>
+            <td>Rp {{ $program->harga }}</td>
+          </tr>
+          <tr>
+            <td>Kursus/Program Berjalan?</td>
+            <td>:</td>
+            <td>
+              @if ($program->isOpen == '1')
+                <span
+                  style="display: inline-block; padding: 0.2rem 1.2rem; text-align: center; color: white; background-color: green;">Open</span>
+              @else
+                <span
+                  style="display: inline-block; padding: 0.2rem 1.2rem; text-align: center; color: black; background-color: lightgray;">Close</span>
+              @endif
+            </td>
+          </tr>
+          {{-- <tr>
             <td>Kode Kurikulum</td>
             <td>:</td>
             <td>{{ $kurikulum[0]->kurikulumId }}</td>
@@ -59,14 +101,14 @@
             <td>Deskripsi Kurikulum</td>
             <td>:</td>
             <td>{{ $kurikulum[0]->deskripsi }}</td>
-          </tr>
-          <tr>
+          </tr> --}}
+          {{-- <tr>
             <td>File Jadwal Program/Course</td>
             <td>:</td>
             <td>
               <a href="{{ route('view-program', ['filename' => $program->file_jadwal]) }}">File Link</a>
             </td>
-          </tr>
+          </tr> --}}
         </table>
       </div>
     </div>

@@ -8,11 +8,11 @@
     {{-- <li><a href="{{ route('upload-sertifikat') }}">Upload Sertifikat</a></li> --}}
     {{-- <li><a href="{{ route('kurikulum') }}">Kurikulum</a></li> --}}
     {{-- <li><a href="{{ route('upload-kurikulum') }}">Create Kurikulum</a></li> --}}
-    {{-- <li><a href="{{ route('program') }}">Program</a></li> --}}
-    <li><a href="{{ route('coming-soon') }}">Program</a></li>
+    <li><a href="{{ route('program') }}">Program</a></li>
+    {{-- <li><a href="{{ route('coming-soon') }}">Program</a></li> --}}
     {{-- <li><a href="{{ route('create-program') }}">Create Program</a></li> --}}
-    {{-- <li><a href="{{ route('kelas') }}">Kelas</a></li> --}}
-    <li><a href="{{ route('coming-soon') }}">Kelas</a></li>
+    <li><a href="{{ route('kelas') }}">Kelas</a></li>
+    {{-- <li><a href="{{ route('coming-soon') }}">Kelas</a></li> --}}
     {{-- <li><a href="{{ route('create-kelas') }}">Create Kelas</a></li> --}}
     {{-- <li><a href="{{ route('kelas-registrasi') }}">Pendaftaran Kelas</a></li> --}}
     <li><a href="{{ route('coming-soon') }}">Pendaftaran Kelas</a></li>

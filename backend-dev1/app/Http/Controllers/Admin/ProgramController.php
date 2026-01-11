@@ -22,10 +22,11 @@ class ProgramController extends Controller
 		}
 
 		$programs = ProgramModel::all();
-		$programs = ProgramModel::leftJoin('program_kelas', 'program_kelas.programId', '=', 'program.programId')
-			->select('program.programId', 'program.nama', 'program.isOpen', DB::raw('count(program_kelas.kelasId) as total_kelas'))
-			->groupBy('program.programId')
-			->get();
+		// $programs = ProgramModel::leftJoin('program_kelas', 'program_kelas.programId', '=', 'program.programId')
+		// 	->select('program.programId', 'program.nama', 'program.isOpen', DB::raw('count(program_kelas.kelasId) as total_kelas'))
+		// 	->select('program.programId', 'program.nama', 'program.isOpen', DB::raw('count(program_kelas.kelasId) as total_kelas'))
+		// 	->groupBy('program.programId')
+		// 	->get();
 
 		// echo "<pre>";
 		// var_dump($programs);
@@ -47,9 +48,10 @@ class ProgramController extends Controller
 		$program = ProgramModel::find($programId);
 
 		// Get kurikulum data
-		$kurikulum = KurikulumModel::where('kurikulumId', $program->kurikulumId)->get();
+		// $kurikulum = KurikulumModel::where('kurikulumId', $program->kurikulumId)->get();
 
-		return view('program-detail', compact('program', 'kurikulum'));
+		// return view('program-detail', compact('program', 'kurikulum'));
+		return view('program-detail', compact('program'));
 	}
 
 	/**
@@ -62,7 +64,8 @@ class ProgramController extends Controller
 		}
 
 		// Get all kurikulum
-		$kurikulums = KurikulumModel::where('isApprove', '3')->get();
+		// $kurikulums = KurikulumModel::where('isApprove', '3')->get();
+		$kurikulums = [];
 
 		return view('create-program', compact('kurikulums'));
 	}
@@ -77,34 +80,46 @@ class ProgramController extends Controller
 		}
 
 		try {
+			// $data = $request->validate([
+			// 	'nama' => 'required|string|max:255',
+			// 	'deskripsi' => 'string|required',
+			// 	'kurikulumId' => 'required',
+			// 	'fileJadwal' => 'required|file|max:2048', // max 2MB
+			// ]);
 			$data = $request->validate([
 				'nama' => 'required|string|max:255',
 				'deskripsi' => 'string|required',
-				'kurikulumId' => 'required',
-				'fileJadwal' => 'required|file|max:2048', // max 2MB
+				// 'kurikulumId' => 'required',
+				// 'fileJadwal' => 'required|file|max:2048', // max 2MB
+				'harga' => 'required',
+				'publikasi' => 'required',
+				'jadwal' => 'required',
 			]);
 
 			$deskripsi = null;
 			if (trim($data['deskripsi']) != '') {
-				$deskripsi = $data['deskripsi'];
+				$deskripsi = trim($data['deskripsi']);
 			}
 
-			$file = $request->file('fileJadwal');
-			$ext = $file->getClientOriginalExtension();
+			// $file = $request->file('fileJadwal');
+			// $ext = $file->getClientOriginalExtension();
 
 			// Create and renaming file 
-			$filename = "file_" . Str::random(20) . '_' . time() . '.' . $ext;
+			// $filename = "file_" . Str::random(20) . '_' . time() . '.' . $ext;
 
 			// Store to program
 			ProgramModel::create([
 				'nama' => $data['nama'],
 				'deskripsi' => $deskripsi,
-				'kurikulumId' => $data['kurikulumId'],
-				'file_jadwal' => $filename,
+				// 'kurikulumId' => $data['kurikulumId'],
+				// 'file_jadwal' => $filename,
+				'file_jadwal' => $data['jadwal'],
+				'isOpen' => $data['publikasi'],
+				'harga' => $data['harga']
 			]);
 
 			// Store ke storage/app/jadwal
-			$file->storeAs('jadwal', $filename);
+			// $file->storeAs('jadwal', $filename);
 
 			return redirect()->route('program')->with('success', 'Program berhasil dibuat');
 		} catch (QueryException $e) {
@@ -131,9 +146,84 @@ class ProgramController extends Controller
 	}
 
 	/**
+	 * Form edit kursus/program
+	 */
+	public function edit(Request $request, $programId)
+	{
+		if (!$request->session()->has('login_user')) {
+			return redirect()->route('login');
+		}
+
+		// Get program data
+		$program = ProgramModel::find($programId);
+
+		// Get kurikulum data
+		// $kurikulum = KurikulumModel::where('kurikulumId', $program->kurikulumId)->get();
+
+		// return view('program-detail', compact('program', 'kurikulum'));
+		return view('edit-program', compact('program'));
+	}
+
+	/**
 	 * Update data program/course handler..
 	 */
-	public function update() {}
+	public function update(Request $request)
+	{
+		if (!$request->session()->has('login_user')) {
+			return redirect()->route('login');
+		}
+
+		try {
+			// $data = $request->validate([
+			// 	'nama' => 'required|string|max:255',
+			// 	'deskripsi' => 'string|required',
+			// 	'kurikulumId' => 'required',
+			// 	'fileJadwal' => 'required|file|max:2048', // max 2MB
+			// ]);
+			$data = $request->validate([
+				'programId' => 'required',
+				'nama' => 'required|string|max:255',
+				'deskripsi' => 'string|required',
+				// 'kurikulumId' => 'required',
+				// 'fileJadwal' => 'required|file|max:2048', // max 2MB
+				'harga' => 'required',
+				'publikasi' => 'required',
+				'jadwal' => 'required',
+			]);
+
+			$deskripsi = null;
+			if (trim($data['deskripsi']) != '') {
+				$deskripsi = trim($data['deskripsi']);
+			}
+
+			// $file = $request->file('fileJadwal');
+			// $ext = $file->getClientOriginalExtension();
+
+			// Create and renaming file 
+			// $filename = "file_" . Str::random(20) . '_' . time() . '.' . $ext;
+
+			// Update kursus/program information
+			ProgramModel::where('programId', $data['programId'])
+				->update([
+					'nama'         => $data['nama'],
+					'deskripsi'    => $deskripsi,
+					'file_jadwal'  => $data['jadwal'],
+					'isOpen'       => $data['publikasi'],
+					'harga'        => $data['harga']
+				]);
+
+			// Store ke storage/app/jadwal
+			// $file->storeAs('jadwal', $filename);
+
+			return redirect()->route('program')->with('success', 'Program berhasil diubah');
+		} catch (QueryException $e) {
+			// Database error
+			return redirect()->route('program')->with('error', 'Database Error: ' . $e->getMessage());
+		} catch (\Exception $e) {
+			// Other errors
+			return redirect()->route('program')->with('error', 'Error: ' . $e->getMessage());
+		}
+	}
 
 	/**
 	 * Delete data program/course handler..
