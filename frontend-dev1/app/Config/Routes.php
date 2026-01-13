@@ -19,7 +19,14 @@ $routes->get('/course-topik', 'Home::courseTopik', ['as' => 'course-topik']);
 $routes->get('/course-pelatihan-guru-bahasa-korea', 'Home::courseGuruBahasa', ['as' => 'course-guru-bahasa']);
 // $routes->get('/notifikasi', 'Home::notifikasi', ['as' => 'notifikasi']);
 $routes->get('/sertifikat', 'Home::sertifikat', ['as' => 'sertifikat']);
-$routes->get('/kelas', 'Home::kelas', ['as' => 'kelas']);
+$routes->get('/kelas', 'Kelas::index', ['as' => 'kelas']);
+$routes->get('/daftar-kelas', 'Kelas::daftarProgram', ['as' => 'daftar-kelas']);
+$routes->get('/get-kelas-list', 'Kelas::daftarKelas');
+$routes->post('/daftar-kelas', 'Kelas::pendaftarStore');
+$routes->get('/detail-kelas', 'Kelas::detailKelas');
+$routes->post('/get-snap-token', 'Kelas::getSnapToken');
+$routes->post('midtrans/callback', 'MidtransController::callback');
+
 //
 $routes->get('/auth/login', 'Auth::login', ['as' => 'auth-login']);
 $routes->get('/auth/register', 'Auth::register', ['as' => 'auth-regiter']);

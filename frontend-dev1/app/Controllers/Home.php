@@ -74,4 +74,9 @@ class Home extends BaseController
 	{
 		return view('member-page/kelas');
 	}
+	
+	public function daftarKelas()
+	{
+		return view('member-page/daftar-kelas');
+	}
 }
