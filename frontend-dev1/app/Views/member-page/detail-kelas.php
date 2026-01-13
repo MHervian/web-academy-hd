@@ -146,7 +146,7 @@
                   'X-Requested-With': 'XMLHttpRequest'
                 },
                 body: JSON.stringify({
-                  produk_id: this.data.pendaftarId,
+                  pendaftar_id: this.data.pendaftarId,
                   kelas_id: this.data.kelasId,
                   harga: this.data.harga // ⚠️ tetap validasi di backend
                 })

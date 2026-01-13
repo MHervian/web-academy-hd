@@ -120,7 +120,7 @@ class Kelas extends BaseController
         // ⚠️ JANGAN percaya frontend (idealnya ambil dari DB)
         $harga = (int) $json['harga'];
 
-        $pendaftarId = $this->pendaftarStore($json);
+        $pendaftarId = $json['pendaftar_id'];
 
         $payload = [
             'transaction_details' => [
