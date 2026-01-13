@@ -84,7 +84,7 @@
             <td>{{ $kelas->nama_kelas }}</td>
           </tr>
           <tr>
-            <td>Program/Course</td>
+            <td>Kursus/Program</td>
             <td>:</td>
             <td>{{ $kelas->nama_program }}</td>
           </tr>
@@ -109,7 +109,7 @@
             <td>{{ count($registrasi) }}</td>
           </tr>
           <tr>
-            <td>Sisa</td>
+            <td>Terisi</td>
             <td>:</td>
             <td>{{ $kelas->kapasitas }}</td>
           </tr>
@@ -123,6 +123,19 @@
             <td>:</td>
             <td>{{ $kelas->date_close }}</td>
           </tr>
+          <tr>
+            <td>Kelas Mulai?</td>
+            <td>:</td>
+            <td>
+              @if ($kelas->isKelasStart == '1')
+                <span
+                  style="display: inline-block; padding: 0.2rem 1.2rem; text-align: center; color: white; background-color: green;">Mulai</span>
+              @else
+                <span
+                  style="display: inline-block; padding: 0.2rem 1.2rem; text-align: center; color: black; background-color: lightgray;">Belum</span>
+              @endif
+            </td>
+          </tr>
           {{-- <tr>
             <td>Kurikulum</td>
             <td>:</td>
@@ -130,7 +143,7 @@
           </tr> --}}
         </table>
         <div class="my-5"></div>
-        <h2>Pendaftar Kelas
+        {{-- <h2>Pendaftar Kelas
           @if (count($registrasi) == 0)
             <a href="{{ route('seed-peserta-registrasi', [
                 'kelasId' => $kelas->kelasId,
@@ -140,7 +153,8 @@
             ]) }}"
               class="ml-3" style="font-size: 19px;">Generate</a>
           @endif
-        </h2>
+        </h2> --}}
+        <h2>Pendaftar Kelas</h2>
         <p>Data member yang mendaftar kelas ini.</p>
         @if (count($registrasi) > 0)
           <table>
@@ -151,8 +165,7 @@
                 <th>Email</th>
                 <th>Tanggal Daftar</th>
                 <th>Waktu Daftar</th>
-                <th>Action</th>
-                <th></th>
+                <th>Terima?</th>
               </tr>
             </thead>
             <tbody>
@@ -189,9 +202,9 @@
                     <button class="bttn-detail">Approve</button>
                     <button class="bttn-danger">Cancel</button>
                   </td> --}}
-                  <td>
+                  {{-- <td>
                     <a href="{{ route('member-detail', ['id' => $member->memberId]) }}" class="btn-detail">Detail</a>
-                  </td>
+                  </td> --}}
                 </tr>
               @endforeach
             </tbody>

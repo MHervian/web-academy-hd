@@ -50,7 +50,7 @@ CREATE TABLE `pendaftar_kelas` (
 
 LOCK TABLES `pendaftar_kelas` WRITE;
 /*!40000 ALTER TABLE `pendaftar_kelas` DISABLE KEYS */;
-INSERT INTO `pendaftar_kelas` VALUES (1,8,2,'2026-01-12','16:58:41','0','0','0',NULL,NULL,NULL,NULL,NULL);
+-- INSERT INTO `pendaftar_kelas` VALUES (1,8,2,'2026-01-12','16:58:41','0','0','0',NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `pendaftar_kelas` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

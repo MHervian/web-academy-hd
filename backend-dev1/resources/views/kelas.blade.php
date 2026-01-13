@@ -96,6 +96,8 @@
                   </td>
                   <td>
                     <a href="{{ route('kelas-detail', ['kelasId' => $k->kelasId]) }}" class="bttn-detail">Detail</a>
+                    <a href="{{ route('edit-kelas', ['kelasId' => $k->kelasId]) }}" class="btn btn-info"
+                      style="padding: 0.25rem 0.5rem; font-size: 0.9rem;">Ubah</a>
                     <form action="{{ route('delete-kelas') }}" method="post" class="d-inline">
                       @csrf
                       <input type="hidden" name="kelasId" value="{{ $k->kelasId }}" />

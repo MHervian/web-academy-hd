@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-  <title>Program - DreamPanel</title>
+  <title>Kursus/Program - DreamPanel</title>
 
   <meta charset="UTF-8" />
   <meta name="robots" content="noindex, nofollow" />
@@ -60,7 +60,7 @@
 
         <div class="d-flex justify-content-between align-items-center">
           {{-- <h2>Program <a href="{{ route('seed-program') }}" class="ml-3" style="font-size: 19px;">Generate</a> --}}
-          <h2>Program</h2>
+          <h2>Kursus/Program</h2>
           <a href="{{ route('create-program') }}" class="btn btn-info">Tambah Kursus/Program</a>
         </div>
         <p>Data Kursus/Program Akademi Dream Hangul yang dibuka.</p>
@@ -85,16 +85,22 @@
                   <td>
                     @if ($program->isOpen == '1')
                       <span
-                        style="display: inline-block; padding: 0.2rem 1.2rem; text-align: center; color: white; background-color: green;">Open</span>
+                        style="display: inline-block; padding: 0.2rem 1.2rem; text-align: center; color: white; background-color: green;">
+                        Aktif
+                      </span>
                     @else
                       <span
-                        style="display: inline-block; padding: 0.2rem 1.2rem; text-align: center; color: black; background-color: lightgray;">Close</span>
+                        style="display: inline-block; padding: 0.2rem 1.2rem; text-align: center; color: black; background-color: lightgray;">
+                        Tutup
+                      </span>
                     @endif
                   </td>
                   {{-- <td>{{ $program->total_kelas }}</td> --}}
                   <td>
                     <a href="{{ route('program-detail', ['programId' => $program->programId]) }}"
                       class="bttn-detail">Detail</a>
+                    <a href="{{ route('edit-program', ['programId' => $program->programId]) }}" class="btn btn-info"
+                      style="padding: 0.25rem 0.5rem; font-size: 0.9rem;">Ubah</a>
                     <form action="{{ route('delete-program') }}" method="post" class="d-inline">
                       @csrf
                       <input type="hidden" name="programId" value="{{ $program->programId }}" />

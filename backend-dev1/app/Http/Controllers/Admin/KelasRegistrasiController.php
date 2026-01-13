@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\EnrollmentKelasModel;
 use App\Models\KelasModel;
+use App\Models\PendaftarKelasModel;
 use App\Models\RegistrasiKelasModel;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
@@ -22,11 +23,12 @@ class KelasRegistrasiController extends Controller
 		}
 
 		// Get all kelas with total count of member class registration..
-		$kelas = KelasModel::leftJoin('registrasi_kelas', 'registrasi_kelas.kelasId', '=', 'kelas.kelasId')
-			->select('kelas.kelasId', 'kelas.nama_kelas', 'kelas.date_open', 'kelas.date_close', 'kelas.kapasitas', DB::raw('COUNT(registrasi_kelas.kelasId) as total_registered'))
-			->groupBy('kelas.kelasId', 'kelas.nama_kelas', 'kelas.date_open', 'kelas.date_close', 'kelas.kapasitas')
-			->where('isMulaiBelajar', '0')
-			->get();
+		// $kelas = KelasModel::leftJoin('pendaftar_kelas', 'pendaftar_kelas.kelasId', '=', 'kelas.kelasId')
+		// 	->select('kelas.kelasId', 'kelas.nama_kelas', 'kelas.date_open', 'kelas.date_close', 'kelas.kapasitas', DB::raw('COUNT(pendaftar_kelas.kelasId) as total_registered'))
+		// 	->groupBy('kelas.kelasId', 'kelas.nama_kelas', 'kelas.date_open', 'kelas.date_close', 'kelas.kapasitas')
+		// 	->where('kelas.isKelasStart', '0')
+		// 	->get();
+		$kelas = KelasModel::all();
 
 		return view('kelas-registrasi', compact('kelas'));
 	}
@@ -44,17 +46,21 @@ class KelasRegistrasiController extends Controller
 		$kelas = KelasModel::find($kelasId);
 		// Get data registrasi by kelasId
 		// $registrasi = RegistrasiKelasModel::where('kelasId', $kelasId)->get();
-		$registrasi = RegistrasiKelasModel::join('member', 'member.memberId', '=', 'registrasi_kelas.memberId')
+		// $registrasi = RegistrasiKelasModel::join('member', 'member.memberId', '=', 'registrasi_kelas.memberId')
+		$registrasi = PendaftarKelasModel::join('member', 'member.memberId', '=', 'pendaftar_kelas.memberId')
 			->select(
 				'member.memberId',
 				'member.username',
 				'member.email',
-				'registrasi_kelas.date_registration',
-				'registrasi_kelas.time_registration',
-				'registrasi_kelas.isApprove',
-				'registrasi_kelas.date_approval',
-			)
-			->get();
+				'pendaftar_kelas.date_registration',
+				'pendaftar_kelas.time_registration',
+				'pendaftar_kelas.isApproved',
+				'pendaftar_kelas.isPaid',
+				'pendaftar_kelas.isPassed',
+				'pendaftar_kelas.date_approval',
+				'pendaftar_kelas.date_paid',
+				'pendaftar_kelas.date_passed',
+			)->get();
 
 		return view('kelas-registrasi-detail', compact('kelas', 'registrasi'));
 	}

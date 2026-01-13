@@ -59,11 +59,12 @@
         @endif
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Sertifikat <a href="{{ route('seed-sertifikat') }}" class="ml-3" style="font-size: 19px;">Generate</a>
-          </h2>
-          <a href="{{ route('upload-sertifikat') }}" class="btn btn-info">Unggah</a>
+          {{-- <h2>Sertifikat <a href="{{ route('seed-sertifikat') }}" class="ml-3" style="font-size: 19px;">Generate</a>
+          </h2> --}}
+          <h2>Sertifikat</h2>
+          <a href="{{ route('upload-sertifikat') }}" class="btn btn-info">Unggah Sertifikat</a>
         </div>
-        <p>Data sertifikat kelulusan member akademi HangulDream.</p>
+        <p>Data sertifikat kelulusan member Akademi Dream Hangul.</p>
         @if (count($sertifikats) > 0)
           <table>
             <thead>
