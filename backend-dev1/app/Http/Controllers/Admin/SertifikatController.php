@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\KelasModel;
 use App\Models\MemberModel;
+use App\Models\PendaftarKelasModel;
 use App\Models\SertifikatModel;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
@@ -53,10 +55,28 @@ class SertifikatController extends Controller
 		}
 
 		// Get all members
-		$members = MemberModel::all();
+		// $members = MemberModel::all();
 
-		return view('upload-sertifikat', compact('members'));
+		$kelas = KelasModel::all();
+
+		// return view('upload-sertifikat', compact('members'));
+		return view('upload-sertifikat', compact('kelas'));
 	}
+
+	/**
+	 * JSON:: List all pendaftar by kelasId
+	 */
+	public function listPendaftarByKelas($kelasId)
+	{
+		$pendaftar = PendaftarKelasModel::where('kelasId', $kelasId)->get();
+
+		return response()->json($pendaftar);
+	}
+
+	/**
+	 * Form upload sertifikat with memberId page..
+	 */
+	public function createWithMemberId() {}
 
 	/**
 	 * Edit data sertifikat page..

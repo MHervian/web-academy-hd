@@ -3,19 +3,19 @@
   <ul>
     <li><a href="{{ route('admin-dashboard') }}">Dashboard</a></li>
     <li><a href="{{ route('member') }}">Member</a></li>
-    {{-- <li><a href="{{ route('sertifikat') }}">Sertifikat</a></li> --}}
-    <li><a href="{{ route('coming-soon') }}">Sertifikat</a></li>
+    <li><a href="{{ route('sertifikat') }}">Sertifikat</a></li>
+    {{-- <li><a href="{{ route('coming-soon') }}">Sertifikat</a></li> --}}
     {{-- <li><a href="{{ route('upload-sertifikat') }}">Upload Sertifikat</a></li> --}}
     {{-- <li><a href="{{ route('kurikulum') }}">Kurikulum</a></li> --}}
     {{-- <li><a href="{{ route('upload-kurikulum') }}">Create Kurikulum</a></li> --}}
-    <li><a href="{{ route('program') }}">Program</a></li>
+    <li><a href="{{ route('program') }}">Kursus/Program</a></li>
     {{-- <li><a href="{{ route('coming-soon') }}">Program</a></li> --}}
     {{-- <li><a href="{{ route('create-program') }}">Create Program</a></li> --}}
     <li><a href="{{ route('kelas') }}">Kelas</a></li>
     {{-- <li><a href="{{ route('coming-soon') }}">Kelas</a></li> --}}
     {{-- <li><a href="{{ route('create-kelas') }}">Create Kelas</a></li> --}}
-    {{-- <li><a href="{{ route('kelas-registrasi') }}">Pendaftaran Kelas</a></li> --}}
-    <li><a href="{{ route('coming-soon') }}">Pendaftaran Kelas</a></li>
+    <li><a href="{{ route('kelas-registrasi') }}">Pendaftar Kelas</a></li>
+    {{-- <li><a href="{{ route('coming-soon') }}">Pendaftar Kelas</a></li> --}}
     {{-- <li><a href="{{ route('notification') }}">Notifikasi</a></li> --}}
     <li><a href="{{ route('coming-soon') }}">Notifikasi</a></li>
     {{-- <li><a href="{{ route('create-notification') }}">Create Notifikasi</a></li> --}}

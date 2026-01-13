@@ -10,12 +10,12 @@ class SertifikatModel extends Model
 	use HasFactory;
 	protected $table = 'sertifikat';
 	protected $primaryKey = 'memberId';
-	public $timestamps = false;
+	public $timestamps = true;
 
 	protected $fillable = [
 		'memberId',
 		'noSertifikat',
 		'date_issued',
-		'filename',
+		'filename'
 	];
 }

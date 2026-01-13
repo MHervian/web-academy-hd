@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-  <title>Kelas Registrasi - DreamPanel</title>
+  <title>Pendaftar Kelas - DreamPanel</title>
 
   <meta charset="UTF-8" />
   <meta name="robots" content="noindex, nofollow" />
@@ -37,16 +37,17 @@
         </ul>
       </div>
       <div class="content">
-        <h2>Kelas Registrasi</h2>
-        <p>Data registrasi peserta per kelas</p>
+        <h2>Pendaftar Kelas Kursus</h2>
+        <p>Data peserta pendaftar per kelas kursus</p>
         @if (count($kelas) > 0)
           <table>
             <thead>
               <tr>
                 <th>No</th>
                 <th>Nama Kelas</th>
-                <th>Start Registrasi</th>
-                <th>End Registrasi</th>
+                <th>Tanggal Buka Daftar</th>
+                <th>Tanggal Tutup Daftar</th>
+                <th>Kapasitas</th>
                 <th>Total Daftar</th>
                 <th>Action</th>
               </tr>
@@ -58,7 +59,9 @@
                   <td>{{ $k->nama_kelas }}</td>
                   <td>{{ $k->date_open }}</td>
                   <td>{{ $k->date_close }}</td>
-                  <td>{{ $k->total_registered }}/{{ $k->kapasitas }}</td>
+                  <td>{{ $k->kapasitas }}</td>
+                  {{-- <td>{{ $k->total_registered }}/{{ $k->kapasitas }}</td> --}}
+                  <td>{{ $k->terisi }}</td>
                   <td><a href="{{ route('kelas-registrasi-detail', ['kelasId' => $k->kelasId]) }}"
                       class="bttn-detail">Detail</a></td>
                 </tr>
@@ -66,7 +69,7 @@
             </tbody>
           </table>
         @else
-          <p class="text-center">Data Kelas Registrasi Kosong</p>
+          <p class="text-center">Data Pendaftar Kelas Kosong</p>
         @endif
       </div>
     </div>

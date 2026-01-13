@@ -38,16 +38,17 @@ class KelasController extends Controller
 		// Get kelas detail
 		$kelas = KelasModel::find($kelasId);
 		// Get all peserta of this kelas..
-		$peserta = EnrollmentKelasModel::join('member', 'member.memberId', '=', 'enrollment_kelas.memberId')
-			->select(
-				'member.memberId',
-				'member.username',
-				'member.email',
-				'enrollment_kelas.isPass',
-				'enrollment_kelas.date_pass',
-			)
-			->where('enrollment_kelas.kelasId', $kelasId)
-			->get();
+		// $peserta = EnrollmentKelasModel::join('member', 'member.memberId', '=', 'enrollment_kelas.memberId')
+		// 	->select(
+		// 		'member.memberId',
+		// 		'member.username',
+		// 		'member.email',
+		// 		'enrollment_kelas.isPass',
+		// 		'enrollment_kelas.date_pass',
+		// 	)
+		// 	->where('enrollment_kelas.kelasId', $kelasId)
+		// 	->get();
+		$peserta = [];
 
 		return view('kelas-detail', compact('kelas', 'peserta'));
 	}
