@@ -9,6 +9,55 @@
 
   <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet" />
   <link rel="stylesheet" href="<?= base_url('css/output.css') ?>" />
+  <style>
+    .pt-25 {
+      padding-top: 6.25rem;
+    }
+
+    .bg-warning {
+      background-color: #f59e0b;
+    }
+
+    .text-onWarning {
+      color: #ffffff;
+    }
+
+    .text-on-surface {
+      color: #1f2937;
+    }
+
+    .text-on-surface-strong {
+      color: #111827;
+    }
+
+    .text-on-surface-dark {
+      color: #e5e7eb;
+    }
+
+    .text-on-surface-dark-strong {
+      color: #ffffff;
+    }
+
+    .border-outline {
+      border-color: #d1d5db;
+    }
+
+    .border-outline-dark {
+      border-color: #374151;
+    }
+
+    .bg-surface-alt {
+      background-color: #f9fafb;
+    }
+
+    .bg-surface-dark-alt {
+      background-color: #111827;
+    }
+
+    .outline-primary-dark {
+      outline-color: #60a5fa;
+    }
+  </style>
 
   <!-- Alpine -->
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.15.3/dist/cdn.min.js"></script>
