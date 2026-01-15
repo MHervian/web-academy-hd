@@ -42,10 +42,10 @@
       class="px-6 md:px-7 py-6 bg-gray-50"
       x-data="paymentData(0)">
 
-      <div class="flex max-w-6xl mx-auto gap-6">
+      <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-6">
 
         <!-- LEFT : PAKET -->
-        <div class="grid gap-5 w-full">
+        <div class="grid gap-5 flex-1">
 
           <?php foreach ($data as $index => $row): ?>
             <article
@@ -69,8 +69,10 @@
 
         </div>
 
+        <div class="sm:h-5"></div>
+
         <!-- RIGHT : SUMMARY -->
-        <div class="w-full max-w-sm bg-white rounded-md p-5 h-fit">
+        <div class="w-full md:w-[360px] bg-white rounded-md p-5 h-fit">
 
           <h2 class="text-xl font-bold mb-4">Ringkasan</h2>
 

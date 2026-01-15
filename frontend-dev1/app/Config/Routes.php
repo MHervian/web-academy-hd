@@ -18,7 +18,7 @@ $routes->get('/coming-soon-landing-page', 'Home::lcomingSoon', ['as' => 'coming-
 $routes->get('/course-topik', 'Home::courseTopik', ['as' => 'course-topik']);
 $routes->get('/course-pelatihan-guru-bahasa-korea', 'Home::courseGuruBahasa', ['as' => 'course-guru-bahasa']);
 // $routes->get('/notifikasi', 'Home::notifikasi', ['as' => 'notifikasi']);
-$routes->get('/sertifikat', 'Home::sertifikat', ['as' => 'sertifikat']);
+$routes->get('/sertifikat', 'Sertifikat::index', ['as' => 'sertifikat']);
 $routes->get('/kelas', 'Kelas::index', ['as' => 'kelas']);
 $routes->get('/daftar-kelas', 'Kelas::daftarProgram', ['as' => 'daftar-kelas']);
 $routes->get('/get-kelas-list', 'Kelas::daftarKelas');

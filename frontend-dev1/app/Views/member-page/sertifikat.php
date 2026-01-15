@@ -11,6 +11,9 @@
 	<!-- Tailwind CSS -->
 	<!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
 	<link rel="stylesheet" href="<?= base_url('css/output.css') ?>" />
+	<!-- Alpine -->
+	<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.15.3/dist/cdn.min.js"></script>
+
 	<!-- Font Awesome 7 -->
 	<link rel="stylesheet"
 		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
@@ -31,12 +34,61 @@
 		<h1 class="py-6 text-white text-4xl">Sertifikat</h1>
 	</div>
 
-	<div class="px-6 md:px-7 py-6 bg-gray-50">
-		<div class="py-5"></div>
-		<p class="text-2xl">Sertifikat Kosong.</p>
-		<div class="py-5"></div>
-		<div class="py-5"></div>
+	<div class="py-5"></div>
+
+	<div x-data='{ 
+	data: <?= json_encode($data, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP) ?>
+ 	}'>
+		<template x-if="data.length == 0">
+			<div class="px-6 md:px-7 py-6 bg-gray-50">
+				<div class="py-5"></div>
+				<p class="text-2xl">Sertifikat Kosong.</p>
+				<div class="py-5"></div>
+				<div class="py-5"></div>
+			</div>
+		</template>
+		<template x-if="data.length > 0">
+			<div class="overflow-hidden w-full overflow-x-auto rounded-radius border border-outline dark:border-outline-dark">
+				<table class="w-full text-left text-sm text-on-surface dark:text-on-surface-dark">
+
+					<thead class="border-b border-outline bg-surface-alt text-sm text-on-surface-strong dark:border-outline-dark dark:bg-surface-dark-alt dark:text-on-surface-dark-strong">
+						<tr>
+							<th class="p-4">No</th>
+							<th class="p-4">Nama Peserta</th>
+							<th class="p-4">Program</th>
+							<th class="p-4">No Sertifikat</th>
+							<th class="p-4">Durasi (Jam)</th>
+							<th class="p-4">Aksi</th>
+						</tr>
+					</thead>
+
+					<tbody class="divide-y divide-outline dark:divide-outline-dark">
+						<template x-for="(item, index) in data" :key="item.nomor_sertifikat">
+							<tr>
+								<td class="p-4" x-text="index + 1"></td>
+								<td class="p-4" x-text="item.nama_peserta"></td>
+								<td class="p-4" x-text="item.program"></td>
+								<td class="p-4 font-mono" x-text="item.nomor_sertifikat"></td>
+								<td class="p-4" x-text="item.durasi_jam"></td>
+								<td class="p-4">
+									<a
+										:href="item.file_pdf"
+										target="_blank"
+										class="whitespace-nowrap rounded-radius bg-transparent p-0.5 font-semibold text-primary hover:opacity-75">
+										Download PDF
+									</a>
+								</td>
+							</tr>
+						</template>
+					</tbody>
+
+				</table>
+			</div>
+		</template>
+
+
 	</div>
+
 
 	<div class="px-5 py-5">
 		<p class="text-center">&copy;DreamTemplate 2026</p>
