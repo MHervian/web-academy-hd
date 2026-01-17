@@ -11,6 +11,8 @@ use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+use function Ramsey\Uuid\v1;
+
 class KelasRegistrasiController extends Controller
 {
 	/**
@@ -60,7 +62,9 @@ class KelasRegistrasiController extends Controller
 				'pendaftar_kelas.date_approval',
 				'pendaftar_kelas.date_paid',
 				'pendaftar_kelas.date_passed',
-			)->get();
+			)
+			->where('pendaftar_kelas.kelasId', $kelasId)
+			->get();
 
 		return view('kelas-registrasi-detail', compact('kelas', 'registrasi'));
 	}
@@ -82,19 +86,34 @@ class KelasRegistrasiController extends Controller
 			$memberId = $request->post('memberId')[0];
 			$isApprove = '';
 
-			if ($btnApprove != null) {
+			if ($btnApprove == '1') {
 				$isApprove = '1';
-			} else if ($btnReject != null) {
+			} else if ($btnReject == '0') {
 				$isApprove = '0';
 			} else {
 				return redirect()->back()->with('error', 'Unknown perintah approval. Pilih "Approve" atau "Reject".');
 			}
 
-			RegistrasiKelasModel::where([
+			// echo "<pre>";
+			// var_dump($btnApprove);
+			// var_dump($btnReject);
+			// var_dump($kelasId);
+			// var_dump($memberId);
+			// var_dump($isApprove);
+			// echo "</pre>";
+
+			// RegistrasiKelasModel::where([
+			// 	'kelasId' => $kelasId,
+			// 	'memberId' => $memberId,
+			// ])->update([
+			// 	'isApprove' => $isApprove,
+			// 	'date_approval' => now()->format('Y-m-d'),
+			// ]);
+			PendaftarKelasModel::where([
 				'kelasId' => $kelasId,
 				'memberId' => $memberId,
 			])->update([
-				'isApprove' => $isApprove,
+				'isApproved' => $isApprove,
 				'date_approval' => now()->format('Y-m-d'),
 			]);
 
@@ -127,30 +146,30 @@ class KelasRegistrasiController extends Controller
 			}
 
 			// Baca semua data pendaftar kelas dengan approved..
-			$registrasi = RegistrasiKelasModel::where([
-				'kelasId' => $kelasId,
-				'isApprove' => '1',
-			])->get();
+			// $registrasi = RegistrasiKelasModel::where([
+			// 	'kelasId' => $kelasId,
+			// 	'isApprove' => '1',
+			// ])->get();
 
-			$rows = array();
-			foreach ($registrasi as $member) {
-				array_push($rows, array(
-					'kelasId' => $kelasId,
-					'memberId' => $member->memberId,
-					'isPass' => null,
-					'date_pass' => null,
-				));
-			}
+			// $rows = array();
+			// foreach ($registrasi as $member) {
+			// 	array_push($rows, array(
+			// 		'kelasId' => $kelasId,
+			// 		'memberId' => $member->memberId,
+			// 		'isPass' => null,
+			// 		'date_pass' => null,
+			// 	));
+			// }
 
 			// Insert all data pendaftar to enrollment_kelas..
-			EnrollmentKelasModel::insert($rows);
+			// EnrollmentKelasModel::insert($rows);
 
 			// Delete all data pendaftar kelas tersebut..
-			RegistrasiKelasModel::where('kelasId', $kelasId)->delete();
+			// RegistrasiKelasModel::where('kelasId', $kelasId)->delete();
 
-			// Update the status of Kelas
+			// Update status of Kelas
 			$kelas = KelasModel::where('kelasId', $kelasId)->get()[0];
-			$kelas->isMulaiBelajar = '1';
+			$kelas->isKelasStart = '1';
 			$kelas->save();
 
 			return redirect()->route('kelas')->with('success', 'Success mulai kelas "' . $namaKelas . '"');

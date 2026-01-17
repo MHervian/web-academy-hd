@@ -89,9 +89,9 @@
                   <td>
                     <a href="{{ route('sertifikat-detail', ['noSertifikat' => $sertifikat->noSertifikat]) }}"
                       class="bttn-detail">Detail</a>
-                    <form action="#" method="post" class="d-inline">
+                    <form action="{{ route('delete-sertifikat') }}" method="post" class="d-inline">
                       @csrf
-                      <input type="hidden" name="memberId" value="" />
+                      <input type="hidden" name="sertifikatId" value="{{ $sertifikat->sertifikatId }}" />
                       <button type="submit" class="btn btn-danger"
                         style="font-size: 13px; cursor: pointer;">Hapus</button>
                     </form>

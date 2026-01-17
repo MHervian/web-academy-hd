@@ -177,9 +177,9 @@
                   <td>{{ $member->date_registration }}</td>
                   <td>{{ $member->time_registration }}</td>
                   <td>
-                    @if ($member->isApprove != null)
+                    @if ($member->isApproved != null)
                       {{-- If approved.. --}}
-                      @if ($member->isApprove == '1')
+                      @if ($member->isApproved == '1')
                         <span style='color: green;'>Approved</span>
                       @else
                         {{-- If rejected.. --}}

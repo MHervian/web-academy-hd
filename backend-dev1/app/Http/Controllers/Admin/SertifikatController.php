@@ -55,12 +55,12 @@ class SertifikatController extends Controller
 		}
 
 		// Get all members
-		// $members = MemberModel::all();
+		$members = MemberModel::all();
 
-		$kelas = KelasModel::all();
+		// $kelas = KelasModel::all();
 
-		// return view('upload-sertifikat', compact('members'));
-		return view('upload-sertifikat', compact('kelas'));
+		return view('upload-sertifikat', compact('members'));
+		// return view('upload-sertifikat', compact('kelas'));
 	}
 
 	/**
@@ -68,7 +68,15 @@ class SertifikatController extends Controller
 	 */
 	public function listPendaftarByKelas($kelasId)
 	{
-		$pendaftar = PendaftarKelasModel::where('kelasId', $kelasId)->get();
+		$pendaftar = PendaftarKelasModel::join('member', 'member.memberId', '=', 'pendaftar_kelas.memberId')
+			->select(
+				'pendaftar_kelas.pendaftarId',
+				'pendaftar_kelas.kelasId',
+				'pendaftar_kelas.memberId',
+				'member.username'
+			)
+			->where('pendaftar_kelas.kelasId', $kelasId)
+			->get();
 
 		return response()->json($pendaftar);
 	}
@@ -77,11 +85,6 @@ class SertifikatController extends Controller
 	 * Form upload sertifikat with memberId page..
 	 */
 	public function createWithMemberId() {}
-
-	/**
-	 * Edit data sertifikat page..
-	 */
-	public function edit() {}
 
 	/**
 	 * Store data sertifikat handler..
@@ -146,6 +149,11 @@ class SertifikatController extends Controller
 	}
 
 	/**
+	 * Edit data sertifikat page..
+	 */
+	public function edit() {}
+
+	/**
 	 * Update data sertifikat handler..
 	 */
 	public function update() {}
@@ -153,5 +161,24 @@ class SertifikatController extends Controller
 	/**
 	 * Delete data sertifikat handler..
 	 */
-	public function delete() {}
+	public function delete(Request $request)
+	{
+		if (!$request->session()->has('login_user')) {
+			return redirect()->route('login');
+		}
+
+		try {
+			$data = $request->validate(['sertifikatId' => 'required']);
+
+			SertifikatModel::destroy($data['sertifikatId']);
+
+			return redirect()->route('sertifikat')->with('success', 'success: Hapus sertifikat.');
+		} catch (QueryException $e) {
+			// Error database 
+			return redirect()->route('sertifikat')->with('error', 'Gagal hapus sertifikat. Error DB: ' . $e->getMessage());
+		} catch (\Exception $e) {
+			// Error umum
+			return redirect()->route('sertifikat')->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+		}
+	}
 }
