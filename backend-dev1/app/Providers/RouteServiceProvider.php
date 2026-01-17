@@ -36,8 +36,9 @@ class RouteServiceProvider extends ServiceProvider
 
 		$this->routes(function () {
 			/** Admin routes */
-			Route::prefix('hdpanel')
-				->middleware('web')
+			// Route::prefix('hdpanel')
+			// 	->middleware('web')
+			Route::middleware('web')
 				->namespace($this->adminNamespace)
 				->group(base_path('routes/admin.php'));
 
@@ -48,8 +49,8 @@ class RouteServiceProvider extends ServiceProvider
 				->group(base_path('routes/api.php'));
 
 			// NO USE route
-			Route::middleware('web')
-				->group(base_path('routes/web.php'));
+			// Route::middleware('web')
+			// 	->group(base_path('routes/web.php'));
 		});
 	}
 

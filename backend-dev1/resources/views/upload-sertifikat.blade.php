@@ -93,12 +93,12 @@
       <!-- Content -->
       <div class="content">
         <div class="card-form">
-          <h2>Upload Sertifikat Kelulusan</h2>
+          <h2>Unggah Sertifikat Kelulusan</h2>
           <form action="{{ route('store-sertifikat') }}" method="post" enctype="multipart/form-data">
             @csrf
 
             {{-- 1. Pilih Kelas --}}
-            <label for="kelas">Pilih Kelas</label>
+            {{-- <label for="kelas">Pilih Kelas</label>
             <select id="kelas">
               <option value="">--- Kelas ---</option>
               @if (count($kelas) > 0)
@@ -106,27 +106,27 @@
                   <option value="{{ $k->kelasId }}">{{ $k->nama_kelas }}</option>
                 @endforeach
               @endif
-            </select>
+            </select> --}}
 
             {{-- 2. Pilih Peserta --}}
             <label for="member">Nama Peserta</label>
-            <select id="member" name="memberId" disabled>
+            <select id="member" name="memberId">
               <option value="">-- Peserta --</option>
-              {{-- @if (count($members) > 0)
+              @if (count($members) > 0)
                 @foreach ($members as $member)
                   <option value="{{ $member->memberId }}">{{ $member->username }}</option>
                 @endforeach
-              @endif --}}
+              @endif
             </select>
 
             <label for="noSertifikat">Nomor Sertifikat</label>
-            <input type="text" id="noSertifikat" name="noSertifikat" placeholder="Input no sertifikat.." disabled />
+            <input type="text" id="noSertifikat" name="noSertifikat" placeholder="Input no sertifikat.." />
 
             <label for="tanggal">Tanggal Terbit</label>
-            <input type="date" id="tanggal" name="tanggal" disabled />
+            <input type="date" id="tanggal" name="tanggal" />
 
             <label for="filepdf">Upload File Sertifikat (PDF)</label>
-            <input type="file" id="filepdf" name="filepdf" accept="application/pdf" required disabled>
+            <input type="file" id="filepdf" name="filepdf" accept="application/pdf" required />
 
             <button type="reset" class="btn btn-secondary">Reset</button>
             <button type="submit">Simpan</button>
@@ -165,7 +165,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
   <!-- Bootstrap JS -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
-  <script>
+  {{-- <script>
     $(document).ready(function() {
 
       $('#kelas').on('change', function() {
@@ -222,7 +222,7 @@
 
       });
     });
-  </script>
+  </script> --}}
 </body>
 
 </html>

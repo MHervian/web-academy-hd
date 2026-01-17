@@ -17,7 +17,7 @@
     <li><a href="{{ route('kelas-registrasi') }}">Pendaftar Kelas</a></li>
     {{-- <li><a href="{{ route('coming-soon') }}">Pendaftar Kelas</a></li> --}}
     {{-- <li><a href="{{ route('notification') }}">Notifikasi</a></li> --}}
-    <li><a href="{{ route('coming-soon') }}">Notifikasi</a></li>
+    {{-- <li><a href="{{ route('coming-soon') }}">Notifikasi</a></li> --}}
     {{-- <li><a href="{{ route('create-notification') }}">Create Notifikasi</a></li> --}}
     {{-- <li><a href="{{ route('pengajar') }}">Pengajar</a></li> --}}
     {{-- <li><a href="{{ route('approve-pengajar') }}">Approval Pengajar</a></li> --}}

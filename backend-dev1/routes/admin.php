@@ -37,6 +37,7 @@ Route::controller('SertifikatController')->group(function () {
   Route::get('/sertifikat/upload', 'create')->name('upload-sertifikat');
   Route::get('/sertifikat/upload/get/peserta/{kelasId}', 'listPendaftarByKelas')->name('sertifikat-get-peserta');
   Route::post('/sertifikat/upload', 'store')->name('store-sertifikat');
+  Route::post('/sertifikat/delete', 'delete')->name('delete-sertifikat');
 
   Route::get('/sertifikat/{noSertifikat}', 'detail')->name('sertifikat-detail');
   Route::get('/sertifikat/view/{filename}', 'viewFile')->name('view-sertifikat');

@@ -9,11 +9,13 @@ class SertifikatModel extends Model
 {
 	use HasFactory;
 	protected $table = 'sertifikat';
-	protected $primaryKey = 'memberId';
+	// protected $primaryKey = 'memberId';
+	protected $primaryKey = 'sertifikatId';
 	public $timestamps = true;
 
 	protected $fillable = [
 		'memberId',
+		'kelasId',
 		'noSertifikat',
 		'date_issued',
 		'filename'
