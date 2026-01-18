@@ -6,8 +6,14 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 
+$routes->get('/', function () {
+    $request = service('request');
+    $locale  = $request->getLocale() ?? 'id';
+    return redirect()->to('/' . $locale);
+});
+
 $routes->group('{locale}', function ($routes) {
-// $routes->group('(:locale)', function ($routes) {
+    // $routes->group('(:locale)', function ($routes) {
     //landing-page
     $routes->get('/', 'Home::index', ['as' => 'beranda']);
     $routes->get('course', 'Home::course', ['as' => 'course']);

@@ -47,8 +47,11 @@ class User extends BaseController
 			'metode' => 'email',
 		]);
 
+		$request = service('request');
+		$locale  = $request->getLocale() ?? 'id';
+
 		return redirect()
-			->to('auth/login')
+			->to($locale . '/auth/login')
 			->with('success', 'Registrasi berhasil');
 	}
 }

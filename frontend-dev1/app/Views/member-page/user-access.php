@@ -80,7 +80,8 @@
             <?php endforeach ?>
           </div>
         <?php endif; ?>
-        <form method="post" action="<?= lang_url('auth/login-with-email') ?>">
+        <!-- <form method="post" action="<?= lang_url('auth/login-with-email') ?>"> -->
+        <form method="post" action="<?= base_url('auth/login-with-email') ?>">
           <label for="username" class="block pb-1"><?= lang('Member.email') ?></label>
           <div class="flex border border-solid border-gray-300 focus-within:border-blue-500 rounded-md">
             <span class="pt-3 px-3"><i class="fa-solid fa-user text-gray-500"></i></span>

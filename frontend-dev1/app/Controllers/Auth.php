@@ -155,7 +155,7 @@ class Auth extends BaseController
 		// Redirect ke halaman member
 		$locale = session('auth_locale') ?? 'id';
 		// dd($locale);
-		
+
 		service('request')->setLocale($locale);
 		return redirect()->to('/' . $locale . '/beranda-member');
 	}
