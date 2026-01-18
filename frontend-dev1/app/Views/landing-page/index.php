@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="<?= service('request')->getLocale() ?>">
 
 <head>
   <meta charset="UTF-8" />
@@ -14,6 +14,9 @@
   <!-- Tailwind CSS -->
   <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
   <link rel="stylesheet" href="<?= base_url('css/output.css') ?>" />
+
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.15.4/dist/cdn.min.js"></script>
+
   <!-- Font Awesome 7 -->
   <link
     rel="stylesheet"
@@ -48,12 +51,11 @@
         sans-serif;
     }
   </style>
-    <link
+  <link
     rel="preload"
     as="image"
     href="/images/Dream Banner 1.webp"
-    fetchpriority="high"
-  />
+    fetchpriority="high" />
 </head>
 
 <body>
@@ -65,48 +67,44 @@
   <!-- Main content -->
   <main>
     <section id="home">
-    <div
-      id="parallax"
-      class="relative min-h-[calc(100vh-80px)] bg-cover bg-center flex items-center justify-center"
-      style="background-image: url('/images/Dream Banner 1.webp');"
-    >
-    <!-- overlay -->
-    <div class="absolute inset-0 bg-black/50"></div>
+      <div
+        id="parallax"
+        class="relative min-h-[calc(100vh-80px)] bg-cover bg-center flex items-center justify-center"
+        style="background-image: url('/images/Dream Banner 1.webp');">
+        <!-- overlay -->
+        <div class="absolute inset-0 bg-black/50"></div>
 
-    <!-- content -->
-    <div class="relative z-10 px-5 pt-20 pb-24 text-white">
-      <h1 class="text-3xl md:text-center [text-shadow:0_2px_8px_rgba(0,0,0,0.7)]">Akademi Dream Korean</h1>
+        <!-- content -->
+        <div class="relative z-10 px-5 pt-20 pb-24 text-white">
+          <h1 class="text-3xl md:text-center [text-shadow:0_2px_8px_rgba(0,0,0,0.7)]"><?= lang('App.academy_name') ?></h1>
 
-      <p class="mt-4 md:mx-auto md:max-w-xl md:text-center [text-shadow:0_1px_6px_rgba(0,0,0,0.6)]">
-        Menghadirkan program belajar bahasa Korea — mulai dari persiapan TOPIK
-        hingga program spesialis calon guru bahasa Korea.
-      </p>
+          <p class="mt-4 md:mx-auto md:max-w-xl md:text-center [text-shadow:0_1px_6px_rgba(0,0,0,0.6)]">
+            <?= lang('App.hero_description') ?>
+          </p>
 
-      <div class="mt-6 flex flex-col gap-3 md:flex-row md:justify-center">
-        <a
-          href="<?= base_url('course') ?>"
-          class="rounded-lg px-6 py-3 font-bold text-white
+          <div class="mt-6 flex flex-col gap-3 md:flex-row md:justify-center">
+            <a
+              href="<?= lang_url('course') ?>"
+              class="rounded-lg px-6 py-3 font-bold text-white
                 bg-[rgba(191,36,65,0.4)]
                 hover:bg-[rgba(191,36,65,0.75)]
-                transition"
-        >
-          Jelajah Program
-        </a>
-        <a
-          href="<?= base_url('about-us') ?>"
-          class="rounded-lg border border-white px-6 py-3 shadow-lg hover:shadow-xl"
-        >
-          Tentang Akademi
-        </a>
+                transition">
+              <?= lang('App.explore_programs') ?>
+            </a>
+            <a
+              href="<?= lang_url('about-us') ?>"
+              class="rounded-lg border border-white px-6 py-3 shadow-lg hover:shadow-xl">
+              <?= lang('App.about_the_academy') ?>
+            </a>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
 
     <section id="profile">
       <div class="h-full mx-auto max-w-7xl py-5">
-        <h1 class="text-2xl text-center p-5 font-bold">Profile</h1>
+        <h1 class="text-2xl text-center p-5 font-bold"><?= lang('App.profile') ?></h1>
         <div class="flex justify-center">
           <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
             <article class="group flex rounded-radius max-w-sm flex-col overflow-hidden border border-outline bg-surface-alt text-on-surface dark:border-outline-dark dark:bg-surface-dark-alt dark:text-on-surface-dark">
@@ -115,13 +113,9 @@
               </div>
               <div class="flex flex-col gap-4 p-6">
                 <!-- <span class="text-sm font-medium">Dream Korean Language Learning Center</span> -->
-                <h3 class="text-balance text-xl lg:text-2xl font-bold text-on-surface-strong dark:text-on-surface-dark-strong" aria-describedby="featureDescription">Dream Korean Language Learning Center</h3>
+                <h3 class="text-balance text-xl lg:text-2xl font-bold text-on-surface-strong dark:text-on-surface-dark-strong" aria-describedby="featureDescription"><?= lang('App.learning_center_name') ?></h3>
                 <p id="featureDescription" class="text-pretty text-sm">
-                  Dream Korean Language Learning Center menyediakan program profesional bahasa Korea dan
-                  persiapan Ujian Kemahiran Bahasa Korea (TOPIK) bagi para pemuda Indonesia dengan biaya serendah
-                  mungkin dan kualitas pendidikan terbaik. Pada akhirnya, pusat ini bertujuan menjadi hub pendidikan
-                  bahasa Korea di Indonesia yang memungkinkan terwujudnya kerja sama saling menguntungkan
-                  antara Korea dan Indonesia.
+                  <?= lang('App.learning_center_description') ?>
                 </p>
               </div>
             </article>
@@ -131,16 +125,9 @@
               </div>
               <div class="flex flex-col gap-4 p-6">
                 <!-- <span class="text-sm font-medium">Features</span> -->
-                <h3 class="text-balance text-xl lg:text-2xl font-bold text-on-surface-strong dark:text-on-surface-dark-strong" aria-describedby="featureDescription">Program Spesialis Bahasa Korea</h3>
+                <h3 class="text-balance text-xl lg:text-2xl font-bold text-on-surface-strong dark:text-on-surface-dark-strong" aria-describedby="featureDescription"><?= lang('App.korean_language_specialist_program') ?></h3>
                 <p id="featureDescription" class="text-pretty text-sm">
-                  Program pendidikan bahasa Korea dilaksanakan secara
-                  sistematis dengan menggunakan bahan ajar yang dikembangkan sendiri, berdasarkan
-                  pengalaman panjang dan keahlian akademis para dosen Jurusan Bahasa Korea di Universitas
-                  Indonesia (UI). Berbagai media dan materi pembelajaran diteliti serta dikembangkan sesuai
-                  dengan tingkat dan kebutuhan peserta didik untuk meningkatkan efektivitas pembelajaran.
-                  Melalui evaluasi, pusat ini memantau kemajuan belajar bahasa Korea para siswa, menilai
-                  pencapaian standar kelulusan, dan memberikan sertifikat kepada peserta yang memenuhi
-                  kriteria.
+                  <?= lang('App.korean_language_specialist_program_description') ?>
                 </p>
               </div>
             </article>
@@ -150,11 +137,9 @@
               </div>
               <div class="flex flex-col gap-4 p-6">
                 <!-- <span class="text-sm font-medium">Features</span> -->
-                <h3 class="text-balance text-xl lg:text-2xl font-bold text-on-surface-strong dark:text-on-surface-dark-strong" aria-describedby="featureDescription">Program Persiapan Ujian Kemahiran Bahasa Korea (TOPIK)</h3>
+                <h3 class="text-balance text-xl lg:text-2xl font-bold text-on-surface-strong dark:text-on-surface-dark-strong" aria-describedby="featureDescription"><?= lang('App.topik_preparation_program') ?></h3>
                 <p id="featureDescription" class="text-pretty text-sm">
-                  Program intensif ini dirancang agar peserta dapat memperoleh level TOPIK 3–4 dalam waktu
-                  singkat, sebagai standar minimum yang dibutuhkan untuk studi di Korea maupun bekerja di
-                  perusahaan Korea
+                  <?= lang('App.topik_preparation_program_description') ?>
                 </p>
               </div>
             </article>
@@ -164,24 +149,21 @@
               </div>
               <div class="flex flex-col gap-4 p-6">
                 <!-- <span class="text-sm font-medium">Features</span> -->
-                <h3 class="text-balance text-xl lg:text-2xl font-bold text-on-surface-strong dark:text-on-surface-dark-strong" aria-describedby="featureDescription">Tenaga Pengajar Profesional</h3>
+                <h3 class="text-balance text-xl lg:text-2xl font-bold text-on-surface-strong dark:text-on-surface-dark-strong" aria-describedby="featureDescription"><?= lang('App.professional_faculty') ?></h3>
                 <p id="featureDescription" class="text-pretty text-sm">
-                  Para pengajar yang memiliki gelar magister dan doktor di bidang bahasa
-                  Korea, serta pengalaman luas dan keahlian dalam pengajaran bahasa Korea, senantiasa berupaya
-                  mengembangkan metode dan materi pembelajaran yang efektif. Mereka membimbing peserta didik
-                  agar dapat menyelesaikan program dengan cepat dan efisien.
+                  <?= lang('App.professional_faculty_description') ?>
                 </p>
               </div>
             </article>
           </div>
         </div>
 
-        
+
 
       </div>
     </section>
 
-    <section id="sambutan">
+    <!-- <section id="sambutan">
       <div class="p-5 sm:p-20 bg-[#faf6fb] h-full text-[#959094]">
         <div class="max-w-7xl mx-auto">
         <div class="text-center my-5 font-bold">
@@ -224,7 +206,7 @@
         </div>
         
       </div>
-    </section>
+    </section> -->
 
     <section>
       <div class="h-full p-5">
@@ -232,71 +214,84 @@
 
           <!-- Judul -->
           <div class="bg-white p-5 text-center">
-            <h2 class="text-2xl font-bold">Struktur Organisasi Yayasan</h2>
+            <h2 class="text-2xl font-bold"><?= lang('App.foundation_structure') ?></h2>
             <!-- <p class="text-gray-600 mt-1">
               Sistem kerja dan kemitraan lembaga
             </p> -->
           </div>
 
-          <!-- Pimpinan -->
-          <div class="flex justify-center">
-            <div class="bg-blue-600 text-white px-8 py-4 rounded-xl shadow text-center">
-              <p class="text-sm opacity-90">Pimpinan</p>
-              <p class="text-xl font-bold">YAYASAN 이사장</p>
-            </div>
-          </div>
+          <div class="relative max-w-6xl mx-auto">
 
-          <!-- Garis -->
-          <div class="flex justify-center">
-            <div class="w-px h-8 bg-gray-400"></div>
-          </div>
-
-          <!-- 3 Kolom -->
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-            <!-- Konsultasi -->
-            <div class="bg-white p-6 rounded-lg shadow">
-              <h3 class="text-lg font-semibold text-blue-700 mb-3">
-                🧭 자문기관 (Lembaga Konsultasi)
-              </h3>
-              <ul class="space-y-2 text-gray-700">
-                <li class="p-3 bg-gray-50 rounded">
-                  주인도네시아 한국교육원
-                </li>
-              </ul>
+            <!-- PIMPINAN -->
+            <div class="flex justify-center relative z-10">
+              <div class="bg-gradient-to-b from-blue-400 to-blue-600 text-white px-10 py-5 rounded-2xl shadow-xl text-center">
+                <div class="font-bold text-lg opacity-90 flex justify-center items-center gap-1">
+                  👑 <span><?= lang('App.chairman') ?></span>
+                </div>
+              </div>
             </div>
 
-            <!-- Kerja Sama -->
-            <div class="bg-white p-6 rounded-lg shadow">
-              <h3 class="text-lg font-semibold text-green-700 mb-3">
-                🤝 협력기관 (Mitra Kerja)
-              </h3>
-              <ul class="space-y-2 text-gray-700">
-                <li class="p-3 bg-gray-50 rounded">자카르타한국국제학교</li>
-                <li class="p-3 bg-gray-50 rounded">UI 대학</li>
-                <li class="p-3 bg-gray-50 rounded">경남 인도네시아지부</li>
-                <li class="p-3 bg-gray-50 rounded">충남 인도네시아지부</li>
-              </ul>
-            </div>
+            <!-- SVG CONNECTOR -->
+            <svg class="absolute left-1/2 top-[95px] -translate-x-1/2"
+              width="900" height="160" viewBox="0 0 900 160" fill="none">
+              <path d="M450 0 V60" stroke="#BFDBFE" stroke-width="2" />
+              <path d="M450 60 C450 90 150 90 150 120" stroke="#BFDBFE" stroke-width="2" />
+              <path d="M450 60 C450 90 450 90 450 120" stroke="#BFDBFE" stroke-width="2" />
+              <path d="M450 60 C450 90 750 90 750 120" stroke="#BFDBFE" stroke-width="2" />
+            </svg>
 
-            <!-- Program -->
-            <div class="bg-white p-6 rounded-lg shadow">
-              <h3 class="text-lg font-semibold text-purple-700 mb-3">
-                📚 운영과정 (Program)
-              </h3>
-              <ul class="space-y-2 text-gray-700">
-                <li class="p-3 bg-gray-50 rounded">
-                  TOPIK (5급 이상)
-                </li>
-                <li class="p-3 bg-gray-50 rounded">
-                  TOPIK 준비과정 (3급~4급)
-                </li>
-                <li class="p-3 bg-gray-50 rounded">
-                  특수목적 한국어과정
-                </li>
-              </ul>
-            </div>
+            <!-- CARD GRID -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-40">
 
+              <!-- KIRI -->
+              <div class="bg-blue-50 rounded-2xl p-6 shadow-sm">
+                <h3 class="font-semibold text-blue-700 mb-3 flex items-center gap-2">
+                  📘 자문기관
+                  <span class="text-sm text-gray-500">(Lembaga Konsultasi)</span>
+                </h3>
+                <p class="text-gray-700 text-sm">
+                  <?= lang('App.korea_indonesia_consulting') ?>
+                </p>
+              </div>
+
+              <!-- TENGAH -->
+              <div class="bg-green-50 rounded-2xl p-6 shadow-sm">
+                <h3 class="font-semibold text-green-700 mb-3 flex items-center gap-2">
+                  🤝 협력기관
+                  <span class="text-sm text-gray-500">(Mitra Kerja)</span>
+                </h3>
+                <ul class="text-sm text-gray-700 space-y-2">
+                  <li><?= lang('App.jiks') ?></li>
+                  <li><?= lang('App.university_of_indonesia') ?></li>
+                  <li><?= lang('App.gyeongnam_chungnam_office') ?></li>
+                </ul>
+              </div>
+
+              <!-- KANAN -->
+              <div class="bg-purple-50 rounded-2xl p-6 shadow-sm">
+                <h3 class="font-semibold text-purple-700 mb-3 flex items-center gap-2">
+                  📚 운영과정
+                  <span class="text-sm text-gray-500">(Program)</span>
+                </h3>
+                <ul class="text-sm text-gray-700 space-y-3">
+                  <li class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 bg-green-500 rounded-full"></span>
+                    <?= lang('App.topik_level_5_plus') ?>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 bg-blue-500 rounded-full"></span>
+                    <?= lang('App.topik_level_3_4') ?>
+
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 bg-gray-400 rounded-full"></span>
+                    <?= lang('App.special_purpose_korean_course') ?>
+
+                  </li>
+                </ul>
+              </div>
+
+            </div>
           </div>
 
         </div>
@@ -307,7 +302,7 @@
       <div class="h-full p-5 bg-[#faf6fb]">
         <div class="text-center p-5">
           <h1 class="text-2xl font-bold text-[#633991]">
-            Informasi Fasilitas
+            <?= lang('App.facility_information') ?>
           </h1>
         </div>
 
@@ -325,17 +320,17 @@
           <!-- Ringkasan Utama -->
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div class="bg-blue-50 p-5 rounded-lg shadow text-center">
-              <p class="text-sm text-gray-600">Total Ruang Digital</p>
+              <p class="text-sm text-gray-600"><?= lang('App.total_digital_rooms') ?></p>
               <p class="text-3xl font-bold text-blue-700">30</p>
             </div>
 
             <div class="bg-green-50 p-5 rounded-lg shadow text-center">
-              <p class="text-sm text-gray-600">Total Perangkat</p>
+              <p class="text-sm text-gray-600"><?= lang('App.total_devices') ?></p>
               <p class="text-3xl font-bold text-green-700">107</p>
             </div>
 
             <div class="bg-purple-50 p-5 rounded-lg shadow text-center">
-              <p class="text-sm text-gray-600">Ruang Khusus</p>
+              <p class="text-sm text-gray-600"><?= lang('App.special_rooms') ?></p>
               <p class="text-3xl font-bold text-purple-700">18</p>
             </div>
           </div>
@@ -343,27 +338,101 @@
           <!-- Detail Ruang Kelas -->
           <div class="bg-white p-6 rounded-lg shadow">
             <h3 class="text-xl font-semibold mb-4">
-              🏫 Ruang Kelas Digital
+              🏫 <?= lang('App.digital_classrooms') ?>
             </h3>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <p class="font-semibold mb-2">Ruang Umum (12)</p>
+                <p class="font-semibold mb-2"><?= lang('App.general_rooms') ?> (12)</p>
                 <p class="text-gray-700">
-                  9 kelas reguler + 1 kelas khusus (만들레)
+                  <?= lang('App.class_summary') ?>
                 </p>
               </div>
 
               <div>
-                <p class="font-semibold mb-2">Ruang Khusus (18)</p>
-                <ul class="list-disc ml-5 text-gray-700 space-y-1">
-                  <li>Komputer (1)</li>
-                  <li>Laboratorium Sains (1)</li>
-                  <li>Bahasa Inggris (10)</li>
-                  <li>Bahasa Indonesia (3)</li>
-                  <li>Seni (1)</li>
-                  <li>Musik (1)</li>
-                  <li>Perpustakaan (1)</li>
+                <p class="font-semibold mb-2"><?= lang('App.special_rooms') ?> (18)</p>
+                <ul class="list-none ml-5 text-gray-700 space-y-1">
+                  <li class="flex gap-2 justify-items-center">
+                    <svg class="w-5 h-5" width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                      <g id="SVGRepo_iconCarrier">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M2 6C2 4.34315 3.34315 3 5 3H19C20.6569 3 22 4.34315 22 6V15C22 16.6569 20.6569 18 19 18H13V19H15C15.5523 19 16 19.4477 16 20C16 20.5523 15.5523 21 15 21H9C8.44772 21 8 20.5523 8 20C8 19.4477 8.44772 19 9 19H11V18H5C3.34315 18 2 16.6569 2 15V6ZM5 5C4.44772 5 4 5.44772 4 6V15C4 15.5523 4.44772 16 5 16H19C19.5523 16 20 15.5523 20 15V6C20 5.44772 19.5523 5 19 5H5Z" fill="#000000"></path>
+                      </g>
+                    </svg>
+                    <h6> <?= lang('App.computer') ?> (1)</h6>
+                  </li>
+                  <li class="flex gap-2 justify-items-center">
+                    <svg class="w-5 h-5" fill="#000000" width="64px" height="64px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                      <g id="SVGRepo_iconCarrier">
+                        <title>lab</title>
+                        <path d="M19.332 19.041c0 0-1.664 2.125-3.79 0-2.062-2-3.562 0-3.562 0l-4.967 9.79c-0.144 0.533 0.173 1.081 0.706 1.224h16.497c0.533-0.143 0.85-0.69 0.707-1.224l-5.591-9.79zM26.939 28.33l-7.979-13.428v-0.025l-0.014-7.869h0.551c0.826 0 1.498-0.671 1.498-1.499 0-0.827-0.672-1.498-1.498-1.498h-7.995c-0.827 0-1.498 0.671-1.498 1.498 0 0.828 0.671 1.499 1.498 1.499h0.482l-0.016 7.871-6.908 13.451c-0.428 1.599 0.521 3.242 2.119 3.67h17.641c1.6-0.428 2.549-2.071 2.119-3.67zM24.553 30.998l-17.108-0.019c-1.065-0.286-1.697-1.382-1.412-2.446l6.947-13.616 0.021-8.908h-1.498c-0.275 0-0.499-0.224-0.499-0.5s0.224-0.499 0.499-0.499h7.995c0.275 0 0.498 0.224 0.498 0.499 0 0.276-0.223 0.5-0.498 0.5h-1.498l0.025 8.875 7.939 13.666c0.286 1.067-0.347 2.163-1.411 2.448zM16.48 2.512c0 0.552 0.448 1 1 1s1-0.448 1-1-0.447-1-1-1-1 0.447-1 1zM17.48 0.012c0.828 0 1.5-0.671 1.5-1.5s-0.672-1.5-1.5-1.5-1.5 0.671-1.5 1.5 0.672 1.5 1.5 1.5zM13.48 2.512c0.553 0 1-0.448 1-1s-0.447-1-1-1-1 0.448-1 1 0.447 1 1 1z"></path>
+                      </g>
+                    </svg>
+                    <h6> <?= lang('App.science_laboratory') ?> (1)</h6>
+                  </li>
+                  <li class="flex gap-2 justify-items-center">
+                    <svg class="w-5 h-5" width="64px" height="64px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                      <g id="SVGRepo_iconCarrier">
+                        <path fill="none" d="M0 0h24v24H0z"></path>
+                        <path d="M14 10h2v.757a4.5 4.5 0 0 1 7 3.743V20h-2v-5.5c0-1.43-1.175-2.5-2.5-2.5S16 13.07 16 14.5V20h-2V10zm-2-6v2H4v5h8v2H4v5h8v2H2V4h10z"></path>
+                      </g>
+                    </svg>
+                    <h6> <?= lang('App.english') ?> (10)</h6>
+                  </li>
+                  <li class="flex gap-2 justify-items-center">
+                    <svg class="w-5 h-5" width="64px" height="64px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                      <g id="SVGRepo_iconCarrier">
+                        <path fill="none" d="M0 0h24v24H0z"></path>
+                        <path d="M14 10h2v.757a4.5 4.5 0 0 1 7 3.743V20h-2v-5.5c0-1.43-1.175-2.5-2.5-2.5S16 13.07 16 14.5V20h-2V10zm-2-6v2H4v5h8v2H4v5h8v2H2V4h10z"></path>
+                      </g>
+                    </svg>
+                    <h6> <?= lang('App.indonesian')  ?> (3)</h6>
+                  </li>
+                  <li class="flex gap-2 justify-items-center">
+                    <svg class="w-5 h-5" width="64px" height="64px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                      <g id="SVGRepo_iconCarrier">
+                        <rect x="0" fill="none" width="20" height="20"></rect>
+                        <g>
+                          <path d="M8.55 3.06c1.01.34-1.95 2.01-.1 3.13 1.04.63 3.31-2.22 4.45-2.86.97-.54 2.67-.65 3.53 1.23 1.09 2.38.14 8.57-3.79 11.06-3.97 2.5-8.97 1.23-10.7-2.66-2.01-4.53 3.12-11.09 6.61-9.9zm1.21 6.45c.73 1.64 4.7-.5 3.79-2.8-.59-1.49-4.48 1.25-3.79 2.8z"></path>
+                        </g>
+                      </g>
+                    </svg>
+                    <h6> <?= lang('App.art') ?> (1)</h6>
+                  </li>
+                  <li class="flex gap-2 justify-items-center">
+                    <svg class="w-5 h-5" width="64px" height="64px" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                      <g id="SVGRepo_iconCarrier">
+                        <path d="M15 1H4V9H3C1.34315 9 0 10.3431 0 12C0 13.6569 1.34315 15 3 15C4.65685 15 6 13.6569 6 12V5H13V9H12C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12V1Z" fill="#000000"></path>
+                      </g>
+                    </svg>
+                    <h6> <?= lang('App.music') ?> (1)</h6>
+                  </li>
+                  <li class="flex gap-2 justify-items-center">
+                    <svg class="w-5 h-5" width="64px" height="64px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
+                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                      <g id="SVGRepo_iconCarrier">
+                        <title>library</title>
+                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                          <g id="Combined-Shape" fill="#000000" transform="translate(42.666667, 85.333333)">
+                            <path d="M3.55271368e-14,298.666667 L426.666667,298.666667 L426.666667,341.333333 L3.55271368e-14,341.333333 L3.55271368e-14,298.666667 Z M42.6666667,1.42108547e-14 L106.666667,1.42108547e-14 L106.666667,277.333333 L42.6666667,277.333333 L42.6666667,1.42108547e-14 Z M128,21.3333333 L192,21.3333333 L192,277.333333 L128,277.333333 L128,21.3333333 Z M288.933802,36.9522088 L351.961498,25.8387255 L399.909944,277.333333 L330.641827,277.70319 L288.933802,36.9522088 Z M213.333333,21.3333333 L277.333333,21.3333333 L277.333333,277.333333 L213.333333,277.333333 L213.333333,21.3333333 Z"> </path>
+                          </g>
+                        </g>
+                      </g>
+                    </svg>
+                    <h6> <?= lang('App.library') ?> (1)</h6>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -372,33 +441,33 @@
           <!-- Perangkat Digital -->
           <div class="bg-white p-6 rounded-lg shadow">
             <h3 class="text-xl font-semibold mb-4">
-              💻 Perangkat Pembelajaran Digital
+              💻 <?= lang('App.digital_learning_devices') ?>
             </h3>
 
             <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-center">
               <div class="bg-gray-50 p-4 rounded">
-                <p class="text-sm text-gray-600">PC</p>
+                <p class="text-sm text-gray-600"><?= lang('App.pc') ?></p>
                 <p class="text-2xl font-bold">35</p>
-                <p class="text-xs text-gray-500">Lab komputer siswa</p>
+                <p class="text-xs text-gray-500"><?= lang('App.student_computer_lab') ?></p>
               </div>
 
               <div class="bg-gray-50 p-4 rounded">
-                <p class="text-sm text-gray-600">Chromebook</p>
+                <p class="text-sm text-gray-600"><?= lang('App.chromebook') ?></p>
                 <p class="text-2xl font-bold">33</p>
-                <p class="text-xs text-gray-500">Ruang AISW SD</p>
+                <p class="text-xs text-gray-500"><?= lang('App.elementary_aisw_room') ?></p>
               </div>
 
               <div class="bg-gray-50 p-4 rounded">
-                <p class="text-sm text-gray-600">Tablet</p>
+                <p class="text-sm text-gray-600"><?= lang('App.tablet') ?></p>
                 <p class="text-2xl font-bold">47</p>
-                <p class="text-xs text-gray-500">Guru & AISW</p>
+                <p class="text-xs text-gray-500"><?= lang('App.teachers') ?></p>
               </div>
 
               <div class="bg-gray-50 p-4 rounded">
-                <p class="text-sm text-gray-600">Perangkat Lain</p>
+                <p class="text-sm text-gray-600"><?= lang('App.other_devices') ?></p>
                 <p class="text-2xl font-bold">25</p>
                 <p class="text-xs text-gray-500">
-                  Visualizer (23) <br> GoPro (2)
+                  <?= lang('App.visualizer') ?> (23) <br> <?= lang('App.gopro') ?> (2)
                 </p>
               </div>
             </div>
@@ -411,91 +480,148 @@
     <section>
       <div class="max-w-5xl mx-auto space-y-8 p-5">
 
-        <!-- Judul -->
-        <div class="bg-white p-6 text-center">
-          <h2 class="text-2xl font-bold">
-            Pembentukan Konsorsium Mitra Kerja
+        <!-- TITLE -->
+        <div class="text-center mb-12">
+          <h1 class="text-2xl font-semibold text-gray-900 tracking-tight">
+            <?= lang('App.partnership_consortium') ?>
+          </h1>
+          <p class="text-gray-500 mt-2 text-sm">
+            <?= lang('App.korea_indonesia_education_cooperation') ?>
+          </p>
+        </div>
+
+        <!-- INFO BOX -->
+        <div class="bg-blue-50/70 border border-blue-100 rounded-2xl px-6 py-5 flex gap-4 items-start mb-12">
+          <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+            <!-- handshake icon -->
+            <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" stroke-width="1.8"
+              viewBox="0 0 24 24">
+              <path d="M8 10l4 4 4-4" />
+              <path d="M12 14l4 4 4-4M12 14l-4 4-4-4" />
+            </svg>
+          </div>
+          <p class="text-gray-700 text-sm leading-relaxed">
+            <?= lang('App.partnership_consortium_description') ?>
+          </p>
+        </div>
+
+        <!-- SECTION TITLE -->
+        <div class="flex items-center gap-2 mb-6">
+          <svg class="w-8" height="64px" width="64px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 495.622 495.622" xml:space="preserve" fill="#000000">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <g>
+                <path style="fill:#030104;" d="M495.622,113.089v150.03c0,0-32.11,6.326-38.725,7.158c-6.594,0.83-27.316,7.521-42.334-6.914 c-23.16-22.197-105.447-104.03-105.447-104.03s-14.188-13.922-36.969-1.89c-20.912,11.022-51.911,27.175-64.859,33.465 c-24.477,13.028-44.764-7.642-44.764-23.387c0-12.213,7.621-20.502,18.515-26.598c29.524-17.898,91.752-52.827,117.67-66.598 c15.754-8.379,27.105-9.097,48.734,9.124c26.638,22.403,50.344,42.824,50.344,42.824s7.732,6.453,20.063,3.854 C448.13,123.725,495.622,113.089,495.622,113.089z M168.098,367.3c3.985-10.238,2.653-21.689-4.987-29.545 c-6.865-7.027-16.888-8.879-26.445-6.689c2.673-9.479,1.197-19.568-5.705-26.688c-6.886-7.009-16.89-8.898-26.446-6.688 c2.653-9.465,1.181-19.553-5.725-26.652c-10.814-11.092-29.519-10.616-41.807,1.097c-12.223,11.729-20.053,32.979-9.144,45.487 c10.891,12.445,23.405,4.873,32.945,2.699c-2.654,9.465-10.606,18.269-0.813,30.658c9.784,12.395,23.404,4.875,32.954,2.721 c-2.663,9.429-10.268,19.117-0.851,30.604c9.502,11.522,25.065,5.383,35.344,2.19c-3.967,10.199-12.458,21.193-1.549,33.513 c10.892,12.409,36.063,6.668,48.358-5.063c12.262-11.729,13.439-30.318,2.654-41.445 C189.435,365.865,178.335,364.089,168.098,367.3z M392.442,289.246c-88.88-88.881-47.075-47.058-94.906-94.992 c0,0-14.375-14.311-33.321-5.998c-13.3,5.828-30.423,13.771-43.307,19.835c-14.158,7.424-24.347,9.722-29.131,9.69 c-27.37-0.179-49.576-22.178-49.576-49.521c0-17.738,9.417-33.181,23.462-41.947c19.75-13.667,65.21-37.847,65.21-37.847 s-13.849-17.549-44.187-17.549c-30.329,0-93.695,41.512-93.695,41.512s-17.976,11.514-43.601,1.143L0,96.373V268.05 c0,0,14.103,4.082,26.775,9.258c2.862-8.162,7.48-15.699,13.886-21.924c21.023-20.024,55.869-20.232,74.996-0.537 c5.762,5.987,9.783,13.129,11.835,21.024c7.707,2.379,14.688,6.593,20.298,12.373c5.779,5.947,9.785,13.129,11.854,20.984 c7.698,2.381,14.669,6.611,20.298,12.395c6.339,6.537,10.562,14.433,12.534,22.988c8.047,2.344,15.319,6.705,21.176,12.693 c11.495,11.807,15.575,27.826,13.103,43.278c0.02,0,0.058,0,0.076,0.035c0.188,0.246,7.122,7.976,11.446,12.336 c8.474,8.482,22.311,8.482,30.811,0c8.444-8.479,8.481-22.289,0-30.811c-0.304-0.303-30.572-31.963-28.136-34.418 c2.418-2.438,40.981,37.688,41.699,38.422c8.463,8.465,22.291,8.465,30.792,0c8.481-8.479,8.463-22.289,0-30.791 c-0.416-0.396-2.152-2.059-2.796-2.721c0,0-38.234-34.06-35.324-36.97c2.946-2.928,50.438,41.392,50.515,41.392 c8.537,7.688,21.687,7.631,29.9-0.586c7.991-7.99,8.162-20.629,1.078-29.146c-0.15-0.453-36.194-38.121-33.381-40.955 c2.854-2.871,38.519,33.853,38.594,33.929c8.444,8.463,22.291,8.463,30.792,0c8.463-8.464,8.463-22.291,0-30.83 C392.706,289.396,392.555,289.32,392.442,289.246z"></path>
+              </g>
+            </g>
+          </svg>
+          <h2 class="text-lg font-semibold text-gray-900">
+            <?= lang('App.consortium_members') ?>
           </h2>
-          <p class="text-gray-600 mt-1">
-            Jaringan kerja sama pendidikan Korea–Indonesia
-          </p>
         </div>
 
-        <!-- Penjelasan Singkat -->
-        <div class="bg-blue-50 border-l-4 border-blue-500 p-5 rounded shadow-sm">
-          <p class="text-gray-700 leading-relaxed">
-            Konsorsium Mitra Kerja dibentuk untuk memperkuat kerja sama
-            di bidang pendidikan, bahasa Korea, dan pengembangan sumber daya manusia
-            melalui kolaborasi lembaga pendidikan dan perwakilan resmi Korea–Indonesia.
-          </p>
-        </div>
+        <!-- GRID -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-        <!-- Daftar Mitra -->
-        <div class="bg-white p-6 rounded-lg shadow">
-          <h3 class="text-xl font-semibold mb-4">
-            🤝 Anggota Konsorsium
-          </h3>
-
-          <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700">
-
-            <li class="p-4 bg-gray-50 rounded-lg border">
-              <p class="font-semibold">
+          <!-- CARD -->
+          <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 flex justify-between items-center">
+            <div>
+              <h3 class="font-medium text-gray-900">
                 Sekolah Korea Indonesia Jakarta
+              </h3>
+              <p class="text-sm text-gray-500 mt-1">
+                Institusi pendidikan dasar &amp; menengah
               </p>
-              <p class="text-sm text-gray-500">
-                Institusi pendidikan dasar & menengah
-              </p>
-            </li>
+            </div>
+            <svg fill="#000000" width="64px" height="64px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <title>school</title>
+                <path d="M30 21.25h-6.25v-8.957l5.877 3.358c0.107 0.062 0.236 0.098 0.373 0.099h0c0.414-0.001 0.749-0.336 0.749-0.751 0-0.277-0.15-0.519-0.373-0.649l-0.004-0.002-13.623-7.784v-0.552c0.172 0.016 0.35 0.068 0.519 0.068 0.004 0 0.010 0 0.015 0 0.475 0 0.934-0.067 1.368-0.193l-0.035 0.009c0.323-0.063 0.693-0.099 1.073-0.099 0.392 0 0.775 0.039 1.146 0.112l-0.037-0.006c0.039 0.007 0.083 0.012 0.129 0.012 0.184 0 0.352-0.068 0.479-0.181l-0.001 0.001c0.161-0.139 0.263-0.343 0.264-0.571v-2.812c0 0 0-0 0-0 0-0.355-0.247-0.653-0.579-0.73l-0.005-0.001c-0.419-0.111-0.9-0.176-1.396-0.176-0.5 0-0.985 0.065-1.446 0.187l0.039-0.009c-0.288 0.067-0.618 0.105-0.958 0.105-0.231 0-0.457-0.018-0.678-0.052l0.025 0.003c-0.122-0.256-0.378-0.43-0.676-0.43-0.412 0-0.746 0.334-0.746 0.746 0 0.001 0 0.003 0 0.004v-0 4.565l-13.622 7.784c-0.227 0.132-0.378 0.374-0.378 0.651 0 0.414 0.336 0.75 0.75 0.75 0.137 0 0.265-0.037 0.376-0.101l-0.004 0.002 5.878-3.359v8.957h-6.25c-0.414 0-0.75 0.336-0.75 0.75v0 8c0 0.414 0.336 0.75 0.75 0.75h28c0.414-0 0.75-0.336 0.75-0.75v0-8c-0-0.414-0.336-0.75-0.75-0.75v0zM18.658 3.075c0.298-0.082 0.64-0.13 0.993-0.13 0.183 0 0.363 0.013 0.539 0.037l-0.020-0.002v1.339c-0.16-0.013-0.345-0.021-0.533-0.021-0.489 0-0.966 0.052-1.425 0.151l0.044-0.008c-0.304 0.088-0.653 0.139-1.014 0.139-0.174 0-0.344-0.012-0.512-0.034l0.020 0.002v-1.323c0.15 0.014 0.325 0.021 0.502 0.021 0.499 0 0.984-0.062 1.447-0.18l-0.041 0.009zM2.75 22.75h5.5v6.5h-5.5zM9.75 22v-10.564l6.25-3.571 6.25 3.572v17.814h-2.5v-5.25c-0-0.414-0.336-0.75-0.75-0.75h-6c-0.414 0-0.75 0.336-0.75 0.75v0 5.25h-2.5zM13.75 29.25v-4.5h4.5v4.5zM29.25 29.25h-5.5v-6.5h5.5zM16 19.75c2.071 0 3.75-1.679 3.75-3.75s-1.679-3.75-3.75-3.75c-2.071 0-3.75 1.679-3.75 3.75v0c0.002 2.070 1.68 3.748 3.75 3.75h0zM16 13.75c1.243 0 2.25 1.007 2.25 2.25s-1.007 2.25-2.25 2.25c-1.243 0-2.25-1.007-2.25-2.25v0c0.002-1.242 1.008-2.248 2.25-2.25h0z"></path>
+              </g>
+            </svg>
+          </div>
 
-            <li class="p-4 bg-gray-50 rounded-lg border">
-              <p class="font-semibold">
+          <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 flex justify-between items-center">
+            <div>
+              <h3 class="font-medium text-gray-900">
                 Pusat Pendidikan Korea di Indonesia
-              </p>
-              <p class="text-sm text-gray-500">
+              </h3>
+              <p class="text-sm text-gray-500 mt-1">
                 Lembaga resmi pendidikan Korea
               </p>
-            </li>
+            </div>
+            <svg width="64px" height="64px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--fxemoji" preserveAspectRatio="xMidYMid meet" fill="#000000">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <path fill="#E8E8E8" d="M494.661 425.149c-159.52-37.139-319.04 45.468-478.559 8.329C7.209 431.416 0 422.098 0 413.212V98.788C0 89.89 7.209 84.79 16.101 86.851c159.52 37.139 319.04-45.468 478.559-8.329c8.892 2.061 16.101 11.379 16.101 20.266v314.424c.001 8.898-7.208 13.998-16.1 11.937z"></path>
+                <circle fill="#FF473E" cx="255.381" cy="256" r="92.048"></circle>
+                <path fill="#0B67B2" d="M346.636 245.675c-2.258-10.955-10.722-35.009-41.54-35.009c-39.905 0-53.429 81.667-100.095 81.667c-37 0-41.667-36.334-41.667-36.334c0 50.837 41.211 92.048 92.048 92.048s92.048-41.211 92.048-92.048c0-2.295-.087-4.57-.252-6.824c-.128-.875-.307-2.052-.542-3.5z"></path>
+                <path fill="#2B3B47" d="M42.333 199.333a7.155 7.155 0 0 1 0-10.118l38.882-38.882a7.155 7.155 0 0 1 10.118 10.118l-38.882 38.882a7.153 7.153 0 0 1-10.118 0zm27.113 16.994l38.882-38.882a7.155 7.155 0 0 0-10.118-10.118l-38.882 38.882a7.155 7.155 0 0 0 0 10.118a7.153 7.153 0 0 0 10.118 0zm16.994 16.994l38.882-38.882a7.155 7.155 0 0 0-10.118-10.118l-38.882 38.882a7.155 7.155 0 0 0 10.118 10.118zm318.495-88.471l38.882 38.882a7.155 7.155 0 0 0 10.118-10.118l-38.882-38.882a7.155 7.155 0 0 0-10.118 10.118zm10.244 44.232l11.644 11.644a7.155 7.155 0 0 0 10.118-10.118l-11.644-11.644a7.155 7.155 0 0 0-10.118 10.118zm-25.587-25.586l11.644 11.644a7.155 7.155 0 0 0 10.118-10.118l-11.644-11.644a7.155 7.155 0 0 0-10.118 10.118zm59.575-8.402l11.644 11.644a7.155 7.155 0 0 0 10.118-10.118l-11.644-11.644a7.155 7.155 0 0 0-10.118 10.118zm-25.587-25.586l11.644 11.644a7.155 7.155 0 0 0 10.118-10.118l-11.644-11.644a7.155 7.155 0 0 0-10.118 10.118zM123.67 365.387l-37.23-37.23a7.155 7.155 0 0 0-10.118 10.118l37.23 37.23a7.155 7.155 0 0 0 10.118-10.118zm-33.988 33.988l-37.23-37.23a7.155 7.155 0 0 0-10.118 10.118l37.23 37.23a7.155 7.155 0 0 0 10.118-10.118zm-8.593-42.581L69.445 345.15a7.155 7.155 0 0 0-10.118 10.118l11.644 11.644a7.155 7.155 0 0 0 10.118-10.118zm25.587 25.587l-11.644-11.644a7.155 7.155 0 0 0-10.118 10.118l11.644 11.644a7.155 7.155 0 0 0 10.118-10.118zm351.784-30.244l11.644-11.644a7.155 7.155 0 0 0-10.118-10.118l-11.644 11.644a7.155 7.155 0 0 0 10.118 10.118zm-25.587 25.587l11.644-11.644a7.155 7.155 0 0 0-10.118-10.118l-11.644 11.644a7.155 7.155 0 0 0 10.118 10.118zm-8.401-59.575l11.644-11.644a7.155 7.155 0 0 0-10.118-10.118l-11.644 11.644a7.155 7.155 0 0 0 10.118 10.118zm-25.587 25.587l11.644-11.644a7.155 7.155 0 0 0-10.118-10.118l-11.644 11.644a7.155 7.155 0 0 0 10.118 10.118zm42.581-8.593l11.644-11.644a7.155 7.155 0 0 0-10.118-10.118l-11.644 11.644a7.155 7.155 0 0 0 10.118 10.118zm-25.587 25.587l11.644-11.644a7.155 7.155 0 0 0-10.118-10.118l-11.644 11.644a7.155 7.155 0 0 0 10.118 10.118z"></path>
+              </g>
+            </svg>
+          </div>
 
-            <li class="p-4 bg-gray-50 rounded-lg border">
-              <p class="font-semibold">
-                Universitas Negeri Indonesia (UI)
-              </p>
-              <p class="text-sm text-gray-500">
+          <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 flex justify-between items-center">
+            <div>
+              <h3 class="font-medium text-gray-900">
+                Universitas Indonesia (UI)
+              </h3>
+              <p class="text-sm text-gray-500 mt-1">
                 Universitas dengan jurusan Bahasa Korea
               </p>
-            </li>
+            </div>
+            <img src="/icons/UI (Universitas Indonesia) Logo (SVG) - Vector69Com.svg" alt="" class="w-12" srcset="">
+          </div>
 
-            <li class="p-4 bg-gray-50 rounded-lg border">
-              <p class="font-semibold">
-                Kantor Perwakilan Gyeongnam & Chungnam
-              </p>
-              <p class="text-sm text-gray-500">
+          <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 flex justify-between items-center">
+            <div>
+              <h3 class="font-medium text-gray-900">
+                Kantor Perwakilan Gyeongnam &amp; Chungnam
+              </h3>
+              <p class="text-sm text-gray-500 mt-1">
                 Perwakilan pemerintah daerah Korea di Indonesia
               </p>
-            </li>
+            </div>
+            <svg width="64px" height="64px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <path fill="#000000" d="M800 416a288 288 0 1 0-576 0c0 118.144 94.528 272.128 288 456.576C705.472 688.128 800 534.144 800 416zM512 960C277.312 746.688 160 565.312 160 416a352 352 0 0 1 704 0c0 149.312-117.312 330.688-352 544z"></path>
+                <path fill="#000000" d="M512 448a64 64 0 1 0 0-128 64 64 0 0 0 0 128zm0 64a128 128 0 1 1 0-256 128 128 0 0 1 0 256zm345.6 192L960 960H672v-64H352v64H64l102.4-256h691.2zm-68.928 0H235.328l-76.8 192h706.944l-76.8-192z"></path>
+              </g>
+            </svg>
+          </div>
 
-            <li class="p-4 bg-gray-50 rounded-lg border">
-              <p class="font-semibold">
-                Universitas Siber Uncia
+          <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 flex justify-between items-center">
+            <div>
+              <h3 class="font-medium text-gray-900">
+                Universitas Siber Asia (Uncia)
+              </h3>
+              <p class="text-sm text-gray-500 mt-1">
+                Asia Cyber University
               </p>
-              <p class="text-sm text-gray-500">
-                Uncia Cyber University
-              </p>
-            </li>
+            </div>
+            <img class="w-12" src="/icons/120061378_110520754141084_6594683579243627143_n.jpg" alt="" srcset="">
+          </div>
 
-            <li class="p-4 bg-gray-50 rounded-lg border">
-              <p class="font-semibold">
+          <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 flex justify-between items-center">
+            <div>
+              <h3 class="font-medium text-gray-900">
                 Pusat Pendidikan Hanuri di Indonesia
+              </h3>
+              <p class="text-sm text-gray-500 mt-1">
+                Lembaga pelatihan &amp; bahasa Korea
               </p>
-              <p class="text-sm text-gray-500">
-                Lembaga pelatihan & bahasa Korea
-              </p>
-            </li>
+            </div>
+            <img class="w-16" src="/icons/download.jpeg" alt="" srcset="">
+          </div>
 
-          </ul>
+
         </div>
-
-      </div>
     </section>
 
     <!-- <section>
@@ -679,8 +805,8 @@
         class="lg:grid lg:grid-cols-2 px-5 pt-14 pb-9 md:w-[90%] lg:w-245 md:m-auto">
         <div class="lg:col-span-1">
           <p class="pb-3 text-[#633991]">
-            <i class="fa-solid fa-location-dot text-[#1B2740]"></i> Jalan K.H.
-            Mas Mansyur, Citywalk, Jakarta Selatan, Jakarta, Indonesia
+            <i class="fa-solid fa-location-dot text-[#1B2740]"></i> 
+            <?= lang('App.address') ?>
           </p>
           <div class="flex gap-x-6.5">
             <span class="text-[#633991]"><i class="fa-solid fa-envelope text-[#1B2740]"></i>
@@ -699,46 +825,20 @@
     </div>
   </main>
   <!-- /Main Content -->
-  <footer
-    class="pt-12.5 pb-7 px-5 bg-[radial-gradient(circle_at_100%_180%,#6D2A3A_0%,#30283F_20%,#1B2740_95%)]">
-    <div class="grid grid-cols-3">
-      <div class="col-span-3">
-        <div class="pb-7">
-          <img
-            src="image_samples/logo design new 2.png"
-            class="w-80 md:w-74 m-auto" />
-        </div>
-        <ul class="md:flex md:justify-between md:w-150 md:m-auto">
-          <li class="pb-3">
-            <a href="#" class="block text-center text-white">Home</a>
-          </li>
-          <li class="pb-3">
-            <a href="#" class="block text-center text-white">Tentang Akademi</a>
-          </li>
-          <li class="pb-3">
-            <a href="#" class="block text-center text-white">Program</a>
-          </li>
-          <li class="pb-3">
-            <a href="#" class="block text-center text-white">Komunitas</a>
-          </li>
-          <li>
-            <a href="#" class="block text-center text-white">Ketentuan Privasi dan Pengguna</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="py-6.5"></div>
-    <p class="text-[#e54595] font-semibold text-center text-sm">
-      &copy;2026 DreamHangul Akademi
-    </p>
-  </footer>
+
+  <!-- footer -->
+  <?= $this->include('landing-page/footer') ?>
+  <!-- /footer -->
+
+
 </body>
 
 <script
   src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
   crossorigin="anonymous"
-  referrerpolicy="no-referrer"></script>
+  referrerpolicy="no-referrer">
+</script>
 <script>
   $(document).ready(function() {
     $("#mobileMenuBtn").on("click", function() {

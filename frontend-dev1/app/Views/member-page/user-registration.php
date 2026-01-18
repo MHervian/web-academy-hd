@@ -1,5 +1,6 @@
 <!doctype html>
-<html>
+<html lang="<?= service('request')->getLocale() ?>">
+
 
 <head>
   <meta charset="UTF-8" />
@@ -37,11 +38,11 @@
 
       <!-- Form -->
       <div class="col-span-1 pt-5 md:pt-15 px-5 md:px-5 lg:px-20">
-        <a href="<?= base_url('/') ?>" class="text-blue-600">
-          <i class="fa-solid fa-house-chimney"></i> Ke Beranda
+        <a href="<?= lang_url('/') ?>" class="text-blue-600">
+          <i class="fa-solid fa-house-chimney"></i> <?= lang('Member.home') ?>
         </a>
         <div class="py-3.5"></div>
-        <h2 class="text-2xl font-bold">Registrasi Akun</h2>
+        <h2 class="text-2xl font-bold"><?= lang('Member.account_registration') ?></h2>
         <div class="py-3"></div>
         <?php if (session()->getFlashdata('errors')) : ?>
           <div class="mb-4 rounded-md border border-[#f87171] bg-[#fce7f3] px-4 py-3 text-[#b91c1c]">
@@ -54,26 +55,25 @@
         <?php endif; ?>
         <form method="post" action="<?= base_url('user/store') ?>">
           <?= csrf_field() ?>
-          <label for="username" class="block pb-1">USERNAME</label>
+          <label for="username" class="block pb-1"><?= lang('Member.username') ?></label>
           <div class="flex border border-solid border-gray-300 focus-within:border-blue-500 rounded-md">
             <span class="pt-3 px-3"><i class="fa-solid fa-user text-gray-500"></i></span>
-            <input id="username" type="text" class="block w-full py-3 focus:outline-0" placeholder="Username" name="username" required />
+            <input id="username" type="text" class="block w-full py-3 focus:outline-0" name="username" required />
           </div>
           <div class="py-2"></div>
-          <label for="email" class="block pb-1">EMAIL</label>
+          <label for="email" class="block pb-1"><?= lang('Member.email') ?></label>
           <div class="flex border border-solid border-gray-300 focus-within:border-blue-500 rounded-md">
             <span class="pt-3 px-3"><i class="fa-solid fa-envelope text-gray-500"></i></span>
-            <input id="email" type="text" class="block w-full py-3 focus:outline-0" placeholder="Email" name="email" required />
+            <input id="email" type="text" class="block w-full py-3 focus:outline-0" name="email" required />
           </div>
           <div class="py-2"></div>
-          <label class="block pb-1">PASSWORD</label>
+          <label class="block pb-1"><?= lang('Member.password') ?></label>
           <div class="flex border border-solid border-gray-300 focus-within:border-blue-500 rounded-md">
             <span class="pt-3 px-3"><i class="fa-solid fa-key text-gray-500"></i></span>
             <input
               id="password"
               type="password"
               class="block w-full py-3 focus:outline-0"
-              placeholder="Password"
               name="password">
           </div>
 
@@ -83,14 +83,13 @@
 
           <div class="py-2"></div>
 
-          <label class="block pb-1">KONFIRMASI PASSWORD</label>
+          <label class="block pb-1"><?= lang('Member.confirm_password') ?></label>
           <div class="flex border border-solid border-gray-300 focus-within:border-blue-500 rounded-md">
             <span class="pt-3 px-3"><i class="fa-solid fa-key text-gray-500"></i></span>
             <input
               id="confirm_password"
               type="password"
               class="block w-full py-3 focus:outline-0"
-              placeholder="Konfirmasi password"
               name="confirm_password">
           </div>
 
@@ -102,7 +101,7 @@
           <button id="submitBtn" type="submit" class="w-full py-3 md:py-2 border-2 border-solid 
           border-[#e54595] bg-[#e54595] text-white text-center rounded-md
             cursor-pointer">
-            Daftar
+            <?= lang('Member.register') ?>
           </button>
           <div class="py-2.5 md:py-1.5"></div>
           <a href="<?= $login_url ?>" type="button" class="flex items-center justify-center gap-3 bg-white border border-gray-300 text-gray-700 font-medium py-3 md:py-2 px-4 rounded-lg 
@@ -113,13 +112,13 @@
               <path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.91 11.91 0 0 1 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.276 44 24 44z" />
               <path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 0 1-4.087 5.571l.003-.002l6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z" />
             </svg>
-            <span>Daftar dengan Google</span>
+            <span><?= lang('Member.register_with_google') ?></span>
           </a>
           <div class="py-4 md:py-2.5"></div>
           <hr class="border-gray-300" />
           <div class="py-3 md:py-2"></div>
-          <p class="pb-2">Punya akun?</p>
-          <a href="<?= base_url('auth/login') ?>" class="block w-full py-3 md:py-2 border border-gray-300 text-center rounded-md">Login Disini</a>
+          <p class="pb-2"><?= lang('Member.have_account') ?></p>
+          <a href="<?= lang_url('auth/login') ?>" class="block w-full py-3 md:py-2 border border-gray-300 text-center rounded-md"><?= lang('Member.login_here') ?></a>
           <div class="py-6"></div>
         </form>
       </div>

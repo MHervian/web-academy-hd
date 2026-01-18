@@ -31,7 +31,7 @@
 	<?= $this->include('member-page/header') ?>
 
 	<div class="px-6 md:px-7 pt-25 pb-7 bg-[#19253f]">
-		<h1 class="py-6 text-white text-4xl">Sertifikat</h1>
+		<h1 class="py-6 text-white text-4xl"><?= lang('Member.certificate') ?></h1>
 	</div>
 
 	<div class="py-5"></div>
@@ -53,12 +53,12 @@
 
 					<thead class="border-b border-outline bg-surface-alt text-sm text-on-surface-strong dark:border-outline-dark dark:bg-surface-dark-alt dark:text-on-surface-dark-strong">
 						<tr>
-							<th class="p-4">No</th>
-							<th class="p-4">Nama Peserta</th>
-							<th class="p-4">Program</th>
-							<th class="p-4">No Sertifikat</th>
-							<th class="p-4">Durasi (Jam)</th>
-							<th class="p-4">Aksi</th>
+							<th class="p-4"><?= lang('Member.no') ?></th>
+							<th class="p-4"><?= lang('Member.participant_name') ?></th>
+							<th class="p-4"><?= lang('Member.program') ?></th>
+							<th class="p-4"><?= lang('Member.certificate_number') ?></th>
+							<th class="p-4"><?= lang('Member.duration_hours') ?></th>
+							<th class="p-4"><?= lang('Member.action') ?></th>
 						</tr>
 					</thead>
 

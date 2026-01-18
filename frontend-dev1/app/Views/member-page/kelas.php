@@ -56,45 +56,79 @@
           <table class="w-full text-left text-sm text-on-surface dark:text-on-surface-dark">
             <thead class="border-b border-outline bg-surface-alt text-sm text-on-surface-strong dark:border-outline-dark dark:bg-surface-dark-alt dark:text-on-surface-dark-strong">
               <tr>
-                <th scope="col" class="p-4 text-center">Nama Kelas</th>
-                <th scope="col" class="p-4 text-center">Tanggal Daftar</th>
-                <th scope="col" class="p-4 text-center">Status Payment</th>
-                <th scope="col" class="p-4 text-center">Status</th>
-                <th scope="col" class="p-4 text-center">Action</th>
+                <th class="p-4 text-center">No</th>
+                <th class="p-4 text-center">Nama Kelas</th>
+                <th class="p-4 text-center">Tanggal Daftar</th>
+                <th class="p-4 text-center">Progress</th>
+                <th class="p-4 text-center">Status Payment</th>
+                <th class="p-4 text-center">Status</th>
+                <th class="p-4 text-center">Action</th>
               </tr>
             </thead>
+
             <tbody class="divide-y divide-outline dark:divide-outline-dark">
-              <template x-for="item in list">
+              <template x-for="(item, index) in list" :key="item.pendaftarId">
                 <tr>
+                  <!-- NO -->
+                  <td class="p-4 text-center font-medium" x-text="index + 1"></td>
+
+                  <!-- NAMA KELAS -->
                   <td class="p-4" x-text="item.nama_kelas"></td>
+
+                  <!-- TANGGAL -->
                   <td class="p-4 text-center" x-text="item.date_registration"></td>
+
+                  <!-- PROGRESS (DUMMY) -->
                   <td class="p-4 text-center">
-                    <span
-                      class="inline-flex overflow-hidden rounded-radius px-1 py-0.5 text-xs font-medium "
-                      :class="item.isPaid==1 ? 'border-success text-success bg-success/10 dark:bg-success/10' : 'border-danger text-danger dark:border-danger dark:text-danger bg-danger/10 dark:bg-danger/10'"
-                      x-text=" item.isPaid==1 ? 'Paid' : 'UnPaid'">
-                    </span>
+                    <div class="w-full max-w-[120px] mx-auto">
+                      <div class="h-2 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden">
+                        <div
+                          class="h-2 bg-primary rounded-full"
+                          :style="`width: ${(index % 3 === 0 ? 0 : index % 3 === 1 ? 40 : 75)}%`">
+                        </div>
+                      </div>
+                      <span
+                        class="text-xs text-gray-500"
+                        x-text="`${index % 3 === 0 ? 0 : index % 3 === 1 ? 40 : 75}%`">
+                      </span>
+                    </div>
                   </td>
+
+                  <!-- PAYMENT -->
                   <td class="p-4 text-center">
                     <span
-                      class="inline-flex overflow-hidden rounded-radius px-1 py-0.5 text-xs font-medium "
-                      :class="item.isApproved==1 ? 'border-success text-success bg-success/10 dark:bg-success/10' : 'border-danger text-danger dark:border-danger dark:text-danger bg-danger/10 dark:bg-danger/10'"
-                      x-text=" item.isApproved==1 ? 'Approved' : 'Pending'">
+                      class="inline-flex rounded-radius px-1 py-0.5 text-xs font-medium"
+                      :class="item.isPaid==1 
+              ? 'text-success bg-success/10' 
+              : 'text-danger bg-danger/10'"
+                      x-text="item.isPaid==1 ? 'Paid' : 'UnPaid'">
                     </span>
                   </td>
 
-                  <td class=" p-4 text-center">
+                  <!-- STATUS -->
+                  <td class="p-4 text-center">
+                    <span
+                      class="inline-flex rounded-radius px-1 py-0.5 text-xs font-medium"
+                      :class="item.isApproved==1 
+              ? 'text-success bg-success/10' 
+              : 'text-danger bg-danger/10'"
+                      x-text="item.isApproved==1 ? 'Approved' : 'Pending'">
+                    </span>
+                  </td>
+
+                  <!-- ACTION -->
+                  <td class="p-4 text-center">
                     <a
                       :href="`<?= base_url('detail-kelas') ?>?id=${item.pendaftarId}`"
-                      class="whitespace-nowrap rounded-radius bg-transparent p-0.5 font-semibold text-primary outline-primary hover:opacity-75 focus-visible:outline-2 focus-visible:outline-offset-2 active:opacity-100 active:outline-offset-0 dark:text-primary-dark dark:outline-primary-dark">
+                      class="font-semibold text-primary hover:opacity-75">
                       Detail
                     </a>
-
                   </td>
                 </tr>
               </template>
             </tbody>
           </table>
+
         </div>
 
       </div>

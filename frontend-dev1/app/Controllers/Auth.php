@@ -21,12 +21,18 @@ class Auth extends BaseController
 
 	public function login()
 	{
+		$locale = service('request')->getLocale();
+
+		session()->set('auth_locale', $locale);
 		$data['login_url'] = $this->googleClient->createAuthUrl();
 		return view('member-page/user-access', $data);
 	}
 
 	public function register()
 	{
+		$locale = service('request')->getLocale();
+
+		session()->set('auth_locale', $locale);
 		$data['login_url'] = $this->googleClient->createAuthUrl();
 		return view('member-page/user-registration', $data);
 	}
@@ -102,7 +108,7 @@ class Auth extends BaseController
 		$token = $this->googleClient->fetchAccessTokenWithAuthCode($code);
 
 		if (isset($token['error'])) {
-			return redirect()->to('/auth/login')->with('error', 'Login Google gagal');
+			return redirect()->to('/' . service('request')->getLocale() . '/auth/login')->with('error', 'Login Google gagal');
 		}
 
 		// Set access token
@@ -147,7 +153,11 @@ class Auth extends BaseController
 		]);
 
 		// Redirect ke halaman member
-		return redirect()->to('/beranda-member');
+		$locale = session('auth_locale') ?? 'id';
+		// dd($locale);
+		
+		service('request')->setLocale($locale);
+		return redirect()->to('/' . $locale . '/beranda-member');
 	}
 
 	public function loginWithEmail()
@@ -176,12 +186,18 @@ class Auth extends BaseController
 			'isLogin' => true,
 		]);
 
-		return redirect()->to('/beranda-member');
+		$locale = session('auth_locale') ?? 'id';
+
+		service('request')->setLocale($locale);
+		return redirect()->to('/' . $locale . '/beranda-member');
 	}
 
 	public function logout()
 	{
 		session()->destroy();
-		return redirect()->to('/auth/login');
+		$locale = session('auth_locale') ?? 'id';
+
+		service('request')->setLocale($locale);
+		return redirect()->to('/' . $locale . '/auth/login');
 	}
 }

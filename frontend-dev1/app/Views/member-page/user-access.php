@@ -1,5 +1,6 @@
 <!doctype html>
-<html>
+<html lang="<?= service('request')->getLocale() ?>">
+
 
 <head>
   <meta charset="UTF-8" />
@@ -64,11 +65,11 @@
 
       <!-- Form -->
       <div class="col-span-1 pt-5 md:pt-18 px-5 md:px-5 lg:px-20">
-        <a href="<?= base_url('/') ?>" class="text-blue-600">
-          <i class="fa-solid fa-house-chimney"></i> Ke Beranda
+        <a href="<?= lang_url('/') ?>" class="text-blue-600">
+          <i class="fa-solid fa-house-chimney"></i> <?= lang('Member.home') ?>
         </a>
         <div class="py-3.5"></div>
-        <h2 class="text-2xl font-bold">Login Akun</h2>
+        <h2 class="text-2xl font-bold"><?= lang('Member.account_login') ?></h2>
         <div class="py-3"></div>
         <!-- FLASH MESSAGE DI SINI -->
 
@@ -79,26 +80,26 @@
             <?php endforeach ?>
           </div>
         <?php endif; ?>
-        <form method="post" action="<?= base_url('auth/login-with-email') ?>">
-          <label for="username" class="block pb-1">EMAIL</label>
+        <form method="post" action="<?= lang_url('auth/login-with-email') ?>">
+          <label for="username" class="block pb-1"><?= lang('Member.email') ?></label>
           <div class="flex border border-solid border-gray-300 focus-within:border-blue-500 rounded-md">
             <span class="pt-3 px-3"><i class="fa-solid fa-user text-gray-500"></i></span>
             <input id="username" type="text" class="block w-full py-3 focus:outline-0" placeholder="" name="email" required />
           </div>
           <div class="py-2"></div>
-          <label for="password" class="block pb-1">PASSWORD</label>
+          <label for="password" class="block pb-1"><?= lang('Member.password') ?></label>
           <div class="flex border border-solid border-gray-300 focus-within:border-blue-500 rounded-md">
             <span class="pt-3 px-3"><i class="fa-solid fa-key text-gray-500"></i></span>
             <input id="password" type="password" class="block w-full py-3 focus:outline-0" placeholder="" name="password" required />
           </div>
           <div class="py-3 md:py-2"></div>
           <div class="text-center">
-            <a href="#" class="py-4 font-bold">Forgot Password?</a>
+            <a href="#" class="py-4 font-bold"><?= lang('Member.forgot_password') ?></a>
           </div>
           <div class="py-3 md:py-2"></div>
           <button type="submit" class="block w-full py-3 md:py-2 border-2 border-solid border-[#e54595] bg-[#e54595]
             text-white text-center rounded-lg cursor-pointer">
-            Masuk
+            <?= lang('Member.login') ?>
           </button>
           <div class="py-2.5 md:py-1.5"></div>
           <a href="<?= $login_url ?>" type="button" class="flex items-center justify-center gap-3 bg-white border border-gray-300 text-gray-700 font-medium py-3 md:py-2 px-4 rounded-lg 
@@ -109,13 +110,13 @@
               <path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.91 11.91 0 0 1 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.276 44 24 44z" />
               <path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 0 1-4.087 5.571l.003-.002l6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z" />
             </svg>
-            <span>Masuk dengan Google</span>
+            <span><?= lang('Member.login_with_google') ?></span>
           </a>
           <div class="py-4 md:py-2.5"></div>
           <hr class="border-gray-300" />
           <div class="py-3 md:py-2"></div>
-          <p class="pb-2">Member Baru?</p>
-          <a href="<?= base_url('auth/register') ?>" class="block w-full py-3 md:py-2 border border-gray-300 text-center rounded-md">Buat Akun</a>
+          <p class="pb-2"><?= lang('Member.new_member') ?></p>
+          <a href="<?= lang_url('auth/register') ?>" class="block w-full py-3 md:py-2 border border-gray-300 text-center rounded-md"><?= lang('Member.create_account') ?></a>
           <div class="py-6"></div>
         </form>
       </div>

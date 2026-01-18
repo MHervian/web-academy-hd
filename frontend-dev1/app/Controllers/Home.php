@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\ProgramModel;
+
 class Home extends BaseController
 {
 	public function index(): string
@@ -10,7 +12,12 @@ class Home extends BaseController
 	}
 	public function course(): string
 	{
-		return view('landing-page/course');
+		$program = new ProgramModel();
+		$list = $program->findAll();
+		$data = [
+			'data' => $list
+		];
+		return view('landing-page/course', $data);
 	}
 	public function coursedetail(): string
 	{
@@ -45,9 +52,9 @@ class Home extends BaseController
 		return view('landing-page/coming-soon');
 	}
 
-	public function comingSoon(): string
+	public function dcomingSoon(): string
 	{
-		return view('coming-soon');
+		return view('member-page/coming-soon');
 	}
 
 	public function courseTopik(): string
@@ -74,7 +81,7 @@ class Home extends BaseController
 	{
 		return view('member-page/kelas');
 	}
-	
+
 	public function daftarKelas()
 	{
 		return view('member-page/daftar-kelas');

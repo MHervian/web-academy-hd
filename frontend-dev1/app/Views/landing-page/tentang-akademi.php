@@ -82,8 +82,7 @@
         <div class="py-2.5"></div>
 
         <div class="">
-          <!-- <a href="<?= base_url('auth/register') ?>" class="block px-4 sm:w-67 sm:mx-auto py-3 text-center border rounded-lg  -->
-          <a href="<?= base_url('/coming-soon-landing-page') ?>" class="block px-4 sm:w-67 sm:m-auto py-3 text-center border rounded-lg 
+          <a href="<?= base_url('auth/register') ?>" class="block px-4 sm:w-67 sm:mx-auto py-3 text-center border rounded-lg 
             border-[#BF2441] bg-[#BF2441] text-white font-bold text-xl">
             Daftar Sekarang
           </a>
@@ -110,24 +109,10 @@
     </div>
   </main>
   <!-- /Main Content -->
-  <footer class="pt-12.5 pb-7 px-5 bg-[radial-gradient(circle_at_100%_180%,#6D2A3A_0%,#30283F_20%,#1B2740_95%)]">
-    <div class="grid grid-cols-3">
-      <div class="col-span-3">
-        <div class="pb-7">
-          <img src="image_samples/logo design new 2.png" class="w-80 md:w-74 m-auto" />
-        </div>
-        <ul class="md:flex md:justify-between md:w-150 md:m-auto">
-          <li class="pb-3"><a href="#" class="block text-center text-white">Home</a></li>
-          <li class="pb-3"><a href="#" class="block text-center text-white">Tentang Akademi</a></li>
-          <li class="pb-3"><a href="#" class="block text-center text-white">Program</a></li>
-          <li class="pb-3"><a href="#" class="block text-center text-white">Komunitas</a></li>
-          <li><a href="#" class="block text-center text-white">Ketentuan Privasi dan Pengguna</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="py-6.5"></div>
-    <p class="text-[#e54595] font-semibold text-center text-sm">&copy;2026 DreamHangul Akademi</p>
-  </footer>
+
+  <!-- Footer -->
+  <?= $this->include('landing-page/footer') ?>
+  <!-- / Footer -->
 </body>
 <script
   src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"

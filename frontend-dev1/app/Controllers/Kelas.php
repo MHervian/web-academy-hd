@@ -153,4 +153,23 @@ class Kelas extends BaseController
             'token' => $result['token']
         ]);
     }
+
+    public function search()
+    {
+        if (!$this->request->isAJAX()) {
+            return $this->response->setStatusCode(403);
+        }
+
+        $keyword = $this->request->getGet('q');
+
+        $model = new \App\Models\ProgramModel();
+
+        if ($keyword) {
+            $data = $model->search($keyword);
+        } else {
+            $data = [];
+        }
+
+        return $this->response->setJSON($data);
+    }
 }

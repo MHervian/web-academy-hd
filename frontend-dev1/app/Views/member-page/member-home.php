@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="<?= service('request')->getLocale() ?>">
 
 <head>
 	<meta charset="UTF-8" />
@@ -29,34 +29,91 @@
 	<?= $this->include('member-page/header') ?>
 
 	<div class="px-6 md:px-7 pt-25 pb-7 bg-[#19253f]">
-		<h1 class="py-6 text-white text-4xl">Dashboard Pelajar</h1>
+		<h1 class="py-6 text-white text-4xl"><?= lang('Member.student_dashboard') ?></h1>
 	</div>
 
 	<div class="px-6 md:px-7 py-6 bg-gray-50">
-		<p class="text-3xl">Selamat Datang! 👋</p>
-		<div class="py-5"></div>
-		<div class="md:grid md:grid-cols-2 md:gap-y-8 md:gap-x-5">
-			<div class="col-span-1 px-4.5 py-6 bg-white shadow-md rounded-md">
-				<h3 class="text-2xl font-bold">Progress Kelas</h3>
-				<p class="py-5">Belum Daftar Kelas</p>
+		<!-- GREETING -->
+		<h2 class="text-xl font-semibold mb-6">
+			<?= lang('Member.welcome') ?> 👋
+		</h2>
+
+		<!-- GRID -->
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+			<!-- PROGRES KELAS -->
+			<div class="bg-white rounded-xl shadow-sm hover:shadow-md transition p-6">
+				<div class="flex items-center gap-4">
+					<div class="bg-indigo-100 text-indigo-600 p-3 rounded-lg text-xl">📘</div>
+					<div>
+						<h3 class="font-semibold text-lg"><?= lang('Member.class_progress') ?></h3>
+						<p class="text-gray-500 text-sm"><?= lang('Member.not_enrolled') ?></p>
+					</div>
+				</div>
+
+				<div class="mt-6 text-center text-gray-400">
+					<p class="text-3xl">📭</p>
+					<p class="text-sm mt-2">Belum ada progres</p>
+				</div>
+
+				<a href="<?= lang_url('kelas') ?>" class="inline-block mt-6 text-indigo-600 text-sm font-medium">
+					Lihat Kelas →
+				</a>
 			</div>
-			<div class="py-4 md:hidden"></div>
-			<div class="col-span-1 px-4.5 py-6 bg-white shadow-md rounded-md">
-				<h3 class="text-2xl font-bold">Jadwal Ujian</h3>
-				<p class="py-5">Jadwal Kosong</p>
+
+			<!-- JADWAL UJIAN -->
+			<div class="bg-white rounded-xl shadow-sm hover:shadow-md transition p-6">
+				<div class="flex items-center gap-4">
+					<div class="bg-emerald-100 text-emerald-600 p-3 rounded-lg text-xl">📝</div>
+					<div>
+						<h3 class="font-semibold text-lg"><?= lang('Member.exam_schedule') ?></h3>
+						<p class="text-gray-500 text-sm"><?= lang('Member.no_exam_schedule') ?></p>
+					</div>
+				</div>
+
+				<div class="mt-6 text-center text-gray-400">
+					<p class="text-3xl">🗓️</p>
+					<p class="text-sm mt-2">Jadwal masih kosong</p>
+				</div>
 			</div>
-			<div class="py-4 md:hidden"></div>
-			<div class="col-span-1 px-4.5 py-6 bg-white shadow-md rounded-md">
-				<h3 class="text-2xl font-bold">Forum</h3>
-				<p class="py-5">Belum Posting di Forum</p>
+
+			<!-- FORUM -->
+			<div class="bg-white rounded-xl shadow-sm hover:shadow-md transition p-6">
+				<div class="flex items-center gap-4">
+					<div class="bg-blue-100 text-blue-600 p-3 rounded-lg text-xl">💬</div>
+					<div>
+						<h3 class="font-semibold text-lg"><?= lang('Member.forum') ?></h3>
+						<p class="text-gray-500 text-sm"><?= lang('Member.no_forum_posts') ?></p>
+					</div>
+				</div>
+
+				<div class="mt-6 text-center text-gray-400">
+					<p class="text-3xl">📢</p>
+					<p class="text-sm mt-2">Belum ada unggahan</p>
+				</div>
+
+				<a href="<?= lang_url('coming-soon-dashboard') ?>" class="inline-block mt-6 text-blue-600 text-sm font-medium">
+					Masuk Forum →
+				</a>
 			</div>
-			<div class="py-4 md:hidden"></div>
-			<div class="col-span-1 px-4.5 py-6 bg-white shadow-md rounded-md">
-				<h3 class="text-2xl font-bold">Pengumuman</h3>
-				<p class="py-5">Belum Ada Pengumuman</p>
+
+			<!-- PENGUMUMAN -->
+			<div class="bg-white rounded-xl shadow-sm hover:shadow-md transition p-6">
+				<div class="flex items-center gap-4">
+					<div class="bg-orange-100 text-orange-600 p-3 rounded-lg text-xl">📣</div>
+					<div>
+						<h3 class="font-semibold text-lg"><?= lang('Member.announcement') ?></h3>
+						<p class="text-gray-500 text-sm"><?= lang('Member.no_announcement') ?></p>
+					</div>
+				</div>
+
+				<div class="mt-6 text-center text-gray-400">
+					<p class="text-3xl">🔔</p>
+					<p class="text-sm mt-2">Tidak ada informasi baru</p>
+				</div>
 			</div>
+
 		</div>
-		<div class="py-5"></div>
 	</div>
 
 	<div class="px-5 py-5">
