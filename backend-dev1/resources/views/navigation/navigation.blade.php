@@ -1,36 +1,62 @@
-<h2>Admin Menu</h2>
-<div class="nav">
-  <ul>
-    <li><a href="{{ route('admin-dashboard') }}">Dashboard</a></li>
-    <li><a href="{{ route('member') }}">Member</a></li>
-    <li><a href="{{ route('sertifikat') }}">Sertifikat</a></li>
-    {{-- <li><a href="{{ route('coming-soon') }}">Sertifikat</a></li> --}}
-    {{-- <li><a href="{{ route('upload-sertifikat') }}">Upload Sertifikat</a></li> --}}
-    {{-- <li><a href="{{ route('kurikulum') }}">Kurikulum</a></li> --}}
-    {{-- <li><a href="{{ route('upload-kurikulum') }}">Create Kurikulum</a></li> --}}
-    <li><a href="{{ route('program') }}">Kursus/Program</a></li>
-    {{-- <li><a href="{{ route('coming-soon') }}">Program</a></li> --}}
-    {{-- <li><a href="{{ route('create-program') }}">Create Program</a></li> --}}
-    <li><a href="{{ route('kelas') }}">Kelas</a></li>
-    {{-- <li><a href="{{ route('coming-soon') }}">Kelas</a></li> --}}
-    {{-- <li><a href="{{ route('create-kelas') }}">Create Kelas</a></li> --}}
-    <li><a href="{{ route('kelas-registrasi') }}">Pendaftar Kelas</a></li>
-    {{-- <li><a href="{{ route('coming-soon') }}">Pendaftar Kelas</a></li> --}}
-    {{-- <li><a href="{{ route('notification') }}">Notifikasi</a></li> --}}
-    {{-- <li><a href="{{ route('coming-soon') }}">Notifikasi</a></li> --}}
-    {{-- <li><a href="{{ route('create-notification') }}">Create Notifikasi</a></li> --}}
-    {{-- <li><a href="{{ route('pengajar') }}">Pengajar</a></li> --}}
-    {{-- <li><a href="{{ route('approve-pengajar') }}">Approval Pengajar</a></li> --}}
-    {{-- <li><a href="{{ route('pengajar-registrasi') }}">Registrasi Pengajar</a></li> --}}
-    {{-- <li><a href="{{ route('user') }}">User</a></li> --}}
-    {{-- <li><a href="{{ route('user-create') }}">Create User</a></li> --}}
-    <!-- <li class="dropdown">
-                      <a href="404.html>Students</a>
-                      <ul>
-                        <li><a href="404.html>Menu 1</a></li>
-                        <li><a href="404.html>Menu 2</a></li>
-                      </ul>
-                    </li>
-                  </ul> -->
+<!-- Navigation -->
+<nav class="relative w-56 flex flex-col">
+  <span
+    class="px-3 pb-2.5 pt-4.5 relative z-5 block text-[#8f9cba] bg-[#1c2b4a] navigasi tracking-widest font-extrabold
+        border-solid border-b-[#354970] border-b-2">NAVIGASI</span>
+  <ul class="py-3 z-3 text-white bg-[#1c2b4a] flex-1">
+    <li>
+      <a href="{{ route('admin-dashboard') }}" class="block py-2 px-3 hover:bg-[#344565] text-[0.9rem]">
+        <i class="fa-solid fa-house"></i> Dashboard
+      </a>
+    </li>
+    <li>
+      <a href="{{ route('member') }}" class="block py-2 px-3 hover:bg-[#344565] text-[0.9rem]">
+        <i class="fa-solid fa-people-roof"></i> Member
+      </a>
+    </li>
+    <li>
+      <a href="{{ route('sertifikat') }}" class="block py-2 px-3 hover:bg-[#344565] text-[0.9rem]">
+        <i class="fa-solid fa-certificate"></i> Sertifikat
+      </a>
+    </li>
+    <li>
+      <a href="{{ route('program') }}" class="block py-2 px-3 hover:bg-[#344565] text-[0.9rem]">
+        <i class="fa-solid fa-chalkboard"></i> Kursus/Program
+      </a>
+    </li>
+    <li>
+      <a href="{{ route('kelas') }}" class="block py-2 px-3 hover:bg-[#344565] text-[0.9rem]">
+        <i class="fa-solid fa-book-open"></i> Kelas
+      </a>
+    </li>
+    <li>
+      <a href="{{ route('kelas-registrasi') }}" class="block py-2 px-3 hover:bg-[#344565] text-[0.9rem]">
+        <i class="fa-solid fa-clipboard-check"></i> Pendaftar Kelas
+      </a>
+    </li>
+    <!-- li>
+          <a href="#" class="block py-3.5 px-3 hover:bg-[#344565]">
+            <i class="fa-solid fa-folder-open"></i> Menu 2
+          </a>
+          <div class="bg-[#142036] border-l-4 border-l-blue-500">
+            <ul class="text-white">
+              <li>
+                <a href="#" class="block py-3.5 pl-6 pr-3 text-sm hover:bg-[#344565]">Submenu 1</a>
+              </li>
+              <li>
+                <a href="#" class="block py-3.5 pl-6 pr-3 text-sm hover:bg-[#344565]">Submenu 2</a>
+              </li>
+              <li>
+                <a href="#" class="block py-3.5 pl-6 pr-3 text-sm hover:bg-[#344565]">Submenu 3</a>
+              </li>
+            </ul>
+          </div>
+        </!-->
+    <!-- li>
+          <a href="#" class="block py-3.5 px-3 hover:bg-[#344565]">
+            <i class="fa-solid fa-list"></i> Menu 3
+          </a>
+        </!-->
   </ul>
-</div>
+</nav>
+<!--/Navigation  -->

@@ -32,7 +32,8 @@ class ProgramController extends Controller
 		// var_dump($programs);
 		// echo "</pre>";
 
-		return view('program', compact('programs'));
+		// return view('program', compact('programs'));
+		return view('kursus-program/index', compact('programs'));
 	}
 
 	/**

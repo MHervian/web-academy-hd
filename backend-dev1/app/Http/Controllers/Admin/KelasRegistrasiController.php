@@ -32,7 +32,8 @@ class KelasRegistrasiController extends Controller
 		// 	->get();
 		$kelas = KelasModel::all();
 
-		return view('kelas-registrasi', compact('kelas'));
+		// return view('kelas-registrasi', compact('kelas'));
+		return view('pendaftar-kelas/index', compact('kelas'));
 	}
 
 	/**

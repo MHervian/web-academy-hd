@@ -23,7 +23,8 @@ class KelasController extends Controller
 		// Get all members
 		$kelas = KelasModel::all();
 
-		return view('kelas', compact('kelas'));
+		// return view('kelas', compact('kelas'));
+		return view('kelas/index', compact('kelas'));
 	}
 
 	/**

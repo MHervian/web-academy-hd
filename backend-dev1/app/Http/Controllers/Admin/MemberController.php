@@ -23,7 +23,8 @@ class MemberController extends Controller
 		// Get all members
 		$members = MemberModel::all();
 
-		return view('member', compact('members'));
+		// return view('member', compact('members'));
+		return view('member/index', compact('members'));
 	}
 
 	/**
