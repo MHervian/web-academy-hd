@@ -102,7 +102,7 @@ class Kelas extends BaseController
         return $this->response->setJSON([
             'status' => true,
             'pendaftar_id' => $pendaftarId,
-            'redirect' => '/kelas'
+            'redirect' => lang_url('/kelas')
         ]);
     }
 

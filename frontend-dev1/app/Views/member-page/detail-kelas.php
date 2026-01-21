@@ -59,7 +59,7 @@
   <div class="p-5">
     <nav class="text-sm font-medium text-on-surface dark:text-on-surface-dark" aria-label="breadcrumb">
       <ol class="flex flex-wrap items-center gap-2">
-        <li class="flex items-center gap-2"> <a href="<?= base_url('kelas') ?>" class="hover:text-on-surface-strong dark:hover:text-on-surface-dark-strong">Kelas</a> <span aria-hidden="true">/</span> </li>
+        <li class="flex items-center gap-2"> <a href="<?= lang_url('kelas') ?>" class="hover:text-on-surface-strong dark:hover:text-on-surface-dark-strong">Kelas</a> <span aria-hidden="true">/</span> </li>
         <li class="text-on-surface-strong font-bold dark:text-on-surface-dark-strong" aria-current="page">Detail Kelas</li>
       </ol>
     </nav>
@@ -150,7 +150,7 @@
               harga: this.harga
             })
 
-            fetch(`/get-kelas-list?${params.toString()}`, {
+            fetch(`/kelas/get-kelas-list?${params.toString()}`, {
                 method: 'GET',
                 headers: {
                   'X-Requested-With': 'XMLHttpRequest'
@@ -167,7 +167,7 @@
             if (this.loading) return
             this.loading = true
 
-            fetch('/get-snap-token', {
+            fetch('/kelas/get-snap-token', {
                 method: 'POST',
                 credentials: 'same-origin',
                 headers: {

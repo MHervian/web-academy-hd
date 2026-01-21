@@ -44,10 +44,10 @@ $routes->get('/notifikasi', 'Notification::index', ['as' => 'notifikasi']);
 $routes->get('/notifikasi-detail/(:num)', 'Notification::detail/$1', ['as' => 'notifikasi-detail']);
 
 $routes->get('/kelas/search', 'Kelas::search');
-$routes->get('/get-kelas-list', 'Kelas::daftarKelas');
-$routes->post('/get-snap-token', 'Kelas::getSnapToken');
+$routes->get('/kelas/get-kelas-list', 'Kelas::daftarKelas');
+$routes->post('/kelas/daftar-kelas', 'Kelas::pendaftarStore');
+$routes->post('/kelas/get-snap-token', 'Kelas::getSnapToken');
 $routes->post('midtrans/callback', 'MidtransController::callback');
 $routes->post('/user/store', 'User::store');
 $routes->post('/auth/login-with-email', 'Auth::loginWithEmail');
 $routes->get('/auth/callback', 'Auth::callback');
-$routes->post('/daftar-kelas', 'Kelas::pendaftarStore');
