@@ -25,7 +25,8 @@ class SertifikatController extends Controller
 		// Get all sertifikats
 		$sertifikats = SertifikatModel::all();
 
-		return view('sertifikat', compact('sertifikats'));
+		// return view('sertifikat', compact('sertifikats'));
+		return view('sertifikat/index', compact('sertifikats'));
 	}
 
 	/**

@@ -21,7 +21,7 @@ class LoginController extends Controller
 		}
 
 		// display login page
-		return view('login');
+		return view('login/index');
 	}
 
 	/**
