@@ -127,4 +127,55 @@ return [
     'tuition_and_refund_policy' => 'Biaya Kuliah & Ketentuan Pengembalian',
 
     'tuition_and_refund_policy_description' => 'Biaya kuliah ditetapkan sesuai dengan durasi dan fasilitas program. Ketentuan pembayaran serta pengembalian dana (refund) mengikuti peraturan yang berlaku dan akan dijelaskan secara rinci pada saat pendaftaran.',
+
+    'community' => 'Komunitas',
+    'community_description' => 'Halaman komunitas merupakan ruang berbagi informasi, pengalaman, dan interaksi seputar studi, karier, serta aktivitas pendidikan Korea–Indonesia bagi peserta program dan masyarakat umum.',
+
+    'study_in_korea' => 'Studi di Korea',
+    'study_in_korea_description' => 'Menyediakan panduan universitas, beasiswa, persyaratan pendaftaran, serta kehidupan mahasiswa di Korea Selatan.',
+
+    'career_in_korea' => 'Karier di Korea',
+    'career_in_korea_description' => 'Informasi peluang kerja, magang, dan persiapan karier bagi lulusan dan profesional di Korea.',
+
+    'participant_reviews' => 'Ulasan Peserta',
+    'participant_reviews_description' => 'Testimoni dan pengalaman peserta setelah mengikuti program pendidikan Bahasa Korea.',
+
+    'gallery' => 'Galeri',
+    'gallery_description' => 'Dokumentasi kegiatan, kelas, dan acara komunitas dalam bentuk foto dan video.',
+
+    'view_photo' => 'LIHAT FOTO',
+
+    'media_press_release' => 'Siaran Pers Media',
+    'media_press_release_description' => 'Publikasi dan liputan media terkait kegiatan dan kerja sama lembaga.',
+
+    'faq' => 'Sering Ditanyakan',
+    'faq_description' => 'Ruang diskusi dan tanya jawab terkait program, pendaftaran, dan komunitas.',
+
+    'supported_browsers_question' => 'Browser apa saja yang didukung?',
+    'supported_browsers_answer' => 'Website kami dioptimalkan untuk versi terbaru Chrome, Firefox, Safari, dan Edge.',
+
+    'check_documentation' => 'Periksa dokumentasi kami untuk informasi lanjutan.',
+
+    'customer_support_question' => 'Bagaimana cara menghubungi layanan pelanggan?',
+    'customer_support_answer' => 'Hubungi tim dukungan khusus kami melalui email di support@example.com atau hubungi nomor bebas pulsa kami di 1-800-123-4567 selama jam kerja.',
+
+    'refund_policy_question' => 'Bagaimana kebijakan pengembalian dana?',
+    'refund_policy_answer' => 'Silakan merujuk ke halaman kebijakan pengembalian dana di situs web untuk informasi terperinci mengenai kelayakan, jangka waktu, dan proses pengajuan pengembalian dana.',
+
+    'welcome' => 'Selamat Datang!',
+    'welcome_description' => 'Kami Dream Korean Language Learning Center menghadirkan program belajar bahasa Korea bagi generasi muda Indonesia dengan biaya terjangkau dan pengajaran berkualitas — mulai dari persiapan TOPIK hingga program spesialis calon guru bahasa Korea.',
+
+    'warm_greetings' => 'Salam Hangat dari Kami,',
+
+    'foundation_welcome_message' => 'Selamat datang di Yayasan Dream Korean Language Learning Center. Kami membuka peluang bagi generasi muda Indonesia melalui program kursus bahasa Korea, persiapan TOPIK, dan program spesialis guru. Kami melihat tingginya minat generasi muda Indonesia untuk belajar bahasa Korea, namun masih terbatasnya tenaga ahli dan kesempatan meraih sertifikasi TOPIK. Kehadiran yayasan ini diharapkan menjadi jembatan, sekaligus fondasi kerja sama pendidikan yang saling menguntungkan antara Indonesia dan Korea. Mari bersama kita wujudkan visi dan harapan melalui bahasa.',
+
+    'thank_you' => 'Terima kasih.',
+
+    'director_name' => 'Lee Seon-ah',
+
+    'director_title' => 'Director of YAYASAN Dream Korean Language Learning Center',
+
+    'ready_to_shape_your_future' => 'Siap Membentuk Masa Depanmu di Akademi?',
+
+    'register_now' => 'Daftar Sekarang',
 ];

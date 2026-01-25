@@ -67,13 +67,11 @@
         <div
             class="pb-17 pt-10 px-5 bg-[radial-gradient(circle_at_30%_200%,#6D2A3A_0%,#30283F_40%,#1B2740_96%)]">
             <h1 class="text-white md:text-center text-3xl">
-                Komunitas
+                <?= lang('App.community') ?>
             </h1>
             <div class="py-2"></div>
             <p class="text-white sm:w-130 md:w-150 md:text-center md:m-auto">
-                Halaman komunitas merupakan ruang berbagi informasi, pengalaman,
-                dan interaksi seputar studi, karier, serta aktivitas pendidikan
-                Korea–Indonesia bagi peserta program dan masyarakat umum.
+                <?= lang('App.community_description') ?>
             </p>
 
             <div class="py-4"></div>
@@ -87,11 +85,10 @@
                 <div class="flex justify-center items-center">
                     <div class="flex-2">
                         <h1 class="text-gray-600 mb-2 text-3xl font-bold">
-                            Studi di Korea
+                            <?= lang('App.study_in_korea') ?>
                         </h1>
                         <p class="text-gray-700">
-                            Menyediakan panduan universitas, beasiswa, persyaratan pendaftaran,
-                            serta kehidupan mahasiswa di Korea Selatan.
+                            <?= lang('App.study_in_korea_description') ?>
                         </p>
                     </div>
                     <div class="flex-1 rounded">
@@ -110,11 +107,10 @@
                     <div class="flex-2">
 
                         <h1 class="text-gray-600 mb-2 text-3xl font-bold">
-                            Karier di Korea
+                            <?= lang('App.career_in_korea') ?>
                         </h1>
                         <p class="text-gray-700">
-                            Informasi peluang kerja, magang, dan persiapan karier
-                            bagi lulusan dan profesional di Korea.
+                            <?= lang('App.career_in_korea_description') ?>
                         </p>
                     </div>
 
@@ -125,11 +121,10 @@
             <!-- Ulasan -->
             <section class="h-full pt-6">
                 <h1 class="text-gray-600 mb-2 text-3xl font-bold">
-                    Ulasan Peserta
+                    <?= lang('App.participant_reviews') ?>
                 </h1>
                 <p class="text-gray-700">
-                    Testimoni dan pengalaman peserta setelah mengikuti
-                    program pendidikan Bahasa Korea.
+                    <?= lang('App.participant_reviews_description') ?>
                 </p>
                 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-3 justify-items-center p-5">
                     <article class="group rounded-radius flex max-w-md flex-col border border-outline bg-surface-alt p-6 text-on-surface dark:border-outline-dark dark:bg-surface-dark-alt dark:text-on-surface-dark">
@@ -299,11 +294,10 @@
             <section class="h-full pt-6">
 
                 <h1 class="text-gray-600 mb-2 text-3xl font-bold">
-                    Galeri
+                    <?= lang('App.gallery') ?>
                 </h1>
                 <p class="text-gray-700">
-                    Dokumentasi kegiatan, kelas, dan acara komunitas
-                    dalam bentuk foto dan video.
+                    <?= lang('App.gallery_description') ?>
                 </p>
                 <!-- Grid Container -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4 p-5">
@@ -312,7 +306,7 @@
                     <div class="lg:col-span-5 gallery-item overflow-hidden rounded-sm relative group">
                         <img src="https://images.unsplash.com/photo-1516541196182-6bdb0516ed27?auto=format&fit=crop&w=800" alt="Chains" class="w-full h-64 object-cover">
                         <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <span class="text-sm border border-white p-2">VIEW PHOTO</span>
+                            <span class="text-sm border border-white p-2"><?= lang('App.view_photo') ?></span>
                         </div>
                     </div>
 
@@ -361,11 +355,10 @@
             <section class="h-full pt-6">
 
                 <h1 class="text-gray-600 mb-2 text-3xl font-bold">
-                    Siaran Pers Media
+                    <?= lang('App.media_press_release') ?>
                 </h1>
                 <p class="text-gray-700">
-                    Publikasi dan liputan media terkait kegiatan
-                    dan kerja sama lembaga.
+                    <?= lang('App.media_press_release_description') ?>
                 </p>
                 <div class="max-w-3xl space-y-8 p-5">
 
@@ -426,49 +419,52 @@
             <!-- Q&A -->
             <section class="h-full pt-6">
                 <h1 class="text-gray-600 mb-2 text-3xl font-bold">
-                FAQ
+                    <?= lang('App.faq') ?>
                 </h1>
                 <p class="text-gray-700">
-                    Ruang diskusi dan tanya jawab terkait program,
-                    pendaftaran, dan komunitas.
+                    <?= lang('App.faq_description') ?>
                 </p>
                 <div class="flex w-full flex-col gap-4 text-on-surface dark:text-on-surface-dark p-5">
                     <div x-data="{ isExpanded: false }" class="overflow-hidden rounded-radius border border-outline bg-surface-alt/40 dark:border-outline-dark dark:bg-surface-dark-alt/50">
                         <button id="controlsAccordionItemOne" type="button" class="flex w-full items-center justify-between gap-2 bg-surface-alt p-4 text-left underline-offset-2 hover:bg-surface-alt/75 focus-visible:bg-surface-alt/75 focus-visible:underline focus-visible:outline-hidden dark:bg-surface-dark-alt dark:hover:bg-surface-dark-alt/75 dark:focus-visible:bg-surface-dark-alt/75" aria-controls="accordionItemOne" x-on:click="isExpanded = ! isExpanded" x-bind:class="isExpanded ? 'text-on-surface-strong dark:text-on-surface-dark-strong font-bold'  : 'text-on-surface dark:text-on-surface-dark font-medium'" x-bind:aria-expanded="isExpanded ? 'true' : 'false'">
-                            What browsers are supported?
+                            <?= lang('App.supported_browsers_question') ?>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke="currentColor" class="size-5 shrink-0 transition" aria-hidden="true" x-bind:class="isExpanded  ?  'rotate-180'  :  ''">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                             </svg>
                         </button>
                         <div x-cloak x-show="isExpanded" id="accordionItemOne" role="region" aria-labelledby="controlsAccordionItemOne" x-collapse>
                             <div class="p-4 text-sm sm:text-base text-pretty">
-                                Our website is optimized for the latest versions of Chrome, Firefox, Safari, and Edge. Check our <a href="#" class="underline underline-offset-2 text-primary dark:text-primary-dark">documentation</a> for additional information.
+                                <?= lang('App.supported_browsers_answer') ?>
+                                <?= lang('App.check_documentation') ?>
+                                <!-- Check our <a href="#" class="underline underline-offset-2 text-primary dark:text-primary-dark">documentation</a> for additional information. -->
                             </div>
                         </div>
                     </div>
                     <div x-data="{ isExpanded: false }" class="overflow-hidden rounded-radius border border-outline bg-surface-alt/40 dark:border-outline-dark dark:bg-surface-dark-alt/50">
                         <button id="controlsAccordionItemTwo" type="button" class="flex w-full items-center justify-between gap-2 bg-surface-alt p-4 text-left underline-offset-2 hover:bg-surface-alt/75 focus-visible:bg-surface-alt/75 focus-visible:underline focus-visible:outline-hidden dark:bg-surface-dark-alt dark:hover:bg-surface-dark-alt/75 dark:focus-visible:bg-surface-dark-alt/75" aria-controls="accordionItemTwo" x-on:click="isExpanded = ! isExpanded" x-bind:class="isExpanded ? 'text-on-surface-strong dark:text-on-surface-dark-strong font-bold'  : 'text-on-surface dark:text-on-surface-dark font-medium'" x-bind:aria-expanded="isExpanded ? 'true' : 'false'">
-                            How can I contact customer support?
+                            <?= lang('App.customer_support_question') ?>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke="currentColor" class="size-5 shrink-0 transition" aria-hidden="true" x-bind:class="isExpanded  ?  'rotate-180'  :  ''">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                             </svg>
                         </button>
                         <div x-cloak x-show="isExpanded" id="accordionItemTwo" role="region" aria-labelledby="controlsAccordionItemTwo" x-collapse>
                             <div class="p-4 text-sm sm:text-base text-pretty">
-                                Reach out to our dedicated support team via email at <a href="#" class="underline underline-offset-2 text-primary dark:text-primary-dark">support@example.com</a> or call our toll-free number at 1-800-123-4567 during business hours.
+                                <?= lang('App.customer_support_answer') ?>
+                                <!-- Reach out to our dedicated support team via email at <a href="#" class="underline underline-offset-2 text-primary dark:text-primary-dark">support@example.com</a> or call our toll-free number at 1-800-123-4567 during business hours. -->
                             </div>
                         </div>
                     </div>
                     <div x-data="{ isExpanded: false }" class="overflow-hidden rounded-radius border border-outline bg-surface-alt/40 dark:border-outline-dark dark:bg-surface-dark-alt/50">
                         <button id="controlsAccordionItemThree" type="button" class="flex w-full items-center justify-between gap-2 bg-surface-alt p-4 text-left underline-offset-2 hover:bg-surface-alt/75 focus-visible:bg-surface-alt/75 focus-visible:underline focus-visible:outline-hidden dark:bg-surface-dark-alt dark:hover:bg-surface-dark-alt/75 dark:focus-visible:bg-surface-dark-alt/75" aria-controls="accordionItemThree" x-on:click="isExpanded = ! isExpanded" x-bind:class="isExpanded ? 'text-on-surface-strong dark:text-on-surface-dark-strong font-bold'  : 'text-on-surface dark:text-on-surface-dark font-medium'" x-bind:aria-expanded="isExpanded ? 'true' : 'false'">
-                            What is the refund policy?
+                            <?= lang('App.refund_policy_question') ?>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke="currentColor" class="size-5 shrink-0 transition" aria-hidden="true" x-bind:class="isExpanded  ?  'rotate-180'  :  ''">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                             </svg>
                         </button>
                         <div x-cloak x-show="isExpanded" id="accordionItemThree" role="region" aria-labelledby="controlsAccordionItemThree" x-collapse>
                             <div class="p-4 text-sm sm:text-base text-pretty">
-                                Please refer to our <a href="#" class="underline underline-offset-2 text-primary dark:text-primary-dark">refund policy page</a> on the website for detailed information regarding eligibility, timeframes, and the process for requesting a refund.
+                                <?= lang('App.refund_policy_answer') ?>
+                                <!-- Please refer to our <a href="#" class="underline underline-offset-2 text-primary dark:text-primary-dark">refund policy page</a> on the website for detailed information regarding eligibility, timeframes, and the process for requesting a refund. -->
                             </div>
                         </div>
                     </div>

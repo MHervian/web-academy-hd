@@ -47,4 +47,19 @@ return [
     'certificate_number' => '수료증 번호',
     'duration_hours' => '이수 시간 (시간)',
     'action' => '관리',
+
+    'no_progress_yet' => '아직 진행 상황이 없습니다',
+    'view_class' => '강의 보기',
+
+    'exam_schedule' => '시험 일정',
+    'no_scheduled_exams' => '예정된 시험이 없습니다',
+    'schedule_still_empty' => '일정이 비어 있습니다',
+
+    'forum' => '포럼',
+    'no_forum_posts_yet' => '아직 게시된 포럼 글이 없습니다',
+    'enter_forum' => '포럼 입장',
+
+    'announcement' => '공지사항',
+    'no_announcements_yet' => '아직 공지사항이 없습니다',
+    'no_new_information' => '새로운 정보가 없습니다',
 ];

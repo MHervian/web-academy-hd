@@ -127,4 +127,55 @@ return [
     'tuition_and_refund_policy' => 'Tuition Fees & Refund Policy',
 
     'tuition_and_refund_policy_description' => 'Tuition fees are determined based on the program\'s duration and facilities. Payment and refund terms follow applicable regulations and will be explained in detail at the time of registration.',
+
+    'community' => 'Community',
+    'community_description' => 'The community page is a space for sharing information, experiences, and interactions regarding studies, careers, and Korea–Indonesia educational activities for program participants and the general public.',
+
+    'study_in_korea' => 'Study in Korea',
+    'study_in_korea_description' => 'Providing university guides, scholarships, admission requirements, and student life in South Korea.',
+
+    'career_in_korea' => 'Career in Korea',
+    'career_in_korea_description' => 'Information on job opportunities, internships, and career preparation for graduates and professionals in Korea.',
+
+    'participant_reviews' => 'Participant Reviews',
+    'participant_reviews_description' => 'Testimonials and experiences of participants after joining the Korean language education program.',
+
+    'gallery' => 'Gallery',
+    'gallery_description' => 'Documentation of activities, classes, and community events in the form of photos and videos.',
+
+    'view_photo' => 'View Photo',
+
+    'media_press_release' => 'Media Press Release',
+    'media_press_release_description' => 'Publications and media coverage related to the institution\'s activities and partnerships.',
+
+    'faq' => 'FAQ',
+    'faq_description' => 'Discussion and Q&A space regarding programs, registration, and the community.',
+
+    'supported_browsers_question' => 'What browsers are supported?',
+    'supported_browsers_answer' => 'Our website is optimized for the latest versions of Chrome, Firefox, Safari, and Edge.',
+
+    'check_documentation' => 'Check our documentation for additional information.',
+
+    'customer_support_question' => 'How can I contact customer support?',
+    'customer_support_answer' => 'Reach out to our dedicated support team via email at support@example.com or call our toll-free number at 1-800-123-4567 during business hours.',
+
+    'refund_policy_question' => 'What is the refund policy?',
+    'refund_policy_answer' => 'Please refer to our refund policy page on the website for detailed information regarding eligibility, timeframes, and the process for requesting a refund.',
+
+    'welcome' => 'Welcome!',
+    'welcome_description' => 'Dream Korean Language Learning Center provides Korean language learning programs for Indonesian youth with affordable fees and high-quality teaching — ranging from TOPIK preparation to specialized programs for aspiring Korean language teachers.',
+
+    'warm_greetings' => 'Warm Greetings from Us,',
+
+    'foundation_welcome_message' => 'Welcome to the Dream Korean Language Learning Center Foundation. We open opportunities for Indonesian youth through Korean language courses, TOPIK preparation, and teacher specialist programs. We see a high interest among the Indonesian youth in learning Korean, yet there is still a lack of experts and opportunities to achieve TOPIK certification. The presence of this foundation is expected to be a bridge, as well as a foundation for mutually beneficial educational cooperation between Indonesia and Korea. Let\'s realize our visions and hopes together through language.',
+
+    'thank_you' => 'Thank you.',
+
+    'director_name' => 'Lee Seon-ah',
+
+    'director_title' => 'Director of Dream Korean Language Learning Center',
+    
+    'ready_to_shape_your_future' => 'Ready to Shape Your Future at the Academy?',
+
+    'register_now' => 'Register Now',
 ];

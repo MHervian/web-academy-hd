@@ -47,4 +47,19 @@ return [
     'certificate_number' => 'Certificate No.',
     'duration_hours' => 'Duration (Hours)',
     'action' => 'Action',
+
+    'no_progress_yet' => 'No progress yet',
+    'view_class' => 'View Class',
+
+    'exam_schedule' => 'Exam Schedule',
+    'no_scheduled_exams' => 'No Scheduled Exams',
+    'schedule_still_empty' => 'Schedule is still empty',
+
+    'forum' => 'Forum',
+    'no_forum_posts_yet' => 'No forum posts yet',
+    'enter_forum' => 'Enter Forum',
+
+    'announcement' => 'Announcement',
+    'no_announcements_yet' => 'No Announcements Yet',
+    'no_new_information' => 'No new information',
 ];

@@ -127,4 +127,55 @@ return [
     'tuition_and_refund_policy' => '수강료 및 환불 규정',
 
     'tuition_and_refund_policy_description' => '수강료는 프로그램 기간 및 시설에 따라 책정됩니다. 납부 및 환불 규정은 관련 법규를 준수하며 등록 시 상세히 안내해 드립니다.',
+
+    'community' => '커뮤니티',
+    'community_description' => '커뮤니티 페이지는 프로그램 참가자와 일반 대중을 위해 한국-인도네시아 교육 활동, 유학 및 경력에 관한 정보, 경험 그리고 소통을 공유하는 공간입니다.',
+
+    'study_in_korea' => '한국 유학',
+    'study_in_korea_description' => '대학교 안내, 장학금, 입학 요건 및 한국 유학 생활에 대한 정보를 제공합니다.',
+
+    'career_in_korea' => '한국에서의 커리어',
+    'career_in_korea_description' => '한국 내 졸업생 및 전문가를 위한 취업 기회, 인턴십 및 커리어 준비 정보를 제공합니다.',
+
+    'participant_reviews' => '참가 후기',
+    'participant_reviews_description' => '한국어 교육 프로그램에 참여한 참가자들의 후기와 생생한 경험담입니다.',
+
+    'gallery' => '갤러리',
+    'gallery_description' => '활동, 수업, 커뮤니티 행사를 사진과 영상으로 기록한 자료입니다.',
+
+    'view_photo' => '사진 보기',
+
+    'media_press_release' => '보도 자료',
+    'media_press_release_description' => '기관의 활동 및 협력과 관련된 언론 보도 및 보도 자료입니다.',
+
+    'faq' => '자주 묻는 질문 (FAQ)',
+    'faq_description' => '프로그램, 등록 및 커뮤니티와 관련된 질의응답 및 토론 공간입니다.',
+
+    'supported_browsers_question' => '어떤 브라우저를 지원하나요?',
+    'supported_browsers_answer' => '본 웹사이트는 크롬(Chrome), 파이어폭스(Firefox), 사파리(Safari) 및 엣지(Edge)의 최신 버전에 최적화되어 있습니다.',
+
+    'check_documentation' => '추가 정보는 관련 문서를 확인해 주시기 바랍니다.',
+
+    'customer_support_question' => '고객 서비스에 어떻게 문의하나요?',
+    'customer_support_answer' => '업무 시간 중에는 전용 지원팀 이메일(support@example.com)이나 수신자 부담 전화(1-800-123-4567)로 문의해 주시기 바랍니다.',
+
+    'refund_policy_question' => '환불 규정은 어떻게 되나요?',
+    'refund_policy_answer' => '환불 자격, 기간 및 신청 절차에 대한 자세한 정보는 웹사이트의 환불 규정 페이지를 참조해 주시기 바랍니다.',
+
+    'welcome' => '환영합니다!',
+    'welcome_description' => '드림 한국어 교육센터는 토픽(TOPIK) 대비반부터 한국어 강사 양성 과정까지, 인도네시아 청년들을 위해 합리적인 비용으로 고품질의 한국어 교육 프로그램을 제공합니다.',
+
+    'warm_greetings' => '여러분께 따뜻한 인사를 전합니다.',
+
+    'foundation_welcome_message' => '드림 한국어 교육재단에 오신 것을 환영합니다. 본 재단은 한국어 정규 과정, 토픽 대비반, 강사 양성 과정을 통해 인도네시아 청년들에게 새로운 기회를 제공합니다. 한국어 학습에 대한 인도네시아 청년들의 열의는 매우 높으나, 전문 인력과 토픽 자격증 취득 기회는 여전히 부족한 실정입니다. 본 재단이 인도네시아와 한국 간의 호혜적인 교육 협력의 토대이자 가교가 되기를 희망합니다. 언어를 통해 우리의 비전과 희망을 함께 실현해 나갑시다.',
+
+    'thank_you' => '감사합니다.',
+
+    'director_name' => '이선아',
+
+    'director_title' => '드림 한국어 교육재단 대표',
+
+    'ready_to_shape_your_future' => '아카데미에서 당신의 미래를 준비할 준비가 되셨나요?',
+
+    'register_now' => '지금 등록하기',
 ];

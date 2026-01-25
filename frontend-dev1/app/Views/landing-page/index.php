@@ -212,17 +212,14 @@
       <div class="h-full p-5">
         <div class="max-w-5xl mx-auto space-y-10">
 
-          <!-- Judul -->
+          <!-- JUDUL (ASLI) -->
           <div class="bg-white p-5 text-center">
             <h2 class="text-2xl font-bold"><?= lang('App.foundation_structure') ?></h2>
-            <!-- <p class="text-gray-600 mt-1">
-              Sistem kerja dan kemitraan lembaga
-            </p> -->
           </div>
 
           <div class="relative max-w-6xl mx-auto">
 
-            <!-- PIMPINAN -->
+            <!-- PIMPINAN (ASLI) -->
             <div class="flex justify-center relative z-10">
               <div class="bg-gradient-to-b from-blue-400 to-blue-600 text-white px-10 py-5 rounded-2xl shadow-xl text-center">
                 <div class="font-bold text-lg opacity-90 flex justify-center items-center gap-1">
@@ -231,8 +228,9 @@
               </div>
             </div>
 
-            <!-- SVG CONNECTOR -->
-            <svg class="absolute left-1/2 top-[95px] -translate-x-1/2"
+            <!-- SVG CONNECTOR (ASLI – DESKTOP) -->
+            <svg
+              class="absolute left-1/2 top-[95px] -translate-x-1/2 hidden md:block"
               width="900" height="160" viewBox="0 0 900 160" fill="none">
               <path d="M450 0 V60" stroke="#BFDBFE" stroke-width="2" />
               <path d="M450 60 C450 90 150 90 150 120" stroke="#BFDBFE" stroke-width="2" />
@@ -240,25 +238,35 @@
               <path d="M450 60 C450 90 750 90 750 120" stroke="#BFDBFE" stroke-width="2" />
             </svg>
 
-            <!-- CARD GRID -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-40">
+            <!-- ADD: GARIS MOBILE DARI PIMPINAN -->
+            <div class="md:hidden flex flex-col items-center my-2">
+              <div class="w-0.5 h-8 bg-blue-200"></div>
+            </div>
+            <!-- END ADD -->
 
-              <!-- KIRI -->
+            <!-- CARD GRID (ASLI) -->
+            <div class="grid grid-cols-1 md:grid-cols-3 md:gap-8 md:mt-40">
+
+              <!-- CARD 1 -->
               <div class="bg-blue-50 rounded-2xl p-6 shadow-sm">
                 <h3 class="font-semibold text-blue-700 mb-3 flex items-center gap-2">
-                  📘 자문기관
-                  <span class="text-sm text-gray-500">(Lembaga Konsultasi)</span>
+                  📘 <?= lang('App.korea_indonesia_consulting') ?>
                 </h3>
                 <p class="text-gray-700 text-sm">
                   <?= lang('App.korea_indonesia_consulting') ?>
                 </p>
               </div>
 
-              <!-- TENGAH -->
+              <!-- ADD: GARIS ANTAR CARD (MOBILE) -->
+              <div class="md:hidden flex flex-col items-center my-2">
+                <div class="w-0.5 h-8 bg-blue-200"></div>
+              </div>
+              <!-- END ADD -->
+
+              <!-- CARD 2 -->
               <div class="bg-green-50 rounded-2xl p-6 shadow-sm">
                 <h3 class="font-semibold text-green-700 mb-3 flex items-center gap-2">
-                  🤝 협력기관
-                  <span class="text-sm text-gray-500">(Mitra Kerja)</span>
+                  🤝 <?= lang('App.partnership') ?>
                 </h3>
                 <ul class="text-sm text-gray-700 space-y-2">
                   <li><?= lang('App.jiks') ?></li>
@@ -267,11 +275,16 @@
                 </ul>
               </div>
 
-              <!-- KANAN -->
+              <!-- ADD: GARIS ANTAR CARD (MOBILE) -->
+              <div class="md:hidden flex flex-col items-center my-2">
+                <div class="w-0.5 h-8 bg-blue-200"></div>
+              </div>
+              <!-- END ADD -->
+
+              <!-- CARD 3 -->
               <div class="bg-purple-50 rounded-2xl p-6 shadow-sm">
                 <h3 class="font-semibold text-purple-700 mb-3 flex items-center gap-2">
-                  📚 운영과정
-                  <span class="text-sm text-gray-500">(Program)</span>
+                  📚 <?= lang('App.program_details') ?>
                 </h3>
                 <ul class="text-sm text-gray-700 space-y-3">
                   <li class="flex items-center gap-2">
@@ -281,12 +294,10 @@
                   <li class="flex items-center gap-2">
                     <span class="w-2.5 h-2.5 bg-blue-500 rounded-full"></span>
                     <?= lang('App.topik_level_3_4') ?>
-
                   </li>
                   <li class="flex items-center gap-2">
                     <span class="w-2.5 h-2.5 bg-gray-400 rounded-full"></span>
                     <?= lang('App.special_purpose_korean_course') ?>
-
                   </li>
                 </ul>
               </div>
@@ -297,6 +308,8 @@
         </div>
       </div>
     </section>
+
+
 
     <section>
       <div class="h-full p-5 bg-[#faf6fb]">
@@ -805,7 +818,7 @@
         class="lg:grid lg:grid-cols-2 px-5 pt-14 pb-9 md:w-[90%] lg:w-245 md:m-auto">
         <div class="lg:col-span-1">
           <p class="pb-3 text-[#633991]">
-            <i class="fa-solid fa-location-dot text-[#1B2740]"></i> 
+            <i class="fa-solid fa-location-dot text-[#1B2740]"></i>
             <?= lang('App.address') ?>
           </p>
           <div class="flex gap-x-6.5">

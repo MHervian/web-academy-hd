@@ -39,4 +39,19 @@ return [
     'certificate_number' => 'No. Sertifikat',
     'duration_hours' => 'Durasi (Jam)',
     'action' => 'Aksi',
+
+    'no_progress_yet' => 'Belum ada progres',
+    'view_class' => 'Lihat Kelas',
+
+    'exam_schedule' => 'Jadwal Ujian',
+    'no_scheduled_exams' => 'Tidak ada ujian terjadwal',
+    'schedule_still_empty' => 'Jadwal masih kosong',
+
+    'forum' => 'Forum',
+    'no_forum_posts_yet' => 'Belum ada postingan forum',
+    'enter_forum' => 'Masuk Forum',
+
+    'announcement' => 'Pengumuman',
+    'no_announcements_yet' => 'Belum ada pengumuman',
+    'no_new_information' => 'Tidak ada informasi baru',
 ];

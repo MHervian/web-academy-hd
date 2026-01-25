@@ -53,11 +53,11 @@
 
 				<div class="mt-6 text-center text-gray-400">
 					<p class="text-3xl">📭</p>
-					<p class="text-sm mt-2">Belum ada progres</p>
+					<p class="text-sm mt-2"><?= lang('Member.no_progress_yet') ?></p>
 				</div>
 
 				<a href="<?= lang_url('kelas') ?>" class="inline-block mt-6 text-indigo-600 text-sm font-medium">
-					Lihat Kelas →
+					<?= lang('Member.view_class') ?> →
 				</a>
 			</div>
 
@@ -73,7 +73,7 @@
 
 				<div class="mt-6 text-center text-gray-400">
 					<p class="text-3xl">🗓️</p>
-					<p class="text-sm mt-2">Jadwal masih kosong</p>
+					<p class="text-sm mt-2"><?= lang('Member.schedule_still_empty') ?></p>
 				</div>
 			</div>
 
@@ -89,11 +89,11 @@
 
 				<div class="mt-6 text-center text-gray-400">
 					<p class="text-3xl">📢</p>
-					<p class="text-sm mt-2">Belum ada unggahan</p>
+					<p class="text-sm mt-2"><?= lang('Member.no_forum_posts_yet') ?></p>
 				</div>
 
 				<a href="<?= lang_url('coming-soon-dashboard') ?>" class="inline-block mt-6 text-blue-600 text-sm font-medium">
-					Masuk Forum →
+					<?= lang('Member.enter_forum') ?> →
 				</a>
 			</div>
 
@@ -109,7 +109,7 @@
 
 				<div class="mt-6 text-center text-gray-400">
 					<p class="text-3xl">🔔</p>
-					<p class="text-sm mt-2">Tidak ada informasi baru</p>
+					<p class="text-sm mt-2"><?= lang('Member.no_new_information') ?></p>
 				</div>
 			</div>
 

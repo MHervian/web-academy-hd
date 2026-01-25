@@ -1,7 +1,7 @@
 <!-- Header -->
 <header class="sticky top-0 z-1000">
     <div class="flex justify-between items-center py-4 px-5 bg-[#1B2740]">
-        <a href="#" class="inline-block">
+        <a href="<?= lang_url('/') ?>" class="inline-block">
             <!-- Mobile logo display -->
             <img
                 src="<?= base_url('image_samples/logo_only.png') ?>"
@@ -27,17 +27,24 @@
                 </button>
 
                 <!-- Non-mobile page navigation -->
-                <div class="hidden md:flex justify-between">
-                    <a href="<?= lang_url('/') ?>" class="px-3 py-2 text-white"><?= lang('App.home') ?></a>
-                    <a href="<?= lang_url('/course') ?>" class="px-3 py-2 text-white"><?= lang('App.courses') ?></a>
-                    <a href="<?= lang_url('/community') ?>" class="px-3 py-2 text-white"><?= lang('App.community') ?></a>
-                    <a href="<?= lang_url('about-us') ?>" class="px-3 py-2 text-white"><?= lang('App.about_academy') ?></a>
+                <div class="hidden md:flex justify-between items-center">
+                    <a href="<?= lang_url('/') ?>" class="px-3 py-2 text-white whitespace-nowrap min-w-max"><?= lang('App.home') ?></a>
+                    <a href="<?= lang_url('/course') ?>" class="px-3 py-2 text-white whitespace-nowrap min-w-max"><?= lang('App.courses') ?></a>
+                    <a href="<?= lang_url('/community') ?>" class="px-3 py-2 text-white whitespace-nowrap min-w-max"><?= lang('App.community') ?></a>
+                    <a href="<?= lang_url('about-us') ?>" class="px-3 py-2 text-white whitespace-nowrap min-w-max"><?= lang('App.about_academy') ?></a>
                     <a
                         href="<?= lang_url('/auth/login') ?>"
-                        class="px-3 py-2 mr-2 text-white border border-white rounded-lg"><?= lang('App.login') ?></a>
+                        class="px-5 py-2 mr-2 text-white border border-white rounded-lg
+         whitespace-nowrap min-w-max">
+                        <?= lang('App.login') ?>
+                    </a>
+
                     <a
                         href="<?= lang_url('/auth/register') ?>"
-                        class="px-3 py-2 text-white border border-white rounded-lg"><?= lang('App.register') ?></a>
+                        class="px-5 py-2 text-white border border-white rounded-lg
+         whitespace-nowrap min-w-max">
+                        <?= lang('App.register') ?>
+                    </a>
                     <!-- <a
                     href="<?= base_url('/coming-soon-landing-page') ?>"
                     class="px-3 py-2 text-white border border-white rounded-lg">Daftar</a> -->
@@ -98,12 +105,12 @@
             <a
                 href="<?= lang_url('/auth/register') ?>"
                 class="text-white text-center py-3 border border-white rounded-lg mt-2">
-                Masuk
+                <?= lang('App.login') ?>
             </a>
             <a
                 href="<?= lang_url('/auth/register') ?>"
                 class="text-white text-center py-3 border border-white rounded-lg mt-2">
-                Daftar
+                <?= lang('App.register') ?>
             </a>
         </nav>
     </div>

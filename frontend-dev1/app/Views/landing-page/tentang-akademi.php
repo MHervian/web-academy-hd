@@ -44,47 +44,40 @@
   <!-- Main content -->
   <main>
     <div class="pb-17 pt-10 px-5 bg-[radial-gradient(circle_at_30%_200%,#6D2A3A_0%,#30283F_40%,#1B2740_96%)]">
-      <h1 class="text-white text-center text-3xl">Selamat Datang!</h1>
+      <h1 class="text-white text-center text-3xl"><?= lang('App.welcome') ?></h1>
       <div class="py-2"></div>
       <p class="text-white sm:w-130 md:w-150 text-center sm:m-auto">
-        Kami Dream Korean Language Learning Center menghadirkan program belajar bahasa Korea bagi generasi muda Indonesia dengan biaya
-        terjangkau dan pengajaran berkualitas — mulai dari persiapan TOPIK hingga program spesialis calon guru bahasa Korea.
+        <?= lang('App.welcome_description') ?>
       </p>
     </div>
     </div>
 
     <div class="bg-white">
       <div class="px-5 md:w-[90%] lg:w-245 md:m-auto pt-15 pb-10">
-        <h2 class="text-[#633991] text-2xl font-bold">Salam Hangat dari Kami,</h2>
+        <h2 class="text-[#633991] text-2xl font-bold"><?= lang('App.warm_greetings') ?></h2>
         <div class="py-1.5"></div>
         <p class="text-[#959094]">
-          Selamat datang di Yayasan Dream Korean Language Learning Center. Kami membuka peluang bagi generasi muda Indonesia melalui program
-          kursus bahasa Korea, persiapan TOPIK, dan program spesialis guru. Kami melihat tingginya minat generasi muda Indonesia untuk belajar
-          bahasa Korea, namun masih terbatasnya tenaga ahli dan kesempatan meraih sertifikasi TOPIK. Kehadiran yayasan ini diharapkan menjadi
-          jembatan, sekaligus fondasi kerja sama pendidikan yang saling menguntungkan antara Indonesia dan Korea.
+          <?= lang('App.foundation_welcome_message') ?>
         </p>
         <p class="text-[#959094] py-1.5">
-          Mari bersama kita wujudkan visi dan harapan melalui bahasa.
-        </p>
-        <p class="text-[#959094] py-1.5">
-          Terima kasih.
+          <?= lang('App.thank_you') ?>
         </p>
         <div class="py-2"></div>
-        <p class="font-bold">Lee Seon-ah</p>
-        <p>Director of YAYASAN Dream Korean Language Learning Center</p>
+        <p class="font-bold"><?= lang('App.director_name') ?></p>
+        <p><?= lang('App.director_title') ?></p>
       </div>
     </div>
 
     <div class="bg-[#faf6fb]">
       <div class="px-5 md:w-[90%] lg:w-245 md:m-auto pt-15 pb-14">
-        <h2 class="text-center text-[#633991] text-2xl font-bold">Siap Membentuk Masa Depanmu di Akademi?</h2>
+        <h2 class="text-center text-[#633991] text-2xl font-bold"><?= lang('App.ready_to_shape_your_future') ?></h2>
 
         <div class="py-2.5"></div>
 
         <div class="">
-          <a href="<?= base_url('auth/register') ?>" class="block px-4 sm:w-67 sm:mx-auto py-3 text-center border rounded-lg 
+          <a href="<?= lang_url('auth/register') ?>" class="block px-4 sm:w-67 sm:mx-auto py-3 text-center border rounded-lg 
             border-[#BF2441] bg-[#BF2441] text-white font-bold text-xl">
-            Daftar Sekarang
+            <?= lang('App.register_now') ?>
           </a>
         </div>
       </div>
@@ -93,7 +86,7 @@
     <div class="bg-[#faf6fb]">
       <div class="lg:grid lg:grid-cols-2 px-5 pt-14 pb-9 md:w-[90%] lg:w-245 md:m-auto">
         <div class="lg:col-span-1">
-          <p class="pb-3 text-[#633991]"><i class="fa-solid fa-location-dot text-[#1B2740]"></i> Jalan K.H. Mas Mansyur, Citywalk, Jakarta Selatan, Jakarta, Indonesia</p>
+          <p class="pb-3 text-[#633991]"><i class="fa-solid fa-location-dot text-[#1B2740]"></i> <?= lang('App.address') ?></p>
           <div class="flex gap-x-6.5">
             <span class="text-[#633991]"><i class="fa-solid fa-envelope text-[#1B2740]"></i> hangulcs@hangul.co.id</span>
             <span class="text-[#633991]"><i class="fa-solid fa-phone text-[#1B2740]"></i> +62939392892</span>
