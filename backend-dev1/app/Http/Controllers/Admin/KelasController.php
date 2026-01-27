@@ -51,7 +51,8 @@ class KelasController extends Controller
 		// 	->get();
 		$peserta = [];
 
-		return view('kelas-detail', compact('kelas', 'peserta'));
+		// return view('kelas-detail', compact('kelas', 'peserta'));
+		return view('kelas/detail', compact('kelas', 'peserta'));
 	}
 
 	/**
@@ -65,7 +66,8 @@ class KelasController extends Controller
 
 		$programs = ProgramModel::all();
 
-		return view('create-kelas', compact('programs'));
+		// return view('create-kelas', compact('programs'));
+		return view('kelas/create', compact('programs'));
 	}
 
 	/**

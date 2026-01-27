@@ -124,34 +124,102 @@
 
         <div class="py-3"></div>
 
+        <div class="grid grid-cols-4 gap-4">
+          <div class="col-span-1 py-5 px-4.5 rounded-lg bg-white shadow-sm">
+            <span class="flex justify-between items-center">
+              <span class="font-medium text-[1rem]">Total Pendaftar Baru Hari Ini</span>
+              <span class="relative flex h-5 w-5 ms-2">
+                <span
+                  class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-5 w-5 bg-green-500"></span>
+              </span>
+              {{-- <i class="fa-solid fa-circle text-xl text-green-500" aria-hidden="true"></i> --}}
+              {{-- <span class="flex h-12 aspect-square items-center justify-center rounded-full bg-green-100">
+              </span> --}}
+            </span>
+            <p class="pt-0 text-xl font-bold">41</p>
+          </div>
+          <div class="col-span-1 py-5 px-4.5 rounded-lg bg-white shadow-sm">
+            <span class="flex justify-between items-center">
+              <span class="font-medium text-[1rem]">Kelas Hampir Penuh</span>
+              {{-- <i class="fa-solid fa-circle text-xl text-red-500" aria-hidden="true"></i> --}}
+              <span class="relative flex h-5 w-5 ms-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-5 w-5 bg-red-500"></span>
+              </span>
+              {{-- <span class="flex h-12 aspect-square items-center justify-center rounded-full bg-blue-100">
+                <i class="fa-solid fa-people-roof text-2xl text-blue-500" aria-hidden="true"></i>
+              </span> --}}
+            </span>
+            <p class="pt-0 text-xl font-bold">3</p>
+          </div>
+          {{-- <div class="col-span-1 py-5 px-4.5 rounded-lg bg-white shadow-sm">
+            <span class="flex justify-between items-center">
+              <span class="font-medium text-[1rem]">Kelas Populer</span>
+              <span class="flex h-12 aspect-square items-center justify-center rounded-full bg-blue-100">
+                <i class="fa-solid fa-people-roof text-2xl text-blue-500" aria-hidden="true"></i>
+              </span>
+            </span>
+            <p class="pt-0 text-lg text-[0.95rem] font-bold">Kelas TOPIK Lvl 3 - 4 (1)</p>
+          </div> --}}
+        </div>
+
+        <div class="py-3"></div>
+
         {{-- Search form and table --}}
         @if (count($kelas) > 0)
           {{-- @if (false) --}}
           {{-- <div class="grid grid-cols-2"> --}}
           <div class="col-span-1 py-5 px-4.5 rounded-lg bg-white shadow-sm">
             <!-- Search Form Here -->
-            <form class="flex flex-wrap items-end gap-4">
-
+            {{-- <form class="flex flex-wrap items-end gap-4"> --}}
+            <form class="">
               <!-- Search -->
-              <div class="relative">
-                <i
-                  class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-sm text-gray-400 pointer-events-none">
-                </i>
-                <input type="text" placeholder="Search"
-                  class="h-9 w-56 rounded-md border border-gray-300 pl-9 pr-3 text-sm
-             focus:border-blue-500 focus:outline-none" />
+              <div class="flex items-start gap-4">
+                <div class="relative">
+                  <i
+                    class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-sm text-gray-400 pointer-events-none">
+                  </i>
+                  <input type="text" placeholder="Search"
+                    class="h-9 w-56 rounded-md border border-gray-300 pl-9 pr-3 text-sm
+               focus:border-blue-500 focus:outline-none" />
+                </div>
+
+                <!-- Filter Kelas -->
+                <select
+                  class="h-9 rounded-md border border-gray-300 px-3 text-sm text-gray-600
+             focus:border-blue-500 focus:outline-none">
+                  <option>Semua Status</option>
+                  <option>Baru Dibuka (2 Hari Pertama)</option>
+                  <option>Akan Segera Tutup (Sisa 1-2 Hari)</option>
+                  <option>Hampir Penuh (Kapasitas > 80%)</option>
+                </select>
+
+                <div class="flex items-center gap-3 py-1.5 px-4 bg-white rounded-md border border-gray-300 w-fit">
+                  <label class="relative inline-flex items-center cursor-pointer group">
+                    <input type="checkbox" value="" class="sr-only peer">
+                    <div
+                      class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 
+                      rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full 
+                      peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-0.5
+                      after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600">
+                    </div>
+                    <span class="ms-3 text-sm font-medium text-slate-700 group-hover:text-blue-600 transition-colors">
+                      Ada Pendaftar Hari Ini
+                    </span>
+                    {{-- <span class="relative flex h-2 w-2 ms-2">
+                      <span
+                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    </span> --}}
+                  </label>
+                </div>
               </div>
 
-              <!-- Filter Kelas -->
-              <select
-                class="h-9 rounded-md border border-gray-300 px-3 text-sm text-gray-600
-           focus:border-blue-500 focus:outline-none">
-                <option>Filter Kelas Kosong</option>
-                <option>Filter Kelas Penuh</option>
-              </select>
+              <div class="py-1.5"></div>
 
               <!-- Filter Tanggal -->
-              <div class="flex flex-col gap-1">
+              <div class="flex gap-3">
 
                 <div class="flex items-center gap-3">
                   <span class="text-sm">Tanggal Buka</span>
@@ -176,10 +244,15 @@
                  focus:border-blue-500 focus:outline-none" />
                   </div>
                 </div>
+
+                <button
+                  class="px-4 rounded-md bg-blue-600 text-sm text-white cursor-pointer
+                hover:opacity-80 transition">
+                  <i class="fa-solid fa-magnifying-glass"></i> Cari
+                </button>
               </div>
 
             </form>
-
 
             <div class="pb-3"></div>
             <table class="w-full border-collapse">
@@ -187,10 +260,10 @@
                 <tr class="bg-gray-200">
                   <th class="py-2 font-medium">No.</th>
                   <th class="py-2 font-medium">Nama Kelas</th>
-                  <th class="py-2 font-medium">Tanggal Buka Daftar</th>
-                  <th class="py-2 font-medium">Tanggal Tutup Daftar</th>
-                  <th class="py-2 font-medium">Kapasitas</th>
-                  <th class="py-2 font-medium">Total Daftar</th>
+                  <th class="py-2 font-medium">Sisa Hari Pendaftaran</th>
+                  <th class="py-2 font-medium">Kuota (Terisi/Total)</th> <!-- => ini ada bar progress -->
+                  <th class="py-2 font-medium">Update Hari Ini</th>
+                  {{-- <th class="py-2 font-medium">Tren/Aktivitas</th> --}}
                   <th class="py-2 font-medium">Action</th>
                 </tr>
               </thead>
@@ -200,10 +273,22 @@
                     <td class="py-2 px-2 text-[0.9rem] border-r border-r-gray-400 text-center">{{ $loop->iteration }}
                     </td>
                     <td class="py-2 px-2 text-[0.9rem]">{{ $k->nama_kelas }}</td>
-                    <td class="py-2 px-2 text-[0.9rem]">{{ $k->date_open }}</td>
-                    <td class="py-2 px-2 text-[0.9rem] text-center">{{ $k->date_close }}</td>
-                    <td class="py-2 px-2 text-[0.9rem] text-center">{{ $k->kapasitas }}</td>
-                    <td class="py-2 px-2 text-[0.9rem] text-center">{{ $k->terisi }}</td>
+                    <td class="py-2 px-2 text-[0.9rem] text-center">
+                      <span class="px-3 py-0.5 rounded-lg bg-green-600 text-white">Sisa 14 Hari</span>
+                    </td>
+                    <td class="py-2 px-2 text-[0.9rem] text-center">
+                      <span>
+                        ({{ $k->kapasitas }}/{{ $k->terisi }})
+                      </span>
+                      <div class="w-full bg-slate-200 rounded-full h-2 dark:bg-slate-700">
+                        <div class="bg-yellow-600 h-2 rounded-full" style="width: 70%"></div>
+                      </div>
+                    </td>
+                    {{-- <td class="py-2 px-2 text-[0.9rem] text-center">{{ $k->terisi }}</td> --}}
+                    <td class="py-2 px-2 text-center font-bold">
+                      <span class="text-green-600">+2</span>
+                    </td>
+                    {{-- <td class="py-2 px-2 text-[0.9rem] text-center">{{ $k->terisi }}</td> --}}
                     <td class="py-2 px-2">
                       <div class="flex items-center gap-2 justify-center">
                         <a href="{{ route('kelas-registrasi-detail', ['kelasId' => $k->kelasId]) }}"

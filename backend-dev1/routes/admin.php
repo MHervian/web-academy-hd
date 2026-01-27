@@ -27,8 +27,17 @@ Route::controller('DashboardController')->group(function () {
 // Member routes..
 Route::controller('MemberController')->group(function () {
   Route::get('/member', 'index')->name('member');
+  Route::get('/member/create', 'create')->name('create-member');
+  Route::post('/member/create', 'store')->name('store-member');
   Route::post('/member', 'delete')->name('delete-member');
+  Route::get('/member/edit/{memberId}', 'edit')->name('edit-member');
+  Route::post('/member/edit', 'update')->name('update-member');
   Route::get('/member-detail/{id}', 'detail')->name('member-detail');
+
+  Route::get('/member-reset-password/{memberId}', 'resetPassword')
+    ->name('member-reset-password');
+  Route::post('/member-reset-password/update', 'updateResetPassword')
+    ->name('member-update-password');
 });
 
 // Sertifikat routes..

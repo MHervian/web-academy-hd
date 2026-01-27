@@ -123,7 +123,7 @@
               </span>
             </span>
             <p class="pt-0 pb-2.5 text-3xl font-bold">1,250</p>
-            <a href="{{ route('coming-soon') }}" class="inline-block py-1 px-3 bg-blue-500 text-white rounded-md">Lihat
+            <a href="{{ route('member') }}" class="inline-block py-1 px-3 bg-blue-500 text-white rounded-md">Lihat
               Semua Member</a>
           </div>
           <div class="col-span-1 py-4 px-4.5 rounded-lg bg-white shadow-sm">
@@ -134,8 +134,8 @@
               </span>
             </span>
             <p class="pt-0 pb-2.5 text-3xl font-bold">12</p>
-            <a href="{{ route('coming-soon') }}"
-              class="inline-block py-1 px-3 bg-green-500 text-white rounded-md">Kelola Kelas</a>
+            <a href="{{ route('kelas') }}" class="inline-block py-1 px-3 bg-green-500 text-white rounded-md">Kelola
+              Kelas</a>
           </div>
           <div class="col-span-1 py-4 px-4.5 rounded-lg bg-white shadow-sm">
             <span class="flex justify-between items-center">
@@ -145,8 +145,7 @@
               </span>
             </span>
             <p class="pt-0 pb-2.5 text-3xl font-bold">12</p>
-            <a href="{{ route('coming-soon') }}"
-              class="inline-block py-1 px-3 bg-green-500 text-white rounded-md">Kelola
+            <a href="{{ route('program') }}" class="inline-block py-1 px-3 bg-purple-500 text-white rounded-md">Kelola
               Kursus/Program</a>
           </div>
         </div>
@@ -162,7 +161,7 @@
               </span>
             </span>
             <p class="pt-0 pb-2.5 text-3xl font-bold">1,250</p>
-            <a href="{{ route('coming-soon') }}"
+            <a href="{{ route('kelas-registrasi') }}"
               class="inline-block py-1 px-3 bg-orange-500 text-white rounded-md">Lihat Pendaftar
               Baru</a>
           </div>
@@ -174,7 +173,7 @@
               </span>
             </span>
             <p class="pt-0 pb-2.5 text-3xl font-bold">12</p>
-            <a href="{{ route('coming-soon') }}"
+            <a href="{{ route('kelas-registrasi') }}"
               class="inline-block py-1 px-3 bg-orange-500 text-white rounded-md">Cek Antrian</a>
           </div>
           <div class="col-span-1 py-4 px-4.5 rounded-lg bg-white shadow-sm">
@@ -185,8 +184,8 @@
               </span>
             </span>
             <p class="pt-0 pb-2.5 text-3xl font-bold">12</p>
-            <a href="{{ route('coming-soon') }}"
-              class="inline-block py-1 px-3 bg-green-500 text-white rounded-md">Buat Sertifikat</a>
+            <a href="{{ route('sertifikat') }}"
+              class="inline-block py-1 px-3 bg-purple-500 text-white rounded-md">Buat Sertifikat</a>
           </div>
         </div>
 

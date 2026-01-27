@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
   <meta charset="UTF-8" />
@@ -108,19 +108,53 @@
         <!-- Title and breadcrumbs -->
         <div class="flex items-center gap-4">
           <h2 class="text-4xl font-bold text-center">Member</h2>
-          <a href="{{ route('coming-soon') }}"
+          <a href="{{ route('create-member') }}"
             class="inline-flex items-center gap-2 rounded-md bg-blue-700 px-4 py-1 text-[0.85rem] text-white
             hover:opacity-90 transition">
-            <i class="fa-solid fa-plus"></i>
-            Tambah Member Baru
+            <i class="fa-solid fa-plus"></i> Tambah Member Baru
           </a>
         </div>
         <span class="block py-2">
-          <a href="{{ route('admin-dashboard') }}" class="text-blue-700">Dashboard</a> /
+          <a href="{{ route('admin-dashboard') }}" class="text-blue-700">Dashboard</a> &#47;
           <a href="#" class="">Member</a>
         </span>
         <p class="text-gray-700">Data member akademi Dream Hangul.</p>
         <!--/ Title and breadcrumbs  -->
+
+        @if (session('success'))
+          <!-- alert success -->
+          <div
+            class="flex items-center justify-between gap-4 rounded-xl bg-green-50 border border-green-300 mt-2.5 px-5 py-2 text-green-800 shadow-sm">
+            <div class="flex items-center gap-2">
+              <span class="text-lg">✅</span>
+              <span>
+                <strong class="font-semibold">Berhasil!</strong> {{ session('success') }}
+              </span>
+            </div>
+            <button onclick="this.closest('div').remove()"
+              class="rounded-md px-2 py-1 text-green-600 hover:bg-green-200 hover:text-green-900 transition cursor-pointer">
+              ✕
+            </button>
+          </div>
+        @endif
+
+        @if (session('error'))
+          <!-- alert danger -->
+          <div
+            class="flex items-center justify-between gap-4 rounded-xl bg-red-50 border border-red-300 mt-2.5 px-5 py-2 text-red-800 shadow-sm">
+            <div class="flex items-center gap-2">
+              <span class="text-lg">❌</span>
+              <span>
+                <strong class="font-semibold">Gagal!</strong> {{ session('error') }}
+              </span>
+            </div>
+
+            <button onclick="this.closest('div').remove()"
+              class="rounded-md px-2 py-1 text-red-600 hover:bg-red-200 hover:text-red-900 transition cursor-pointer">
+              ✕
+            </button>
+          </div>
+        @endif
 
         <div class="py-3"></div>
 
@@ -136,7 +170,7 @@
                 <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-gray-400">
                   <i class="fa-solid fa-magnifying-glass text-sm"></i>
                 </span>
-                <input type="text" placeholder="Search"
+                <input type="text" placeholder="Cari"
                   class="h-9 w-56 rounded-md border border-gray-300 pl-9 pr-3 text-sm focus:border-blue-500 focus:outline-none" />
               </div>
 
@@ -159,6 +193,12 @@
                 <option>Status Aktif</option>
                 <option>Status NonAktif</option>
               </select>
+
+              <button
+                class="py-2 px-4 rounded-md bg-blue-600 text-sm text-white cursor-pointer
+                hover:opacity-80 transition">
+                <i class="fa-solid fa-magnifying-glass"></i> Cari
+              </button>
 
               <!-- Filter Status -->
               {{-- <div class="flex gap-2">
@@ -189,7 +229,8 @@
               <tbody>
                 @foreach ($members as $member)
                   <tr class="border-b border-b-gray-200">
-                    <td class="py-2 px-2 text-[0.9rem] border-r border-r-gray-400 text-center">{{ $loop->iteration }}
+                    <td class="py-2 px-2 text-[0.9rem] border-r border-r-gray-400 text-center">
+                      {{ $loop->iteration }}
                     </td>
                     <td class="pl-2"><span class="inline-block rounded-[100%] h-8 w-8 bg-gray-200"></span></td>
                     <td class="py-2 px-2 text-[0.9rem]">{{ $member->username }}</td>
@@ -202,6 +243,11 @@
                           class="inline-flex h-7 items-center justify-center rounded-sm bg-blue-950 px-2 text-[0.8rem] 
                           text-white hover:opacity-90 transition">
                           <i class="fa-solid fa-circle-info"></i> Detail
+                        </a>
+                        <a href="{{ route('edit-member', ['memberId' => $member->memberId]) }}"
+                          class="inline-flex h-7 items-center justify-center rounded-sm bg-blue-600 px-2 text-[0.8rem] 
+                          text-white hover:opacity-90 transition">
+                          <i class="fa-solid fa-file-pen"></i> Ubah
                         </a>
                         <form action="{{ route('delete-member') }}" method="post">
                           @csrf

@@ -122,6 +122,41 @@
         <p class="text-gray-700">Data sertifikat kelulusan member Akademi Dream Hangul.</p>
         <!--/ Title and breadcrumbs  -->
 
+        @if (session('success'))
+          <!-- alert success -->
+          <div
+            class="flex items-center justify-between gap-4 rounded-xl bg-green-50 border border-green-300 mt-2.5 px-5 py-2 text-green-800 shadow-sm">
+            <div class="flex items-center gap-2">
+              <span class="text-lg">✅</span>
+              <span>
+                <strong class="font-semibold">Berhasil!</strong> {{ session('success') }}
+              </span>
+            </div>
+            <button onclick="this.closest('div').remove()"
+              class="rounded-md px-2 py-1 text-green-600 hover:bg-green-200 hover:text-green-900 transition cursor-pointer">
+              ✕
+            </button>
+          </div>
+        @endif
+
+        @if (session('error'))
+          <!-- alert danger -->
+          <div
+            class="flex items-center justify-between gap-4 rounded-xl bg-red-50 border border-red-300 mt-2.5 px-5 py-2 text-red-800 shadow-sm">
+            <div class="flex items-center gap-2">
+              <span class="text-lg">❌</span>
+              <span>
+                <strong class="font-semibold">Gagal!</strong> {{ session('error') }}
+              </span>
+            </div>
+
+            <button onclick="this.closest('div').remove()"
+              class="rounded-md px-2 py-1 text-red-600 hover:bg-red-200 hover:text-red-900 transition cursor-pointer">
+              ✕
+            </button>
+          </div>
+        @endif
+
         <div class="py-3"></div>
 
         {{-- Search form and table --}}
@@ -136,7 +171,7 @@
                 <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-gray-400">
                   <i class="fa-solid fa-magnifying-glass text-sm"></i>
                 </span>
-                <input type="text" placeholder="Search"
+                <input type="text" placeholder="Cari No. Sertifikat.."
                   class="h-9 w-56 rounded-md border border-gray-300 pl-9 pr-3 text-sm focus:border-blue-500 focus:outline-none" />
               </div>
 
@@ -160,6 +195,14 @@
                       class="h-9 rounded-md border border-gray-300 pl-9 pr-3 text-sm text-gray-600 focus:border-blue-500 focus:outline-none" />
                   </div>
                 </div>
+
+                <div class="py-1.5"></div>
+
+                <button
+                  class="py-2 px-4 rounded-md bg-blue-600 text-sm text-white cursor-pointer
+                hover:opacity-80 transition">
+                  <i class="fa-solid fa-magnifying-glass"></i> Cari
+                </button>
               </div>
 
               {{-- <select
@@ -213,6 +256,11 @@
                           class="inline-flex h-7 items-center justify-center rounded-sm bg-blue-950 px-2 text-[0.8rem] 
                           text-white hover:opacity-90 transition">
                           <i class="fa-solid fa-circle-info"></i> Detail
+                        </a>
+                        <a href="{{ route('coming-soon') }}"
+                          class="inline-flex h-7 items-center justify-center rounded-sm bg-blue-600 px-2 text-[0.8rem] 
+                          text-white hover:opacity-90 transition">
+                          <i class="fa-solid fa-file-pen"></i> Ubah
                         </a>
                         <form action="{{ route('delete-sertifikat') }}" method="post">
                           @csrf

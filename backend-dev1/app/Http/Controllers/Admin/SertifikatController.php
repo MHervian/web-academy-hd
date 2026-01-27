@@ -43,7 +43,8 @@ class SertifikatController extends Controller
 		// Get member info with this sertifikat
 		$member = MemberModel::where('memberId', $sertifikat[0]->memberId)->get();
 
-		return view('sertifikat-detail', compact('sertifikat', 'member'));
+		// return view('sertifikat-detail', compact('sertifikat', 'member'));
+		return view('sertifikat/detail', compact('sertifikat', 'member'));
 	}
 
 	/**
@@ -60,7 +61,8 @@ class SertifikatController extends Controller
 
 		// $kelas = KelasModel::all();
 
-		return view('upload-sertifikat', compact('members'));
+		// return view('upload-sertifikat', compact('members'));
+		return view('sertifikat/upload', compact('members'));
 		// return view('upload-sertifikat', compact('kelas'));
 	}
 

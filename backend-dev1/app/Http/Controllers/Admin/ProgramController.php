@@ -52,7 +52,8 @@ class ProgramController extends Controller
 		// $kurikulum = KurikulumModel::where('kurikulumId', $program->kurikulumId)->get();
 
 		// return view('program-detail', compact('program', 'kurikulum'));
-		return view('program-detail', compact('program'));
+		// return view('program-detail', compact('program'));
+		return view('kursus-program/detail', compact('program'));
 	}
 
 	/**
@@ -68,7 +69,8 @@ class ProgramController extends Controller
 		// $kurikulums = KurikulumModel::where('isApprove', '3')->get();
 		$kurikulums = [];
 
-		return view('create-program', compact('kurikulums'));
+		// return view('create-program', compact('kurikulums'));
+		return view('kursus-program/create', compact('kurikulums'));
 	}
 
 	/**

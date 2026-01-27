@@ -1,11 +1,13 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+  <title>Informasi Detail Kelas - DreamPanel</title>
+
   <meta charset="UTF-8" />
   <meta name="robots" content="noindex, nofollow" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <title>Kelas - DreamPanel</title>
+
   <!-- favicon -->
   <link rel="icon" href="favicon.ico" type="image/x-icon">
 
@@ -29,7 +31,6 @@
 </head>
 
 <body>
-
   <main class="flex min-h-screen">
     @include('navigation.navigation')
 
@@ -104,22 +105,28 @@
       </header>
       <!--/ Header -->
 
+      {{-- <div class="content">
+        <h2>Detail Kelas</h2>
+        <div style="margin-bottom: 1rem;">
+          <a href="{{ route('edit-kelas', ['kelasId' => $kelas->kelasId]) }}" class="btn btn-info">Ubah</a>
+          <form action="{{ route('delete-kelas') }}" method="post" class="d-inline">
+            @csrf
+            <input type="hidden" name="kelasId" value="{{ $kelas->kelasId }}" />
+            <button type="submit" class="btn btn-danger" style="font-size: 13px; cursor: pointer;">Hapus</button>
+          </form>
+        </div> --}}
+
       <div class="flex-1 p-3 bg-[#e7ecf6]">
         <!-- Title and breadcrumbs -->
         <div class="flex items-center gap-4">
-          <h2 class="text-4xl font-bold text-center">Kelas</h2>
-          <a href="{{ route('create-kelas') }}"
-            class="inline-flex items-center gap-2 rounded-md bg-blue-700 px-4 py-1 text-[0.85rem] text-white
-            hover:opacity-90 transition">
-            <i class="fa-solid fa-plus"></i>
-            Tambah Kelas
-          </a>
+          <h2 class="text-4xl font-bold text-center">Informasi Detail Kelas</h2>
         </div>
         <span class="block py-2">
           <a href="{{ route('admin-dashboard') }}" class="text-blue-700">Dashboard</a> /
-          <a href="#" class="">Kelas</a>
+          <a href="{{ route('kelas') }}" class="text-blue-700">Kelas</a> /
+          <a href="#" class="">Detail Kelas</a>
         </span>
-        <p class="text-gray-700">Data kelas kursus/program Akademi Hangul Dream</p>
+        <p class="text-gray-700">Detail Informasi Kelas Dream Hangul Akademi.</p>
         <!--/ Title and breadcrumbs  -->
 
         @if (session('success'))
@@ -159,154 +166,120 @@
 
         <div class="py-3"></div>
 
-        {{-- Search form and table --}}
-        @if (count($kelas) > 0)
-          {{-- @if (false) --}}
-          {{-- <div class="grid grid-cols-2"> --}}
-          <div class="col-span-1 py-5 px-4.5 rounded-lg bg-white shadow-sm">
-            <!-- Search Form Here -->
-            <form class="flex flex-wrap gap-3">
-              <!-- Search -->
-              <div class="relative">
-                <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-gray-400">
-                  <i class="fa-solid fa-magnifying-glass text-sm"></i>
-                </span>
-                <input type="text" placeholder="Search"
-                  class="h-9 w-56 rounded-md border border-gray-300 pl-9 pr-3 text-sm focus:border-blue-500 focus:outline-none" />
-              </div>
-
-              <select
-                class="h-9 rounded-md border border-gray-300 px-3 text-sm text-gray-600 focus:border-blue-500 focus:outline-none">
-                <option>Filter Kategori</option>
-                <option>Kategori A</option>
-                <option>Kategori B</option>
-              </select>
-
-              <select
-                class="h-9 rounded-md border border-gray-300 px-3 text-sm text-gray-600 focus:border-blue-500 focus:outline-none">
-                <option>Status Aktif</option>
-                <option>Status Tidak Aktif</option>
-              </select>
-
-              <button
-                class="py-2 px-4 rounded-md bg-blue-600 text-sm text-white cursor-pointer
-                hover:opacity-80 transition">
-                <i class="fa-solid fa-magnifying-glass"></i> Cari
-              </button>
-
-            </form>
-
-            <div class="pb-3"></div>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="col-span-1 p-3 rounded-md bg-white shadow-md">
             <table class="w-full border-collapse">
-              <thead>
-                <tr class="bg-gray-200">
-                  <th class="py-2 font-medium">No.</th>
-                  <th class="py-2 font-medium">Nama Kelas</th>
-                  <th class="py-2 font-medium">Kursus/Program</th>
-                  <th class="py-2 font-medium">Kapasitas</th>
-                  <th class="py-2 font-medium">Terisi</th>
-                  <th class="py-2 font-medium">Kelas Mulai?</th>
-                  <th class="py-2 font-medium">Action</th>
-                </tr>
-              </thead>
               <tbody>
-                @foreach ($kelas as $k)
-                  <tr class="border-b border-b-gray-200">
-                    <td class="py-2 px-2 text-[0.9rem] border-r border-r-gray-400 text-center">{{ $loop->iteration }}
-                    </td>
-                    <td class="py-2 px-2 text-[0.9rem]">{{ $k->nama_kelas }}</td>
-                    <td class="py-2 px-2 text-[0.9rem]">{{ $k->nama_program }}</td>
-                    <td class="py-2 px-2 text-[0.9rem] text-center">{{ $k->kapasitas }}</td>
-                    <td class="py-2 px-2 text-[0.9rem] text-center">{{ $k->terisi }}</td>
-                    <td class="py-2 px-2 text-[0.9rem] text-center">
-                      @if ($k->isKelasStart == '1')
-                        <span class="bg-green-600 py-1 px-3 text-white rounded-lg">Mulai</span>
-                      @else
-                        <span class="bg-gray-400 py-1 px-3 text-white rounded-lg">Belum</span>
-                      @endif
-                    </td>
-                    <td class="py-2 px-2">
-                      <div class="flex items-center gap-2 justify-center">
-                        <a href="{{ route('kelas-detail', ['kelasId' => $k->kelasId]) }}"
-                          class="inline-flex h-7 items-center justify-center rounded-sm bg-blue-950 px-2 text-[0.8rem] 
-                          text-white hover:opacity-90 transition">
-                          <i class="fa-solid fa-circle-info"></i> Detail
-                        </a>
-                        <a href="{{ route('coming-soon') }}"
-                          class="inline-flex h-7 items-center justify-center rounded-sm bg-blue-600 px-2 text-[0.8rem] 
-                          text-white hover:opacity-90 transition">
-                          <i class="fa-solid fa-file-pen"></i> Ubah
-                        </a>
-                        <form action="{{ route('delete-kelas') }}" method="post">
-                          @csrf
-                          <input type="hidden" name="kelasId" value="{{ $k->kelasId }}" />
-                          <button type="submit"
-                            class="inline-flex h-7 items-center justify-center rounded-sm bg-red-700 px-2 text-[0.8rem] text-white
-                            hover:opacity-90 transition cursor-pointer">
-                            <i class="fa-solid fa-trash-can"></i> Hapus
-                          </button>
-                        </form>
-                      </div>
-                    </td>
-                  </tr>
-                @endforeach
+                <tr class="border-b border-b-gray-200">
+                  <td class="py-2 px-2 w-[140px]">ID Kelas</td>
+                  <td class="py-2 px-2">:</td>
+                  <td class="py-2 px-2">{{ $kelas->kelasId }}</td>
+                </tr>
+                <tr class="border-b border-b-gray-200">
+                  <td class="py-2 px-2">Nama Kelas</td>
+                  <td class="py-2 px-2">:</td>
+                  <td class="py-2 px-2">{{ $kelas->nama_kelas }}</td>
+                </tr>
+                <tr class="border-b border-b-gray-200">
+                  <td class="py-2 px-2">Kursus/Program</td>
+                  <td class="py-2 px-2">:</td>
+                  <td class="py-2 px-2">{{ $kelas->nama_program }}</td>
+                </tr>
+                <tr class="border-b border-b-gray-200">
+                  <td class="py-2 px-2">Pengajar</td>
+                  <td class="py-2 px-2">:</td>
+                  <td class="py-2 px-2">{{ $kelas->pengajar }}</td>
+                </tr>
+                <tr class="border-b border-b-gray-200">
+                  <td class="py-2 px-2">Deskripsi</td>
+                  <td class="py-2 px-2">:</td>
+                  <td class="py-2 px-2">{{ $kelas->deskripsi }}</td>
+                </tr>
+                <tr class="border-b border-b-gray-200">
+                  <td class="py-2 px-2">Kapasitas Kelas</td>
+                  <td class="py-2 px-2">:</td>
+                  <td class="py-2 px-2">{{ $kelas->kapasitas }}</td>
+                </tr>
+                <tr class="border-b border-b-gray-200">
+                  <td class="py-2 px-2">Jumlah Terisi</td>
+                  <td class="py-2 px-2">:</td>
+                  <td class="py-2 px-2">{{ $kelas->terisi }}</td>
+                </tr>
+                <tr class="border-b border-b-gray-200">
+                  <td class="py-2 px-2">Tanggal Buka Daftar</td>
+                  <td class="py-2 px-2">:</td>
+                  <td class="py-2 px-2">{{ $kelas->date_open }}</td>
+                </tr>
+                <tr class="border-b border-b-gray-200">
+                  <td class="py-2 px-2">Tanggal Tutup Daftar</td>
+                  <td class="py-2 px-2">:</td>
+                  <td class="py-2 px-2">{{ $kelas->date_close }}</td>
+                </tr>
+                <tr class="border-b border-b-gray-200">
+                  <td class="py-2 px-2">Jam Tutup Daftar</td>
+                  <td class="py-2 px-2">:</td>
+                  <td class="py-2 px-2">{{ $kelas->time_close }}</td>
+                </tr>
+                <tr class="border-b border-b-gray-200">
+                  <td class="py-2 px-2">Kelas Dimulai?</td>
+                  <td class="py-2 px-2">:</td>
+                  <td class="py-2 px-2">
+                    @if ($kelas->isKelasStart == '1')
+                      <span class="bg-green-600 py-1 px-3 text-white rounded-lg">Mulai</span>
+                    @else
+                      <span class="bg-gray-400 py-1 px-3 text-white rounded-lg">Belum</span>
+                    @endif
+                  </td>
+                </tr>
               </tbody>
             </table>
-
-            <nav class="flex items-center justify-center gap-1 mt-6" aria-label="Pagination">
-              <!-- Prev -->
-              <button
-                class="flex h-9 w-9 items-center justify-center rounded-md border border-gray-300 text-gray-600 hover:bg-gray-100 
-                disabled:opacity-50 cursor-pointer"
-                disabled aria-label="Previous page">
-                <i class="fa-solid fa-chevron-left text-sm"></i>
-              </button>
-
-              <!-- Page Numbers -->
-              <button class="h-9 w-9 rounded-md bg-blue-600 text-sm text-white cursor-pointer">
-                1
-              </button>
-
-              <button
-                class="h-9 w-9 rounded-md border border-gray-300 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">
-                2
-              </button>
-
-              <button
-                class="h-9 w-9 rounded-md border border-gray-300 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">
-                3
-              </button>
-
-              <span class="flex h-9 w-9 items-center justify-center text-sm text-gray-500">
-                ...
-              </span>
-
-              <button
-                class="h-9 w-9 rounded-md border border-gray-300 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">
-                10
-              </button>
-
-              <!-- Next -->
-              <button
-                class="flex h-9 w-9 items-center justify-center rounded-md border border-gray-300 text-gray-600 
-                hover:bg-gray-100 cursor-pointer"
-                aria-label="Next page">
-                <i class="fa-solid fa-chevron-right text-sm"></i>
-              </button>
-            </nav>
           </div>
-          {{-- </div> --}}
-        @else
-          <p class="text-center font-bold">Data Kelas Kosong.</p>
-        @endif
+        </div>
 
+        <div class="py-4"></div>
+
+        {{-- <div class="grid grid-cols-1 gap-4">
+          <div class="col-span-1 p-3 rounded-md bg-white shadow-md">
+            <h2 class="text-2xl font-bold">Peserta Kelas</h2>
+            <p>Data peserta yang mengikuti kelas ini.</p>
+            @if (count($peserta) > 0)
+              <table>
+                <thead>
+                  <tr>
+                    <th>No.</th>
+                    <th>Nama Peserta</th>
+                    <th>Email</th>
+                    <th>Status Lulus</th>
+                    <th>Tanggal Lulus</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @foreach ($peserta as $p)
+                    <tr>
+                      <td>{{ $loop->iteration }}</td>
+                      <td>{{ $p->username }}</td>
+                      <td>{{ $p->email }}</td>
+                      <td>{{ $p->isPass }}</td>
+                      <td>{{ $p->date_pass }}</td>
+                      <td><a href="{{ route('coming-soon') }}" class="bttn-detail">Detail</a></td>
+                    </tr>
+                  @endforeach
+                </tbody>
+              </table>
+            @else
+              <div class="py-3"></div>
+              <p class="text-center font-medium">Kelas belum dimulai.</p>
+            @endif
+          </div>
+        </div> --}}
+
+        <div class="py-3"></div>
       </div>
       <div class="bg-white p-3">
         <p class="text-gray-500">&copy;DreamHangul 2025</p>
       </div>
     </div>
-    <!--/ Content -->
-
   </main>
 </body>
 
