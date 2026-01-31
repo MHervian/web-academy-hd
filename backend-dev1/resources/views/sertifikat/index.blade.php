@@ -172,11 +172,11 @@
                           text-white hover:opacity-90 transition">
                           <i class="fa-solid fa-circle-info"></i> Detail
                         </a>
-                        <a href="{{ route('coming-soon') }}"
+                        {{-- <a href="{{ route('coming-soon') }}"
                           class="inline-flex h-7 items-center justify-center rounded-sm bg-blue-600 px-2 text-[0.8rem] 
                           text-white hover:opacity-90 transition">
                           <i class="fa-solid fa-file-pen"></i> Ubah
-                        </a>
+                        </a> --}}
                         <form action="{{ route('delete-sertifikat') }}" method="post">
                           @csrf
                           <input type="hidden" name="sertifikatId" value="{{ $sertifikat->sertifikatId }}" />

@@ -160,7 +160,7 @@
                           text-white hover:opacity-90 transition">
                           <i class="fa-solid fa-circle-info"></i> Detail
                         </a>
-                        <a href="{{ route('coming-soon') }}"
+                        <a href="{{ route('edit-kelas', ['kelasId' => $k->kelasId]) }}"
                           class="inline-flex h-7 items-center justify-center rounded-sm bg-blue-600 px-2 text-[0.8rem] 
                           text-white hover:opacity-90 transition">
                           <i class="fa-solid fa-file-pen"></i> Ubah

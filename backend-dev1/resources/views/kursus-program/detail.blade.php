@@ -182,6 +182,52 @@
                 </tr>
               </tbody>
             </table>
+            <div class="py-2"></div>
+            <hr />
+            <div class="py-2"></div>
+            <h4 class="text-xl font-bold">Informasi Versi Korea</h4>
+            <table class="w-full border-collapse">
+              <tbody>
+                <tr class="border-b border-b-gray-200">
+                  <td class="py-2 px-2 w-[140px]">Judul</td>
+                  <td class="py-2 px-2">:</td>
+                  <td class="py-2 px-2">{{ $program->nama_kr }}</td>
+                </tr>
+                <tr class="border-b border-b-gray-200">
+                  <td class="py-2 px-2">Deskripsi</td>
+                  <td class="py-2 px-2">:</td>
+                  <td class="py-2 px-2">{{ $program->deskripsi_kr }}</td>
+                </tr>
+                <tr class="border-b border-b-gray-200">
+                  <td class="py-2 px-2">Jadwal</td>
+                  <td class="py-2 px-2">:</td>
+                  <td class="py-2 px-2">{{ $program->file_jadwal_kr }}</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="py-2"></div>
+            <hr />
+            <div class="py-2"></div>
+            <h4 class="text-xl font-bold">Informasi Versi Inggris</h4>
+            <table class="w-full border-collapse">
+              <tbody>
+                <tr class="border-b border-b-gray-200">
+                  <td class="py-2 px-2 w-[140px]">Judul</td>
+                  <td class="py-2 px-2">:</td>
+                  <td class="py-2 px-2">{{ $program->nama_en }}</td>
+                </tr>
+                <tr class="border-b border-b-gray-200">
+                  <td class="py-2 px-2">Deskripsi</td>
+                  <td class="py-2 px-2">:</td>
+                  <td class="py-2 px-2">{{ $program->deskripsi_en }}</td>
+                </tr>
+                <tr class="border-b border-b-gray-200">
+                  <td class="py-2 px-2">Jadwal</td>
+                  <td class="py-2 px-2">:</td>
+                  <td class="py-2 px-2">{{ $program->file_jadwal_en }}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
         <!--/ Card container wide full -->

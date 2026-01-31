@@ -79,9 +79,8 @@
               </div> --}}
 
               <label for="deskripsi" class="block pb-1 text-gray-600">Deskripsi</label>
-              <textarea id="deskripsi"
-                class="w-full py-1.5 px-3 border-2 rounded-md border-[#d9d9d9] focus:outline-0 focus:border-blue-500" name="deskripsi"
-                required></textarea>
+              <textarea id="deskripsi" name="deskripsi"
+                class="w-full py-1.5 px-3 border-2 rounded-md border-[#d9d9d9] focus:outline-0 focus:border-blue-500" required></textarea>
               {{-- <input id="deskripsi" type="text"
                 class="w-full py-1.5 px-3 border-2 rounded-md border-[#d9d9d9] focus:outline-0 focus:border-blue-500"
                 placeholder="" name="" required /> --}}
@@ -95,9 +94,9 @@
               </div> --}}
 
               <label for="harga" class="block pb-1 text-gray-600">Harga</label>
-              <input id="harga" type="text"
+              <input id="harga" type="text" name="harga"
                 class="w-full py-1.5 px-3 border-2 rounded-md border-[#d9d9d9] focus:outline-0 focus:border-blue-500"
-                placeholder="" name="harga" required />
+                placeholder="" required />
 
               <div class="py-1.5"></div>
 
@@ -143,19 +142,79 @@
               </div> --}}
 
               <label for="jadwal" class="block pb-1 text-gray-600">Jadwal</label>
-              <textarea id="jadwal"
-                class="w-full py-1.5 px-3 border-2 rounded-md border-[#d9d9d9] focus:outline-0 focus:border-blue-500" name="jadwal"
+              <textarea id="jadwal" name="jadwal"
+                class="w-full py-1.5 px-3 border-2 rounded-md border-[#d9d9d9] focus:outline-0 focus:border-blue-500" required></textarea>
+
+              <div class="py-3"></div>
+
+              <hr />
+
+              <div class="py-3"></div>
+
+              <h4 class="text-xl font-bold">Informasi Versi Bahasa Korea</h4>
+              <div class="py-1.5"></div>
+
+              <label for="nama_program_kr" class="block pb-1 text-gray-600">Nama Kursus/Program</label>
+              <input id="nama_program_kr" type="text" name="nama_kr"
+                class="w-full py-1.5 px-3 border-2 rounded-md border-[#d9d9d9] focus:outline-0 
+                focus:border-blue-500"
+                placeholder="" required />
+
+              <div class="py-1.5"></div>
+
+              <label for="deskripsi_en" class="block pb-1 text-gray-600">Deskripsi</label>
+              <textarea id="deskripsi_en" name="deskripsi_kr"
+                class="w-full py-1.5 px-3 border-2 rounded-md border-[#d9d9d9] 
+                focus:outline-0 focus:border-blue-500"
                 required></textarea>
+
+              <div class="py-1.5"></div>
+
+              <!-- File jadwal -->
+              <label for="jadwal_kr" class="block pb-1 text-gray-600">Jadwal</label>
+              <textarea id="jadwal_kr" name="jadwal_kr"
+                class="w-full py-1.5 px-3 border-2 rounded-md border-[#d9d9d9] focus:outline-0 focus:border-blue-500" required></textarea>
+
+              <div class="py-3"></div>
+
+              <hr />
+
+              <div class="py-3"></div>
+
+              <h4 class="text-xl font-bold">Informasi Versi Bahasa Inggris</h4>
+              <div class="py-1.5"></div>
+
+              <label for="nama_program_en" class="block pb-1 text-gray-600">Nama Kursus/Program</label>
+              <input id="nama_program_en" type="text" name="nama_en"
+                class="w-full py-1.5 px-3 border-2 rounded-md border-[#d9d9d9] focus:outline-0 focus:border-blue-500"
+                placeholder="" required />
+
+              <div class="py-1.5"></div>
+
+              <label for="deskripsi_en" class="block pb-1 text-gray-600">Deskripsi</label>
+              <textarea id="deskripsi_en" name="deskripsi_en"
+                class="w-full py-1.5 px-3 border-2 rounded-md border-[#d9d9d9] 
+                focus:outline-0 focus:border-blue-500"
+                required></textarea>
+
+              <div class="py-1.5"></div>
+
+              <!-- File jadwal -->
+              <label for="jadwal_en" class="block pb-1 text-gray-600">Jadwal</label>
+              <textarea id="jadwal_en" name="jadwal_en"
+                class="w-full py-1.5 px-3 border-2 rounded-md border-[#d9d9d9] focus:outline-0 focus:border-blue-500" required></textarea>
 
               <div class="py-3"></div>
 
               <div class="flex justify-end gap-3">
                 <button type="reset"
-                  class="py-1.5 px-4 text-center bg-gray-300 text-black rounded-lg cursor-pointer hover:opacity-90 transition">
+                  class="py-1.5 px-4 text-center bg-gray-300 text-black rounded-lg cursor-pointer 
+                  hover:opacity-90 transition">
                   Reset
                 </button>
                 <button type="submit"
-                  class="py-1.5 px-4 text-center bg-blue-600 text-white rounded-lg cursor-pointer hover:opacity-90 transition">
+                  class="py-1.5 px-4 text-center bg-blue-600 text-white rounded-lg cursor-pointer 
+                  hover:opacity-90 transition">
                   Simpan
                 </button>
               </div>

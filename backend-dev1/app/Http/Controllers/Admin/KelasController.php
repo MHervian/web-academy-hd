@@ -122,11 +122,21 @@ class KelasController extends Controller
 				'date_close' => 'required',
 				'time_close' => 'required',
 				'pengajar' => 'required|string|max:255',
+				// Korea
+				'nama_kelas_kr' => 'required',
+				'nama_program_kr' => 'required',
+				'pengajar_kr' => 'required',
+				'deskripsi_kr' => 'required|string|min:1',
+				// English
+				'nama_kelas_en' => 'required',
+				'nama_program_en' => 'required',
+				'pengajar_en' => 'required',
+				'deskripsi_en' => 'required|string|min:1'
 			]);
 
-			if (trim($data['deskripsi']) != '') {
-				$data['deskripsi'] = trim($data['deskripsi']);
-			}
+			// if (trim($data['deskripsi']) != '') {
+			// 	$data['deskripsi'] = trim($data['deskripsi']);
+			// }
 
 			KelasModel::create($data);
 
@@ -155,8 +165,8 @@ class KelasController extends Controller
 		// Get program data
 		$programs = ProgramModel::all();
 
-		// return view('program-detail', compact('program', 'kurikulum'));
-		return view('edit-kelas', compact('programs', 'kelas'));
+		// return view('edit-kelas', compact('programs', 'kelas'));
+		return view('kelas/edit', compact('programs', 'kelas'));
 	}
 
 	/**
@@ -179,11 +189,21 @@ class KelasController extends Controller
 				'date_close' => 'required',
 				'time_close' => 'required',
 				'pengajar' => 'required|string|max:255',
+				// Korea
+				'nama_kelas_kr' => 'required',
+				'nama_program_kr' => 'required',
+				'pengajar_kr' => 'required',
+				'deskripsi_kr' => 'required|string|min:1',
+				// English
+				'nama_kelas_en' => 'required',
+				'nama_program_en' => 'required',
+				'pengajar_en' => 'required',
+				'deskripsi_en' => 'required|string|min:1'
 			]);
 
-			if (trim($data['deskripsi']) != '') {
-				$data['deskripsi'] = trim($data['deskripsi']);
-			}
+			// if (trim($data['deskripsi']) != '') {
+			// 	$data['deskripsi'] = trim($data['deskripsi']);
+			// }
 
 			// Update kelas information
 			KelasModel::where('kelasId', $data['kelasId'])->update($data);

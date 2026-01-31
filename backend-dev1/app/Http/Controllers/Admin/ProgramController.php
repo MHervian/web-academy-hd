@@ -128,18 +128,26 @@ class ProgramController extends Controller
 			// ]);
 			$data = $request->validate([
 				'nama' => 'required|string|max:255',
-				'deskripsi' => 'string|required',
+				'deskripsi' => 'required|string|min:1',
 				// 'kurikulumId' => 'required',
 				// 'fileJadwal' => 'required|file|max:2048', // max 2MB
 				'harga' => 'required',
 				'publikasi' => 'required',
 				'jadwal' => 'required',
+				// Korea
+				'nama_kr' => 'required',
+				'deskripsi_kr' => 'required',
+				'jadwal_kr' => 'required',
+				// English
+				'nama_en' => 'required',
+				'deskripsi_en' => 'required',
+				'jadwal_en' => 'required',
 			]);
 
-			$deskripsi = null;
-			if (trim($data['deskripsi']) != '') {
-				$deskripsi = trim($data['deskripsi']);
-			}
+			// $deskripsi = null;
+			// if (trim($data['deskripsi']) != '') {
+			// 	$deskripsi = trim($data['deskripsi']);
+			// }
 
 			// $file = $request->file('fileJadwal');
 			// $ext = $file->getClientOriginalExtension();
@@ -150,12 +158,20 @@ class ProgramController extends Controller
 			// Store to program
 			ProgramModel::create([
 				'nama' => $data['nama'],
-				'deskripsi' => $deskripsi,
+				'deskripsi' => $data['deskripsi'],
 				// 'kurikulumId' => $data['kurikulumId'],
 				// 'file_jadwal' => $filename,
 				'file_jadwal' => $data['jadwal'],
 				'isOpen' => $data['publikasi'],
-				'harga' => $data['harga']
+				'harga' => $data['harga'],
+				// Korea
+				'nama_kr'			 => $data['nama_kr'],
+				'deskripsi_kr'  => $data['deskripsi_kr'],
+				'file_jadwal_kr' => $data['jadwal_kr'],
+				// English
+				'nama_en'			 => $data['nama_en'],
+				'deskripsi_en' => $data['deskripsi_en'],
+				'file_jadwal_en'		 => $data['jadwal_en']
 			]);
 
 			// Store ke storage/app/jadwal
@@ -201,7 +217,8 @@ class ProgramController extends Controller
 		// $kurikulum = KurikulumModel::where('kurikulumId', $program->kurikulumId)->get();
 
 		// return view('program-detail', compact('program', 'kurikulum'));
-		return view('edit-program', compact('program'));
+		// return view('edit-program', compact('program'));
+		return view('kursus-program/edit', compact('program'));
 	}
 
 	/**
@@ -223,18 +240,26 @@ class ProgramController extends Controller
 			$data = $request->validate([
 				'programId' => 'required',
 				'nama' => 'required|string|max:255',
-				'deskripsi' => 'string|required',
+				'deskripsi' => 'required|string|min:1',
 				// 'kurikulumId' => 'required',
 				// 'fileJadwal' => 'required|file|max:2048', // max 2MB
 				'harga' => 'required',
 				'publikasi' => 'required',
 				'jadwal' => 'required',
+				// Korea
+				'nama_kr' => 'required',
+				'deskripsi_kr' => 'required',
+				'jadwal_kr' => 'required',
+				// English
+				'nama_en' => 'required',
+				'deskripsi_en' => 'required',
+				'jadwal_en' => 'required'
 			]);
 
-			$deskripsi = null;
-			if (trim($data['deskripsi']) != '') {
-				$deskripsi = trim($data['deskripsi']);
-			}
+			// $deskripsi = null;
+			// if (trim($data['deskripsi']) != '') {
+			// 	$deskripsi = trim($data['deskripsi']);
+			// }
 
 			// $file = $request->file('fileJadwal');
 			// $ext = $file->getClientOriginalExtension();
@@ -246,10 +271,19 @@ class ProgramController extends Controller
 			ProgramModel::where('programId', $data['programId'])
 				->update([
 					'nama'         => $data['nama'],
-					'deskripsi'    => $deskripsi,
+					// 'deskripsi'    => $deskripsi,
+					'deskripsi'    => $data['deskripsi'],
 					'file_jadwal'  => $data['jadwal'],
 					'isOpen'       => $data['publikasi'],
-					'harga'        => $data['harga']
+					'harga'        => $data['harga'],
+					// Korea
+					'nama_kr'			 => $data['nama_kr'],
+					'deskripsi_kr' => $data['deskripsi_kr'],
+					'file_jadwal_kr'		 => $data['jadwal_kr'],
+					// English
+					'nama_en'			 => $data['nama_en'],
+					'deskripsi_en' => $data['deskripsi_en'],
+					'file_jadwal_en'		 => $data['jadwal_en']
 				]);
 
 			// Store ke storage/app/jadwal

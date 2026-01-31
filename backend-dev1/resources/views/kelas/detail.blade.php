@@ -166,46 +166,64 @@
                 </tr>
               </tbody>
             </table>
+            <div class="py-2"></div>
+            <hr />
+            <div class="py-2"></div>
+            <h4 class="text-xl font-bold">Informasi Versi Korea</h4>
+            <table class="w-full border-collapse">
+              <tbody>
+                <tr class="border-b border-b-gray-200">
+                  <td class="py-2 px-2 w-[140px]">Nama Kelas</td>
+                  <td class="py-2 px-2">:</td>
+                  <td class="py-2 px-2">{{ $kelas->nama_kelas_kr }}</td>
+                </tr>
+                <tr class="border-b border-b-gray-200">
+                  <td class="py-2 px-2">Nama Program</td>
+                  <td class="py-2 px-2">:</td>
+                  <td class="py-2 px-2">{{ $kelas->nama_program_kr }}</td>
+                </tr>
+                <tr class="border-b border-b-gray-200">
+                  <td class="py-2 px-2">Pengajar</td>
+                  <td class="py-2 px-2">:</td>
+                  <td class="py-2 px-2">{{ $kelas->pengajar_kr }}</td>
+                </tr>
+                <tr class="border-b border-b-gray-200">
+                  <td class="py-2 px-2">Deskripsi</td>
+                  <td class="py-2 px-2">:</td>
+                  <td class="py-2 px-2">{{ $kelas->deskripsi_kr }}</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="py-2"></div>
+            <hr />
+            <div class="py-2"></div>
+            <h4 class="text-xl font-bold">Informasi Versi Inggris</h4>
+            <table class="w-full border-collapse">
+              <tbody>
+                <tr class="border-b border-b-gray-200">
+                  <td class="py-2 px-2 w-[140px]">Nama Kelas</td>
+                  <td class="py-2 px-2">:</td>
+                  <td class="py-2 px-2">{{ $kelas->nama_kelas_en }}</td>
+                </tr>
+                <tr class="border-b border-b-gray-200">
+                  <td class="py-2 px-2">Nama Program</td>
+                  <td class="py-2 px-2">:</td>
+                  <td class="py-2 px-2">{{ $kelas->nama_program_en }}</td>
+                </tr>
+                <tr class="border-b border-b-gray-200">
+                  <td class="py-2 px-2">Pengajar</td>
+                  <td class="py-2 px-2">:</td>
+                  <td class="py-2 px-2">{{ $kelas->pengajar_en }}</td>
+                </tr>
+                <tr class="border-b border-b-gray-200">
+                  <td class="py-2 px-2">Deskripsi</td>
+                  <td class="py-2 px-2">:</td>
+                  <td class="py-2 px-2">{{ $kelas->deskripsi_en }}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
-
-        <div class="py-4"></div>
-
-        {{-- <div class="grid grid-cols-1 gap-4">
-          <div class="col-span-1 p-3 rounded-md bg-white shadow-md">
-            <h2 class="text-2xl font-bold">Peserta Kelas</h2>
-            <p>Data peserta yang mengikuti kelas ini.</p>
-            @if (count($peserta) > 0)
-              <table>
-                <thead>
-                  <tr>
-                    <th>No.</th>
-                    <th>Nama Peserta</th>
-                    <th>Email</th>
-                    <th>Status Lulus</th>
-                    <th>Tanggal Lulus</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  @foreach ($peserta as $p)
-                    <tr>
-                      <td>{{ $loop->iteration }}</td>
-                      <td>{{ $p->username }}</td>
-                      <td>{{ $p->email }}</td>
-                      <td>{{ $p->isPass }}</td>
-                      <td>{{ $p->date_pass }}</td>
-                      <td><a href="{{ route('coming-soon') }}" class="bttn-detail">Detail</a></td>
-                    </tr>
-                  @endforeach
-                </tbody>
-              </table>
-            @else
-              <div class="py-3"></div>
-              <p class="text-center font-medium">Kelas belum dimulai.</p>
-            @endif
-          </div>
-        </div> --}}
 
         <div class="py-3"></div>
       </div>

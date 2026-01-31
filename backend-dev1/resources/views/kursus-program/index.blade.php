@@ -81,6 +81,12 @@
               <span>
                 <strong class="font-semibold">Gagal!</strong> {{ session('error') }}
               </span>
+
+              <ul>
+                @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+                @endforeach
+              </ul>
             </div>
 
             <button onclick="this.closest('div').remove()"
@@ -203,7 +209,7 @@
                           text-white hover:opacity-90 transition">
                           <i class="fa-solid fa-circle-info"></i> Detail
                         </a>
-                        <a href="{{ route('coming-soon') }}"
+                        <a href="{{ route('edit-program', ['programId' => $program->programId]) }}"
                           class="inline-flex h-7 items-center justify-center rounded-sm bg-blue-600 px-2 text-[0.8rem] 
                           text-white hover:opacity-90 transition">
                           <i class="fa-solid fa-file-pen"></i> Ubah
