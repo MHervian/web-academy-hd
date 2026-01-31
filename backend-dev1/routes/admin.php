@@ -27,14 +27,25 @@ Route::controller('DashboardController')->group(function () {
 // Member routes..
 Route::controller('MemberController')->group(function () {
   Route::get('/member', 'index')->name('member');
+  Route::get('/member/create', 'create')->name('create-member');
+  Route::get('/member/search', 'search')->name('search-member');
+  Route::post('/member/create', 'store')->name('store-member');
   Route::post('/member', 'delete')->name('delete-member');
+  Route::get('/member/edit/{memberId}', 'edit')->name('edit-member');
+  Route::post('/member/edit', 'update')->name('update-member');
   Route::get('/member-detail/{id}', 'detail')->name('member-detail');
+
+  Route::get('/member-reset-password/{memberId}', 'resetPassword')
+    ->name('member-reset-password');
+  Route::post('/member-reset-password/update', 'updateResetPassword')
+    ->name('member-update-password');
 });
 
 // Sertifikat routes..
 Route::controller('SertifikatController')->group(function () {
   Route::get('/sertifikat', 'index')->name('sertifikat');
   Route::get('/sertifikat/upload', 'create')->name('upload-sertifikat');
+  Route::get('/sertifikat/search', 'search')->name('search-sertifikat');
   Route::get('/sertifikat/upload/get/peserta/{kelasId}', 'listPendaftarByKelas')->name('sertifikat-get-peserta');
   Route::post('/sertifikat/upload', 'store')->name('store-sertifikat');
   Route::post('/sertifikat/delete', 'delete')->name('delete-sertifikat');
@@ -67,6 +78,7 @@ Route::controller('ProgramController')->group(function () {
   Route::get('/program', 'index')->name('program');
   Route::post('/program', 'delete')->name('delete-program');
   Route::get('/program/create', 'create')->name('create-program');
+  Route::get('/program/search', 'search')->name('search-program');
   Route::get('/program/edit/{programId}', 'edit')->name('edit-program');
   Route::post('/program/create', 'store')->name('store-program');
   Route::post('/program/update', 'update')->name('update-program');
@@ -78,6 +90,7 @@ Route::controller('ProgramController')->group(function () {
 Route::controller('KelasController')->group(function () {
   Route::get('/kelas', 'index')->name('kelas');
   Route::post('/kelas', 'delete')->name('delete-kelas');
+  Route::get('/kelas/search', 'search')->name('search-kelas');
   Route::get('/create-kelas', 'create')->name('create-kelas');
   Route::get('/kelas/edit/{kelasId}', 'edit')->name('edit-kelas');
   Route::post('/kelas/update', 'update')->name('update-kelas');

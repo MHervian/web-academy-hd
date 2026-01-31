@@ -3,15 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\EnrollmentKelasModel;
+// use App\Models\EnrollmentKelasModel;
 use App\Models\KelasModel;
 use App\Models\PendaftarKelasModel;
-use App\Models\RegistrasiKelasModel;
+// use App\Models\RegistrasiKelasModel;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-use function Ramsey\Uuid\v1;
+// use function Ramsey\Uuid\v1;
 
 class KelasRegistrasiController extends Controller
 {
@@ -67,7 +67,8 @@ class KelasRegistrasiController extends Controller
 			->where('pendaftar_kelas.kelasId', $kelasId)
 			->get();
 
-		return view('kelas-registrasi-detail', compact('kelas', 'registrasi'));
+		// return view('kelas-registrasi-detail', compact('kelas', 'registrasi'));
+		return view('pendaftar-kelas/detail', compact('kelas', 'registrasi'));
 	}
 
 	/**

@@ -35,74 +35,7 @@
 
     <!-- Content -->
     <div class="flex-1 flex flex-col">
-      <!-- Header -->
-      <header class="relative z-3 flex justify-between px-3 pb-1 pt-3 border-solid border-b-2 border-b-white">
-        <div class="flex items-center">
-          <!-- button type="button" class="text-gray-500">
-            <i class="fa-solid fa-bars cursor-pointer text-2xl"></i>
-          </!-->
-          <h1 class="font-bold inline-block ml-2 text-gray-600 navigasi">
-            <a href="#">DreamPanel</a>
-          </h1>
-        </div>
-        <span class="flex justify-between pl-5">
-          <!-- div class="relative group">
-            <button type="button" class="relative text-[1.5rem] cursor-pointer">
-              <i class="fa-regular fa-bell text-[#a6a6a6]"></i>
-              <span
-                class="absolute top-1 right-1 h-3 w-3 bg-red-600 rounded-full border-2 border-transparent transform translate-x-1 -translate-y-1"></span>
-            </button>
-            <div class="absolute hidden right-0 group-hover:block w-90 bg-white shadow-lg rounded-md mt-2 z-10">
-              <p class="text-gray-800 pl-3 pb-2 pt-3.5 font-bold navigasi">NOTIFIKASI</p>
-              <hr class="border-gray-300" />
-              <a href="#" class="block px-3 py-1.5 text-gray-800 hover:bg-gray-100">
-                <p class="text-[1.05rem]">Update in Kurikulum &SmallCircle; <span class="text-gray-400 text-[0.78rem]">3
-                    menit lalu</span></p>
-                <p class="text-gray-500 text-[0.9rem]">Lorem ipsun dolor sit amet sedsiudfs i...</p>
-                <span class="text-[0.8rem]">By <span class="font-bold">Author</span></span>
-                <span class="text-[0.8rem]">24 Maret 2025</span>
-              </a>
-              <hr class="border-gray-300" />
-              <a href="#" class="block px-3 py-1.5 text-gray-800 hover:bg-gray-100">
-                <p class="text-[1.05rem]">Update in Kurikulum &SmallCircle; <span class="text-gray-400 text-[0.78rem]">3
-                    menit lalu</span></p>
-                <p class="text-gray-500 text-[0.9rem]">Lorem ipsun dolor sit amet sedsiudfs i...</p>
-                <span class="text-[0.8rem]">By <span class="font-bold">Author</span></span>
-                <span class="text-[0.8rem]">24 Maret 2025</span>
-              </a>
-              <hr class="border-gray-300" />
-              <a href="#" class="block py-3 w-full text-center text-blue-400">More...</a>
-            </div>
-          </!-->
-          {{-- <span class="px-2"></span>
-          <span class="border-l-2 border-[#e6e6e6]"></span>
-          <span class="px-2"></span> --}}
-          {{-- <div class="relative group">
-            <button type="button" class="text-[1.5rem] cursor-pointer">
-              <i class="fa-regular fa-circle-user text-[#a6a6a6]"></i>
-            </button>
-            <div class="absolute hidden right-0 group-hover:block w-70 bg-white shadow-lg rounded-md mt-2 z-10">
-              <p class="text-gray-500 pl-3 pb-2 pt-3.5 font-bold navigasi">AKUN</p>
-              <hr class="border-gray-100" />
-              <a href="#" class="block px-4 py-3 text-gray-800 hover:bg-gray-100">
-                <i class="fa-solid fa-gear"></i> Pengaturan
-              </a>
-              <a href="#" class="block px-4 py-3 text-gray-800 hover:bg-gray-100">
-                <i class="fa-solid fa-circle-info"></i> Tentang
-              </a>
-              <a href="login.html" class="block px-4 py-3 text-gray-800 hover:bg-gray-100">
-                <i class="fa-solid fa-right-from-bracket"></i> Logout
-              </a>
-            </div>
-          </div> --}}
-          {{-- Logout button temp. --}}
-          <a href="{{ route('logout') }}" class="block px-4 py-1.5 text-gray-800 hover:bg-gray-100">
-            <i class="fa-solid fa-right-from-bracket"></i> Logout
-          </a>
-          <span class="px-3"></span>
-        </span>
-      </header>
-      <!--/ Header -->
+      @include('layouts.header')
 
       <div class="flex-1 p-3 bg-[#e7ecf6]">
         <!-- Title and breadcrumbs -->
@@ -117,77 +50,121 @@
         </div>
         <span class="block py-2">
           <a href="{{ route('admin-dashboard') }}" class="text-blue-700">Dashboard</a> /
-          <a href="#" class="">Kursus/Program</a>
+          <a href="#" class="">Kursus-Program</a>
         </span>
         <p class="text-gray-700">Data Kursus/Program Akademi Dream Hangul yang dibuka.</p>
         <!--/ Title and breadcrumbs  -->
 
+        @if (session('success'))
+          <!-- alert success -->
+          <div
+            class="flex items-center justify-between gap-4 rounded-xl bg-green-50 border border-green-300 mt-2.5 px-5 py-2 text-green-800 shadow-sm">
+            <div class="flex items-center gap-2">
+              <span class="text-lg">✅</span>
+              <span>
+                <strong class="font-semibold">Berhasil!</strong> {{ session('success') }}
+              </span>
+            </div>
+            <button onclick="this.closest('div').remove()"
+              class="rounded-md px-2 py-1 text-green-600 hover:bg-green-200 hover:text-green-900 transition cursor-pointer">
+              ✕
+            </button>
+          </div>
+        @endif
+
+        @if (session('error'))
+          <!-- alert danger -->
+          <div
+            class="flex items-center justify-between gap-4 rounded-xl bg-red-50 border border-red-300 mt-2.5 px-5 py-2 text-red-800 shadow-sm">
+            <div class="flex items-center gap-2">
+              <span class="text-lg">❌</span>
+              <span>
+                <strong class="font-semibold">Gagal!</strong> {{ session('error') }}
+              </span>
+            </div>
+
+            <button onclick="this.closest('div').remove()"
+              class="rounded-md px-2 py-1 text-red-600 hover:bg-red-200 hover:text-red-900 transition cursor-pointer">
+              ✕
+            </button>
+          </div>
+        @endif
+
         <div class="py-3"></div>
 
         {{-- Search form and table --}}
-        @if (count($programs) > 0)
-          {{-- @if (false) --}}
-          {{-- <div class="grid grid-cols-2"> --}}
-          <div class="col-span-1 py-5 px-4.5 rounded-lg bg-white shadow-sm">
-            <!-- Search Form Here -->
-            <form class="flex flex-wrap gap-3">
-              <!-- Search -->
-              <div class="relative">
-                <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-gray-400">
-                  <i class="fa-solid fa-magnifying-glass text-sm"></i>
-                </span>
-                <input type="text" placeholder="Search"
-                  class="h-9 w-56 rounded-md border border-gray-300 pl-9 pr-3 text-sm focus:border-blue-500 focus:outline-none" />
-              </div>
+        <div class="col-span-1 py-5 px-4.5 rounded-lg bg-white shadow-sm">
+          <!-- Search Form Here -->
+          <form action="{{ route('search-program') }}" method="get" class="flex flex-wrap gap-3">
+            @csrf
+            <!-- Search -->
+            <div class="relative">
+              <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-gray-400">
+                <i class="fa-solid fa-magnifying-glass text-sm"></i>
+              </span>
+              <input type="text" placeholder="Cari" name="keyword" value="{{ request('keyword') }}"
+                class="h-9 w-56 rounded-md border border-gray-300 pl-9 pr-3 text-sm focus:border-blue-500 focus:outline-none" />
+            </div>
 
-              {{-- <div class="relative">
-                <span class="inline-block pb-1">Filter Tanggal Terbit</span>
-                <div class="flex gap-3 items-center">
-                  <span>Mulai</span>
-                  <div class="relative">
-                    <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-gray-400">
-                      <i class="fa-regular fa-calendar text-sm"></i>
-                    </span>
-                    <input type="date"
-                      class="h-9 rounded-md border border-gray-300 pl-9 pr-3 text-sm text-gray-600 focus:border-blue-500 focus:outline-none" />
-                  </div>
-                  <span>Akhir</span>
-                  <div class="relative">
-                    <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-gray-400">
-                      <i class="fa-regular fa-calendar text-sm"></i>
-                    </span>
-                    <input type="date"
-                      class="h-9 rounded-md border border-gray-300 pl-9 pr-3 text-sm text-gray-600 focus:border-blue-500 focus:outline-none" />
-                  </div>
+            {{-- <div class="relative">
+              <span class="inline-block pb-1">Filter Tanggal Terbit</span>
+              <div class="flex gap-3 items-center">
+                <span>Mulai</span>
+                <div class="relative">
+                  <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-gray-400">
+                    <i class="fa-regular fa-calendar text-sm"></i>
+                  </span>
+                  <input type="date"
+                    class="h-9 rounded-md border border-gray-300 pl-9 pr-3 text-sm text-gray-600 focus:border-blue-500 focus:outline-none" />
                 </div>
-              </div> --}}
+                <span>Akhir</span>
+                <div class="relative">
+                  <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-gray-400">
+                    <i class="fa-regular fa-calendar text-sm"></i>
+                  </span>
+                  <input type="date"
+                    class="h-9 rounded-md border border-gray-300 pl-9 pr-3 text-sm text-gray-600 focus:border-blue-500 focus:outline-none" />
+                </div>
+              </div>
+            </div> --}}
 
-              <select
-                class="h-9 rounded-md border border-gray-300 px-3 text-sm text-gray-600 focus:border-blue-500 focus:outline-none">
-                <option>Filter Kategori</option>
-                <option>Kategori A</option>
-                <option>Kategori B</option>
-              </select>
+            {{-- <select
+              class="h-9 rounded-md border border-gray-300 px-3 text-sm text-gray-600 focus:border-blue-500 focus:outline-none">
+              <option>Filter Kategori</option>
+              <option>Kategori A</option>
+              <option>Kategori B</option>
+            </select> --}}
 
-              <select
-                class="h-9 rounded-md border border-gray-300 px-3 text-sm text-gray-600 focus:border-blue-500 focus:outline-none">
-                <option>Status Aktif</option>
-                <option>Status Tidak Aktif</option>
-              </select>
+            <select name="status"
+              class="h-9 rounded-md border border-gray-300 px-3 text-sm text-gray-600 focus:border-blue-500 focus:outline-none">
+              <option value="">Semua Status</option>
+              <option value="1" {{ request('status') === '1' ? 'selected' : '' }}>Status Aktif</option>
+              <option value="0" {{ request('status') === '0' ? 'selected' : '' }}>Status Tidak Aktif</option>
+            </select>
 
-              <!-- Filter Status -->
-              {{-- <div class="flex gap-2">
-                <button type="button" class="h-9 rounded-md bg-gray-200 px-4 text-sm text-gray-700 hover:bg-gray-300">
-                  Filter Status
-                </button>
-                <button type="button" class="h-9 rounded-md bg-gray-200 px-4 text-sm text-gray-700 hover:bg-gray-300">
-                  Sent
-                </button>
-                <button type="button" class="h-9 rounded-md bg-gray-200 px-4 text-sm text-gray-700 hover:bg-gray-300">
-                  Draft
-                </button>
-              </div> --}}
-            </form>
+            <button type="submit"
+              class="py-2 px-4 rounded-md bg-blue-600 text-sm text-white cursor-pointer
+              hover:opacity-80 transition">
+              <i class="fa-solid fa-magnifying-glass"></i> Cari
+            </button>
+
+            <!-- Filter Status -->
+            {{-- <div class="flex gap-2">
+              <button type="button" class="h-9 rounded-md bg-gray-200 px-4 text-sm text-gray-700 hover:bg-gray-300">
+                Filter Status
+              </button>
+              <button type="button" class="h-9 rounded-md bg-gray-200 px-4 text-sm text-gray-700 hover:bg-gray-300">
+                Sent
+              </button>
+              <button type="button" class="h-9 rounded-md bg-gray-200 px-4 text-sm text-gray-700 hover:bg-gray-300">
+                Draft
+              </button>
+            </div> --}}
+          </form>
+
+          @if (count($programs) > 0)
+            {{-- @if (false) --}}
+            {{-- <div class="grid grid-cols-2"> --}}
 
             <div class="pb-3"></div>
             <table class="w-full border-collapse">
@@ -211,12 +188,12 @@
                     <td class="py-2 px-2 text-[0.9rem] border-r border-r-gray-400 text-center">{{ $loop->iteration }}
                     </td>
                     <td class="py-2 px-2 text-[0.9rem]">{{ $program->nama }}</td>
-                    <td class="py-2 px-2 text-[0.9rem]">Rp{{ $formatter->format($program->harga) }}</td>
+                    <td class="py-2 px-2 text-[0.9rem]">{{ $formatter->format($program->harga) }}</td>
                     <td class="py-2 px-2 text-[0.9rem] text-center">
                       @if ($program->isOpen == '1')
                         <span class="bg-green-600 py-1 px-3 text-white rounded-lg">Aktif</span>
                       @else
-                        <span class="bg-red-600 py-1 px-3 text-white rounded-lg">Tutup</span>
+                        <span class="bg-red-600 py-1 px-3 text-white rounded-lg">NonAktif</span>
                       @endif
                     </td>
                     <td class="py-2 px-2">
@@ -225,6 +202,11 @@
                           class="inline-flex h-7 items-center justify-center rounded-sm bg-blue-950 px-2 text-[0.8rem] 
                           text-white hover:opacity-90 transition">
                           <i class="fa-solid fa-circle-info"></i> Detail
+                        </a>
+                        <a href="{{ route('coming-soon') }}"
+                          class="inline-flex h-7 items-center justify-center rounded-sm bg-blue-600 px-2 text-[0.8rem] 
+                          text-white hover:opacity-90 transition">
+                          <i class="fa-solid fa-file-pen"></i> Ubah
                         </a>
                         <form action="{{ route('delete-program') }}" method="post">
                           @csrf
@@ -243,7 +225,7 @@
               </tbody>
             </table>
 
-            <nav class="flex items-center justify-center gap-1 mt-6" aria-label="Pagination">
+            {{-- <nav class="flex items-center justify-center gap-1 mt-6" aria-label="Pagination">
               <!-- Prev -->
               <button
                 class="flex h-9 w-9 items-center justify-center rounded-md border border-gray-300 text-gray-600 hover:bg-gray-100 
@@ -283,21 +265,58 @@
                 aria-label="Next page">
                 <i class="fa-solid fa-chevron-right text-sm"></i>
               </button>
-            </nav>
-          </div>
-          {{-- </div> --}}
-        @else
-          <p class="text-center font-bold">Data Kursus/Program Kosong.</p>
-        @endif
+            </nav> --}}
+
+            @if ($programs->lastPage() > 1)
+              <nav class="flex items-center justify-center gap-1 mt-6" aria-label="Pagination">
+
+                <!-- Prev -->
+                <a href="{{ $programs->previousPageUrl() ?? '#' }}"
+                  class="flex h-9 w-9 items-center justify-center rounded-md border border-gray-300 text-gray-600 hover:bg-gray-100
+              {{ $programs->onFirstPage() ? 'pointer-events-none opacity-50' : '' }}">
+                  <i class="fa-solid fa-chevron-left text-sm"></i>
+                </a>
+
+                <!-- Page Numbers -->
+                @foreach ($programs->getUrlRange(1, $programs->lastPage()) as $page => $url)
+                  @if ($page == $programs->currentPage())
+                    <span class="h-9 w-9 rounded-md bg-blue-600 text-sm text-white flex items-center justify-center">
+                      {{ $page }}
+                    </span>
+                  @else
+                    <a href="{{ $url }}"
+                      class="h-9 w-9 rounded-md border border-gray-300 text-sm text-gray-700 hover:bg-gray-100
+                         flex items-center justify-center">
+                      {{ $page }}
+                    </a>
+                  @endif
+                @endforeach
+
+                <!-- Next -->
+                <a href="{{ $programs->nextPageUrl() ?? '#' }}"
+                  class="flex h-9 w-9 items-center justify-center rounded-md border border-gray-300 text-gray-600 hover:bg-gray-100
+                    {{ !$programs->hasMorePages() ? 'pointer-events-none opacity-50' : '' }}">
+                  <i class="fa-solid fa-chevron-right text-sm"></i>
+                </a>
+
+              </nav>
+            @endif
+            {{-- </div> --}}
+          @else
+            <div class="pb-3"></div>
+            <p class="text-center font-bold">Data Kursus/Program Kosong.</p>
+          @endif
+        </div>
 
       </div>
-      <div class="bg-white p-3">
-        <p class="text-gray-500">&copy;DreamHangul 2025</p>
-      </div>
+      @include('layouts.footer')
     </div>
     <!--/ Content -->
-
   </main>
+
+  <!-- jQuery -->
+  <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+  <script src="{{ asset('js/bttn-translate.js') }}"></script>
 </body>
 
 </html>

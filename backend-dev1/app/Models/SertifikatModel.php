@@ -20,4 +20,6 @@ class SertifikatModel extends Model
 		'date_issued',
 		'filename'
 	];
+
+	protected $dates = ['date_issued'];
 }

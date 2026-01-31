@@ -7,10 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class MemberModel extends Model
 {
-    use HasFactory;
-    protected $table = 'member';
-    protected $primaryKey = 'memberId';
-    public $timestamps = false;
+	use HasFactory;
+	protected $table = 'member';
+	protected $primaryKey = 'memberId';
+	public $timestamps = false;
 
-    protected $fillable = ['username', 'email', 'password', 'date_registration'];
+	protected $fillable = [
+		'username',
+		'email',
+		'password',
+		'date_registration',
+		'metode',
+		'created_at',
+		'updated_at'
+	];
 }

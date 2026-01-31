@@ -1,8 +1,13 @@
 <!-- Navigation -->
 <nav class="relative w-56 flex flex-col">
-  <span
+  {{-- <span
     class="px-3 pb-2.5 pt-4.5 relative z-5 block text-[#8f9cba] bg-[#1c2b4a] navigasi tracking-widest font-extrabold
-        border-solid border-b-[#354970] border-b-2">NAVIGASI</span>
+        border-solid border-b-[#354970] border-b-2">NAVIGASI</span> --}}
+  <span
+    class="px-3 pb-2.5 pt-1 relative z-5 block text-[#8f9cba] bg-[#1c2b4a] navigasi tracking-widest font-extrabold
+        border-solid border-b-[#354970] border-b-2">
+    <img src="{{ asset('images/logo.png') }}" class="h-10" />
+  </span>
   <ul class="py-3 z-3 text-white bg-[#1c2b4a] flex-1">
     <li>
       <a href="{{ route('admin-dashboard') }}" class="block py-2 px-3 hover:bg-[#344565] text-[0.9rem]">
