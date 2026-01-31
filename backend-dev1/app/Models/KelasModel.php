@@ -14,13 +14,20 @@ class KelasModel extends Model
 
 	protected $fillable = [
 		'nama_kelas',
+		'programId',
 		'nama_program',
 		'deskripsi',
 		'kapasitas',
 		'date_open',
 		'date_close',
 		'time_close',
+		'date_created',
 		'pengajar',
-		'terisi'
+		'isKelasStart',
+		'terisi',
+	];
+
+	protected $casts = [
+		'isKelasStart' => 'boolean',
 	];
 }

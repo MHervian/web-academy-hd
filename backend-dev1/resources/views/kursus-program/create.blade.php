@@ -39,74 +39,7 @@
 
     <!-- Content -->
     <div class="flex-1 flex flex-col">
-      <!-- Header -->
-      <header class="relative z-3 flex justify-between px-3 pb-1 pt-3 border-solid border-b-2 border-b-white">
-        <div class="flex items-center">
-          <!-- button type="button" class="text-gray-500">
-            <i class="fa-solid fa-bars cursor-pointer text-2xl"></i>
-          </!-->
-          <h1 class="font-bold inline-block ml-2 text-gray-600 navigasi">
-            <a href="#">DreamPanel</a>
-          </h1>
-        </div>
-        <span class="flex justify-between pl-5">
-          <!-- div class="relative group">
-            <button type="button" class="relative text-[1.5rem] cursor-pointer">
-              <i class="fa-regular fa-bell text-[#a6a6a6]"></i>
-              <span
-                class="absolute top-1 right-1 h-3 w-3 bg-red-600 rounded-full border-2 border-transparent transform translate-x-1 -translate-y-1"></span>
-            </button>
-            <div class="absolute hidden right-0 group-hover:block w-90 bg-white shadow-lg rounded-md mt-2 z-10">
-              <p class="text-gray-800 pl-3 pb-2 pt-3.5 font-bold navigasi">NOTIFIKASI</p>
-              <hr class="border-gray-300" />
-              <a href="#" class="block px-3 py-1.5 text-gray-800 hover:bg-gray-100">
-                <p class="text-[1.05rem]">Update in Kurikulum &SmallCircle; <span class="text-gray-400 text-[0.78rem]">3
-                    menit lalu</span></p>
-                <p class="text-gray-500 text-[0.9rem]">Lorem ipsun dolor sit amet sedsiudfs i...</p>
-                <span class="text-[0.8rem]">By <span class="font-bold">Author</span></span>
-                <span class="text-[0.8rem]">24 Maret 2025</span>
-              </a>
-              <hr class="border-gray-300" />
-              <a href="#" class="block px-3 py-1.5 text-gray-800 hover:bg-gray-100">
-                <p class="text-[1.05rem]">Update in Kurikulum &SmallCircle; <span class="text-gray-400 text-[0.78rem]">3
-                    menit lalu</span></p>
-                <p class="text-gray-500 text-[0.9rem]">Lorem ipsun dolor sit amet sedsiudfs i...</p>
-                <span class="text-[0.8rem]">By <span class="font-bold">Author</span></span>
-                <span class="text-[0.8rem]">24 Maret 2025</span>
-              </a>
-              <hr class="border-gray-300" />
-              <a href="#" class="block py-3 w-full text-center text-blue-400">More...</a>
-            </div>
-          </!-->
-          {{-- <span class="px-2"></span>
-          <span class="border-l-2 border-[#e6e6e6]"></span>
-          <span class="px-2"></span> --}}
-          {{-- <div class="relative group">
-            <button type="button" class="text-[1.5rem] cursor-pointer">
-              <i class="fa-regular fa-circle-user text-[#a6a6a6]"></i>
-            </button>
-            <div class="absolute hidden right-0 group-hover:block w-70 bg-white shadow-lg rounded-md mt-2 z-10">
-              <p class="text-gray-500 pl-3 pb-2 pt-3.5 font-bold navigasi">AKUN</p>
-              <hr class="border-gray-100" />
-              <a href="#" class="block px-4 py-3 text-gray-800 hover:bg-gray-100">
-                <i class="fa-solid fa-gear"></i> Pengaturan
-              </a>
-              <a href="#" class="block px-4 py-3 text-gray-800 hover:bg-gray-100">
-                <i class="fa-solid fa-circle-info"></i> Tentang
-              </a>
-              <a href="login.html" class="block px-4 py-3 text-gray-800 hover:bg-gray-100">
-                <i class="fa-solid fa-right-from-bracket"></i> Logout
-              </a>
-            </div>
-          </div> --}}
-          {{-- Logout button temp. --}}
-          <a href="{{ route('logout') }}" class="block px-4 py-1.5 text-gray-800 hover:bg-gray-100">
-            <i class="fa-solid fa-right-from-bracket"></i> Logout
-          </a>
-          <span class="px-3"></span>
-        </span>
-      </header>
-      <!--/ Header -->
+      @include('layouts.header')
 
       <div class="flex-1 p-3 bg-[#e7ecf6]">
         <!-- Title and breadcrumbs -->
@@ -231,17 +164,12 @@
         </div>
       </div>
 
-      <div class="bg-white p-3">
-        <p class="text-gray-500">&copy;DreamHangul 2025</p>
-      </div>
+      @include('layouts.footer')
     </div>
 
-    <!-- jQuery (wajib) -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <!-- Popper.js (wajib untuk tooltip, dropdown, dan modal) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <!-- jQuery -->
+    <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ asset('js/bttn-translate.js') }}"></script>
   </main>
 </body>
 

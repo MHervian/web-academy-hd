@@ -21,7 +21,9 @@ class ProgramController extends Controller
 			return redirect()->route('login');
 		}
 
-		$programs = ProgramModel::all();
+		// $programs = ProgramModel::all();
+		$programs = ProgramModel::orderBy('date_created', 'desc')
+			->paginate(10);
 		// $programs = ProgramModel::leftJoin('program_kelas', 'program_kelas.programId', '=', 'program.programId')
 		// 	->select('program.programId', 'program.nama', 'program.isOpen', DB::raw('count(program_kelas.kelasId) as total_kelas'))
 		// 	->select('program.programId', 'program.nama', 'program.isOpen', DB::raw('count(program_kelas.kelasId) as total_kelas'))
@@ -33,6 +35,41 @@ class ProgramController extends Controller
 		// echo "</pre>";
 
 		// return view('program', compact('programs'));
+		return view('kursus-program/index', compact('programs'));
+	}
+
+	/**
+	 * Display filterd program page..
+	 */
+	public function search(Request $request)
+	{
+		if (!$request->session()->has('login_user')) {
+			return redirect()->route('login');
+		}
+
+		$query = ProgramModel::query();
+
+		// 🔍 Search nama program
+		if ($request->filled('keyword')) {
+			$query->where('nama', 'LIKE', '%' . $request->keyword . '%');
+			// optional:
+			// ->orWhere('deskripsi', 'LIKE', '%' . $request->keyword . '%');
+		}
+
+		// 🗂 Filter kategori (kurikulum)
+		// if ($request->filled('kategori')) {
+		// 	$query->where('kurikulumId', $request->kategori);
+		// }
+
+		// 🔓 Filter status aktif
+		if ($request->filled('status')) {
+			$query->where('isOpen', $request->status);
+		}
+
+		$programs = $query->orderBy('date_created', 'desc')
+			->paginate(10)
+			->withQueryString();
+
 		return view('kursus-program/index', compact('programs'));
 	}
 

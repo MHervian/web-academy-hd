@@ -23,9 +23,46 @@ class SertifikatController extends Controller
 		}
 
 		// Get all sertifikats
-		$sertifikats = SertifikatModel::all();
+		// $sertifikats = SertifikatModel::all();
+		$sertifikats = SertifikatModel::orderBy('date_issued', 'desc')
+			->paginate(10);
 
 		// return view('sertifikat', compact('sertifikats'));
+		return view('sertifikat/index', compact('sertifikats'));
+	}
+
+	/**
+	 * Display filtered search sertifikat page..
+	 */
+	public function search(Request $request)
+	{
+		if (!$request->session()->has('login_user')) {
+			return redirect()->route('login');
+		}
+
+		$query = SertifikatModel::query();
+
+		// 🔍 Search No Sertifikat
+		if ($request->filled('no_sertifikat')) {
+			$query->where('noSertifikat', 'LIKE', '%' . $request->no_sertifikat . '%');
+		}
+
+		// 📅 Filter tanggal terbit (range)
+		if ($request->filled('start_date') && $request->filled('end_date')) {
+			$query->whereBetween('date_issued', [
+				$request->start_date . ' 00:00:00',
+				$request->end_date . ' 23:59:59',
+			]);
+		} elseif ($request->filled('start_date')) {
+			$query->where('date_issued', '>=', $request->start_date . ' 00:00:00');
+		} elseif ($request->filled('end_date')) {
+			$query->where('date_issued', '<=', $request->end_date . ' 23:59:59');
+		}
+
+		$sertifikats = $query->orderBy('date_issued', 'desc')
+			->paginate(10)
+			->withQueryString();
+
 		return view('sertifikat/index', compact('sertifikats'));
 	}
 

@@ -22,9 +22,38 @@ class MemberController extends Controller
 		}
 
 		// Get all members
-		$members = MemberModel::all();
+		// $members = MemberModel::all();
+		$members = MemberModel::orderBy('created_at', 'desc')
+			->paginate(10);
 
 		// return view('member', compact('members'));
+		return view('member/index', compact('members'));
+	}
+
+	/**
+	 * Display filtered member page..
+	 */
+	public function search(Request $request)
+	{
+		if (!$request->session()->has('login_user')) {
+			return redirect()->route('login');
+		}
+		$query = MemberModel::query();
+
+		// 🔍 Search username
+		if ($request->filled('keyword')) {
+			$query->where('username', 'LIKE', '%' . $request->keyword . '%');
+		}
+
+		// 🔽 Filter metode daftar
+		if ($request->filled('metode') && $request->metode !== 'all') {
+			$query->where('metode', $request->metode);
+		}
+
+		$members = $query->orderBy('created_at', 'desc')
+			->paginate(10)
+			->withQueryString();
+
 		return view('member/index', compact('members'));
 	}
 
@@ -79,8 +108,8 @@ class MemberController extends Controller
 		try {
 			$data = $request->validate([
 				'username' => 'required|string|max:255',
-				'email' => 'string|required',
-				'newPassword' => 'string|required',
+				'email' => 'required|required|max:255',
+				'newPassword' => 'string|required|max:255',
 				'metode' => 'string|required',
 			]);
 

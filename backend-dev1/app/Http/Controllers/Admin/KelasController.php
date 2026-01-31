@@ -21,9 +21,42 @@ class KelasController extends Controller
 		}
 
 		// Get all members
-		$kelas = KelasModel::all();
+		// $kelas = KelasModel::all();
+		$kelas = KelasModel::orderBy('date_created', 'desc')
+			->paginate(10);
 
 		// return view('kelas', compact('kelas'));
+		return view('kelas/index', compact('kelas'));
+	}
+
+	/**
+	 * Display filtered kelas search page..
+	 */
+	public function search(Request $request)
+	{
+		if (!$request->session()->has('login_user')) {
+			return redirect()->route('login');
+		}
+
+		$query = KelasModel::query();
+
+		// 🔍 Search nama kelas / nama program
+		if ($request->filled('keyword')) {
+			$query->where(function ($q) use ($request) {
+				$q->where('nama_kelas', 'LIKE', '%' . $request->keyword . '%')
+					->orWhere('nama_program', 'LIKE', '%' . $request->keyword . '%');
+			});
+		}
+
+		// 🔓 Filter status kelas
+		if ($request->filled('status')) {
+			$query->where('isKelasStart', $request->status);
+		}
+
+		$kelas = $query->orderBy('date_created', 'desc')
+			->paginate(10)
+			->withQueryString();
+
 		return view('kelas/index', compact('kelas'));
 	}
 

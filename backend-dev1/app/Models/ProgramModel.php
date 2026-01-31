@@ -17,7 +17,12 @@ class ProgramModel extends Model
 		'deskripsi',
 		'kurikulumId',
 		'file_jadwal',
+		'date_created',
 		'isOpen',
 		'harga'
+	];
+
+	protected $casts = [
+		'isOpen' => 'boolean',
 	];
 }

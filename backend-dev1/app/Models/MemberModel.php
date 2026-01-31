@@ -17,6 +17,8 @@ class MemberModel extends Model
 		'email',
 		'password',
 		'date_registration',
-		'metode'
+		'metode',
+		'created_at',
+		'updated_at'
 	];
 }
