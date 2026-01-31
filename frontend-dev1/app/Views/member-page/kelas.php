@@ -73,7 +73,7 @@
                   <td class="p-4 text-center font-medium" x-text="index + 1"></td>
 
                   <!-- NAMA KELAS -->
-                  <td class="p-4" x-text="item.nama_kelas"></td>
+                  <td class="p-4" x-text="getCourseName(item)"></td>
 
                   <!-- TANGGAL -->
                   <td class="p-4 text-center" x-text="item.date_registration"></td>
@@ -146,6 +146,20 @@
       console.log(<?= json_encode($data) ?>)
       return {
         list: <?= json_encode($data) ?>,
+        lang: '<?= service('request')->getLocale() ?>',
+        getCourseName(data) {
+          var r = data['nama_kelas'];
+          if (this.lang == 'en') {
+            r = data['nama_kelas_en']
+          }
+          if (this.lang == 'ko') {
+            r = data['nama_kelas_kr']
+          }
+          if (r == null) {
+            r = data['nama_kelas'];
+          }
+          return r
+        }
       }
     }
   </script>

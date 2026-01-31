@@ -85,4 +85,10 @@ return [
     'full_name' => '성함',
     'email_address' => '이메일 주소',
     'account_type' => '계정 유형',
+
+    'courses_details' => '강의 상세',
+    'courses_description' => '강의 설명',
+    'program_name' => '강좌명',
+    'pay_now' => '결제하기',
+
 ];

@@ -85,4 +85,9 @@ return [
     'full_name' => 'Full Name',
     'email_address' => 'Email Address',
     'account_type' => 'Account Type',
+
+    'courses_details' => 'Course Details',
+    'courses_description' => 'Course Description',
+    'program_name' => 'Program Name',
+    'pay_now' => 'Pay Now',
 ];

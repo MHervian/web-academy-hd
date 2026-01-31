@@ -96,26 +96,23 @@
         <!-- LEFT : PAKET -->
         <div class="grid gap-5 flex-1">
 
-          <?php foreach ($data as $index => $row): ?>
+          <template x-for="(item, index) in programList">
             <article
               class="cursor-pointer rounded-md border-2 p-6 transition
                border-gray-200 hover:border-primary"
-              @click="setHarga(<?= $row['harga'] ?>, <?= $row['programId'] ?>)"
-              :class="produk_id === <?= $row['programId'] ?>
+              @click="setHarga(item.harga, item.programId)"
+              :class="produk_id === item.programId
               ? 'border-primary bg-primary/5 ring-2 ring-primary'
               : ''">
-              <h3 class="text-xl font-bold"><?= esc($row['nama']) ?></h3>
+              <h3 class="text-xl font-bold" x-text="getProgramName(item)"></h3>
 
-              <div class="mt-4 text-2xl font-semibold">
-                Rp <?= number_format($row['harga'], 0, ',', '.') ?>
+              <div class="mt-4 text-2xl font-semibold" x-text="formatRupiah(item.harga)">
               </div>
 
-              <p class="mt-2 text-sm text-gray-600">
-                <?= esc($row['deskripsi']) ?>
+              <p class="mt-2 text-sm text-gray-600" x-text="getDescription(item)">
               </p>
             </article>
-          <?php endforeach; ?>
-
+          </template>
         </div>
 
         <div class="sm:h-5"></div>
@@ -136,7 +133,7 @@
                   x-model='selectedKelas'>
                   <option selected><?= lang('Member.please_select') ?></option>
                   <template x-for="kelas in kelasList">
-                    <option :value="kelas['kelasId']" x-text="kelas['nama_kelas']"></option>
+                    <option :value="kelas['kelasId']" x-text="getCourseName(kelas)"></option>
                   </template>
                 </select>
               </div>
@@ -175,12 +172,58 @@
 
     <script>
       function paymentData(defaultHarga) {
+        console.log(<?= json_encode($data) ?>);
+
         return {
           harga: defaultHarga,
           produk_id: null,
           loading: false,
+          programList: <?= json_encode($data) ?>,
           kelasList: [],
           selectedKelas: '',
+          lang: '<?= service('request')->getLocale() ?>',
+
+          getProgramName(data) {
+            var r = data['nama'];
+            if (this.lang == 'en') {
+              r = data['nama_en']
+            }
+            if (this.lang == 'ko') {
+              r = data['nama_kr']
+            }
+            if (r == null) {
+              r = data['nama'];
+            }
+            return r
+          },
+
+          getDescription(data) {
+            var r = data['deskripsi'];
+            if (this.lang == 'en') {
+              r = data['deskripsi_en']
+            }
+            if (this.lang == 'ko') {
+              r = data['deskripsi_kr']
+            }
+            if (r == null) {
+              r = data['deskripsi'];
+            }
+            return r
+          },
+
+          getCourseName(data) {
+            var r = data['nama_kelas'];
+            if (this.lang == 'en') {
+              r = data['nama_kelas_en']
+            }
+            if (this.lang == 'ko') {
+              r = data['nama_kelas_kr']
+            }
+            if (r == null) {
+              r = data['nama_kelas'];
+            }
+            return r
+          },
 
           setHarga(harga, produkId) {
             this.harga = Number(harga)

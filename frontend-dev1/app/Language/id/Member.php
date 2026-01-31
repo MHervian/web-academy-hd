@@ -77,4 +77,11 @@ return [
     'full_name' => 'Nama',
     'email_address' => 'Email',
     'account_type' => 'Tipe Akun',
+
+    'courses_details' => 'Detail Kelas',
+    'courses_description' => 'Deskripsi Kursus',
+    'program_name' => 'Nama Program',
+    'pay_now' => 'Bayar',
+
+
 ];

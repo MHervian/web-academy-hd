@@ -16,7 +16,7 @@ class Kelas extends BaseController
         $user = session()->get();
         $pendaftar = $pendaftarModel->where('memberId', $user['user_id'])->findAll();
         $pendaftar = $pendaftarModel
-            ->select('pendaftar_kelas.*, kelas.nama_kelas')
+            ->select('pendaftar_kelas.*, kelas.nama_kelas, kelas.nama_kelas_en, nama_kelas_kr')
             ->join('kelas', 'kelas.kelasId = pendaftar_kelas.kelasId', 'left')
             ->where('pendaftar_kelas.memberId', $user['user_id'])
             ->findAll();
@@ -37,7 +37,7 @@ class Kelas extends BaseController
 
         // ambil data dengan join
         $pendaftar = $pendaftarModel
-            ->select('pendaftar_kelas.*, kelas.nama_kelas, program.nama as nama_program, program.harga, kelas.deskripsi')
+            ->select('pendaftar_kelas.*, kelas.nama_kelas ,kelas.nama_kelas_en, kelas.nama_kelas_kr, program.nama as nama_program, program.nama_en as nama_program_en, program.nama_kr as nama_program_kr, program.harga, kelas.deskripsi, kelas.deskripsi_en, kelas.deskripsi_kr')
             ->join('kelas', 'kelas.kelasId = pendaftar_kelas.kelasId', 'left')
             ->join('program', 'kelas.programId = program.programId', 'left')
             ->where('pendaftar_kelas.pendaftarId', $pendaftarId)
