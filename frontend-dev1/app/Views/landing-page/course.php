@@ -75,8 +75,8 @@
               <img src="https://penguinui.s3.amazonaws.com/component-assets/card-img-2.webp" class="object-cover transition duration-700 ease-out group-hover:scale-105" alt="view of a coastal Mediterranean village on a hillside, with small boats in the water." />
             </div>
             <div class="flex flex-col gap-4 p-6">
-              <h3 class="text-balance text-xl lg:text-2xl font-bold text-on-surface-strong dark:text-on-surface-dark-strong" aria-describedby="tripDescription" x-text="item.nama"></h3>
-              <p id="tripDescription" class="text-pretty text-sm mb-2" x-text="item.deskripsi">
+              <h3 class="text-balance text-xl lg:text-2xl font-bold text-on-surface-strong dark:text-on-surface-dark-strong" aria-describedby="tripDescription" x-text="getProgramName(item)"></h3>
+              <p id="tripDescription" class="text-pretty text-sm mb-2" x-text="getDescription(item)">
 
               </p>
               <a href="<?= lang_url('course-detail') ?>" type="button" class="whitespace-nowrap bg-[#633991] px-4 py-2 text-center text-sm font-medium tracking-wide text-on-primary transition hover:opacity-75 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:opacity-100 active:outline-offset-0 dark:bg-primary-dark dark:text-on-primary-dark dark:focus-visible:outline-primary-dark rounded-radius"><?= lang('App.detail') ?></a>
@@ -138,11 +138,42 @@
 </script>
 <script>
   function userSearch() {
+    console.log(<?= json_encode($data) ?>);
+
     return {
       query: '',
       list: <?= json_encode($data) ?>,
       data: <?= json_encode($data) ?>,
       loading: false,
+      lang: '<?= service('request')->getLocale() ?>',
+
+      getProgramName(data) {
+        var r = data['nama'];
+        if (this.lang == 'en') {
+          r = data['nama_en']
+        }
+        if (this.lang == 'ko') {
+          r = data['nama_kr']
+        }
+        if (r == null) {
+          r = data['nama'];
+        }
+        return r
+      },
+
+      getDescription(data) {
+        var r = data['deskripsi'];
+        if (this.lang == 'en') {
+          r = data['deskripsi_en']
+        }
+        if (this.lang == 'ko') {
+          r = data['deskripsi_kr']
+        }
+        if (r == null) {
+          r = data['deskripsi'];
+        }
+        return r
+      },
 
       search() {
         console.log(this.query)

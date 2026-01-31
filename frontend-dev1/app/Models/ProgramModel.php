@@ -14,6 +14,8 @@ class ProgramModel extends Model
         return $this->builder()
             ->groupStart()
             ->like('nama', $keyword)
+            ->orLike('nama_en', $keyword)
+            ->orLike('nama_kr', $keyword)
             ->groupEnd()
             ->limit(10)
             ->get()
