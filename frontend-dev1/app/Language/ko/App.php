@@ -178,4 +178,16 @@ return [
     'ready_to_shape_your_future' => '아카데미에서 당신의 미래를 준비할 준비가 되셨나요?',
 
     'register_now' => '지금 등록하기',
+
+    'jakarta_indonesia_korean_school' => '자카르타한국국제학교',
+    'primary_secondary_institution' => '초·중등 교육 기관',
+    'korean_education_center_indonesia' => '주인도네시아 한국교육원',
+    'official_korean_education_institution' => '한국 공식 교육 기관',
+    'university_of_indonesia' => '인도네시아 국립대학교 (UI)',
+    'university_with_korean_department' => '한국어학과 설치 대학',
+    'gyeongnam_chungnam_offices' => '경남 및 충남 인도네시아 사무소',
+    'korean_local_government_representatives' => '주 인도네시아 한국 지자체 대표부',
+    'uncia_cyber_university' => '운시아 사이버 대학교',
+    'hanuri_education_center' => '주인도네시아 하누리 교육센터',
+    'korean_training_language_institution' => '한국어 교육 및 훈련 기관',
 ];

@@ -28,7 +28,7 @@
 	<?= $this->include('member-page/header') ?>
 
 	<div class="px-6 md:px-7 pt-25 pb-7 bg-[#19253f]">
-		<h1 class="py-6 text-white text-4xl">Notifikasi</h1>
+		<h1 class="py-6 text-white text-4xl"><?= lang('Member.notification') ?></h1>
 	</div>
 
 	<?php if (empty($notifikasi)) : ?>
@@ -42,7 +42,7 @@
 
 	<div class="p-5">
 		<?php foreach ($notifikasi as $item) { ?>
-			<div class="flex p-3 bg-gray-100 m-3 rounded-md justify-between" onclick="window.location.href='<?= base_url('notifikasi-detail/' . $item['noteId']) ?>'">
+			<div class="flex p-3 bg-gray-100 m-3 max-w-5xl mx-auto  rounded-md justify-between" onclick="window.location.href='<?= base_url('notifikasi-detail/' . $item['noteId']) ?>'">
 				<div class="flex">
 					<!-- <div class="p-3">
 						<h2>image</h2>
@@ -64,7 +64,7 @@
 
 
 	<div class="px-5 py-5 bottom absolute inset-x-0 bottom-0">
-		<p class="text-center">&copy;DreamTemplate 2026</p>
+		<p class="text-center">&copy; Dream Korean Language Learning Center</p>
 	</div>
 </body>
 

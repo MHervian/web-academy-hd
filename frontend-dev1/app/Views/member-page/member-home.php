@@ -117,7 +117,7 @@
 	</div>
 
 	<div class="px-5 py-5">
-		<p class="text-center">&copy;DreamTemplate 2026</p>
+		<p class="text-center">&copy; Dream Korean Language Learning Center</p>
 	</div>
 </body>
 

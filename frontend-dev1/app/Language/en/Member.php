@@ -62,4 +62,27 @@ return [
     'announcement' => 'Announcement',
     'no_announcements_yet' => 'No Announcements Yet',
     'no_new_information' => 'No new information',
+
+    'add_course' => 'Add Course',
+
+    'no' => 'No.',
+    'course_name' => 'Course Name',
+    'enrollment_date' => 'Enrollment Date',
+    'progress' => 'Progress',
+    'payment_status' => 'Payment Status',
+    'status' => 'Status',
+    'action' => 'Action',
+
+    'details' => 'Details',
+    'course_list' => 'Course List',
+    'summary' => 'Summary',
+    'course_unavailable' => 'Course unavailable',
+    'total_price' => 'Total Price',
+    'register_enroll' => 'Register / Enroll',
+    'select_course' => 'Select a Course',
+    'please_select' => 'Please Select',
+    'processing' => 'Processing',
+    'full_name' => 'Full Name',
+    'email_address' => 'Email Address',
+    'account_type' => 'Account Type',
 ];

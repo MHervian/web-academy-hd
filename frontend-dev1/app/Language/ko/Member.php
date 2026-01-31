@@ -62,4 +62,27 @@ return [
     'announcement' => '공지사항',
     'no_announcements_yet' => '아직 공지사항이 없습니다',
     'no_new_information' => '새로운 정보가 없습니다',
+
+    'add_course' => '강좌 추가',
+
+    'no' => '번호',
+    'course_name' => '강좌명',
+    'enrollment_date' => '등록일',
+    'progress' => '진도율',
+    'payment_status' => '결제 상태',
+    'status' => '상태',
+    'action' => '관리',
+
+    'details' => '상세 정보',
+    'course_list' => '목록',
+    'summary' => '개요',
+    'course_unavailable' => '수강 가능한 강의가 없습니다',
+    'total_price' => '총 결제 금액',
+    'register_enroll' => '수강 신청',
+    'select_course' => '강의 선택',
+    'please_select' => '선택해 주십시오',
+    'processing' => '처리 중입니다',
+    'full_name' => '성함',
+    'email_address' => '이메일 주소',
+    'account_type' => '계정 유형',
 ];

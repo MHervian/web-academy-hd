@@ -31,24 +31,31 @@
 		<h1 class="py-6 text-white text-4xl">Notifikasi Detail</h1>
 	</div>
 
-	<a href="<?= base_url('notifikasi') ?>"
-		class="flex m-3 p-2 items-center gap-2 text-gray-700 hover:text-blue-600">
-		<i class="fa fa-arrow-left" aria-hidden="true"></i>
-		<span class="font-medium">Back</span>
-	</a>
-
-
-	<div class="m-5 p-5 bg-gray-100 rounded-md">
-		<h1 class="font-bold"><?= $detail['judul'] ?></h1>
+	<div class="p-5">
+		<nav class="text-sm font-medium text-on-surface dark:text-on-surface-dark" aria-label="breadcrumb">
+			<ol class="flex flex-wrap items-center gap-2">
+				<li class="flex items-center gap-2"> <a href="<?= lang_url('notifikasi') ?>" class="hover:text-on-surface-strong dark:hover:text-on-surface-dark-strong">Notifikasi</a> <span aria-hidden="true">/</span> </li>
+				<li class="text-on-surface-strong font-bold dark:text-on-surface-dark-strong" aria-current="page">Detail Notifikasi</li>
+			</ol>
+		</nav>
 	</div>
 
-	<div class="m-5 p-5 bg-gray-100 rounded-md">
-		<h1 class="font-bold"><?= $detail['deskripsi'] ?></h1>
+	<div class="max-w-5xl mx-auto ">
+		<div class="m-5 p-5 bg-gray-100 rounded-md">
+			<h1 class="font-bold"><?= $detail['judul'] ?></h1>
+		</div>
+
+		<div class="m-5 p-5 bg-gray-100 rounded-md">
+			<h1 class="font-bold"><?= $detail['deskripsi'] ?></h1>
+		</div>
+
 	</div>
+
+
 
 
 	<div class="px-5 py-5 bottom absolute inset-x-0 bottom-0">
-		<p class="text-center">&copy;DreamTemplate 2026</p>
+		<p class="text-center">&copy; Dream Korean Language Learning Center</p>
 	</div>
 </body>
 

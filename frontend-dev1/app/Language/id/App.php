@@ -178,4 +178,16 @@ return [
     'ready_to_shape_your_future' => 'Siap Membentuk Masa Depanmu di Akademi?',
 
     'register_now' => 'Daftar Sekarang',
+
+    'jakarta_indonesia_korean_school' => 'Jakarta Indonesia Korean School (JIKS)',
+    'primary_secondary_institution' => 'Institusi pendidikan dasar & menengah',
+    'korean_education_center_indonesia' => 'Pusat Pelatihan Korea di Indonesia',
+    'official_korean_education_institution' => 'Lembaga resmi pendidikan Korea',
+    'university_of_indonesia' => 'Universitas Negeri Indonesia (UI)',
+    'university_with_korean_department' => 'Universitas dengan jurusan Bahasa Korea',
+    'gyeongnam_chungnam_offices' => 'Kantor Perwakilan Gyeongnam & Chungnam',
+    'korean_local_government_representatives' => 'Perwakilan pemerintah daerah Korea di Indonesia',
+    'uncia_cyber_university' => 'Universitas Siber Uncia',
+    'hanuri_education_center' => 'Pusat Pendidikan Hanuri di Indonesia',
+    'korean_training_language_institution' => 'Lembaga pelatihan & bahasa Korea',
 ];

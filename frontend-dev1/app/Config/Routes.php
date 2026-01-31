@@ -34,6 +34,12 @@ $routes->group('{locale}', function ($routes) {
     $routes->get('daftar-kelas', 'Kelas::daftarProgram', ['as' => 'daftar-kelas']);
     $routes->get('detail-kelas', 'Kelas::detailKelas');
 
+    $routes->get('forum', 'Forum::index');
+
+    $routes->get('notifikasi', 'Notification::index');
+
+    $routes->get('akun', 'Akun::index');
+
     //
     $routes->get('auth/login', 'Auth::login', ['as' => 'auth-login']);
     $routes->get('auth/register', 'Auth::register', ['as' => 'auth-regiter']);

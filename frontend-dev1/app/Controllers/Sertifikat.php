@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\SertifikatModel;
+use App\Models\UserModel;
 use CodeIgniter\HTTP\ResponseInterface;
 
 class Sertifikat extends BaseController
@@ -49,9 +51,22 @@ class Sertifikat extends BaseController
             ]
         ];
 
+        $user = session()->get();
+
+        $sertifikatModel = new SertifikatModel();
+
+
+
+        $sertifikatData = $sertifikatModel
+            ->select('sertifikat.*, member.username as nama_peserta')
+            ->join('member', 'member.memberId = sertifikat.memberId')
+            // ->join('kelas', 'kelas.kelasId = sertifikat.kelasId')
+            ->where('sertifikat.memberId', $user['user_id'])->findAll();
+
+        // dd($sertifikatData);
 
         $data = [
-            'data' => $list
+            'data' => $sertifikatData
         ];
 
         return view('member-page/sertifikat', $data);

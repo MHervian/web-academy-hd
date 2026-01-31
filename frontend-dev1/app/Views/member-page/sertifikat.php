@@ -55,21 +55,21 @@
 						<tr>
 							<th class="p-4"><?= lang('Member.no') ?></th>
 							<th class="p-4"><?= lang('Member.participant_name') ?></th>
-							<th class="p-4"><?= lang('Member.program') ?></th>
+							<!-- <th class="p-4"><?= lang('Member.program') ?></th> -->
 							<th class="p-4"><?= lang('Member.certificate_number') ?></th>
-							<th class="p-4"><?= lang('Member.duration_hours') ?></th>
+							<!-- <th class="p-4"><?= lang('Member.duration_hours') ?></th> -->
 							<th class="p-4"><?= lang('Member.action') ?></th>
 						</tr>
 					</thead>
 
 					<tbody class="divide-y divide-outline dark:divide-outline-dark">
-						<template x-for="(item, index) in data" :key="item.nomor_sertifikat">
+						<template x-for="(item, index) in data" :key="item.noSertifikat">
 							<tr>
 								<td class="p-4" x-text="index + 1"></td>
 								<td class="p-4" x-text="item.nama_peserta"></td>
-								<td class="p-4" x-text="item.program"></td>
-								<td class="p-4 font-mono" x-text="item.nomor_sertifikat"></td>
-								<td class="p-4" x-text="item.durasi_jam"></td>
+								<!-- <td class="p-4" x-text="item.program"></td> -->
+								<td class="p-4 font-mono" x-text="item.noSertifikat"></td>
+								<!-- <td class="p-4" x-text="item.durasi_jam"></td> -->
 								<td class="p-4">
 									<a
 										:href="item.file_pdf"
@@ -91,7 +91,7 @@
 
 
 	<div class="px-5 py-5">
-		<p class="text-center">&copy;DreamTemplate 2026</p>
+		<p class="text-center">&copy; Dream Korean Language Learning Center</p>
 	</div>
 </body>
 

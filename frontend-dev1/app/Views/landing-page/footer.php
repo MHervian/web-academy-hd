@@ -20,6 +20,5 @@
     </div>
     <div class="py-6.5"></div>
     <p class="text-[#e54595] font-semibold text-center text-sm">
-        &copy;2026 DreamHangul Akademi
-    </p>
+        &copy; Dream Korean Language Learning Center    </p>
 </footer>

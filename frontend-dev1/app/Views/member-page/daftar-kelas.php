@@ -73,14 +73,14 @@
   <?= $this->include('member-page/header') ?>
 
   <div class="px-6 md:px-7 pt-25 pb-7 bg-[#19253f]">
-    <h1 class="py-6 text-white text-4xl">Daftar Kelas</h1>
+    <h1 class="py-6 text-white text-4xl"><?= lang('Member.course_list') ?></h1>
   </div>
 
   <div class="p-5">
     <nav class="text-sm font-medium text-on-surface dark:text-on-surface-dark" aria-label="breadcrumb">
       <ol class="flex flex-wrap items-center gap-2">
-        <li class="flex items-center gap-2"> <a href="<?= lang_url('kelas') ?>" class="hover:text-on-surface-strong dark:hover:text-on-surface-dark-strong">Kelas</a> <span aria-hidden="true">/</span> </li>
-        <li class="text-on-surface-strong font-bold dark:text-on-surface-dark-strong" aria-current="page">Daftar Kelas</li>
+        <li class="flex items-center gap-2"> <a href="<?= lang_url('kelas') ?>" class="hover:text-on-surface-strong dark:hover:text-on-surface-dark-strong"><?= lang('Member.class') ?></a> <span aria-hidden="true">/</span> </li>
+        <li class="text-on-surface-strong font-bold dark:text-on-surface-dark-strong" aria-current="page"><?= lang('Member.course_list') ?></li>
       </ol>
     </nav>
   </div>
@@ -123,18 +123,18 @@
         <!-- RIGHT : SUMMARY -->
         <div class="w-full md:w-[360px] bg-white rounded-md p-5 h-fit">
 
-          <h2 class="text-xl font-bold mb-4">Ringkasan</h2>
+          <h2 class="text-xl font-bold mb-4"><?= lang('Member.summary') ?></h2>
 
           <template x-if="kelasList.length > 0">
             <div class="mb-4">
               <div class="relative flex w-full max-w-xs flex-col gap-1 text-on-surface dark:text-on-surface-dark">
-                <label for="os" class="w-fit pl-0.5 text-sm">Pilih kelas</label>
+                <label for="os" class="w-fit pl-0.5 text-sm"><?= lang('Member.select_course') ?></label>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="absolute pointer-events-none right-4 top-8 size-5">
                   <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
                 </svg>
                 <select id="os" name="os" class="w-full appearance-none rounded-radius border border-outline bg-surface-alt px-4 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-75 dark:border-outline-dark dark:bg-surface-dark-alt/50 dark:focus-visible:outline-primary-dark"
                   x-model='selectedKelas'>
-                  <option selected>Please Select</option>
+                  <option selected><?= lang('Member.please_select') ?></option>
                   <template x-for="kelas in kelasList">
                     <option :value="kelas['kelasId']" x-text="kelas['nama_kelas']"></option>
                   </template>
@@ -145,12 +145,12 @@
 
           <template x-if="kelasList.length == 0">
             <div class="mb-4">
-              <h4 class="text-red-400">Kelas tidak tersedia</h4>
+              <h4 class="text-red-400"><?= lang('Member.course_unavailable') ?></h4>
             </div>
           </template>
 
           <div class="flex justify-between items-center mb-6">
-            <span>Total Harga</span>
+            <span><?= lang('Member.total_price') ?></span>
             <span class="font-bold text-red-500"
               x-text="formatRupiah(harga)">
             </span>
@@ -161,8 +161,8 @@
             class="w-full bg-warning text-onWarning py-2 rounded-md disabled:opacity-60"
             @click="pay"
             :disabled="loading || selectedKelas === ''">
-            <span x-show="!loading">Daftar</span>
-            <span x-show="loading">Memproses...</span>
+            <span x-show="!loading"><?= lang('Member.register_enroll') ?></span>
+            <span x-show="loading"><?= lang('Member.processing') ?>...</span>
           </button>
 
 

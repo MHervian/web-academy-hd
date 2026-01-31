@@ -30,7 +30,7 @@
   <?= $this->include('member-page/header') ?>
 
   <div class="px-6 md:px-7 pt-25 pb-7 bg-[#19253f]">
-    <h1 class="py-6 text-white text-4xl">Kelas</h1>
+    <h1 class="py-6 text-white text-4xl"><?= lang('Member.class') ?></h1>
   </div>
 
   <div x-data="kelas()">
@@ -48,7 +48,7 @@
             <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="size-5 fill-on-primary dark:fill-on-primary-dark" fill="currentColor">
               <path fill-rule="evenodd" d="M12 3.75a.75.75 0 01.75.75v6.75h6.75a.75.75 0 010 1.5h-6.75v6.75a.75.75 0 01-1.5 0v-6.75H4.5a.75.75 0 010-1.5h6.75V4.5a.75.75 0 01.75-.75z" clip-rule="evenodd" />
             </svg>
-            Tambah kelas
+            <?= lang('Member.add_course') ?>
           </a>
 
         </div>
@@ -56,13 +56,13 @@
           <table class="w-full text-left text-sm text-on-surface dark:text-on-surface-dark">
             <thead class="border-b border-outline bg-surface-alt text-sm text-on-surface-strong dark:border-outline-dark dark:bg-surface-dark-alt dark:text-on-surface-dark-strong">
               <tr>
-                <th class="p-4 text-center">No</th>
-                <th class="p-4 text-center">Nama Kelas</th>
-                <th class="p-4 text-center">Tanggal Daftar</th>
-                <th class="p-4 text-center">Progress</th>
-                <th class="p-4 text-center">Status Payment</th>
-                <th class="p-4 text-center">Status</th>
-                <th class="p-4 text-center">Action</th>
+                <th class="p-4 text-center"><?= lang('Member.no') ?></th>
+                <th class="p-4 text-center"><?= lang('Member.course_name') ?></th>
+                <th class="p-4 text-center"><?= lang('Member.enrollment_date') ?></th>
+                <th class="p-4 text-center"><?= lang('Member.progress') ?></th>
+                <th class="p-4 text-center"><?= lang('Member.payment_status') ?></th>
+                <th class="p-4 text-center"><?= lang('Member.status') ?></th>
+                <th class="p-4 text-center"><?= lang('Member.action') ?></th>
               </tr>
             </thead>
 
@@ -121,7 +121,7 @@
                     <a
                       :href="`<?= lang_url('detail-kelas') ?>?id=${item.pendaftarId}`"
                       class="font-semibold text-primary hover:opacity-75">
-                      Detail
+                      <?= lang('Member.details') ?>
                     </a>
                   </td>
                 </tr>
@@ -138,7 +138,7 @@
 
 
   <div class="px-5 py-5">
-    <p class="text-center">&copy;DreamTemplate 2026</p>
+    <p class="text-center">&copy; Dream Korean Language Learning Center</p>
   </div>
 
   <script>

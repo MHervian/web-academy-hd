@@ -54,4 +54,27 @@ return [
     'announcement' => 'Pengumuman',
     'no_announcements_yet' => 'Belum ada pengumuman',
     'no_new_information' => 'Tidak ada informasi baru',
+
+    'add_course' => 'Tambah Kelas',
+
+    'no' => 'No.',
+    'course_name' => 'Nama Kelas',
+    'enrollment_date' => 'Tanggal Daftar',
+    'progress' => 'Progres',
+    'payment_status' => 'Status Pembayaran',
+    'status' => 'Status',
+    'action' => 'Tindakan',
+
+    'details' => 'Detail',
+    'course_list' => 'Daftar Kelas',
+    'summary' => 'Ringkasan',
+    'course_unavailable' => 'Kelas tidak tersedia',
+    'total_price' => 'Total Harga',
+    'register_enroll' => 'Daftar',
+    'select_course' => 'Pilih Kelas',
+    'please_select' => 'Please Select',
+    'processing' => 'Memproses',
+    'full_name' => 'Nama',
+    'email_address' => 'Email',
+    'account_type' => 'Tipe Akun',
 ];

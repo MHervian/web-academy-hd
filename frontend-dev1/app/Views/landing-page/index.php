@@ -541,41 +541,26 @@
           <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 flex justify-between items-center">
             <div>
               <h3 class="font-medium text-gray-900">
-                Sekolah Korea Indonesia Jakarta
+                <?= lang('App.jakarta_indonesia_korean_school') ?>
               </h3>
               <p class="text-sm text-gray-500 mt-1">
-                Institusi pendidikan dasar &amp; menengah
+                <?= lang('App.primary_secondary_institution') ?>
               </p>
             </div>
-            <svg fill="#000000" width="64px" height="64px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
-              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-              <g id="SVGRepo_iconCarrier">
-                <title>school</title>
-                <path d="M30 21.25h-6.25v-8.957l5.877 3.358c0.107 0.062 0.236 0.098 0.373 0.099h0c0.414-0.001 0.749-0.336 0.749-0.751 0-0.277-0.15-0.519-0.373-0.649l-0.004-0.002-13.623-7.784v-0.552c0.172 0.016 0.35 0.068 0.519 0.068 0.004 0 0.010 0 0.015 0 0.475 0 0.934-0.067 1.368-0.193l-0.035 0.009c0.323-0.063 0.693-0.099 1.073-0.099 0.392 0 0.775 0.039 1.146 0.112l-0.037-0.006c0.039 0.007 0.083 0.012 0.129 0.012 0.184 0 0.352-0.068 0.479-0.181l-0.001 0.001c0.161-0.139 0.263-0.343 0.264-0.571v-2.812c0 0 0-0 0-0 0-0.355-0.247-0.653-0.579-0.73l-0.005-0.001c-0.419-0.111-0.9-0.176-1.396-0.176-0.5 0-0.985 0.065-1.446 0.187l0.039-0.009c-0.288 0.067-0.618 0.105-0.958 0.105-0.231 0-0.457-0.018-0.678-0.052l0.025 0.003c-0.122-0.256-0.378-0.43-0.676-0.43-0.412 0-0.746 0.334-0.746 0.746 0 0.001 0 0.003 0 0.004v-0 4.565l-13.622 7.784c-0.227 0.132-0.378 0.374-0.378 0.651 0 0.414 0.336 0.75 0.75 0.75 0.137 0 0.265-0.037 0.376-0.101l-0.004 0.002 5.878-3.359v8.957h-6.25c-0.414 0-0.75 0.336-0.75 0.75v0 8c0 0.414 0.336 0.75 0.75 0.75h28c0.414-0 0.75-0.336 0.75-0.75v0-8c-0-0.414-0.336-0.75-0.75-0.75v0zM18.658 3.075c0.298-0.082 0.64-0.13 0.993-0.13 0.183 0 0.363 0.013 0.539 0.037l-0.020-0.002v1.339c-0.16-0.013-0.345-0.021-0.533-0.021-0.489 0-0.966 0.052-1.425 0.151l0.044-0.008c-0.304 0.088-0.653 0.139-1.014 0.139-0.174 0-0.344-0.012-0.512-0.034l0.020 0.002v-1.323c0.15 0.014 0.325 0.021 0.502 0.021 0.499 0 0.984-0.062 1.447-0.18l-0.041 0.009zM2.75 22.75h5.5v6.5h-5.5zM9.75 22v-10.564l6.25-3.571 6.25 3.572v17.814h-2.5v-5.25c-0-0.414-0.336-0.75-0.75-0.75h-6c-0.414 0-0.75 0.336-0.75 0.75v0 5.25h-2.5zM13.75 29.25v-4.5h4.5v4.5zM29.25 29.25h-5.5v-6.5h5.5zM16 19.75c2.071 0 3.75-1.679 3.75-3.75s-1.679-3.75-3.75-3.75c-2.071 0-3.75 1.679-3.75 3.75v0c0.002 2.070 1.68 3.748 3.75 3.75h0zM16 13.75c1.243 0 2.25 1.007 2.25 2.25s-1.007 2.25-2.25 2.25c-1.243 0-2.25-1.007-2.25-2.25v0c0.002-1.242 1.008-2.248 2.25-2.25h0z"></path>
-              </g>
-            </svg>
+            <img src="/images/jiks.jpeg" alt="" class="w-12" srcset="">
+
           </div>
 
           <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 flex justify-between items-center">
             <div>
               <h3 class="font-medium text-gray-900">
-                Pusat Pendidikan Korea di Indonesia
+                <?= lang('App.korean_education_center_indonesia') ?>
               </h3>
               <p class="text-sm text-gray-500 mt-1">
-                Lembaga resmi pendidikan Korea
+                <?= lang('App.official_korean_education_institution') ?>
               </p>
             </div>
-            <svg width="64px" height="64px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--fxemoji" preserveAspectRatio="xMidYMid meet" fill="#000000">
-              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-              <g id="SVGRepo_iconCarrier">
-                <path fill="#E8E8E8" d="M494.661 425.149c-159.52-37.139-319.04 45.468-478.559 8.329C7.209 431.416 0 422.098 0 413.212V98.788C0 89.89 7.209 84.79 16.101 86.851c159.52 37.139 319.04-45.468 478.559-8.329c8.892 2.061 16.101 11.379 16.101 20.266v314.424c.001 8.898-7.208 13.998-16.1 11.937z"></path>
-                <circle fill="#FF473E" cx="255.381" cy="256" r="92.048"></circle>
-                <path fill="#0B67B2" d="M346.636 245.675c-2.258-10.955-10.722-35.009-41.54-35.009c-39.905 0-53.429 81.667-100.095 81.667c-37 0-41.667-36.334-41.667-36.334c0 50.837 41.211 92.048 92.048 92.048s92.048-41.211 92.048-92.048c0-2.295-.087-4.57-.252-6.824c-.128-.875-.307-2.052-.542-3.5z"></path>
-                <path fill="#2B3B47" d="M42.333 199.333a7.155 7.155 0 0 1 0-10.118l38.882-38.882a7.155 7.155 0 0 1 10.118 10.118l-38.882 38.882a7.153 7.153 0 0 1-10.118 0zm27.113 16.994l38.882-38.882a7.155 7.155 0 0 0-10.118-10.118l-38.882 38.882a7.155 7.155 0 0 0 0 10.118a7.153 7.153 0 0 0 10.118 0zm16.994 16.994l38.882-38.882a7.155 7.155 0 0 0-10.118-10.118l-38.882 38.882a7.155 7.155 0 0 0 10.118 10.118zm318.495-88.471l38.882 38.882a7.155 7.155 0 0 0 10.118-10.118l-38.882-38.882a7.155 7.155 0 0 0-10.118 10.118zm10.244 44.232l11.644 11.644a7.155 7.155 0 0 0 10.118-10.118l-11.644-11.644a7.155 7.155 0 0 0-10.118 10.118zm-25.587-25.586l11.644 11.644a7.155 7.155 0 0 0 10.118-10.118l-11.644-11.644a7.155 7.155 0 0 0-10.118 10.118zm59.575-8.402l11.644 11.644a7.155 7.155 0 0 0 10.118-10.118l-11.644-11.644a7.155 7.155 0 0 0-10.118 10.118zm-25.587-25.586l11.644 11.644a7.155 7.155 0 0 0 10.118-10.118l-11.644-11.644a7.155 7.155 0 0 0-10.118 10.118zM123.67 365.387l-37.23-37.23a7.155 7.155 0 0 0-10.118 10.118l37.23 37.23a7.155 7.155 0 0 0 10.118-10.118zm-33.988 33.988l-37.23-37.23a7.155 7.155 0 0 0-10.118 10.118l37.23 37.23a7.155 7.155 0 0 0 10.118-10.118zm-8.593-42.581L69.445 345.15a7.155 7.155 0 0 0-10.118 10.118l11.644 11.644a7.155 7.155 0 0 0 10.118-10.118zm25.587 25.587l-11.644-11.644a7.155 7.155 0 0 0-10.118 10.118l11.644 11.644a7.155 7.155 0 0 0 10.118-10.118zm351.784-30.244l11.644-11.644a7.155 7.155 0 0 0-10.118-10.118l-11.644 11.644a7.155 7.155 0 0 0 10.118 10.118zm-25.587 25.587l11.644-11.644a7.155 7.155 0 0 0-10.118-10.118l-11.644 11.644a7.155 7.155 0 0 0 10.118 10.118zm-8.401-59.575l11.644-11.644a7.155 7.155 0 0 0-10.118-10.118l-11.644 11.644a7.155 7.155 0 0 0 10.118 10.118zm-25.587 25.587l11.644-11.644a7.155 7.155 0 0 0-10.118-10.118l-11.644 11.644a7.155 7.155 0 0 0 10.118 10.118zm42.581-8.593l11.644-11.644a7.155 7.155 0 0 0-10.118-10.118l-11.644 11.644a7.155 7.155 0 0 0 10.118 10.118zm-25.587 25.587l11.644-11.644a7.155 7.155 0 0 0-10.118-10.118l-11.644 11.644a7.155 7.155 0 0 0 10.118 10.118z"></path>
-              </g>
-            </svg>
+            <img src="/images/ppk2.jpeg" alt="" class="w-14" srcset="">
           </div>
 
           <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 flex justify-between items-center">
@@ -584,7 +569,7 @@
                 Universitas Indonesia (UI)
               </h3>
               <p class="text-sm text-gray-500 mt-1">
-                Universitas dengan jurusan Bahasa Korea
+                <?= lang('App.university_with_korean_department') ?>
               </p>
             </div>
             <img src="/icons/UI (Universitas Indonesia) Logo (SVG) - Vector69Com.svg" alt="" class="w-12" srcset="">
@@ -593,20 +578,13 @@
           <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 flex justify-between items-center">
             <div>
               <h3 class="font-medium text-gray-900">
-                Kantor Perwakilan Gyeongnam &amp; Chungnam
+                <?= lang('App.gyeongnam_chungnam_offices') ?>
               </h3>
               <p class="text-sm text-gray-500 mt-1">
-                Perwakilan pemerintah daerah Korea di Indonesia
+                <?= lang('App.korean_local_government_representatives') ?>
               </p>
             </div>
-            <svg width="64px" height="64px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="#000000">
-              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-              <g id="SVGRepo_iconCarrier">
-                <path fill="#000000" d="M800 416a288 288 0 1 0-576 0c0 118.144 94.528 272.128 288 456.576C705.472 688.128 800 534.144 800 416zM512 960C277.312 746.688 160 565.312 160 416a352 352 0 0 1 704 0c0 149.312-117.312 330.688-352 544z"></path>
-                <path fill="#000000" d="M512 448a64 64 0 1 0 0-128 64 64 0 0 0 0 128zm0 64a128 128 0 1 1 0-256 128 128 0 0 1 0 256zm345.6 192L960 960H672v-64H352v64H64l102.4-256h691.2zm-68.928 0H235.328l-76.8 192h706.944l-76.8-192z"></path>
-              </g>
-            </svg>
+            <img src="/images/KPGC.jpeg" alt="" class="w-14" srcset="">
           </div>
 
           <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 flex justify-between items-center">
@@ -615,7 +593,7 @@
                 Universitas Siber Asia (Uncia)
               </h3>
               <p class="text-sm text-gray-500 mt-1">
-                Asia Cyber University
+                <?= lang('App.uncia_cyber_university') ?>
               </p>
             </div>
             <img class="w-12" src="/icons/120061378_110520754141084_6594683579243627143_n.jpg" alt="" srcset="">
@@ -624,10 +602,10 @@
           <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 flex justify-between items-center">
             <div>
               <h3 class="font-medium text-gray-900">
-                Pusat Pendidikan Hanuri di Indonesia
+                <?= lang('App.hanuri_education_center') ?>
               </h3>
               <p class="text-sm text-gray-500 mt-1">
-                Lembaga pelatihan &amp; bahasa Korea
+                <?= lang('App.korean_training_language_institution') ?>
               </p>
             </div>
             <img class="w-16" src="/icons/download.jpeg" alt="" srcset="">

@@ -178,4 +178,16 @@ return [
     'ready_to_shape_your_future' => 'Ready to Shape Your Future at the Academy?',
 
     'register_now' => 'Register Now',
+
+    'jakarta_indonesia_korean_school' => 'Jakarta Indonesia Korean School (JIKS)',
+    'primary_secondary_institution' => 'Primary & secondary educational institution',
+    'korean_education_center_indonesia' => 'Korean Education Center in Indonesia',
+    'official_korean_education_institution' => 'Official Korean educational institution',
+    'university_of_indonesia' => 'University of Indonesia (UI)',
+    'university_with_korean_department' => 'University with a Korean Language department',
+    'gyeongnam_chungnam_offices' => 'Gyeongnam & Chungnam Representative Offices',
+    'korean_local_government_representatives' => 'Korean local government representatives in Indonesia',
+    'uncia_cyber_university' => 'Uncia Cyber University',
+    'hanuri_education_center' => 'Hanuri Education Center in Indonesia',
+    'korean_training_language_institution' => 'Training & Korean language institution',
 ];
