@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="robots" content="noindex, nofollow" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <title>Dashboard - DreamPanel</title>
+  <title>{{ __('dashboard.judul') }} - DreamPanel</title>
   <!-- favicon -->
   <link rel="icon" href="favicon.ico" type="image/x-icon">
 
@@ -40,9 +40,9 @@
 
       <div class="flex-1 p-3 bg-[#e7ecf6]">
         <!-- Title and breadcrumbs -->
-        <h2 class="text-4xl font-bold">Dashboard</h2>
+        <h2 class="text-4xl font-bold">{{ __('dashboard.judul') }}</h2>
         <span class="block py-2">
-          <a href="#" class="">Dashboard</a>
+          <a href="#" class="">{{ __('dashboard.crumb1') }}</a>
         </span>
         <!--/ Title and breadcrumbs  -->
 
@@ -51,36 +51,39 @@
         <div class="grid grid-cols-3 gap-15">
           <div class="col-span-1 py-4 px-4.5 rounded-lg bg-white shadow-sm">
             <span class="flex justify-between items-center">
-              <span class="font-medium text-xl">Total Member</span>
+              <span class="font-medium text-xl">{{ __('dashboard.total_member') }}</span>
               <span class="flex h-12 aspect-square items-center justify-center rounded-full bg-blue-100">
                 <i class="fa-solid fa-people-roof text-2xl text-blue-500" aria-hidden="true"></i>
               </span>
             </span>
             <p class="pt-0 pb-2.5 text-3xl font-bold">1,250</p>
-            <a href="{{ route('member') }}" class="inline-block py-1 px-3 bg-blue-500 text-white rounded-md">Lihat
-              Semua Member</a>
+            <a href="{{ route('member') }}" class="inline-block py-1 px-3 bg-blue-500 text-white rounded-md">
+              {{ __('dashboard.btn.total_member') }}
+            </a>
           </div>
           <div class="col-span-1 py-4 px-4.5 rounded-lg bg-white shadow-sm">
             <span class="flex justify-between items-center">
-              <span class="font-medium text-xl">Kursus Aktif</span>
+              <span class="font-medium text-xl">{{ __('dashboard.kursus_aktif') }}</span>
               <span class="flex h-12 aspect-square items-center justify-center rounded-full bg-green-100">
                 <i class="fa-solid fa-book-open text-2xl text-green-500" aria-hidden="true"></i>
               </span>
             </span>
             <p class="pt-0 pb-2.5 text-3xl font-bold">12</p>
-            <a href="{{ route('kelas') }}" class="inline-block py-1 px-3 bg-green-500 text-white rounded-md">Kelola
-              Kelas</a>
+            <a href="{{ route('kelas') }}" class="inline-block py-1 px-3 bg-green-500 text-white rounded-md">
+              {{ __('dashboard.btn.kelola_kelas') }}
+            </a>
           </div>
           <div class="col-span-1 py-4 px-4.5 rounded-lg bg-white shadow-sm">
             <span class="flex justify-between items-center">
-              <span class="font-medium text-xl">Kursus/Program</span>
+              <span class="font-medium text-xl">{{ __('dashboard.kursus_program') }}</span>
               <span class="flex h-12 aspect-square items-center justify-center rounded-full bg-purple-100">
                 <i class="fa-solid fa-chalkboard text-2xl text-purple-500" aria-hidden="true"></i>
               </span>
             </span>
             <p class="pt-0 pb-2.5 text-3xl font-bold">12</p>
-            <a href="{{ route('program') }}" class="inline-block py-1 px-3 bg-purple-500 text-white rounded-md">Kelola
-              Kursus/Program</a>
+            <a href="{{ route('program') }}" class="inline-block py-1 px-3 bg-purple-500 text-white rounded-md">
+              {{ __('dashboard.btn.kelola_kursus') }}
+            </a>
           </div>
         </div>
 
@@ -89,37 +92,41 @@
         <div class="grid grid-cols-3 gap-15">
           <div class="col-span-1 py-4 px-4.5 rounded-lg bg-white shadow-sm">
             <span class="flex justify-between items-center">
-              <span class="font-medium text-xl">Pendaftar Baru</span>
+              <span class="font-medium text-xl">{{ __('dashboard.pendaftar_baru') }}</span>
               <span class="flex h-12 aspect-square items-center justify-center rounded-full bg-orange-100">
                 <i class="fa-solid fa-clipboard-check text-2xl text-orange-500" aria-hidden="true"></i>
               </span>
             </span>
             <p class="pt-0 pb-2.5 text-3xl font-bold">1,250</p>
             <a href="{{ route('kelas-registrasi') }}"
-              class="inline-block py-1 px-3 bg-orange-500 text-white rounded-md">Lihat Pendaftar
-              Baru</a>
+              class="inline-block py-1 px-3 bg-orange-500 text-white rounded-md">
+              {{ __('dashboard.btn.lihat_pendaftar') }}
+            </a>
           </div>
           <div class="col-span-1 py-4 px-4.5 rounded-lg bg-white shadow-sm">
             <span class="flex justify-between items-center">
-              <span class="font-medium text-xl">Pendaftar Kelas</span>
+              <span class="font-medium text-xl">{{ __('dashboard.pendaftar_kelas') }}</span>
               <span class="flex h-12 aspect-square items-center justify-center rounded-full bg-orange-100">
                 <i class="fa-solid fa-clipboard-check text-2xl text-orange-500" aria-hidden="true"></i>
               </span>
             </span>
             <p class="pt-0 pb-2.5 text-3xl font-bold">12</p>
             <a href="{{ route('kelas-registrasi') }}"
-              class="inline-block py-1 px-3 bg-orange-500 text-white rounded-md">Cek Antrian</a>
+              class="inline-block py-1 px-3 bg-orange-500 text-white rounded-md">
+              {{ __('dashboard.btn.cek_antrian') }}
+            </a>
           </div>
           <div class="col-span-1 py-4 px-4.5 rounded-lg bg-white shadow-sm">
             <span class="flex justify-between items-center">
-              <span class="font-medium text-xl">Sertifikat Diterbitkan</span>
+              <span class="font-medium text-xl">{{ __('dashboard.sertifikat_terbit') }}</span>
               <span class="flex h-12 aspect-square items-center justify-center rounded-full bg-purple-100">
                 <i class="fa-solid fa-certificate text-2xl text-purple-500" aria-hidden="true"></i>
               </span>
             </span>
             <p class="pt-0 pb-2.5 text-3xl font-bold">12</p>
-            <a href="{{ route('sertifikat') }}" class="inline-block py-1 px-3 bg-purple-500 text-white rounded-md">Buat
-              Sertifikat</a>
+            <a href="{{ route('sertifikat') }}" class="inline-block py-1 px-3 bg-purple-500 text-white rounded-md">
+              {{ __('dashboard.btn.buat_sertifikat') }}
+            </a>
           </div>
         </div>
 
@@ -128,14 +135,14 @@
         <div class="grid grid-cols-2">
           <div class="col-span-1 py-5 px-4.5 rounded-lg bg-white shadow-sm">
 
-            <h3 class="font-bold text-2xl">Aktivitas Terbaru</h3>
+            <h3 class="font-bold text-2xl">{{ __('dashboard.tabel.judul') }}</h3>
             <div class="pb-3"></div>
             <table class="w-full border-collapse">
               <thead>
                 <tr class="bg-gray-200">
-                  <th class="py-2 w-[300px] font-medium">Nama.</th>
-                  <th class="py-2 font-medium">Status</th>
-                  <th class="py-2 font-medium">Aksi</th>
+                  <th class="py-2 w-[300px] font-medium">{{ __('dashboard.tabel.kolom.nama') }}</th>
+                  <th class="py-2 font-medium">{{ __('dashboard.tabel.kolom.status') }}</th>
+                  <th class="py-2 font-medium">{{ __('dashboard.tabel.kolom.aksi') }}</th>
                   <th class="py-2"></th>
                 </tr>
               </thead>
@@ -145,7 +152,7 @@
                   <td class="py-2 px-2">2024-10-26</td>
                   <td class="py-2 px-2 text-center">
                     <a href="{{ route('coming-soon') }}"
-                      class="inline-block py-1 px-3 rounded-lg bg-gray-300 text-gray-500">Detail</a>
+                      class="inline-block py-1 px-3 rounded-lg bg-gray-300 text-gray-500">{{ __('dashboard.tabel.kolom.btn.detail') }}</a>
                   </td>
                   <td class="py-2 px-2 bg-gray-100 text-center">
                     <i class="fa-solid fa-pen-to-square text-gray-500"></i>
@@ -156,7 +163,7 @@
                   <td class="py-2 px-2">2024-10-26</td>
                   <td class="py-2 px-2 text-center">
                     <a href="{{ route('coming-soon') }}"
-                      class="inline-block py-1 px-3 rounded-lg bg-gray-300 text-gray-500">Detail</a>
+                      class="inline-block py-1 px-3 rounded-lg bg-gray-300 text-gray-500">{{ __('dashboard.tabel.kolom.btn.detail') }}</a>
                   </td>
                   <td class="py-2 px-2 bg-gray-100 text-center">
                     <i class="fa-solid fa-pen-to-square text-gray-500"></i>
@@ -167,7 +174,7 @@
                   <td class="py-2 px-2">2024-10-26</td>
                   <td class="py-2 px-2 text-center">
                     <a href="{{ route('coming-soon') }}"
-                      class="inline-block py-1 px-3 rounded-lg bg-gray-300 text-gray-500">Detail</a>
+                      class="inline-block py-1 px-3 rounded-lg bg-gray-300 text-gray-500">{{ __('dashboard.tabel.kolom.btn.detail') }}</a>
                   </td>
                   <td class="py-2 px-2 bg-gray-100 text-center">
                     <i class="fa-solid fa-pen-to-square text-gray-500"></i>
@@ -178,7 +185,7 @@
                   <td class="py-2 px-2">2024-10-26</td>
                   <td class="py-2 px-2 text-center">
                     <a href="{{ route('coming-soon') }}"
-                      class="inline-block py-1 px-3 rounded-lg bg-gray-300 text-gray-500">Detail</a>
+                      class="inline-block py-1 px-3 rounded-lg bg-gray-300 text-gray-500">{{ __('dashboard.tabel.kolom.btn.detail') }}</a>
                   </td>
                   <td class="py-2 px-2 bg-gray-100 text-center">
                     <i class="fa-solid fa-pen-to-square text-gray-500"></i>
@@ -189,7 +196,7 @@
                   <td class="py-2 px-2">2024-10-26</td>
                   <td class="py-2 px-2 text-center">
                     <a href="{{ route('coming-soon') }}"
-                      class="inline-block py-1 px-3 rounded-lg bg-gray-300 text-gray-500">Detail</a>
+                      class="inline-block py-1 px-3 rounded-lg bg-gray-300 text-gray-500">{{ __('dashboard.tabel.kolom.btn.detail') }}</a>
                   </td>
                   <td class="py-2 px-2 bg-gray-100 text-center">
                     <a href="{{ route('coming-soon') }}">

@@ -10,34 +10,52 @@
   </span>
   <ul class="py-3 z-3 text-white bg-[#1c2b4a] flex-1">
     <li>
-      <a href="{{ route('admin-dashboard') }}" class="block py-2 px-3 hover:bg-[#344565] text-[0.9rem]">
+      {{-- <a href="{{ route('admin-dashboard') }}" class="block py-2 px-3 hover:bg-[#344565] text-[0.9rem]">
         <i class="fa-solid fa-house"></i> Dashboard
+      </a> --}}
+      <a href="{{ route('admin-dashboard') }}" class="block py-2 px-3 hover:bg-[#344565] text-[0.9rem]">
+        <i class="fa-solid fa-house"></i> {{ __('app.dashboard') }}
       </a>
     </li>
     <li>
-      <a href="{{ route('member') }}" class="block py-2 px-3 hover:bg-[#344565] text-[0.9rem]">
+      {{-- <a href="{{ route('member') }}" class="block py-2 px-3 hover:bg-[#344565] text-[0.9rem]">
         <i class="fa-solid fa-people-roof"></i> Member
+      </a> --}}
+      <a href="{{ route('member') }}" class="block py-2 px-3 hover:bg-[#344565] text-[0.9rem]">
+        <i class="fa-solid fa-people-roof"></i> {{ __('app.member') }}
       </a>
     </li>
     <li>
       <a href="{{ route('sertifikat') }}" class="block py-2 px-3 hover:bg-[#344565] text-[0.9rem]">
-        <i class="fa-solid fa-certificate"></i> Sertifikat
+        <i class="fa-solid fa-certificate"></i> {{ __('app.sertifikat') }}
       </a>
+      {{-- <a href="{{ route('sertifikat') }}" class="block py-2 px-3 hover:bg-[#344565] text-[0.9rem]">
+        <i class="fa-solid fa-certificate"></i> Sertifikat
+      </a> --}}
     </li>
     <li>
       <a href="{{ route('program') }}" class="block py-2 px-3 hover:bg-[#344565] text-[0.9rem]">
-        <i class="fa-solid fa-chalkboard"></i> Kursus/Program
+        <i class="fa-solid fa-chalkboard"></i> {{ __('app.kursus_program') }}
       </a>
+      {{-- <a href="{{ route('program') }}" class="block py-2 px-3 hover:bg-[#344565] text-[0.9rem]">
+        <i class="fa-solid fa-chalkboard"></i> Kursus/Program
+      </a> --}}
     </li>
     <li>
       <a href="{{ route('kelas') }}" class="block py-2 px-3 hover:bg-[#344565] text-[0.9rem]">
-        <i class="fa-solid fa-book-open"></i> Kelas
+        <i class="fa-solid fa-book-open"></i> {{ __('app.kelas') }}
       </a>
+      {{-- <a href="{{ route('kelas') }}" class="block py-2 px-3 hover:bg-[#344565] text-[0.9rem]">
+        <i class="fa-solid fa-book-open"></i> Kelas
+      </a> --}}
     </li>
     <li>
       <a href="{{ route('kelas-registrasi') }}" class="block py-2 px-3 hover:bg-[#344565] text-[0.9rem]">
-        <i class="fa-solid fa-clipboard-check"></i> Pendaftar Kelas
+        <i class="fa-solid fa-clipboard-check"></i> {{ __('app.pendaftar_kelas') }}
       </a>
+      {{-- <a href="{{ route('kelas-registrasi') }}" class="block py-2 px-3 hover:bg-[#344565] text-[0.9rem]">
+        <i class="fa-solid fa-clipboard-check"></i> Pendaftar Kelas
+      </a> --}}
     </li>
     <!-- li>
           <a href="#" class="block py-3.5 px-3 hover:bg-[#344565]">

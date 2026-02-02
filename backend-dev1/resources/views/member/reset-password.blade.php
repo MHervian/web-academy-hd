@@ -5,18 +5,11 @@
   <meta charset="UTF-8" />
   <meta name="robots" content="noindex, nofollow" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <title>Reset Password Member - DreamPanel</title>
-  <!-- favicon -->
+  <title>{{ __('member.reset_title') }} - DreamPanel</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
-
   <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet" />
-  <!-- Tailwind CSS -->
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  {{-- <link rel="stylesheet" href="<?= base_url('css/output.css') ?>" /> --}}
-  <!-- Font Awesome 7 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
   <style>
     * {
       font-family: 'Rubik', Arial, Helvetica, sans-serif;
@@ -29,95 +22,94 @@
 </head>
 
 <body>
-
   <main class="flex min-h-screen">
     @include('navigation.navigation')
 
-    <!-- Content -->
     <div class="flex-1 flex flex-col">
       @include('layouts.header')
 
       <div class="flex-1 p-3 bg-[#e7ecf6]">
-        <!-- Title and breadcrumbs -->
         <div class="flex items-center gap-4">
-          <h2 class="text-3xl font-bold text-center">Reset Password Member</h2>
+          <h2 class="text-3xl font-bold text-center">{{ __('member.reset_title') }}</h2>
         </div>
         <span class="block py-2 text-[0.9rem]">
           <a href="{{ route('admin-dashboard') }}" class="text-blue-700 hover:opacity-60 transition">Dashboard</a> &#47;
-          <a href="{{ route('member') }}" class="text-blue-700 hover:opacity-60 transition">Member</a>
+          <a href="{{ route('member') }}" class="text-blue-700 hover:opacity-60 transition">{{ __('member.title') }}</a>
           &#47;
-          <a href="#" class="hover:opacity-60 transition">Reset Password</a>
+          <a href="#" class="hover:opacity-60 transition">{{ __('member.reset_breadcrumb') }}</a>
         </span>
-        <p class="text-gray-700">Form Reset Password Member.</p>
-        <!--/ Title and breadcrumbs  -->
+        <p class="text-gray-700">{{ __('member.reset_desc') }}</p>
 
         <div class="py-3"></div>
 
-        <!-- Form Reset-Password -->
         <div class="grid grid-cols-2 gap-x-4">
-          <div class="col-span-1 bg-white p-3 rounded-lg shadow-sm">
+          <div class="col-span-1 bg-white p-4 rounded-lg shadow-sm">
             <form action="{{ route('member-update-password') }}" method="post">
               @csrf
               <input type="hidden" name="memberId" value="{{ $member->memberId }}" />
 
-              <p class="py-1.5 px-2 border border-gray-300 rounded-lg">Username: <span
-                  class="font-bold">{{ $member->username }}</span> (<span
-                  class="text-gray-500">{{ $member->email }}</span>)
+              <p class="py-2 px-3 border border-gray-200 bg-gray-50 rounded-lg text-sm">
+                <i class="fa-solid fa-user text-gray-400 mr-2"></i>{{ __('member.th_username') }}:
+                <span class="font-bold">{{ $member->username }}</span>
+                (<span class="text-gray-500">{{ $member->email }}</span>)
               </p>
 
-              <div class="py-1.5"></div>
+              <div class="py-3"></div>
 
-              <!-- Generate new password common -->
-              <label for="newPassword" class="block pb-1 text-gray-600">Password Baru</label>
+              <label for="newPassword"
+                class="block pb-1 text-sm font-medium text-gray-600">{{ __('member.label_new_password') }}</label>
               <div class="flex gap-3">
-                <input id="newPassword" type="text"
-                  class="w-[50%] py-1.5 px-3 border-2 rounded-md border-[#d9d9d9] focus:outline-0 focus:border-blue-500"
-                  placeholder="" name="newPassword" required />
+                <input id="newPassword" type="text" name="newPassword" required
+                  class="w-[60%] py-2 px-3 border-2 rounded-md border-[#d9d9d9] focus:outline-0 focus:border-blue-500 text-sm" />
                 <button id="btnGeneratePassword" type="button"
-                  class="py-1.5 px-4.5 text-center bg-gray-300 rounded-lg cursor-pointer hover:opacity-90 transition">
-                  <i class="fa-solid fa-key"></i> Buat Password Acak
+                  class="py-2 px-4 text-xs font-medium bg-gray-200 rounded-lg cursor-pointer hover:bg-gray-300 transition">
+                  <i class="fa-solid fa-key"></i> {{ __('member.btn_generate') }}
                 </button>
-              </div>
-
-              <div class="py-1.5"></div>
-
-              <label for="confirmPassword" class="block pb-1 text-gray-600">Konfirmasi Ulang</label>
-              <div class="flex gap-3">
-                <input id="confirmPassword" type="password"
-                  class="w-[50%] py-1.5 px-3 border-2 rounded-md border-[#d9d9d9] focus:outline-0 focus:border-blue-500"
-                  placeholder="" name="confirmPassword" required />
               </div>
 
               <div class="py-3"></div>
 
-              <div class="flex justify-end gap-3">
+              <label for="confirmPassword"
+                class="block pb-1 text-sm font-medium text-gray-600">{{ __('member.label_confirm_password') }}</label>
+              <input id="confirmPassword" type="password" name="confirmPassword" required
+                class="w-[60%] py-2 px-3 border-2 rounded-md border-[#d9d9d9] focus:outline-0 focus:border-blue-500 text-sm" />
+
+              <div class="py-6 border-t border-gray-100 mt-6 flex justify-end gap-3">
                 <button type="reset"
-                  class="py-1.5 px-4 text-center bg-gray-300 text-black rounded-lg cursor-pointer hover:opacity-90 transition">
-                  Reset
+                  class="py-2 px-5 text-sm bg-gray-300 text-black rounded-lg cursor-pointer hover:opacity-90 transition">
+                  {{ __('member.btn_reset_form') }}
                 </button>
-                <button type="button"
-                  class="py-1.5 px-4 text-center bg-blue-600 text-white rounded-lg cursor-pointer hover:opacity-90 transition">
-                  Ubah Password
+                <button type="submit"
+                  class="py-2 px-5 text-sm bg-blue-600 text-white rounded-lg cursor-pointer hover:opacity-90 transition">
+                  {{ __('member.btn_submit_password') }}
                 </button>
               </div>
             </form>
           </div>
         </div>
-        <!-- /Form Reset-Password -->
 
         <div class="py-3"></div>
-
       </div>
       @include('layouts.footer')
     </div>
-    <!--/ Content -->
-
   </main>
 
-  <!-- jQuery -->
   <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
   <script src="{{ asset('js/bttn-translate.js') }}"></script>
 
+  <script>
+    // Contoh sederhana logika generate password
+    document.getElementById('btnGeneratePassword').addEventListener('click', function() {
+      const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*";
+      let retVal = "";
+      for (let i = 0, n = charset.length; i < 12; ++i) {
+        retVal += charset.charAt(Math.floor(Math.random() * n));
+      }
+      document.getElementById('newPassword').value = retVal;
+      document.getElementById('confirmPassword').value = retVal;
+      document.getElementById('confirmPassword').type = 'password';
+    });
+  </script>
 </body>
 
 </html>

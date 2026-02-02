@@ -25,6 +25,16 @@ class KelasModel extends Model
 		'pengajar',
 		'isKelasStart',
 		'terisi',
+		// Korea
+		'nama_kelas_kr',
+		'nama_program_kr',
+		'pengajar_kr',
+		'deskripsi_kr',
+		// English
+		'nama_kelas_en',
+		'nama_program_en',
+		'pengajar_en',
+		'deskripsi_en'
 	];
 
 	protected $casts = [

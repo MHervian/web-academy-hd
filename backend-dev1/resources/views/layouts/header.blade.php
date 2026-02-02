@@ -64,7 +64,7 @@
       <button id="langBtn"
         class="flex items-center gap-1 px-3 py-1.5 text-gray-800 border rounded hover:bg-gray-100
               cursor-pointer">
-        🌐 ID
+        🌐 {{ strtoupper(session('locale')) }}
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
         </svg>
@@ -72,15 +72,18 @@
 
       <!-- Dropdown Menu -->
       <div id="langMenu" class="hidden absolute right-0 mt-1 w-24 bg-white border border-gray-300 rounded shadow-md">
-        <a href="?lang=id" class="block px-3 py-2 hover:bg-gray-100">ID</a>
-        <a href="?lang=kr" class="block px-3 py-2 hover:bg-gray-100">KR</a>
-        <a href="?lang=en" class="block px-3 py-2 hover:bg-gray-100">EN</a>
+        <a href="{{ route('lang.switch', ['locale' => 'id']) }}" class="block px-3 py-2 hover:bg-gray-100">ID</a>
+        <a href="{{ route('lang.switch', ['locale' => 'ko']) }}" class="block px-3 py-2 hover:bg-gray-100">KO</a>
+        <a href="{{ route('lang.switch', ['locale' => 'en']) }}" class="block px-3 py-2 hover:bg-gray-100">EN</a>
       </div>
     </div>
 
     <a href="{{ route('logout') }}" class="block px-4 py-1.5 text-gray-800 hover:bg-gray-100">
-      <i class="fa-solid fa-right-from-bracket"></i> Logout
+      <i class="fa-solid fa-right-from-bracket"></i> {{ __('app.logout') }}
     </a>
+    {{-- <a href="{{ route('logout') }}" class="block px-4 py-1.5 text-gray-800 hover:bg-gray-100">
+      <i class="fa-solid fa-right-from-bracket"></i> Logout
+    </a> --}}
     <span class="px-3"></span>
   </span>
 </header>

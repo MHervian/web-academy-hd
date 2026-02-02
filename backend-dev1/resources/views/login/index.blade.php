@@ -25,7 +25,11 @@
 <body>
   <div class="flex flex-col justify-center w-full min-h-screen bg-[#e7ecf6]">
     <div class="w-90 m-auto rounded-xl py-9 px-8 bg-white shadow-sm/15">
-      <h1 class="text-2xl text-center mb-5 color-[#1c2b4a] font-bold">DreamPanel</h1>
+      {{-- <h1 class="text-2xl text-center mb-5 color-[#1c2b4a] font-bold">DreamPanel</h1> --}}
+      <div class="flex justify-center">
+        <img src="{{ asset('images/logo_only.png') }}" class="h-20" />
+      </div>
+      <div class="py-2"></div>
       <form action="{{ route('login-post') }}" method="post">
         @csrf
         <label for="username" class="block pb-1.5 text-gray-600">Username</label>

@@ -19,7 +19,13 @@ class ProgramModel extends Model
 		'file_jadwal',
 		'date_created',
 		'isOpen',
-		'harga'
+		'harga',
+		'nama_kr',
+		'deskripsi_kr',
+		'file_jadwal_kr',
+		'nama_en',
+		'deskripsi_en',
+		'file_jadwal_en'
 	];
 
 	protected $casts = [
