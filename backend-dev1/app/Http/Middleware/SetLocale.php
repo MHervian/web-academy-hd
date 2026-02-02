@@ -20,7 +20,7 @@ class SetLocale
 			app()->setLocale(session('locale'));
 		} else {
 			// auto detect
-			$locale = $request->getPreferredLanguage(['id', 'en', 'kr']);
+			$locale = $request->getPreferredLanguage(['id', 'en', 'ko']);
 			app()->setLocale($locale ?? config('app.fallback_locale'));
 			session(['locale' => $locale]);
 		}

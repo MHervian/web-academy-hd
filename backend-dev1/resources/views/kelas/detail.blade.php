@@ -2,23 +2,14 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-  <title>Informasi Detail Kelas - DreamPanel</title>
-
+  <title>{{ __('kelas.detail_title') }} - DreamPanel</title>
   <meta charset="UTF-8" />
   <meta name="robots" content="noindex, nofollow" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
-  <!-- favicon -->
   <link rel="icon" href="favicon.ico" type="image/x-icon">
-
   <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet" />
-  <!-- Tailwind CSS -->
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  {{-- <link rel="stylesheet" href="<?= base_url('css/output.css') ?>" /> --}}
-  <!-- Font Awesome 7 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
   <style>
     * {
       font-family: 'Rubik', Arial, Helvetica, sans-serif;
@@ -34,66 +25,29 @@
   <main class="flex min-h-screen">
     @include('navigation.navigation')
 
-    <!-- Content -->
     <div class="flex-1 flex flex-col">
       @include('layouts.header')
 
-      {{-- <div class="content">
-        <h2>Detail Kelas</h2>
-        <div style="margin-bottom: 1rem;">
-          <a href="{{ route('edit-kelas', ['kelasId' => $kelas->kelasId]) }}" class="btn btn-info">Ubah</a>
-          <form action="{{ route('delete-kelas') }}" method="post" class="d-inline">
-            @csrf
-            <input type="hidden" name="kelasId" value="{{ $kelas->kelasId }}" />
-            <button type="submit" class="btn btn-danger" style="font-size: 13px; cursor: pointer;">Hapus</button>
-          </form>
-        </div> --}}
-
       <div class="flex-1 p-3 bg-[#e7ecf6]">
-        <!-- Title and breadcrumbs -->
         <div class="flex items-center gap-4">
-          <h2 class="text-4xl font-bold text-center">Informasi Detail Kelas</h2>
+          <h2 class="text-4xl font-bold text-center">{{ __('kelas.detail_title') }}</h2>
         </div>
         <span class="block py-2">
-          <a href="{{ route('admin-dashboard') }}" class="text-blue-700">Dashboard</a> /
-          <a href="{{ route('kelas') }}" class="text-blue-700">Kelas</a> /
-          <a href="#" class="">Detail Kelas</a>
+          <a href="{{ route('admin-dashboard') }}" class="text-blue-700">{{ __('kelas.dashboard') }}</a> /
+          <a href="{{ route('kelas') }}" class="text-blue-700">{{ __('kelas.title') }}</a> /
+          <a href="#" class="">{{ __('kelas.detail_breadcrumb') }}</a>
         </span>
-        <p class="text-gray-700">Detail Informasi Kelas Dream Hangul Akademi.</p>
-        <!--/ Title and breadcrumbs  -->
+        <p class="text-gray-700">{{ __('kelas.detail_desc') }}</p>
 
         @if (session('success'))
-          <!-- alert success -->
           <div
             class="flex items-center justify-between gap-4 rounded-xl bg-green-50 border border-green-300 mt-2.5 px-5 py-2 text-green-800 shadow-sm">
             <div class="flex items-center gap-2">
               <span class="text-lg">✅</span>
-              <span>
-                <strong class="font-semibold">Berhasil!</strong> {{ session('success') }}
-              </span>
+              <span><strong class="font-semibold">{{ __('kelas.success') }}</strong> {{ session('success') }}</span>
             </div>
             <button onclick="this.closest('div').remove()"
-              class="rounded-md px-2 py-1 text-green-600 hover:bg-green-200 hover:text-green-900 transition cursor-pointer">
-              ✕
-            </button>
-          </div>
-        @endif
-
-        @if (session('error'))
-          <!-- alert danger -->
-          <div
-            class="flex items-center justify-between gap-4 rounded-xl bg-red-50 border border-red-300 mt-2.5 px-5 py-2 text-red-800 shadow-sm">
-            <div class="flex items-center gap-2">
-              <span class="text-lg">❌</span>
-              <span>
-                <strong class="font-semibold">Gagal!</strong> {{ session('error') }}
-              </span>
-            </div>
-
-            <button onclick="this.closest('div').remove()"
-              class="rounded-md px-2 py-1 text-red-600 hover:bg-red-200 hover:text-red-900 transition cursor-pointer">
-              ✕
-            </button>
+              class="text-green-600 hover:text-green-900 cursor-pointer">✕</button>
           </div>
         @endif
 
@@ -104,119 +58,122 @@
             <table class="w-full border-collapse">
               <tbody>
                 <tr class="border-b border-b-gray-200">
-                  <td class="py-2 px-2 w-[140px]">ID Kelas</td>
+                  <td class="py-2 px-2 w-[160px] font-medium">{{ __('kelas.label_id') }}</td>
                   <td class="py-2 px-2">:</td>
                   <td class="py-2 px-2">{{ $kelas->kelasId }}</td>
                 </tr>
                 <tr class="border-b border-b-gray-200">
-                  <td class="py-2 px-2">Nama Kelas</td>
+                  <td class="py-2 px-2 font-medium">{{ __('kelas.th_name') }}</td>
                   <td class="py-2 px-2">:</td>
                   <td class="py-2 px-2">{{ $kelas->nama_kelas }}</td>
                 </tr>
                 <tr class="border-b border-b-gray-200">
-                  <td class="py-2 px-2">Kursus/Program</td>
+                  <td class="py-2 px-2 font-medium">{{ __('kelas.th_program') }}</td>
                   <td class="py-2 px-2">:</td>
                   <td class="py-2 px-2">{{ $kelas->nama_program }}</td>
                 </tr>
                 <tr class="border-b border-b-gray-200">
-                  <td class="py-2 px-2">Pengajar</td>
+                  <td class="py-2 px-2 font-medium">{{ __('kelas.label_teacher') }}</td>
                   <td class="py-2 px-2">:</td>
                   <td class="py-2 px-2">{{ $kelas->pengajar }}</td>
                 </tr>
                 <tr class="border-b border-b-gray-200">
-                  <td class="py-2 px-2">Deskripsi</td>
+                  <td class="py-2 px-2 font-medium">{{ __('kelas.label_desc') }}</td>
                   <td class="py-2 px-2">:</td>
                   <td class="py-2 px-2">{{ $kelas->deskripsi }}</td>
                 </tr>
                 <tr class="border-b border-b-gray-200">
-                  <td class="py-2 px-2">Kapasitas Kelas</td>
+                  <td class="py-2 px-2 font-medium">{{ __('kelas.label_capacity') }}</td>
                   <td class="py-2 px-2">:</td>
                   <td class="py-2 px-2">{{ $kelas->kapasitas }}</td>
                 </tr>
                 <tr class="border-b border-b-gray-200">
-                  <td class="py-2 px-2">Jumlah Terisi</td>
+                  <td class="py-2 px-2 font-medium">{{ __('kelas.label_filled') }}</td>
                   <td class="py-2 px-2">:</td>
                   <td class="py-2 px-2">{{ $kelas->terisi }}</td>
                 </tr>
                 <tr class="border-b border-b-gray-200">
-                  <td class="py-2 px-2">Tanggal Buka Daftar</td>
+                  <td class="py-2 px-2 font-medium">{{ __('kelas.label_open_date') }}</td>
                   <td class="py-2 px-2">:</td>
                   <td class="py-2 px-2">{{ $kelas->date_open }}</td>
                 </tr>
                 <tr class="border-b border-b-gray-200">
-                  <td class="py-2 px-2">Tanggal Tutup Daftar</td>
+                  <td class="py-2 px-2 font-medium">{{ __('kelas.label_close_date') }}</td>
                   <td class="py-2 px-2">:</td>
                   <td class="py-2 px-2">{{ $kelas->date_close }}</td>
                 </tr>
                 <tr class="border-b border-b-gray-200">
-                  <td class="py-2 px-2">Jam Tutup Daftar</td>
+                  <td class="py-2 px-2 font-medium">{{ __('kelas.label_close_time') }}</td>
                   <td class="py-2 px-2">:</td>
                   <td class="py-2 px-2">{{ $kelas->time_close }}</td>
                 </tr>
                 <tr class="border-b border-b-gray-200">
-                  <td class="py-2 px-2">Kelas Dimulai?</td>
+                  <td class="py-2 px-2 font-medium">{{ __('kelas.th_started') }}</td>
                   <td class="py-2 px-2">:</td>
                   <td class="py-2 px-2">
-                    @if ($kelas->isKelasStart == '1')
-                      <span class="bg-green-600 py-1 px-3 text-white rounded-lg">Mulai</span>
-                    @else
-                      <span class="bg-gray-400 py-1 px-3 text-white rounded-lg">Belum</span>
-                    @endif
+                    <span
+                      class="{{ $kelas->isKelasStart == '1' ? 'bg-green-600' : 'bg-gray-400' }} py-1 px-3 text-white rounded-lg">
+                      {{ $kelas->isKelasStart == '1' ? __('kelas.status_start') : __('kelas.status_not_start') }}
+                    </span>
                   </td>
                 </tr>
               </tbody>
             </table>
-            <div class="py-2"></div>
+
+            <div class="py-4"></div>
             <hr />
-            <div class="py-2"></div>
-            <h4 class="text-xl font-bold">Informasi Versi Korea</h4>
-            <table class="w-full border-collapse">
+            <div class="py-4"></div>
+
+            <h4 class="text-xl font-bold">{{ __('kelas.info_kr') }}</h4>
+            <table class="w-full border-collapse mt-2">
               <tbody>
                 <tr class="border-b border-b-gray-200">
-                  <td class="py-2 px-2 w-[140px]">Nama Kelas</td>
+                  <td class="py-2 px-2 w-[160px] font-medium">{{ __('kelas.th_name') }}</td>
                   <td class="py-2 px-2">:</td>
                   <td class="py-2 px-2">{{ $kelas->nama_kelas_kr }}</td>
                 </tr>
                 <tr class="border-b border-b-gray-200">
-                  <td class="py-2 px-2">Nama Program</td>
+                  <td class="py-2 px-2 font-medium">{{ __('kelas.th_program') }}</td>
                   <td class="py-2 px-2">:</td>
                   <td class="py-2 px-2">{{ $kelas->nama_program_kr }}</td>
                 </tr>
                 <tr class="border-b border-b-gray-200">
-                  <td class="py-2 px-2">Pengajar</td>
+                  <td class="py-2 px-2 font-medium">{{ __('kelas.label_teacher') }}</td>
                   <td class="py-2 px-2">:</td>
                   <td class="py-2 px-2">{{ $kelas->pengajar_kr }}</td>
                 </tr>
                 <tr class="border-b border-b-gray-200">
-                  <td class="py-2 px-2">Deskripsi</td>
+                  <td class="py-2 px-2 font-medium">{{ __('kelas.label_desc') }}</td>
                   <td class="py-2 px-2">:</td>
                   <td class="py-2 px-2">{{ $kelas->deskripsi_kr }}</td>
                 </tr>
               </tbody>
             </table>
-            <div class="py-2"></div>
+
+            <div class="py-4"></div>
             <hr />
-            <div class="py-2"></div>
-            <h4 class="text-xl font-bold">Informasi Versi Inggris</h4>
-            <table class="w-full border-collapse">
+            <div class="py-4"></div>
+
+            <h4 class="text-xl font-bold">{{ __('kelas.info_en') }}</h4>
+            <table class="w-full border-collapse mt-2">
               <tbody>
                 <tr class="border-b border-b-gray-200">
-                  <td class="py-2 px-2 w-[140px]">Nama Kelas</td>
+                  <td class="py-2 px-2 w-[160px] font-medium">{{ __('kelas.th_name') }}</td>
                   <td class="py-2 px-2">:</td>
                   <td class="py-2 px-2">{{ $kelas->nama_kelas_en }}</td>
                 </tr>
                 <tr class="border-b border-b-gray-200">
-                  <td class="py-2 px-2">Nama Program</td>
+                  <td class="py-2 px-2 font-medium">{{ __('kelas.th_program') }}</td>
                   <td class="py-2 px-2">:</td>
                   <td class="py-2 px-2">{{ $kelas->nama_program_en }}</td>
                 </tr>
                 <tr class="border-b border-b-gray-200">
-                  <td class="py-2 px-2">Pengajar</td>
+                  <td class="py-2 px-2 font-medium">{{ __('kelas.label_teacher') }}</td>
                   <td class="py-2 px-2">:</td>
                   <td class="py-2 px-2">{{ $kelas->pengajar_en }}</td>
                 </tr>
                 <tr class="border-b border-b-gray-200">
-                  <td class="py-2 px-2">Deskripsi</td>
+                  <td class="py-2 px-2 font-medium">{{ __('kelas.label_desc') }}</td>
                   <td class="py-2 px-2">:</td>
                   <td class="py-2 px-2">{{ $kelas->deskripsi_en }}</td>
                 </tr>
@@ -231,7 +188,6 @@
     </div>
   </main>
 
-  <!-- jQuery -->
   <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
   <script src="{{ asset('js/bttn-translate.js') }}"></script>
 </body>

@@ -5,18 +5,11 @@
   <meta charset="UTF-8" />
   <meta name="robots" content="noindex, nofollow" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <title>Daftar Member Baru - DreamPanel</title>
-  <!-- favicon -->
+  <title>{{ __('member.create_title') }} - DreamPanel</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
-
   <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet" />
-  <!-- Tailwind CSS -->
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  {{-- <link rel="stylesheet" href="<?= base_url('css/output.css') ?>" /> --}}
-  <!-- Font Awesome 7 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
   <style>
     * {
       font-family: 'Rubik', Arial, Helvetica, sans-serif;
@@ -29,109 +22,111 @@
 </head>
 
 <body>
-
   <main class="flex min-h-screen">
     @include('navigation.navigation')
 
-    <!-- Content -->
     <div class="flex-1 flex flex-col">
       @include('layouts.header')
 
       <div class="flex-1 p-3 bg-[#e7ecf6]">
-        <!-- Title and breadcrumbs -->
         <div class="flex items-center gap-4">
-          <h2 class="text-3xl font-bold text-center">Daftar Member Baru</h2>
+          <h2 class="text-3xl font-bold text-center">{{ __('member.create_title') }}</h2>
         </div>
         <span class="block py-2 text-[0.9rem]">
           <a href="{{ route('admin-dashboard') }}" class="text-blue-700 hover:opacity-60 transition">Dashboard</a> &#47;
-          <a href="{{ route('member') }}" class="text-blue-700 hover:opacity-60 transition">Member</a>
+          <a href="{{ route('member') }}" class="text-blue-700 hover:opacity-60 transition">{{ __('member.title') }}</a>
           &#47;
-          <a href="#" class="hover:opacity-60 transition">Daftar Member</a>
+          <a href="#" class="hover:opacity-60 transition">{{ __('member.create_breadcrumb') }}</a>
         </span>
-        <p class="text-gray-700">Form Daftar Member Baru Akademi Dream Hangul.</p>
-        <!--/ Title and breadcrumbs  -->
+        <p class="text-gray-700">{{ __('member.create_desc') }}</p>
 
         <div class="py-3"></div>
 
-        <!-- Form Reset-Password -->
         <div class="grid grid-cols-2 bg-white rounded-lg shadow-sm">
-          <div class="col-span-1 p-3">
-            <p class="italic text-[0.9rem] pb-2">*Data member baru pakai metode daftar email</p>
+          <div class="col-span-1 p-4">
+            <p class="italic text-[0.85rem] pb-4 text-blue-600">{{ __('member.note_email_method') }}</p>
+
             <form action="{{ route('store-member') }}" method="post">
               @csrf
 
-              <label for="username" class="block pb-1 text-gray-600">Username Member</label>
-              <input id="username" type="text"
-                class="w-full py-1.5 px-3 border-2 rounded-md border-[#d9d9d9] focus:outline-0 focus:border-blue-500"
-                placeholder="" name="username" required />
+              <label for="username"
+                class="block pb-1 text-sm font-medium text-gray-600">{{ __('member.label_username') }}</label>
+              <input id="username" type="text" name="username" required
+                class="w-full py-2 px-3 border-2 rounded-md border-[#d9d9d9] focus:outline-0 focus:border-blue-500 text-sm" />
 
-              <div class="py-1.5"></div>
+              <div class="py-2"></div>
 
-              <label for="email" class="block pb-1 text-gray-600">Email Member</label>
-              <input id="email" type="email"
-                class="w-full py-1.5 px-3 border-2 rounded-md border-[#d9d9d9] focus:outline-0 focus:border-blue-500"
-                placeholder="" name="email" required />
+              <label for="email"
+                class="block pb-1 text-sm font-medium text-gray-600">{{ __('member.label_email') }}</label>
+              <input id="email" type="email" name="email" required
+                class="w-full py-2 px-3 border-2 rounded-md border-[#d9d9d9] focus:outline-0 focus:border-blue-500 text-sm" />
 
-              <div class="py-1.5"></div>
+              <div class="py-2"></div>
 
-              <label for="newPassword" class="block pb-1 text-gray-600">Password Baru</label>
+              <label for="newPassword"
+                class="block pb-1 text-sm font-medium text-gray-600">{{ __('member.label_new_password') }}</label>
               <div class="flex gap-3">
-                <input id="newPassword" type="text"
-                  class="grow py-1.5 px-3 border-2 rounded-md border-[#d9d9d9] focus:outline-0 focus:border-blue-500"
-                  placeholder="" name="newPassword" required />
+                <input id="newPassword" type="text" name="newPassword" required
+                  class="grow py-2 px-3 border-2 rounded-md border-[#d9d9d9] focus:outline-0 focus:border-blue-500 text-sm" />
                 <button id="btnGeneratePassword" type="button"
-                  class="w-62 py-1.5 px-4.5 text-center bg-gray-300 rounded-lg cursor-pointer hover:opacity-90 transition">
-                  <i class="fa-solid fa-key"></i> Buat Password Acak
+                  class="w-62 py-2 px-4 text-xs font-medium bg-gray-200 rounded-lg cursor-pointer hover:bg-gray-300 transition">
+                  <i class="fa-solid fa-key"></i> {{ __('member.btn_generate') }}
                 </button>
               </div>
 
-              <div class="py-1.5"></div>
+              <div class="py-2"></div>
 
-              <label for="confirmPassword" class="block pb-1 text-gray-600">Konfirmasi Ulang</label>
+              <label for="confirmPassword"
+                class="block pb-1 text-sm font-medium text-gray-600">{{ __('member.label_confirm_password') }}</label>
               <div class="flex gap-3">
-                <input id="confirmPassword" type="password"
-                  class="grow py-1.5 px-3 border-2 rounded-md border-[#d9d9d9] focus:outline-0 focus:border-blue-500"
-                  placeholder="" name="confirmPassword" required />
+                <input id="confirmPassword" type="password" name="confirmPassword" required
+                  class="grow py-2 px-3 border-2 rounded-md border-[#d9d9d9] focus:outline-0 focus:border-blue-500 text-sm" />
                 <div class="w-62"></div>
               </div>
 
-              <div class="py-1.5"></div>
+              <div class="py-2"></div>
 
-              <label for="metode" class="block pb-1 text-gray-600">Metode Daftar</label>
-              <input id="metode" type="text"
-                class="w-full py-1.5 px-3 border-2 rounded-md border-[#d9d9d9] bg-slate-200 focus:outline-0 focus:border-blue-500"
-                placeholder="" name="metode" value="Email" readonly />
+              <label for="metode"
+                class="block pb-1 text-sm font-medium text-gray-600">{{ __('member.label_method') }}</label>
+              <input id="metode" type="text" name="metode" value="Email" readonly
+                class="w-full py-2 px-3 border-2 rounded-md border-[#d9d9d9] bg-slate-100 text-gray-500 text-sm outline-none" />
 
-              <div class="py-3"></div>
-
-              <div class="flex justify-end gap-3">
+              <div class="py-6 mt-4 border-t border-gray-100 flex justify-end gap-3">
                 <button type="reset"
-                  class="py-1.5 px-4 text-center bg-gray-300 text-black rounded-lg cursor-pointer hover:opacity-90 transition">
-                  Reset
+                  class="py-2 px-6 text-sm bg-gray-300 text-black rounded-lg cursor-pointer hover:opacity-90 transition">
+                  {{ __('member.btn_reset_form') }}
                 </button>
                 <button type="submit"
-                  class="py-1.5 px-4 text-center bg-blue-600 text-white rounded-lg cursor-pointer hover:opacity-90 transition">
-                  Daftar Member
+                  class="py-2 px-6 text-sm bg-blue-600 text-white rounded-lg cursor-pointer hover:opacity-90 transition">
+                  {{ __('member.btn_submit_create') }}
                 </button>
               </div>
             </form>
           </div>
         </div>
-        <!-- /Form Reset-Password -->
 
         <div class="py-3"></div>
-
       </div>
       @include('layouts.footer')
     </div>
-    <!--/ Content -->
-
   </main>
 
-  <!-- jQuery -->
   <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
   <script src="{{ asset('js/bttn-translate.js') }}"></script>
 
+  <script>
+    // Logika Generate Password
+    document.getElementById('btnGeneratePassword').addEventListener('click', function() {
+      const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*";
+      let retVal = "";
+      for (let i = 0; i < 12; ++i) {
+        retVal += charset.charAt(Math.floor(Math.random() * charset.length));
+      }
+      document.getElementById('newPassword').value = retVal;
+      document.getElementById('confirmPassword').value = retVal;
+      document.getElementById('confirmPassword').type = 'password';
+    });
+  </script>
 </body>
 
 </html>

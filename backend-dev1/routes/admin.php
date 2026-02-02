@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 
 // Route ganti bahasa..
 Route::get('/lang/{locale}', function ($locale) {
-  if (! in_array($locale, ['id', 'en', 'kr'])) {
+  if (! in_array($locale, ['id', 'en', 'ko'])) {
     abort(404);
   }
   session(['locale' => $locale]);

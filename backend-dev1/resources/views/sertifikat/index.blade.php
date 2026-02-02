@@ -5,15 +5,12 @@
   <meta charset="UTF-8" />
   <meta name="robots" content="noindex, nofollow" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <title>Sertifikat - DreamPanel</title>
-  <!-- favicon -->
+  <title>{{ __('sertifikat.title') }} - DreamPanel</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
 
   <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet" />
-  <!-- Tailwind CSS -->
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   {{-- <link rel="stylesheet" href="<?= base_url('css/output.css') ?>" /> --}}
-  <!-- Font Awesome 7 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
     integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -33,36 +30,31 @@
   <main class="flex min-h-screen">
     @include('navigation.navigation')
 
-    <!-- Content -->
     <div class="flex-1 flex flex-col">
       @include('layouts.header')
 
       <div class="flex-1 p-3 bg-[#e7ecf6]">
-        <!-- Title and breadcrumbs -->
         <div class="flex items-center gap-4">
-          <h2 class="text-4xl font-bold text-center">Sertifikat</h2>
+          <h2 class="text-4xl font-bold text-center">{{ __('sertifikat.title') }}</h2>
           <a href="{{ route('upload-sertifikat') }}"
             class="inline-flex items-center gap-2 rounded-md bg-blue-700 px-4 py-1 text-[0.85rem] text-white
             hover:opacity-90 transition">
             <i class="fa-solid fa-cloud-arrow-up"></i>
-            Unggah Sertifikat
+            {{ __('sertifikat.upload_btn') }}
           </a>
         </div>
         <span class="block py-2">
-          <a href="{{ route('admin-dashboard') }}" class="text-blue-700">Dashboard</a> /
-          <a href="#" class="">Sertifikat</a>
+          <a href="{{ route('admin-dashboard') }}" class="text-blue-700">{{ __('sertifikat.dashboard') }}</a> /
+          <a href="#" class="">{{ __('sertifikat.title') }}</a>
         </span>
-        <p class="text-gray-700">Data sertifikat kelulusan member Akademi Dream Hangul.</p>
-        <!--/ Title and breadcrumbs  -->
-
+        <p class="text-gray-700">{{ __('sertifikat.description') }}</p>
         @if (session('success'))
-          <!-- alert success -->
           <div
             class="flex items-center justify-between gap-4 rounded-xl bg-green-50 border border-green-300 mt-2.5 px-5 py-2 text-green-800 shadow-sm">
             <div class="flex items-center gap-2">
               <span class="text-lg">✅</span>
               <span>
-                <strong class="font-semibold">Berhasil!</strong> {{ session('success') }}
+                <strong class="font-semibold">{{ __('sertifikat.success') }}</strong> {{ session('success') }}
               </span>
             </div>
             <button onclick="this.closest('div').remove()"
@@ -73,13 +65,12 @@
         @endif
 
         @if (session('error'))
-          <!-- alert danger -->
           <div
             class="flex items-center justify-between gap-4 rounded-xl bg-red-50 border border-red-300 mt-2.5 px-5 py-2 text-red-800 shadow-sm">
             <div class="flex items-center gap-2">
               <span class="text-lg">❌</span>
               <span>
-                <strong class="font-semibold">Gagal!</strong> {{ session('error') }}
+                <strong class="font-semibold">{{ __('sertifikat.failed') }}</strong> {{ session('error') }}
               </span>
             </div>
 
@@ -94,23 +85,21 @@
 
         {{-- Search form and table --}}
         <div class="col-span-1 py-5 px-4.5 rounded-lg bg-white shadow-sm">
-          <!-- Search Form Here -->
           <form action="{{ route('search-sertifikat') }}" method="get" class="flex flex-col flex-wrap gap-3">
             @csrf
-            <!-- Search -->
             <div class="relative">
               <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-gray-400">
                 <i class="fa-solid fa-magnifying-glass text-sm"></i>
               </span>
               <input type="text" name="no_sertifikat" value="{{ request('no_sertifikat') }}"
-                placeholder="Cari No. Sertifikat.."
+                placeholder="{{ __('sertifikat.search_placeholder') }}"
                 class="h-9 w-56 rounded-md border border-gray-300 pl-9 pr-3 text-sm focus:border-blue-500 focus:outline-none" />
             </div>
 
             <div class="relative">
-              <span class="inline-block pb-1">Filter Tanggal Terbit</span>
+              <span class="inline-block pb-1">{{ __('sertifikat.filter_date') }}</span>
               <div class="flex gap-3 items-center">
-                <span>Mulai</span>
+                <span>{{ __('sertifikat.start') }}</span>
                 <div class="relative">
                   <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-gray-400">
                     <i class="fa-regular fa-calendar text-sm"></i>
@@ -118,7 +107,7 @@
                   <input type="date" name="start_date" value="{{ request('start_date') }}"
                     class="h-9 rounded-md border border-gray-300 pl-9 pr-3 text-sm text-gray-600 focus:border-blue-500 focus:outline-none" />
                 </div>
-                <span>Akhir</span>
+                <span>{{ __('sertifikat.end') }}</span>
                 <div class="relative">
                   <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-gray-400">
                     <i class="fa-regular fa-calendar text-sm"></i>
@@ -133,7 +122,7 @@
               <button type="submit"
                 class="py-2 px-4 rounded-md bg-blue-600 text-sm text-white cursor-pointer
               hover:opacity-80 transition">
-                <i class="fa-solid fa-magnifying-glass"></i> Cari
+                <i class="fa-solid fa-magnifying-glass"></i> {{ __('sertifikat.search_btn') }}
               </button>
             </div>
           </form>
@@ -145,11 +134,11 @@
             <table class="w-full border-collapse">
               <thead>
                 <tr class="bg-gray-200">
-                  <th class="py-2 font-medium">No.</th>
-                  <th class="py-2 font-medium">No. Sertifikat</th>
-                  <th class="py-2 font-medium">Tanggal Terbit</th>
-                  <th class="py-2 font-medium">File Link</th>
-                  <th class="py-2 font-medium">Action</th>
+                  <th class="py-2 font-medium">{{ __('sertifikat.table.no') }}</th>
+                  <th class="py-2 font-medium">{{ __('sertifikat.table.cert_no') }}</th>
+                  <th class="py-2 font-medium">{{ __('sertifikat.table.date_issued') }}</th>
+                  <th class="py-2 font-medium">{{ __('sertifikat.table.file_link') }}</th>
+                  <th class="py-2 font-medium">{{ __('sertifikat.table.action') }}</th>
                 </tr>
               </thead>
               <tbody>
@@ -162,7 +151,7 @@
                     <td class="py-2 px-2 text-[0.9rem] text-center">
                       <a href="{{ route('view-sertifikat', ['filename' => $sertifikat->filename]) }}" target="_blank"
                         class="text-blue-500">
-                        <i class="fa-solid fa-link"></i> File Link
+                        <i class="fa-solid fa-link"></i> {{ __('sertifikat.table.file_link') }}
                       </a>
                     </td>
                     <td class="py-2 px-2">
@@ -170,13 +159,8 @@
                         <a href="{{ route('sertifikat-detail', ['noSertifikat' => $sertifikat->noSertifikat]) }}"
                           class="inline-flex h-7 items-center justify-center rounded-sm bg-blue-950 px-2 text-[0.8rem] 
                           text-white hover:opacity-90 transition">
-                          <i class="fa-solid fa-circle-info"></i> Detail
+                          <i class="fa-solid fa-circle-info"></i> {{ __('sertifikat.table.detail') }}
                         </a>
-                        {{-- <a href="{{ route('coming-soon') }}"
-                          class="inline-flex h-7 items-center justify-center rounded-sm bg-blue-600 px-2 text-[0.8rem] 
-                          text-white hover:opacity-90 transition">
-                          <i class="fa-solid fa-file-pen"></i> Ubah
-                        </a> --}}
                         <form action="{{ route('delete-sertifikat') }}" method="post">
                           @csrf
                           <input type="hidden" name="sertifikatId" value="{{ $sertifikat->sertifikatId }}" />
@@ -184,7 +168,7 @@
                           <button type="submit"
                             class="inline-flex h-7 items-center justify-center rounded-sm bg-red-700 px-2 text-[0.8rem] text-white
                             hover:opacity-90 transition cursor-pointer">
-                            <i class="fa-solid fa-trash-can"></i> Hapus
+                            <i class="fa-solid fa-trash-can"></i> {{ __('sertifikat.table.delete') }}
                           </button>
                         </form>
                       </div>
@@ -194,59 +178,15 @@
               </tbody>
             </table>
 
-            {{-- <nav class="flex items-center justify-center gap-1 mt-6" aria-label="Pagination">
-              <!-- Prev -->
-              <button
-                class="flex h-9 w-9 items-center justify-center rounded-md border border-gray-300 text-gray-600 hover:bg-gray-100 
-                disabled:opacity-50 cursor-pointer"
-                disabled aria-label="Previous page">
-                <i class="fa-solid fa-chevron-left text-sm"></i>
-              </button>
-
-              <!-- Page Numbers -->
-              <button class="h-9 w-9 rounded-md bg-blue-600 text-sm text-white cursor-pointer">
-                1
-              </button>
-
-              <button
-                class="h-9 w-9 rounded-md border border-gray-300 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">
-                2
-              </button>
-
-              <button
-                class="h-9 w-9 rounded-md border border-gray-300 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">
-                3
-              </button>
-
-              <span class="flex h-9 w-9 items-center justify-center text-sm text-gray-500">
-                ...
-              </span>
-
-              <button
-                class="h-9 w-9 rounded-md border border-gray-300 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">
-                10
-              </button>
-
-              <!-- Next -->
-              <button
-                class="flex h-9 w-9 items-center justify-center rounded-md border border-gray-300 text-gray-600 
-                hover:bg-gray-100 cursor-pointer"
-                aria-label="Next page">
-                <i class="fa-solid fa-chevron-right text-sm"></i>
-              </button>
-            </nav> --}}
-
             @if ($sertifikats->lastPage() > 1)
               <nav class="flex items-center justify-center gap-1 mt-6" aria-label="Pagination">
 
-                <!-- Prev -->
                 <a href="{{ $sertifikats->previousPageUrl() ?? '#' }}"
                   class="flex h-9 w-9 items-center justify-center rounded-md border border-gray-300 text-gray-600 hover:bg-gray-100
                       {{ $sertifikats->onFirstPage() ? 'pointer-events-none opacity-50' : '' }}">
                   <i class="fa-solid fa-chevron-left text-sm"></i>
                 </a>
 
-                <!-- Page Numbers -->
                 @foreach ($sertifikats->getUrlRange(1, $sertifikats->lastPage()) as $page => $url)
                   @if ($page == $sertifikats->currentPage())
                     <span class="h-9 w-9 rounded-md bg-blue-600 text-sm text-white flex items-center justify-center">
@@ -261,7 +201,6 @@
                   @endif
                 @endforeach
 
-                <!-- Next -->
                 <a href="{{ $sertifikats->nextPageUrl() ?? '#' }}"
                   class="flex h-9 w-9 items-center justify-center rounded-md border border-gray-300 text-gray-600 hover:bg-gray-100
                    {{ !$sertifikats->hasMorePages() ? 'pointer-events-none opacity-50' : '' }}">
@@ -273,18 +212,15 @@
             {{-- </div> --}}
           @else
             <div class="pb-3"></div>
-            <p class="text-center font-bold">Data Sertifikat Kosong.</p>
+            <p class="text-center font-bold">{{ __('sertifikat.empty') }}</p>
           @endif
         </div>
 
       </div>
       @include('layouts.footer')
     </div>
-    <!--/ Content -->
-
   </main>
 
-  <!-- jQuery -->
   <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
   <script src="{{ asset('js/bttn-translate.js') }}"></script>
 </body>
